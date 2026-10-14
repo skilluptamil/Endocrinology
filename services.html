@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Clinical Services – EndoCare Endocrinology & Diabetes Clinic</title>
+  <meta name="description" content="Explore our specialized endocrine services: Diabetes management, thyroid disorders, hormone optimization, metabolic health, PCOS, osteoporosis, and diagnostics.">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🩺</text></svg>">
+  
+  <!-- Bootstrap 5.3 CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <!-- Core Design System -->
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/rtl.css">
+</head>
+<body>
+
+  <!-- Main Navigation Bar -->
+
+  <!-- Main Navigation Bar -->
+  <nav class="navbar navbar-expand-xl navbar-custom">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">
+        <span class="brand-icon"><i class="bi bi-activity"></i></span>
+        <span>Endo<span class="brand-text-accent">Care</span></span>
+      </a>
+
+      <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMain" aria-controls="navbarMain" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarMain">
+        <ul class="navbar-nav mx-auto mb-2 mb-xl-0 align-items-xl-center">
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="homeDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Home
+            </a>
+            <ul class="dropdown-menu border-0 shadow" aria-labelledby="homeDropdown">
+              <li><a class="dropdown-item" href="index.html"><i class="bi bi-hospital me-2 text-primary"></i>Home 1 – General Clinic</a></li>
+              <li><a class="dropdown-item" href="home-2.html"><i class="bi bi-droplet-half me-2 text-info"></i>Home 2 – Diabetes Care</a></li>
+            </ul>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="about.html">About Us</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="services.html">Services</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="pricing.html">Pricing</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="blog.html">Blog</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="contact.html">Contact</a>
+          </li>
+        </ul>
+
+        <!-- Action Buttons (Dashboard, RTL, Dark/Light, Login, Sign Up) -->
+        <div class="d-flex align-items-center flex-wrap flex-xl-nowrap nav-actions-wrap gap-2 mt-3 mt-xl-0 ms-xl-auto">
+          <!-- Dashboard Dropdown (User Dashboard & Customer Dashboard) -->
+          <div class="dropdown">
+            <button class="btn-nav-dashboard dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" title="Access Portals">
+              <i class="bi bi-speedometer2"></i>
+              <span>Dashboard</span>
+            </button>
+            <ul class="dropdown-menu dropdown-menu-end shadow-lg border rounded-3 p-2 mt-2" style="min-width: 250px; z-index: 1060;">
+              <li>
+                <span class="dropdown-header text-uppercase fw-bold text-muted" style="font-size: 0.68rem; letter-spacing: 0.5px;">Select Portal</span>
+              </li>
+              <li>
+                <a class="dropdown-item rounded-2 py-2 d-flex align-items-center gap-2" href="dashboard-user.html">
+                  <div class="stat-icon bg-info-subtle text-info flex-shrink-0" style="width: 32px; height: 32px; border-radius: 8px; font-size: 0.95rem; display: flex; align-items: center; justify-content: center;">
+                    <i class="bi bi-person-circle"></i>
+                  </div>
+                  <div>
+                    <span class="d-block fw-bold small text-heading">User Dashboard</span>
+                    <small class="text-muted" style="font-size: 0.725rem;">Account, Profile &amp; Settings</small>
+                  </div>
+                </a>
+              </li>
+              <li><hr class="dropdown-divider my-1"></li>
+              <li>
+                <a class="dropdown-item rounded-2 py-2 d-flex align-items-center gap-2" href="dashboard-customer.html">
+                  <div class="stat-icon bg-primary-subtle text-primary flex-shrink-0" style="width: 32px; height: 32px; border-radius: 8px; font-size: 0.95rem; display: flex; align-items: center; justify-content: center;">
+                    <i class="bi bi-clipboard2-pulse"></i>
+                  </div>
+                  <div>
+                    <span class="d-block fw-bold small text-heading">Customer Dashboard</span>
+                    <small class="text-muted" style="font-size: 0.725rem;">Patient Portal, CGM &amp; Meds</small>
+                  </div>
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          <button type="button" class="btn-control-icon rtl-toggle-btn" title="Toggle RTL / LTR Direction" aria-label="Toggle text direction">
+            <span class="rtl-text fw-bold small">RTL</span>
+          </button>
+
+          <button type="button" class="btn-control-icon theme-toggle-btn" title="Toggle Light / Dark Mode" aria-label="Toggle color theme">
+            <i class="bi bi-moon-stars-fill"></i>
+          </button>
+
+          <a href="login.html" class="btn-login">Login</a>
+          <a href="register.html" class="btn-signup">Sign Up</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- SECTION 1: Page Header & Filter -->
+  <section class="page-header-hero hero-services border-bottom">
+    <div class="container text-center py-5 position-relative">
+      <nav aria-label="breadcrumb" class="d-inline-block mb-3">
+        <ol class="breadcrumb justify-content-center mb-0 px-3 py-1 rounded-pill hero-breadcrumb-pill">
+          <li class="breadcrumb-item"><a href="index.html"><i class="bi bi-house me-1"></i>Home</a></li>
+          <li class="breadcrumb-item active" aria-current="page">Services</li>
+        </ol>
+      </nav>
+      <h1 class="display-4 fw-extrabold mb-3 page-hero-title">Comprehensive Endocrine &amp; Diabetes Services</h1>
+      <p class="lead page-hero-subtitle mx-auto mb-4" style="max-width: 780px;">
+        State-of-the-art diagnostic evaluations and evidence-based therapeutic programs led by fellowship-trained medical subspecialists.
+      </p>
+
+      <!-- Category Filter Pills -->
+      <div class="d-flex flex-wrap justify-content-center gap-2" id="serviceFilterContainer">
+        <button class="btn btn-sm btn-primary-custom filter-btn active" data-filter="all">All Specializations</button>
+        <button class="btn btn-sm btn-outline-custom filter-btn" data-filter="diabetes">Diabetes &amp; Glucose</button>
+        <button class="btn btn-sm btn-outline-custom filter-btn" data-filter="thyroid">Thyroid Clinic</button>
+        <button class="btn btn-sm btn-outline-custom filter-btn" data-filter="hormones">Hormones &amp; Adrenal</button>
+        <button class="btn btn-sm btn-outline-custom filter-btn" data-filter="metabolic">Metabolic &amp; Bone</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 2: The 8 Specialist Service Cards Grid -->
+  <section class="section-padding bg-surface">
+    <div class="container">
+      <div class="row g-4" id="serviceCardsGrid">
+        
+        <!-- Card 1: Diabetes Management -->
+        <div class="col-md-6 col-lg-4 service-item" data-category="diabetes">
+          <div class="card-custom w-100 d-flex flex-column">
+            <div class="overflow-hidden rounded-3 mb-3 flex-shrink-0" style="height: 190px;">
+              <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=600&q=80" alt="Diabetes Management Testing" class="w-100 h-100" style="object-fit: cover;">
+            </div>
+            <div class="service-meta">
+              <span class="badge bg-primary-subtle text-primary">Diabetes</span>
+              <span class="small text-muted"><i class="bi bi-clock"></i> 45-Min Evaluation</span>
+            </div>
+            <h4 class="service-title">Diabetes Management</h4>
+            <p class="service-desc flex-grow-1">
+              Holistic glycemic stabilization integrating continuous glucose sensor metrics, individualized target zones, and organ-protective medications.
+            </p>
+            <a href="service-details.html?service=diabetes" class="btn btn-outline-custom w-100 mt-auto">
+              View Details <i class="bi bi-arrow-right"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Card 2: Type 1 and Type 2 Diabetes Care -->
+        <div class="col-md-6 col-lg-4 service-item" data-category="diabetes">
+          <div class="card-custom w-100 d-flex flex-column">
+            <div class="overflow-hidden rounded-3 mb-3 flex-shrink-0" style="height: 190px;">
+              <img src="https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?auto=format&fit=crop&w=600&q=80" alt="Insulin Pump and Sensor Care" class="w-100 h-100" style="object-fit: cover;">
+            </div>
+            <div class="service-meta">
+              <span class="badge bg-teal-subtle text-teal" style="background-color: var(--secondary-light); color: var(--secondary-color);">Glycemic Tech</span>
+              <span class="small text-muted"><i class="bi bi-clock"></i> Ongoing Support</span>
+            </div>
+            <h4 class="service-title">Type 1 &amp; Type 2 Diabetes Care</h4>
+            <p class="service-desc flex-grow-1">
+              Smart insulin pump calibration, carbohydrate-to-insulin ratios, automated closed-loop setups, and targeted beta-cell preservation therapies.
+            </p>
+            <a href="service-details.html?service=diabetes" class="btn btn-outline-custom w-100 mt-auto">
+              View Details <i class="bi bi-arrow-right"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Card 3: Thyroid Disorders -->
+        <div class="col-md-6 col-lg-4 service-item" data-category="thyroid">
+          <div class="card-custom w-100 d-flex flex-column">
+            <div class="overflow-hidden rounded-3 mb-3 flex-shrink-0" style="height: 190px;">
+              <img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&w=600&q=80" alt="Thyroid Ultrasound Examination" class="w-100 h-100" style="object-fit: cover;">
+            </div>
+            <div class="service-meta">
+              <span class="badge bg-warning-subtle text-warning">Thyroid Clinic</span>
+              <span class="small text-muted"><i class="bi bi-clock"></i> In-Clinic Lab</span>
+            </div>
+            <h4 class="service-title">Thyroid Disorders</h4>
+            <p class="service-desc flex-grow-1">
+              Accurate management of Hypothyroidism, Hashimoto's, Graves' disease, toxic goiters, and high-resolution ultrasound nodule evaluations.
+            </p>
+            <a href="service-details.html?service=thyroid" class="btn btn-outline-custom w-100 mt-auto">
+              View Details <i class="bi bi-arrow-right"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Card 4: Hormonal Imbalance Treatment -->
+        <div class="col-md-6 col-lg-4 service-item" data-category="hormones">
+          <div class="card-custom w-100 d-flex flex-column">
+            <div class="overflow-hidden rounded-3 mb-3 flex-shrink-0" style="height: 190px;">
+              <img src="https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?auto=format&fit=crop&w=600&q=80" alt="Hormonal Consultation" class="w-100 h-100" style="object-fit: cover;">
+            </div>
+            <div class="service-meta">
+              <span class="badge bg-info-subtle text-info">Hormone Care</span>
+              <span class="small text-muted"><i class="bi bi-clock"></i> In-Depth Assay</span>
+            </div>
+            <h4 class="service-title">Hormonal Imbalance Treatment</h4>
+            <p class="service-desc flex-grow-1">
+              Endocrine workups for adrenal fatigue/insufficiency, cortisol rhythms, pituitary microadenomas, and growth hormone deficiencies.
+            </p>
+            <a href="service-details.html?service=hormone" class="btn btn-outline-custom w-100 mt-auto">
+              View Details <i class="bi bi-arrow-right"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Card 5: Obesity and Metabolic Health -->
+        <div class="col-md-6 col-lg-4 service-item" data-category="metabolic">
+          <div class="card-custom w-100 d-flex flex-column">
+            <div class="overflow-hidden rounded-3 mb-3 flex-shrink-0" style="height: 190px;">
+              <img src="https://images.unsplash.com/photo-1498837167922-ddd27525d352?auto=format&fit=crop&w=600&q=80" alt="Nutrition and Metabolic Balance" class="w-100 h-100" style="object-fit: cover;">
+            </div>
+            <div class="service-meta">
+              <span class="badge bg-success-subtle text-success">Metabolic Care</span>
+              <span class="small text-muted"><i class="bi bi-clock"></i> Physician-Led</span>
+            </div>
+            <h4 class="service-title">Obesity &amp; Metabolic Health</h4>
+            <p class="service-desc flex-grow-1">
+              Physician-supervised weight reduction incorporating next-gen GLP-1/GIP agonists, visceral fat analysis, and metabolic rate recalibration.
+            </p>
+            <a href="service-details.html?service=metabolic" class="btn btn-outline-custom w-100 mt-auto">
+              View Details <i class="bi bi-arrow-right"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Card 6: PCOS and Endocrine Health -->
+        <div class="col-md-6 col-lg-4 service-item" data-category="hormones">
+          <div class="card-custom w-100 d-flex flex-column">
+            <div class="overflow-hidden rounded-3 mb-3 flex-shrink-0" style="height: 190px;">
+              <img src="https://images.unsplash.com/photo-1505751172876-fa1923c5c528?auto=format&fit=crop&w=600&q=80" alt="PCOS Doctor Review" class="w-100 h-100" style="object-fit: cover;">
+            </div>
+            <div class="service-meta">
+              <span class="badge bg-danger-subtle text-danger">Reproductive Care</span>
+              <span class="small text-muted"><i class="bi bi-clock"></i> Tailored Care</span>
+            </div>
+            <h4 class="service-title">PCOS &amp; Endocrine Health</h4>
+            <p class="service-desc flex-grow-1">
+              Multimodal management of Polycystic Ovary Syndrome, androgenic symptoms, ovulatory dysfunction, and hyperinsulinemia.
+            </p>
+            <a href="service-details.html?service=pcos" class="btn btn-outline-custom w-100 mt-auto">
+              View Details <i class="bi bi-arrow-right"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Card 7: Osteoporosis and Bone Health -->
+        <div class="col-md-6 col-lg-4 service-item" data-category="metabolic">
+          <div class="card-custom w-100 d-flex flex-column">
+            <div class="overflow-hidden rounded-3 mb-3 flex-shrink-0" style="height: 190px;">
+              <img src="https://images.unsplash.com/photo-1516549655169-df83a0774514?auto=format&fit=crop&w=600&q=80" alt="Bone Health Diagnostic DEXA" class="w-100 h-100" style="object-fit: cover;">
+            </div>
+            <div class="service-meta">
+              <span class="badge bg-secondary-subtle text-secondary">Bone Health</span>
+              <span class="small text-muted"><i class="bi bi-clock"></i> DEXA Guided</span>
+            </div>
+            <h4 class="service-title">Osteoporosis &amp; Bone Health</h4>
+            <p class="service-desc flex-grow-1">
+              Skeletal fragility risk analysis, calcium-phosphorus-PTH regulation, vitamin D metabolism, and targeted antiresorptive or bone-building therapies.
+            </p>
+            <a href="service-details.html?service=osteoporosis" class="btn btn-outline-custom w-100 mt-auto">
+              View Details <i class="bi bi-arrow-right"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Card 8: Endocrine Diagnostic Evaluation -->
+        <div class="col-md-6 col-lg-4 service-item" data-category="thyroid">
+          <div class="card-custom w-100 d-flex flex-column">
+            <div class="overflow-hidden rounded-3 mb-3 flex-shrink-0" style="height: 190px;">
+              <img src="https://images.unsplash.com/photo-1530497610245-94d3c16cda28?auto=format&fit=crop&w=600&q=80" alt="Laboratory Diagnostic Evaluation" class="w-100 h-100" style="object-fit: cover;">
+            </div>
+            <div class="service-meta">
+              <span class="badge bg-primary-subtle text-primary">Lab Diagnostics</span>
+              <span class="small text-muted"><i class="bi bi-clock"></i> Same-Day Results</span>
+            </div>
+            <h4 class="service-title">Endocrine Diagnostic Evaluation</h4>
+            <p class="service-desc flex-grow-1">
+              Rapid on-site biochemical assays, ultrasensitive hormone testing, dynamic stimulation tests, and ultrasound-guided nodule biopsies.
+            </p>
+            <a href="service-details.html?service=diagnostics" class="btn btn-outline-custom w-100 mt-auto">
+              View Details <i class="bi bi-arrow-right"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 3: Diagnostic & Lab Technology -->
+  <section class="section-padding bg-alt">
+    <div class="container">
+      <div class="row align-items-center g-5">
+        <div class="col-lg-6">
+          <span class="badge-subtle">
+            <i class="bi bi-pie-chart"></i> Precision Diagnostics
+          </span>
+          <h2 class="section-title">In-House High-Complexity Diagnostic Testing</h2>
+          <p class="text-muted mb-4">
+            Waiting days for hormone labs leads to delayed decisions. Our CLIA-certified on-site endocrine laboratory delivers high-precision assays with same-day physician consultation.
+          </p>
+          <div class="d-flex flex-column gap-3">
+            <div class="p-3 bg-surface rounded-3 border d-flex gap-3 align-items-start">
+              <i class="bi bi-check2-circle text-primary fs-4 mt-1 flex-shrink-0"></i>
+              <div>
+                <h6 class="fw-bold mb-1">High-Resolution Thyroid Ultrasound & Elastography</h6>
+                <small class="text-muted">Distinguishes benign from suspicious nodules using ACR TI-RADS grading.</small>
+              </div>
+            </div>
+            <div class="p-3 bg-surface rounded-3 border d-flex gap-3 align-items-start">
+              <i class="bi bi-check2-circle text-primary fs-4 mt-1 flex-shrink-0"></i>
+              <div>
+                <h6 class="fw-bold mb-1">Immunoassay Hormone Panels</h6>
+                <small class="text-muted">Fractionated catecholamines, free T3/T4, IGF-1, salivary cortisol, and androgens.</small>
+              </div>
+            </div>
+            <div class="p-3 bg-surface rounded-3 border d-flex gap-3 align-items-start">
+              <i class="bi bi-check2-circle text-primary fs-4 mt-1 flex-shrink-0"></i>
+              <div>
+                <h6 class="fw-bold mb-1">Point-of-Care HbA1c & Lipid Micro-Sampling</h6>
+                <small class="text-muted">Instant 5-minute A1c verification during your clinical appointment.</small>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-6">
+          <div class="position-relative">
+            <img src="assets/images/diagnostic-lab.jpg" alt="High Tech Diagnostic Endocrine Lab" class="rounded-4 shadow-lg w-100" style="height: 440px; object-fit: cover;">
+            <div class="position-absolute bottom-0 start-0 m-3 m-md-4 p-3 bg-surface rounded-3 shadow-lg border d-flex align-items-center gap-3" style="max-width: 340px;">
+              <div class="p-2 bg-primary-subtle text-primary rounded-circle flex-shrink-0">
+                <i class="bi bi-cpu fs-4"></i>
+              </div>
+              <div>
+                <h6 class="fw-bold mb-0 text-heading">High Tech Diagnostic Endocrine Lab</h6>
+                <small class="text-muted">CLIA-Certified Diagnostic Automation</small>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 4: Integrated Multidisciplinary Care Model -->
+  <section class="section-padding bg-surface">
+    <div class="container">
+      <div class="section-header text-center">
+        <span class="badge-subtle">
+          <i class="bi bi-diagram-3-fill"></i> Collaborative Medicine
+        </span>
+        <h2 class="section-title">The Multidisciplinary Care Advantage</h2>
+        <p class="section-subtitle">
+          Endocrine disorders require seamless collaboration. Our clinical specialists, diabetes educators, pharmacists, and nutritionists review cases jointly.
+        </p>
+      </div>
+
+      <div class="row g-4 align-items-stretch">
+        <div class="col-md-6 col-lg-3 d-flex">
+          <div class="card-custom care-advantage-card text-center w-100 d-flex flex-column h-100">
+            <div class="stat-icon bg-primary-subtle text-primary mx-auto mb-3">
+              <i class="bi bi-person-badge"></i>
+            </div>
+            <h5 class="fw-bold care-advantage-title">Physician Oversight</h5>
+            <p class="care-advantage-desc text-muted small mb-0 flex-grow-1">Board-certified endocrinologists formulate your personalized root-cause endocrine treatment strategy.</p>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-3 d-flex">
+          <div class="card-custom care-advantage-card text-center w-100 d-flex flex-column h-100">
+            <div class="stat-icon bg-teal-subtle text-teal mx-auto mb-3" style="background-color: var(--secondary-light); color: var(--secondary-color);">
+              <i class="bi bi-smartwatch"></i>
+            </div>
+            <h5 class="fw-bold care-advantage-title">Certified Diabetes Educators</h5>
+            <p class="care-advantage-desc text-muted small mb-0 flex-grow-1">Hands-on guidance for pump sensors, wearable tech calibration, and injection techniques.</p>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-3 d-flex">
+          <div class="card-custom care-advantage-card text-center w-100 d-flex flex-column h-100">
+            <div class="stat-icon bg-warning-subtle text-warning mx-auto mb-3">
+              <i class="bi bi-egg-fried"></i>
+            </div>
+            <h5 class="fw-bold care-advantage-title">Registered Dietitians</h5>
+            <p class="care-advantage-desc text-muted small mb-0 flex-grow-1">Meal planning customized for thyroid autoantibodies, insulin resistance, or renal protection.</p>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-3 d-flex">
+          <div class="card-custom care-advantage-card text-center w-100 d-flex flex-column h-100">
+            <div class="stat-icon bg-info-subtle text-info mx-auto mb-3">
+              <i class="bi bi-capsule"></i>
+            </div>
+            <h5 class="fw-bold care-advantage-title">Clinical Pharmacists</h5>
+            <p class="care-advantage-desc text-muted small mb-0 flex-grow-1">Comprehensive medication safety checks, titration management, and prior-authorization assistance.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 5: Patient Care Journey -->
+  <section class="section-padding bg-alt">
+    <div class="container">
+      <div class="section-header text-center">
+        <span class="badge-subtle">
+          <i class="bi bi-arrow-repeat"></i> Clear Process
+        </span>
+        <h2 class="section-title">How We Guide Your Clinical Journey</h2>
+        <p class="section-subtitle">
+          Transparent, empathetic, and organized care from your initial intake through sustained remission.
+        </p>
+      </div>
+
+      <div class="row g-4">
+        <div class="col-md-3">
+          <div class="process-step-card h-100">
+            <div class="step-number">1</div>
+            <h5 class="fw-bold mb-2">Comprehensive Intake</h5>
+            <p class="text-muted small mb-0">Review of complete medical history, previous hormone labs, symptom logs, and medication tolerances.</p>
+          </div>
+        </div>
+
+        <div class="col-md-3">
+          <div class="process-step-card h-100">
+            <div class="step-number">2</div>
+            <h5 class="fw-bold mb-2">Targeted Diagnostics</h5>
+            <p class="text-muted small mb-0">Ultrasound imaging, fasting insulin, dynamic hormone assays, or continuous sensor placement.</p>
+          </div>
+        </div>
+
+        <div class="col-md-3">
+          <div class="process-step-card h-100">
+            <div class="step-number">3</div>
+            <h5 class="fw-bold mb-2">Tailored Care Plan</h5>
+            <p class="text-muted small mb-0">Prescription of evidence-based medications, dietary blueprints, and digital tracking dashboard access.</p>
+          </div>
+        </div>
+
+        <div class="col-md-3">
+          <div class="process-step-card h-100">
+            <div class="step-number">4</div>
+            <h5 class="fw-bold mb-2">Quarterly Review</h5>
+            <p class="text-muted small mb-0">Continuous monitoring of biomarker improvements with proactive dosage adjustments as your body heals.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 6: Clinical FAQ -->
+  <section class="section-padding bg-surface">
+    <div class="container" style="max-width: 900px;">
+      <div class="section-header text-center">
+        <span class="badge-subtle">
+          <i class="bi bi-question-circle"></i> Got Questions?
+        </span>
+        <h2 class="section-title">Frequently Asked Clinical Questions</h2>
+        <p class="section-subtitle">
+          Answers to common questions regarding visits, diagnostic testing, insurance coverage, and referrals.
+        </p>
+      </div>
+
+      <div class="accordion" id="serviceFaqAccordion">
+        <div class="accordion-item border mb-3 rounded-3 overflow-hidden">
+          <h2 class="accordion-header">
+            <button class="accordion-button fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
+              <span class="faq-question">Do I need a doctor's referral to see an endocrinologist at EndoCare?</span>
+            </button>
+          </h2>
+          <div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#serviceFaqAccordion">
+            <div class="accordion-body text-muted">
+              In most instances, patients can schedule directly with our clinic. However, certain HMO insurance networks may require a referral from your primary care physician (PCP) for coverage authorization. Our patient intake team happily assists with referral verification.
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion-item border mb-3 rounded-3 overflow-hidden">
+          <h2 class="accordion-header">
+            <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">
+              <span class="faq-question">How quickly are lab results available from your diagnostic facility?</span>
+            </button>
+          </h2>
+          <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#serviceFaqAccordion">
+            <div class="accordion-body text-muted">
+              Routine glycemic markers such as point-of-care HbA1c and lipid profiles are ready within 10 to 15 minutes during your consultation. Specialized hormone panels and thyroid antibody assays are typically completed in our CLIA laboratory within 24 to 48 hours and uploaded directly to your patient portal.
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion-item border mb-3 rounded-3 overflow-hidden">
+          <h2 class="accordion-header">
+            <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#faq3">
+              <span class="faq-question">Can I transition my current insulin pump or CGM to your clinic?</span>
+            </button>
+          </h2>
+          <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#serviceFaqAccordion">
+            <div class="accordion-body text-muted">
+              Yes, absolutely! We support all FDA-approved continuous glucose monitors and automated insulin delivery systems including Dexcom, FreeStyle Libre, Omnipod, Tandem t:slim, and Medtronic. Our certified diabetes technology educators will connect your device to our clinic cloud.
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion-item border mb-3 rounded-3 overflow-hidden">
+          <h2 class="accordion-header">
+            <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#faq4">
+              <span class="faq-question">Are virtual telehealth consultations available for out-of-town patients?</span>
+            </button>
+          </h2>
+          <div id="faq4" class="accordion-collapse collapse" data-bs-parent="#serviceFaqAccordion">
+            <div class="accordion-body text-muted">
+              Yes, we offer secure HIPAA-compliant telehealth follow-up consultations. We recommend an initial in-person visit for thyroid palpatory exams or ultrasound when indicated, followed by virtual check-ins for routine lab reviews and medication adjustments.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 7: Booking CTA & Footer -->
+  <section class="section-padding bg-alt">
+    <div class="container">
+      <div class="cta-banner">
+        <div class="row align-items-center g-4">
+          <div class="col-lg-8">
+            <h2 class="display-6 fw-bold mb-3">Begin Your Personalized Care Plan Today</h2>
+            <p class="lead mb-0 text-white-50">
+              Schedule your consultation with our board-certified clinical endocrinologists and diabetes specialists.
+            </p>
+          </div>
+          <div class="col-lg-4 text-lg-end">
+            <button class="btn btn-light text-primary fw-bold px-4 py-3 rounded-pill shadow-lg" data-bs-toggle="modal" data-bs-target="#appointmentModal">
+              <i class="bi bi-calendar-check me-2"></i> Book Consultation
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer-custom">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-lg-4">
+          <a class="navbar-brand text-white mb-3 d-inline-flex" href="index.html">
+            <span class="brand-icon"><i class="bi bi-activity"></i></span>
+            <span>Endo<span class="brand-text-accent">Care</span></span>
+          </a>
+          <p class="text-muted mb-4 pe-lg-4">
+            EndoCare is a dedicated Center of Excellence in Endocrinology and Diabetes Care. We integrate clinical diagnostic acumen with digital health technologies to provide life-transforming metabolic solutions.
+          </p>
+          <div class="d-flex gap-2">
+            <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer" class="btn-control-icon text-muted" title="Facebook" aria-label="Visit EndoCare on Facebook"><i class="bi bi-facebook"></i></a>
+            <a href="https://twitter.com/" target="_blank" rel="noopener noreferrer" class="btn-control-icon text-muted" title="Twitter/X" aria-label="Visit EndoCare on Twitter"><i class="bi bi-twitter-x"></i></a>
+            <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer" class="btn-control-icon text-muted" title="LinkedIn" aria-label="Visit EndoCare on LinkedIn"><i class="bi bi-linkedin"></i></a>
+            <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" class="btn-control-icon text-muted" title="Instagram" aria-label="Visit EndoCare on Instagram"><i class="bi bi-instagram"></i></a>
+          </div>
+        </div>
+
+        <div class="col-6 col-md-3 col-lg-2">
+          <h5>Quick Links</h5>
+          <ul class="footer-links">
+            <li><a href="index.html"><i class="bi bi-chevron-right small"></i> Home 1</a></li>
+            <li><a href="home-2.html"><i class="bi bi-chevron-right small"></i> Home 2</a></li>
+            <li><a href="about.html"><i class="bi bi-chevron-right small"></i> About Us</a></li>
+            <li><a href="services.html"><i class="bi bi-chevron-right small"></i> Services</a></li>
+            <li><a href="doctors.html"><i class="bi bi-chevron-right small"></i> Doctors</a></li>
+            <li><a href="pricing.html"><i class="bi bi-chevron-right small"></i> Pricing</a></li>
+          </ul>
+        </div>
+
+        <div class="col-6 col-md-3 col-lg-3 footer-clinical-col ps-lg-4 ps-xl-5">
+          <h5>Clinical Programs</h5>
+          <ul class="footer-links">
+            <li><a href="service-details.html?service=diabetes"><i class="bi bi-chevron-right small"></i> Diabetes Management</a></li>
+            <li><a href="service-details.html?service=thyroid"><i class="bi bi-chevron-right small"></i> Thyroid Disorders</a></li>
+            <li><a href="service-details.html?service=hormone"><i class="bi bi-chevron-right small"></i> Hormone Balancing</a></li>
+            <li><a href="service-details.html?service=metabolic"><i class="bi bi-chevron-right small"></i> Metabolic Health</a></li>
+            <li><a href="service-details.html?service=pcos"><i class="bi bi-chevron-right small"></i> PCOS & Endocrine</a></li>
+            <li><a href="service-details.html?service=osteoporosis"><i class="bi bi-chevron-right small"></i> Osteoporosis Care</a></li>
+          </ul>
+        </div>
+
+        <div class="col-lg-3">
+          <h5>Clinic Contact</h5>
+          <ul class="footer-links text-muted">
+            <li class="d-flex align-items-start gap-2 mb-2">
+              <i class="bi bi-geo-alt-fill text-primary mt-1"></i>
+              <span>742 Evergreen Medical Blvd, Suite 400, Metro Health City</span>
+            </li>
+            <li class="d-flex align-items-center gap-2 mb-2">
+              <i class="bi bi-telephone-fill text-primary"></i>
+              <span>+1 (800) 555-ENDO (3636)</span>
+            </li>
+            <li class="d-flex align-items-center gap-2 mb-2">
+              <i class="bi bi-envelope-fill text-primary"></i>
+              <span>appointments@endocareclinic.demo</span>
+            </li>
+            <li class="d-flex align-items-center gap-2">
+              <i class="bi bi-clock-fill text-primary"></i>
+              <span>Mon - Fri: 8:00 AM - 6:00 PM</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom d-flex flex-wrap justify-content-between align-items-center gap-3">
+        <p class="mb-0 text-muted">&copy; 2026 EndoCare Clinic. All rights reserved. Designed for professional healthcare practices.</p>
+        <div class="d-flex gap-3 text-muted">
+          <a href="privacy-policy.html" class="text-muted">Privacy Policy</a>
+          <a href="terms-of-care.html" class="text-muted">Terms of Care</a>
+          <a href="dashboard-admin.html" class="text-muted">Admin Portal</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Appointment Modal -->
+  <div class="modal fade" id="appointmentModal" tabindex="-1" aria-labelledby="appointmentModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title fw-bold" id="appointmentModalLabel">
+            <i class="bi bi-calendar2-check text-primary me-2"></i> Book Specialist Consultation
+          </h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <form class="appointment-booking-form">
+          <div class="modal-body p-4">
+            <div class="row g-3">
+              <div class="col-md-6">
+                <label class="form-label fw-semibold">Full Name</label>
+                <input type="text" class="form-control" placeholder="e.g. Eleanor Vance" required>
+              </div>
+              <div class="col-md-6">
+                <label class="form-label fw-semibold">Email Address</label>
+                <input type="email" class="form-control" placeholder="eleanor@example.com" required>
+              </div>
+              <div class="col-md-6">
+                <label class="form-label fw-semibold">Phone Number</label>
+                <input type="tel" class="form-control" placeholder="+1 (555) 019-2834" required>
+              </div>
+              <div class="col-md-6">
+                <label class="form-label fw-semibold">Select Specialist</label>
+                <select class="form-select" name="doctor" required>
+                  <option value="" selected disabled>Choose doctor...</option>
+                  <option value="jenkins">Dr. Sarah Jenkins (Chief Endocrinologist)</option>
+                  <option value="vance">Dr. Marcus Vance (Thyroid & Nodules)</option>
+                  <option value="rostova">Dr. Elena Rostova (Metabolic & PCOS)</option>
+                  <option value="chen">Dr. David Chen (Diabetes Tech & CGM)</option>
+                </select>
+              </div>
+              <div class="col-md-6">
+                <label class="form-label fw-semibold">Preferred Date</label>
+                <input type="date" class="form-control" name="date" required>
+              </div>
+              <div class="col-md-6">
+                <label class="form-label fw-semibold">Preferred Time Slot</label>
+                <select class="form-select" required>
+                  <option value="morning">Morning (9:00 AM - 12:00 PM)</option>
+                  <option value="afternoon">Afternoon (1:00 PM - 4:00 PM)</option>
+                  <option value="evening">Evening (4:00 PM - 6:30 PM)</option>
+                </select>
+              </div>
+              <div class="col-12">
+                <label class="form-label fw-semibold">Clinical Reason / Symptoms</label>
+                <textarea class="form-control" rows="3" placeholder="Briefly describe your symptoms or visit reason..."></textarea>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary rounded-pill px-4" data-bs-dismiss="modal">Cancel</button>
+            <button type="submit" class="btn btn-primary-custom">Confirm Appointment Request</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/js/main.js"></script>
+
+  <!-- Service Filter Script -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const filterBtns = document.querySelectorAll('#serviceFilterContainer .filter-btn');
+      const serviceItems = document.querySelectorAll('.service-item');
+
+      filterBtns.forEach(btn => {
+        btn.addEventListener('click', function() {
+          filterBtns.forEach(b => {
+            b.classList.remove('btn-primary-custom', 'active');
+            b.classList.add('btn-outline-custom');
+          });
+          this.classList.remove('btn-outline-custom');
+          this.classList.add('btn-primary-custom', 'active');
+
+          const filterVal = this.getAttribute('data-filter');
+
+          serviceItems.forEach(item => {
+            const cat = item.getAttribute('data-category');
+            if (filterVal === 'all' || cat === filterVal) {
+              item.style.display = '';
+            } else {
+              item.style.display = 'none';
+            }
+          });
+        });
+      });
+    });
+  </script>
+</body>
+</html>

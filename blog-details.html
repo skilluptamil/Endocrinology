@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Clinical Article – EndoCare Medical Journal</title>
+  <meta name="description" content="In-depth clinical endocrinology and diabetes care article written and peer-reviewed by board-certified physicians.">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🩺</text></svg>">
+  
+  <!-- Bootstrap 5.3 CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <!-- Core Design System -->
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/rtl.css">
+</head>
+<body>
+
+  <!-- Main Navigation Bar -->
+
+  <!-- Main Navigation Bar -->
+  <nav class="navbar navbar-expand-xl navbar-custom">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">
+        <span class="brand-icon"><i class="bi bi-activity"></i></span>
+        <span>Endo<span class="brand-text-accent">Care</span></span>
+      </a>
+
+      <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMain" aria-controls="navbarMain" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarMain">
+        <ul class="navbar-nav mx-auto mb-2 mb-xl-0 align-items-xl-center">
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="homeDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Home
+            </a>
+            <ul class="dropdown-menu border-0 shadow" aria-labelledby="homeDropdown">
+              <li><a class="dropdown-item" href="index.html"><i class="bi bi-hospital me-2 text-primary"></i>Home 1 – General Clinic</a></li>
+              <li><a class="dropdown-item" href="home-2.html"><i class="bi bi-droplet-half me-2 text-info"></i>Home 2 – Diabetes Care</a></li>
+            </ul>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="about.html">About Us</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="services.html">Services</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="pricing.html">Pricing</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="blog.html">Blog</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="contact.html">Contact</a>
+          </li>
+        </ul>
+
+        <!-- Action Buttons (Dashboard, RTL, Dark/Light, Login, Sign Up) -->
+        <div class="d-flex align-items-center flex-wrap flex-xl-nowrap nav-actions-wrap gap-2 mt-3 mt-xl-0">
+          <a href="dashboard-patient.html" class="btn-nav-dashboard" title="Patient Health Portal">
+            <i class="bi bi-speedometer2"></i>
+            <span>Dashboard</span>
+          </a>
+
+          <button type="button" class="btn-control-icon rtl-toggle-btn" title="Toggle RTL / LTR Direction" aria-label="Toggle text direction">
+            <span class="rtl-text fw-bold small">RTL</span>
+          </button>
+
+          <button type="button" class="btn-control-icon theme-toggle-btn" title="Toggle Light / Dark Mode" aria-label="Toggle color theme">
+            <i class="bi bi-moon-stars-fill"></i>
+          </button>
+
+          <a href="login.html" class="btn-login">Login</a>
+          <a href="register.html" class="btn-signup">Sign Up</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- SECTION 1: Article Header Hero & Meta -->
+  <section class="py-5 bg-alt border-bottom">
+    <div class="container py-3">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb mb-3">
+          <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+          <li class="breadcrumb-item"><a href="blog.html">Blog</a></li>
+          <li class="breadcrumb-item active" id="articleBreadcrumb">Clinical Article</li>
+        </ol>
+      </nav>
+      <span class="badge bg-primary text-white mb-2" id="articleCategoryBadge">Diabetes Technology</span>
+      <h1 class="display-6 fw-extrabold mb-3" id="articleTitle">Continuous Glucose Monitors (CGM): How Real-Time Biofeedback Halts Microvascular Complications</h1>
+      
+      <div class="d-flex flex-wrap align-items-center gap-4 text-muted small pt-2">
+        <div class="d-flex align-items-center gap-2">
+          <img id="authorAvatar" src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=100&q=80" alt="Author" class="rounded-circle" style="width: 38px; height: 38px; object-fit: cover;">
+          <span class="fw-bold text-main" id="authorName">Dr. Sarah Jenkins, MD, FACE</span>
+        </div>
+        <div><i class="bi bi-calendar3 me-1"></i> <span id="articleDate">October 12, 2026</span></div>
+        <div><i class="bi bi-clock me-1"></i> <span id="articleReadingTime">8 Min Read</span></div>
+        <div><i class="bi bi-patch-check-fill text-success me-1"></i> Medically Reviewed</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MAIN ARTICLE BODY & SIDEBAR -->
+  <div class="section-padding bg-surface">
+    <div class="container">
+      <div class="row g-5">
+        
+        <!-- Left Column: Article Content (Sections 2, 3, 4, 5) -->
+        <div class="col-lg-8">
+          
+          <!-- SECTION 2: Featured Hero Image -->
+          <div class="overflow-hidden rounded-4 shadow-md mb-4">
+            <img id="articleFeaturedImg" src="assets/images/cgm-sensor.jpg" alt="Continuous Glucose Sensor Telemetry and Clinical Monitoring" class="w-100" style="height: 420px; object-fit: cover;">
+          </div>
+
+          <!-- Article Text Content -->
+          <article class="article-body-content" id="articleBody">
+            <p class="lead text-muted mb-4">
+              For decades, the standard measurement of glycemic control has been the glycated hemoglobin (HbA1c) assay. While valuable for broad population trends, HbA1c is fundamentally an unweighted three-month average that obscures dangerous glycemic excursions, severe asymptomatic nocturnal hypoglycemia, and post-prandial glycemic spikes.
+            </p>
+
+            <h3 class="fw-bold mt-5 mb-3">The Problem of Hidden Glycemic Variability</h3>
+            <p class="text-muted">
+              Consider two individuals, both presenting with an identical laboratory HbA1c of 7.2%:
+            </p>
+            <ul>
+              <li class="text-muted mb-2"><strong>Patient A</strong> spends 88% of their day between 70 mg/dL and 140 mg/dL with gentle, gradual curves after meals.</li>
+              <li class="text-muted mb-2"><strong>Patient B</strong> oscillates wildly from 45 mg/dL during early morning sleep to over 280 mg/dL after high-carbohydrate meals, resulting in severe oxidative stress on vascular endothelium.</li>
+            </ul>
+            <p class="text-muted">
+              Despite having identical A1c records on paper, Patient B carries a vastly higher risk of microvascular damage, including diabetic nephropathy, autonomic neuropathy, and retinal pericyte loss.
+            </p>
+
+            <!-- Callout Quote -->
+            <div class="p-4 rounded-4 bg-alt border-start border-primary border-4 my-4">
+              <p class="fst-italic fw-semibold text-main mb-2">
+                "Continuous glucose sensors do not merely display numbers; they transform passive patients into active, empowered co-pilots of their own metabolic biochemistry."
+              </p>
+              <small class="text-muted fw-bold">&mdash; Dr. Sarah Jenkins, Lead Endocrinologist at EndoCare</small>
+            </div>
+
+            <h3 class="fw-bold mt-5 mb-3">Understanding Time-in-Range (TIR) Targets</h3>
+            <p class="text-muted">
+              The International Consensus on Time-in-Range defines the target zone between 70 and 180 mg/dL. For most non-pregnant adults with diabetes:
+            </p>
+
+            <div class="custom-table-card my-4">
+              <table class="custom-table">
+                <thead>
+                  <tr>
+                    <th>Clinical Metric</th>
+                    <th>Target Goal</th>
+                    <th>Clinical Impact</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="fw-bold text-success">Time-in-Range (70-180 mg/dL)</td>
+                    <td>&gt; 70% of day (&gt; 17 hours)</td>
+                    <td>Significant reduction in microalbuminuria and retinopathy</td>
+                  </tr>
+                  <tr>
+                    <td class="fw-bold text-danger">Time Below Range (&lt; 70 mg/dL)</td>
+                    <td>&lt; 4% of day (&lt; 1 hour)</td>
+                    <td>Eliminates severe cognitive impairment and arrhythmia risk</td>
+                  </tr>
+                  <tr>
+                    <td class="fw-bold text-warning">Time Above Range (&gt; 180 mg/dL)</td>
+                    <td>&lt; 25% of day (&lt; 6 hours)</td>
+                    <td>Protects arterial elasticity and halts visceral fat synthesis</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <h3 class="fw-bold mt-5 mb-3">Practical Clinical Implementation</h3>
+            <p class="text-muted">
+              At EndoCare Clinic, continuous sensors (Dexcom G7 and FreeStyle Libre 3) sync directly with our encrypted physician telemetry portal. When a patient logs unusual spikes or recurrent nocturnal dips, our clinical pharmacist and diabetes educator receive automated trend warnings, prompting proactive regimen adjustments before emergencies occur.
+            </p>
+          </article>
+
+          <!-- Social Share & Tags (SECTION 3) -->
+          <div class="d-flex flex-wrap justify-content-between align-items-center gap-3 py-4 my-4 border-top border-bottom">
+            <div class="d-flex flex-wrap gap-2 align-items-center">
+              <span class="fw-bold small text-muted">Tags:</span>
+              <span class="badge bg-alt text-main border">#DiabetesCare</span>
+              <span class="badge bg-alt text-main border">#CGMTech</span>
+              <span class="badge bg-alt text-main border">#Endocrinology</span>
+              <span class="badge bg-alt text-main border">#TimeInRange</span>
+            </div>
+            <div class="d-flex gap-2 align-items-center">
+              <span class="small fw-semibold text-muted">Share:</span>
+              <button class="btn btn-sm btn-control-icon" title="Copy Article Link" aria-label="Copy Article Link" onclick="navigator.clipboard.writeText(window.location.href); window.showToast('Link Copied', 'Article link copied to clipboard.', 'success');"><i class="bi bi-link-45deg"></i></button>
+              <button class="btn btn-sm btn-control-icon" title="Share on Twitter" aria-label="Share on Twitter" onclick="window.open('https://twitter.com/intent/tweet?text=' + encodeURIComponent(document.title) + '&url=' + encodeURIComponent(window.location.href), '_blank');"><i class="bi bi-twitter-x"></i></button>
+              <button class="btn btn-sm btn-control-icon" title="Share on LinkedIn" aria-label="Share on LinkedIn" onclick="window.open('https://www.linkedin.com/sharing/share-offsite/?url=' + encodeURIComponent(window.location.href), '_blank');"><i class="bi bi-linkedin"></i></button>
+              <button class="btn btn-sm btn-control-icon" title="Share on Facebook" aria-label="Share on Facebook" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(window.location.href), '_blank');"><i class="bi bi-facebook"></i></button>
+            </div>
+          </div>
+
+          <!-- SECTION 4: Author Medical Bio -->
+          <div class="p-4 rounded-4 bg-alt border d-flex flex-column flex-sm-row gap-4 align-items-center mb-5">
+            <img id="authorBioAvatar" src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=250&q=80" alt="Doctor Author Portrait" class="rounded-circle shadow-sm flex-shrink-0" style="width: 90px; height: 90px; object-fit: cover;">
+            <div>
+              <div class="d-flex align-items-center gap-2 mb-1">
+                <h5 class="fw-bold mb-0" id="authorBioName">Dr. Sarah Jenkins, MD, FACE</h5>
+                <span class="badge bg-primary-subtle text-primary">Chief Medical Officer</span>
+              </div>
+              <p class="text-muted small mb-2">
+                Fellow of the American Association of Clinical Endocrinology (FACE). Specializes in complex brittle diabetes, glycemic variability, and cardiovascular disease prevention with over 16 years of academic and clinical practice.
+              </p>
+              <a href="doctors.html" class="fw-bold text-primary small">View Physician Profile <i class="bi bi-arrow-right"></i></a>
+            </div>
+          </div>
+
+          <!-- SECTION 5: Interactive Comment / Clinical Question Form -->
+          <div class="mb-5">
+            <h4 class="fw-bold mb-3">Leave a Clinical Question or Comment</h4>
+            <p class="text-muted small mb-4">Have questions about this article or related endocrine treatments? Submit your enquiry below.</p>
+            <form onsubmit="event.preventDefault(); window.showToast('Comment Submitted', 'Thank you! Your question has been submitted for physician moderation (Demo).', 'success'); this.reset();">
+              <div class="row g-3">
+                <div class="col-md-6">
+                  <label class="form-label small fw-semibold">Your Name</label>
+                  <input type="text" class="form-control" placeholder="Jane Doe" required>
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label small fw-semibold">Email Address (kept confidential)</label>
+                  <input type="email" class="form-control" placeholder="jane@example.com" required>
+                </div>
+                <div class="col-12">
+                  <label class="form-label small fw-semibold">Question / Comment</label>
+                  <textarea class="form-control" rows="4" placeholder="Write your question or thoughts here..." required></textarea>
+                </div>
+                <div class="col-12">
+                  <button type="submit" class="btn btn-primary-custom">Post Question</button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+
+        <!-- Right Column: Sidebar (SECTION 6) -->
+        <div class="col-lg-4">
+          <aside class="d-flex flex-column gap-4">
+            
+            <!-- Sidebar Widget 1: Search -->
+            <div class="card-custom p-4">
+              <h5 class="fw-bold mb-3">Search Knowledge Base</h5>
+              <form action="blog.html" method="GET">
+                <div class="input-group">
+                  <input type="text" name="q" class="form-control" placeholder="Search keywords...">
+                  <button class="btn btn-primary-custom" type="submit"><i class="bi bi-search"></i></button>
+                </div>
+              </form>
+            </div>
+
+            <!-- Sidebar Widget 2: Categories -->
+            <div class="card-custom p-4">
+              <h5 class="fw-bold mb-3">Medical Categories</h5>
+              <ul class="list-unstyled d-flex flex-column gap-2 mb-0">
+                <li class="d-flex justify-content-between align-items-center py-1 border-bottom">
+                  <a href="blog.html" class="text-muted text-decoration-none">Diabetes Care & CGM</a>
+                  <span class="badge bg-primary-subtle text-primary">14</span>
+                </li>
+                <li class="d-flex justify-content-between align-items-center py-1 border-bottom">
+                  <a href="blog.html" class="text-muted text-decoration-none">Thyroid & Hashimoto's</a>
+                  <span class="badge bg-primary-subtle text-primary">9</span>
+                </li>
+                <li class="d-flex justify-content-between align-items-center py-1 border-bottom">
+                  <a href="blog.html" class="text-muted text-decoration-none">Metabolic & Weight Health</a>
+                  <span class="badge bg-primary-subtle text-primary">11</span>
+                </li>
+                <li class="d-flex justify-content-between align-items-center py-1 border-bottom">
+                  <a href="blog.html" class="text-muted text-decoration-none">Hormones & Adrenal</a>
+                  <span class="badge bg-primary-subtle text-primary">6</span>
+                </li>
+                <li class="d-flex justify-content-between align-items-center py-1 border-bottom">
+                  <a href="blog.html" class="text-muted text-decoration-none">PCOS & Reproductive</a>
+                  <span class="badge bg-primary-subtle text-primary">8</span>
+                </li>
+                <li class="d-flex justify-content-between align-items-center py-1">
+                  <a href="blog.html" class="text-muted text-decoration-none">Osteoporosis & Bone Density</a>
+                  <span class="badge bg-primary-subtle text-primary">5</span>
+                </li>
+              </ul>
+            </div>
+
+            <!-- Sidebar Widget 3: Recent Articles -->
+            <div class="card-custom p-4">
+              <h5 class="fw-bold mb-3">Recent Publications</h5>
+              <div class="d-flex flex-column gap-3">
+                <div class="d-flex gap-3 align-items-center">
+                  <img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&w=150&q=80" alt="Recent" class="rounded-3" style="width: 65px; height: 65px; object-fit: cover;">
+                  <div>
+                    <h6 class="fw-bold mb-1 small">
+                      <a href="blog-details.html?article=hashimotos" class="text-heading text-decoration-none">Beyond TSH: Free T3 and TPO Antibodies</a>
+                    </h6>
+                    <small class="text-muted">Oct 04, 2026</small>
+                  </div>
+                </div>
+
+                <div class="d-flex gap-3 align-items-center">
+                  <img src="https://images.unsplash.com/photo-1498837167922-ddd27525d352?auto=format&fit=crop&w=150&q=80" alt="Recent" class="rounded-3" style="width: 65px; height: 65px; object-fit: cover;">
+                  <div>
+                    <h6 class="fw-bold mb-1 small">
+                      <a href="blog-details.html?article=food-sequencing" class="text-heading text-decoration-none">Food Sequencing & Glycemic Curves</a>
+                    </h6>
+                    <small class="text-muted">Sep 28, 2026</small>
+                  </div>
+                </div>
+
+                <div class="d-flex gap-3 align-items-center">
+                  <img src="https://images.unsplash.com/photo-1505751172876-fa1923c5c528?auto=format&fit=crop&w=150&q=80" alt="Recent" class="rounded-3" style="width: 65px; height: 65px; object-fit: cover;">
+                  <div>
+                    <h6 class="fw-bold mb-1 small">
+                      <a href="blog-details.html?article=glp1-science" class="text-heading text-decoration-none">GLP-1 & Neurohormonal Appetite Axis</a>
+                    </h6>
+                    <small class="text-muted">Sep 19, 2026</small>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Sidebar Widget 4: Emergency / Consultation Hotline -->
+            <div class="p-4 rounded-4 text-white text-center shadow-md" style="background: var(--accent-gradient);">
+              <i class="bi bi-hospital fs-1 mb-2 d-block"></i>
+              <h5 class="fw-bold text-white mb-2">Need Specialist Care?</h5>
+              <p class="text-white-50 small mb-3">Our board-certified endocrinologists are accepting new patients in-person and via telehealth.</p>
+              <button class="btn btn-light text-primary fw-bold w-100 rounded-pill" data-bs-toggle="modal" data-bs-target="#appointmentModal">
+                Book Consultation
+              </button>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 7: Related Articles Grid & Comprehensive Footer -->
+  <section class="section-padding bg-alt border-top">
+    <div class="container">
+      <div class="section-header text-center mb-5">
+        <span class="badge-subtle"><i class="bi bi-grid-3x3-gap"></i> Related Insights</span>
+        <h3 class="fw-bold">Explore More Clinical Articles</h3>
+      </div>
+
+      <div class="row g-4 mb-5">
+        <div class="col-md-4">
+          <div class="blog-card h-100">
+            <div class="blog-img-wrap" style="height: 180px;">
+              <img src="https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?auto=format&fit=crop&w=600&q=80" alt="Automated Insulin">
+              <span class="blog-category-badge">Diabetes Tech</span>
+            </div>
+            <div class="blog-body p-3">
+              <h6 class="fw-bold mb-2">
+                <a href="blog-details.html?article=closed-loop" class="text-heading text-decoration-none">Automated Insulin Delivery & Pumps in 2026</a>
+              </h6>
+              <p class="text-muted small mb-0">How artificial pancreas algorithms minimize overnight glycemic drops.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="blog-card h-100">
+            <div class="blog-img-wrap" style="height: 180px;">
+              <img src="https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?auto=format&fit=crop&w=600&q=80" alt="Cortisol Rhythms">
+              <span class="blog-category-badge" style="background-color: #7c3aed;">Hormones</span>
+            </div>
+            <div class="blog-body p-3">
+              <h6 class="fw-bold mb-2">
+                <a href="blog-details.html?article=cortisol-curve" class="text-heading text-decoration-none">Restoring Your Cortisol Awakening Response</a>
+              </h6>
+              <p class="text-muted small mb-0">Circadian light exposure and adrenal recovery protocols.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="blog-card h-100">
+            <div class="blog-img-wrap" style="height: 180px;">
+              <img src="https://images.unsplash.com/photo-1516549655169-df83a0774514?auto=format&fit=crop&w=600&q=80" alt="Bone Health">
+              <span class="blog-category-badge" style="background-color: var(--secondary-color);">Bone Health</span>
+            </div>
+            <div class="blog-body p-3">
+              <h6 class="fw-bold mb-2">
+                <a href="blog-details.html?article=bone-health" class="text-heading text-decoration-none">Interpreting Your DEXA T-Scores & Fracture Risk</a>
+              </h6>
+              <p class="text-muted small mb-0">Preventing silent skeletal osteoporosis with dual therapy.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer-custom">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-lg-4">
+          <a class="navbar-brand text-white mb-3 d-inline-flex" href="index.html">
+            <span class="brand-icon"><i class="bi bi-activity"></i></span>
+            <span>Endo<span class="brand-text-accent">Care</span></span>
+          </a>
+          <p class="text-muted mb-4 pe-lg-4">
+            EndoCare is a dedicated Center of Excellence in Endocrinology and Diabetes Care. We integrate clinical diagnostic acumen with digital health technologies to provide life-transforming metabolic solutions.
+          </p>
+          <div class="d-flex gap-2">
+            <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer" class="btn-control-icon text-muted" title="Facebook" aria-label="Visit EndoCare on Facebook"><i class="bi bi-facebook"></i></a>
+            <a href="https://twitter.com/" target="_blank" rel="noopener noreferrer" class="btn-control-icon text-muted" title="Twitter/X" aria-label="Visit EndoCare on Twitter"><i class="bi bi-twitter-x"></i></a>
+            <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer" class="btn-control-icon text-muted" title="LinkedIn" aria-label="Visit EndoCare on LinkedIn"><i class="bi bi-linkedin"></i></a>
+            <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" class="btn-control-icon text-muted" title="Instagram" aria-label="Visit EndoCare on Instagram"><i class="bi bi-instagram"></i></a>
+          </div>
+        </div>
+
+        <div class="col-6 col-md-3 col-lg-2">
+          <h5>Quick Links</h5>
+          <ul class="footer-links">
+            <li><a href="index.html"><i class="bi bi-chevron-right small"></i> Home 1</a></li>
+            <li><a href="home-2.html"><i class="bi bi-chevron-right small"></i> Home 2</a></li>
+            <li><a href="about.html"><i class="bi bi-chevron-right small"></i> About Us</a></li>
+            <li><a href="services.html"><i class="bi bi-chevron-right small"></i> Services</a></li>
+            <li><a href="doctors.html"><i class="bi bi-chevron-right small"></i> Doctors</a></li>
+            <li><a href="pricing.html"><i class="bi bi-chevron-right small"></i> Pricing</a></li>
+          </ul>
+        </div>
+
+        <div class="col-6 col-md-3 col-lg-3 footer-clinical-col ps-lg-4 ps-xl-5">
+          <h5>Clinical Programs</h5>
+          <ul class="footer-links">
+            <li><a href="service-details.html?service=diabetes"><i class="bi bi-chevron-right small"></i> Diabetes Management</a></li>
+            <li><a href="service-details.html?service=thyroid"><i class="bi bi-chevron-right small"></i> Thyroid Disorders</a></li>
+            <li><a href="service-details.html?service=hormone"><i class="bi bi-chevron-right small"></i> Hormone Balancing</a></li>
+            <li><a href="service-details.html?service=metabolic"><i class="bi bi-chevron-right small"></i> Metabolic Health</a></li>
+            <li><a href="service-details.html?service=pcos"><i class="bi bi-chevron-right small"></i> PCOS & Endocrine</a></li>
+            <li><a href="service-details.html?service=osteoporosis"><i class="bi bi-chevron-right small"></i> Osteoporosis Care</a></li>
+          </ul>
+        </div>
+
+        <div class="col-lg-3">
+          <h5>Clinic Contact</h5>
+          <ul class="footer-links text-muted">
+            <li class="d-flex align-items-start gap-2 mb-2">
+              <i class="bi bi-geo-alt-fill text-primary mt-1"></i>
+              <span>742 Evergreen Medical Blvd, Suite 400, Metro Health City</span>
+            </li>
+            <li class="d-flex align-items-center gap-2 mb-2">
+              <i class="bi bi-telephone-fill text-primary"></i>
+              <span>+1 (800) 555-ENDO (3636)</span>
+            </li>
+            <li class="d-flex align-items-center gap-2 mb-2">
+              <i class="bi bi-envelope-fill text-primary"></i>
+              <span>appointments@endocareclinic.demo</span>
+            </li>
+            <li class="d-flex align-items-center gap-2">
+              <i class="bi bi-clock-fill text-primary"></i>
+              <span>Mon - Fri: 8:00 AM - 6:00 PM</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom d-flex flex-wrap justify-content-between align-items-center gap-3">
+        <p class="mb-0 text-muted">&copy; 2026 EndoCare Clinic. All rights reserved. Designed for professional healthcare practices.</p>
+        <div class="d-flex gap-3 text-muted">
+          <a href="privacy-policy.html" class="text-muted">Privacy Policy</a>
+          <a href="terms-of-care.html" class="text-muted">Terms of Care</a>
+          <a href="dashboard-admin.html" class="text-muted">Admin Portal</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Appointment Modal -->
+  <div class="modal fade" id="appointmentModal" tabindex="-1" aria-labelledby="appointmentModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title fw-bold" id="appointmentModalLabel">
+            <i class="bi bi-calendar2-check text-primary me-2"></i> Book Specialist Consultation
+          </h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <form class="appointment-booking-form">
+          <div class="modal-body p-4">
+            <div class="row g-3">
+              <div class="col-md-6">
+                <label class="form-label fw-semibold">Full Name</label>
+                <input type="text" class="form-control" placeholder="e.g. Eleanor Vance" required>
+              </div>
+              <div class="col-md-6">
+                <label class="form-label fw-semibold">Email Address</label>
+                <input type="email" class="form-control" placeholder="eleanor@example.com" required>
+              </div>
+              <div class="col-md-6">
+                <label class="form-label fw-semibold">Phone Number</label>
+                <input type="tel" class="form-control" placeholder="+1 (555) 019-2834" required>
+              </div>
+              <div class="col-md-6">
+                <label class="form-label fw-semibold">Select Specialist</label>
+                <select class="form-select" name="doctor" required>
+                  <option value="" selected disabled>Choose doctor...</option>
+                  <option value="jenkins">Dr. Sarah Jenkins (Chief Endocrinologist)</option>
+                  <option value="vance">Dr. Marcus Vance (Thyroid & Nodules)</option>
+                  <option value="rostova">Dr. Elena Rostova (Metabolic & PCOS)</option>
+                  <option value="chen">Dr. David Chen (Diabetes Tech & CGM)</option>
+                </select>
+              </div>
+              <div class="col-md-6">
+                <label class="form-label fw-semibold">Preferred Date</label>
+                <input type="date" class="form-control" name="date" required>
+              </div>
+              <div class="col-md-6">
+                <label class="form-label fw-semibold">Preferred Time Slot</label>
+                <select class="form-select" required>
+                  <option value="morning">Morning (9:00 AM - 12:00 PM)</option>
+                  <option value="afternoon">Afternoon (1:00 PM - 4:00 PM)</option>
+                  <option value="evening">Evening (4:00 PM - 6:30 PM)</option>
+                </select>
+              </div>
+              <div class="col-12">
+                <label class="form-label fw-semibold">Clinical Reason / Symptoms</label>
+                <textarea class="form-control" rows="3" placeholder="Briefly describe your symptoms or visit reason..."></textarea>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary rounded-pill px-4" data-bs-dismiss="modal">Cancel</button>
+            <button type="submit" class="btn btn-primary-custom">Confirm Appointment Request</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/js/main.js"></script>
+
+  <!-- Parameterized Article Script -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const urlParams = new URLSearchParams(window.location.search);
+      const articleKey = urlParams.get('article');
+
+      const articlesData = {
+        'hashimotos': {
+          title: 'Beyond TSH: Why Evaluating Free T3 and TPO Antibodies Matters in Hashimoto’s',
+          category: 'Thyroid Health',
+          date: 'October 04, 2026',
+          time: '6 Min Read',
+          author: 'Dr. Marcus Vance, MD, ECNU',
+          authorImg: 'assets/images/dr-marcus-vance.jpg',
+          image: 'assets/images/blog-hashimotos-thyroid.jpg'
+        },
+        'food-sequencing': {
+          title: 'Food Sequencing: The Science of Eating Fiber and Protein Before Carbohydrates',
+          category: 'Medical Nutrition',
+          date: 'September 28, 2026',
+          time: '5 Min Read',
+          author: 'Dr. David Chen, PharmD, CDCES',
+          authorImg: 'assets/images/dr-david-chen.jpg',
+          image: 'assets/images/blog-food-sequencing.jpg'
+        },
+        'glp1-science': {
+          title: 'GLP-1 and Dual GIP Agonists: Understanding the Neurohormonal Appetite Axis',
+          category: 'Metabolic Science',
+          date: 'September 19, 2026',
+          time: '7 Min Read',
+          author: 'Dr. Elena Rostova, MD, PhD',
+          authorImg: 'assets/images/dr-elena-rostova.jpg',
+          image: 'assets/images/blog-glp1-metabolic.jpg'
+        },
+        'cortisol-curve': {
+          title: 'Restoring Your Cortisol Awakening Response: Circadian Endocrine Rhythms',
+          category: 'Hormonal Medicine',
+          date: 'September 11, 2026',
+          time: '6 Min Read',
+          author: 'Dr. Jonathan Hayes, MD',
+          authorImg: 'assets/images/dr-marcus-vance.jpg',
+          image: 'assets/images/blog-cortisol-rhythm.jpg'
+        },
+        'closed-loop': {
+          title: 'Automated Insulin Delivery: Living with the Artificial Pancreas in 2026',
+          category: 'Diabetes Technology',
+          date: 'August 29, 2026',
+          time: '8 Min Read',
+          author: 'Dr. David Chen, PharmD, CDCES',
+          authorImg: 'assets/images/dr-david-chen.jpg',
+          image: 'assets/images/blog-insulin-delivery.jpg'
+        },
+        'bone-health': {
+          title: 'Silent Bone Loss: Interpreting Your DEXA T-Scores and Fracture Risk',
+          category: 'Metabolic Bone Care',
+          date: 'August 15, 2026',
+          time: '5 Min Read',
+          author: 'Dr. Anthony Ross, MD',
+          authorImg: 'assets/images/dr-marcus-vance.jpg',
+          image: 'assets/images/blog-dexa-bone.jpg'
+        }
+      };
+
+      if (articleKey && articlesData[articleKey]) {
+        const item = articlesData[articleKey];
+        document.getElementById('articleTitle').textContent = item.title;
+        document.getElementById('articleBreadcrumb').textContent = item.category;
+        document.getElementById('articleCategoryBadge').textContent = item.category;
+        document.getElementById('articleDate').textContent = item.date;
+        document.getElementById('articleReadingTime').textContent = item.time;
+        document.getElementById('authorName').textContent = item.author;
+        document.getElementById('authorAvatar').src = item.authorImg;
+        document.getElementById('authorBioName').textContent = item.author;
+        document.getElementById('authorBioAvatar').src = item.authorImg;
+        document.getElementById('articleFeaturedImg').src = item.image;
+        document.title = `${item.title} – EndoCare Clinic`;
+      }
+    });
+  </script>
+</body>
+</html>

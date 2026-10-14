@@ -1,0 +1,956 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dr. Elena Rostova, MD, PhD - Metabolic & PCOS Specialist | EndoCare Clinic</title>
+  <meta name="description" content="Meet Dr. Elena Rostova, MD, PhD, Lead Metabolic & PCOS Specialist at EndoCare. Expert care in PCOS management, insulin resistance reversal, and medical weight management.">
+  <meta name="keywords" content="Dr Elena Rostova, PCOS specialist, metabolic endocrinologist, insulin resistance, fertility endocrinology, EndoCare">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%230284c7'><path d='M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-2 10h-4v4h-2v-4H7v-2h4V7h2v4h4v2z'/></svg>">
+
+  <!-- Google Fonts: Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Bootstrap 5.3.3 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap Icons 1.11.3 -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="assets/css/style.css">
+  <!-- RTL CSS (Toggled via JS) -->
+  <link rel="stylesheet" href="assets/css/rtl.css">
+</head>
+<body>
+
+
+  <!-- Main Navigation Bar -->
+  <nav class="navbar navbar-expand-xl navbar-custom">
+    <div class="container">
+      <!-- Clinic Brand Logo -->
+      <a class="navbar-brand" href="index.html">
+        <span class="brand-icon"><i class="bi bi-activity"></i></span>
+        <span>Endo<span class="brand-text-accent">Care</span></span>
+      </a>
+
+      <!-- Mobile Hamburger Toggler -->
+      <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMain" aria-controls="navbarMain" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <!-- Navbar Menu -->
+      <div class="collapse navbar-collapse" id="navbarMain">
+        <!-- Center Nav Links -->
+        <ul class="navbar-nav mx-auto mb-2 mb-xl-0 align-items-xl-center">
+          <!-- Home Dropdown (contains only Home 1 and Home 2) -->
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="homeDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Home
+            </a>
+            <ul class="dropdown-menu border-0 shadow" aria-labelledby="homeDropdown">
+              <li><a class="dropdown-item" href="index.html"><i class="bi bi-hospital me-2 text-primary"></i>Home 1 – General Clinic</a></li>
+              <li><a class="dropdown-item" href="home-2.html"><i class="bi bi-droplet-half me-2 text-info"></i>Home 2 – Diabetes Care</a></li>
+            </ul>
+          </li>
+
+          <!-- Standard Navigation Links -->
+          <li class="nav-item">
+            <a class="nav-link" href="about.html">About Us</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="services.html">Services</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="pricing.html">Pricing</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="blog.html">Blog</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="contact.html">Contact</a>
+          </li>
+        </ul>
+
+        <!-- Action Buttons (Dashboard, RTL, Dark/Light, Login, Sign Up) -->
+        <div class="d-flex align-items-center flex-wrap flex-xl-nowrap nav-actions-wrap gap-2 mt-3 mt-xl-0">
+          <!-- Dashboard Button (Highlighted) -->
+          <a href="dashboard-patient.html" class="btn-nav-dashboard" title="Patient Health Portal">
+            <i class="bi bi-speedometer2"></i>
+            <span>Dashboard</span>
+          </a>
+
+          <!-- RTL Toggle Button -->
+          <button type="button" class="btn-control-icon rtl-toggle-btn" title="Toggle RTL / LTR Direction" aria-label="Toggle text direction">
+            <span class="rtl-text fw-bold small">RTL</span>
+          </button>
+
+          <!-- Dark/Light Mode Toggle Button -->
+          <button type="button" class="btn-control-icon theme-toggle-btn" title="Toggle Light / Dark Mode" aria-label="Toggle color theme">
+            <i class="bi bi-moon-stars-fill"></i>
+          </button>
+
+          <!-- Login Button -->
+          <a href="login.html" class="btn-login">Login</a>
+
+          <!-- Sign Up Button -->
+          <a href="register.html" class="btn-signup">Sign Up</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- SECTION 1: Physician Hero Profile Header with Breadcrumbs -->
+  <section class="py-5 bg-alt border-bottom" id="doctorHero">
+    <div class="container py-3">
+      <!-- Breadcrumb -->
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb mb-4">
+          <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+          <li class="breadcrumb-item"><a href="doctors.html">Physicians</a></li>
+          <li class="breadcrumb-item active" aria-current="page">Dr. Elena Rostova, MD, PhD</li>
+        </ol>
+      </nav>
+
+      <!-- Profile Header Card -->
+      <div class="card border-0 shadow-sm rounded-4 overflow-hidden bg-surface p-4 p-lg-5">
+        <div class="row g-4 align-items-center">
+          <!-- Doctor Portrait Image -->
+          <div class="col-lg-4 col-md-5 text-center">
+            <div class="position-relative d-inline-block w-100" style="max-width: 340px;">
+              <img src="assets/images/dr-elena-rostova.jpg" alt="Dr. Elena Rostova, MD - Metabolic & PCOS Specialist" class="rounded-4 shadow-sm w-100" style="height: 420px; object-fit: cover; object-position: top center;">
+              <span class="position-absolute top-0 end-0 m-3 badge bg-success px-3 py-2 rounded-pill shadow-sm">
+                <i class="bi bi-check-circle-fill me-1"></i> Accepting New Patients
+              </span>
+              <div class="position-absolute bottom-0 start-0 m-3 px-3 py-2 bg-dark bg-opacity-75 text-white rounded-3 small backdrop-blur">
+                <i class="bi bi-geo-alt-fill text-warning me-1"></i> Clinic Suite 402
+              </div>
+            </div>
+          </div>
+
+          <!-- Doctor Key Information -->
+          <div class="col-lg-8 col-md-7">
+            <div class="d-flex flex-wrap align-items-center gap-2 mb-2">
+              <span class="badge-subtle mb-0"><i class="bi bi-shield-check"></i> Board Certified Endocrinologist</span>
+              <span class="badge bg-primary-subtle text-primary fw-semibold px-3 py-1 rounded-pill">Metabolic Lead</span>
+              <span class="badge bg-secondary-subtle text-secondary fw-semibold px-3 py-1 rounded-pill">Director of PCOS Center</span>
+            </div>
+
+            <h1 class="display-6 fw-extrabold mb-1">Dr. Elena Rostova, MD, PhD</h1>
+            <p class="text-primary fw-bold fs-5 mb-3">Lead Metabolic &amp; PCOS Specialist | Reproductive Endocrinologist</p>
+            
+            <p class="text-muted mb-4 lead fs-6">
+              Dr. Elena Rostova is an internationally recognized physician-scientist pioneering root-cause endocrine medicine. She specializes in the comprehensive management of Polycystic Ovary Syndrome (PCOS), insulin resistance reversal, obesity medicine, and hormonal fertility optimization.
+            </p>
+
+            <!-- Star Rating & Review Count -->
+            <div class="d-flex align-items-center gap-3 p-3 bg-alt rounded-3 border mb-4">
+              <div class="d-flex align-items-center gap-1 text-warning fs-5">
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i>
+              </div>
+              <div>
+                <span class="fw-bold fs-6">4.9 / 5.0</span>
+                <span class="text-muted small ms-1">(310 Verified Patient Ratings)</span>
+              </div>
+              <div class="ms-auto d-none d-sm-block">
+                <span class="badge bg-info-subtle text-info px-2 py-1"><i class="bi bi-patch-check-fill text-info me-1"></i> 100% Patient Recommended</span>
+              </div>
+            </div>
+
+            <!-- Key Metric Counters -->
+            <div class="row g-3 text-center mb-4">
+              <div class="col-6 col-sm-3">
+                <div class="p-3 bg-alt rounded-3 border">
+                  <h4 class="fw-extrabold text-primary mb-0">14+</h4>
+                  <small class="text-muted">Years Practice</small>
+                </div>
+              </div>
+              <div class="col-6 col-sm-3">
+                <div class="p-3 bg-alt rounded-3 border">
+                  <h4 class="fw-extrabold text-primary mb-0">4,200+</h4>
+                  <small class="text-muted">Patients Treated</small>
+                </div>
+              </div>
+              <div class="col-6 col-sm-3">
+                <div class="p-3 bg-alt rounded-3 border">
+                  <h4 class="fw-extrabold text-primary mb-0">94%</h4>
+                  <small class="text-muted">Ovulation Restored</small>
+                </div>
+              </div>
+              <div class="col-6 col-sm-3">
+                <div class="p-3 bg-alt rounded-3 border">
+                  <h4 class="fw-extrabold text-primary mb-0">18</h4>
+                  <small class="text-muted">Published Studies</small>
+                </div>
+              </div>
+            </div>
+
+            <!-- Action CTAs -->
+            <div class="d-flex flex-wrap align-items-center gap-3">
+              <button class="btn btn-primary-custom px-4 py-2" data-bs-toggle="modal" data-bs-target="#appointmentModal">
+                <i class="bi bi-calendar-check me-2"></i> Book Consultation with Dr. Rostova
+              </button>
+              <a href="#bookingSection" class="btn btn-outline-custom px-4 py-2">
+                <i class="bi bi-clock-history me-1"></i> View Clinical Schedule
+              </a>
+              <a href="tel:18005553636" class="btn btn-sm btn-icon" title="Call Clinic Office">
+                <i class="bi bi-telephone"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 2: Physician Biography & Clinical Philosophy -->
+  <section class="section-padding bg-surface">
+    <div class="container">
+      <div class="row g-5 align-items-center">
+        <div class="col-lg-7">
+          <span class="badge-subtle"><i class="bi bi-file-earmark-person"></i> Physician Biography</span>
+          <h2 class="section-title">Root-Cause Endocrinology Dedicated to Hormonal Restoration</h2>
+          <p class="text-muted lead fs-6">
+            "Rather than merely managing symptoms with oral contraceptives or isolated prescriptions, our mission is to understand the intricate neuro-endocrine and metabolic pathways that govern your hormones."
+          </p>
+          <p class="text-muted">
+            Dr. Elena Rostova completed her dual MD and PhD in Molecular Endocrinology at Stanford University School of Medicine, followed by internal medicine residency at Brigham & Women’s Hospital / Harvard Medical School. She then completed specialized endocrine fellowship training at the Mayo Clinic, zeroing in on ovarian steroidogenesis, hyperinsulinemia, and metabolic dysfunction.
+          </p>
+          <p class="text-muted">
+            Throughout her 14 years in academic and clinical practice, Dr. Rostova has built one of the nation's most respected outpatient programs for Polycystic Ovary Syndrome (PCOS). Her clinical protocol unites continuous glucose sensor telemetry (CGM), personalized micro-nutrient and inositol balance, insulin-sensitizing pharmacotherapies (including GLP-1/GIP agonists when clinically indicated), and targeted hormonal therapies.
+          </p>
+
+          <div class="row g-3 mt-2">
+            <div class="col-md-6">
+              <div class="p-3 bg-alt rounded-3 border h-100">
+                <div class="d-flex align-items-center gap-3 mb-2">
+                  <div class="p-2 bg-primary-subtle text-primary rounded-circle">
+                    <i class="bi bi-heart-pulse fs-5"></i>
+                  </div>
+                  <h6 class="fw-bold mb-0">Integrative Diagnostics</h6>
+                </div>
+                <small class="text-muted">Comprehensive 4-point insulin curves, advanced lipid subfraction testing, and 24-hr bioavailable androgens.</small>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="p-3 bg-alt rounded-3 border h-100">
+                <div class="d-flex align-items-center gap-3 mb-2">
+                  <div class="p-2 bg-success-subtle text-success rounded-circle">
+                    <i class="bi bi-check2-circle fs-5"></i>
+                  </div>
+                  <h6 class="fw-bold mb-0">Compassionate Advocacy</h6>
+                </div>
+                <small class="text-muted">Unrushed 45-minute clinical visits where every patient’s lived experience and biomarker profile are deeply heard.</small>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-5">
+          <div class="card border-0 bg-alt rounded-4 p-4 shadow-sm">
+            <h4 class="fw-bold mb-3 d-flex align-items-center gap-2">
+              <i class="bi bi-award text-warning"></i> Physician Credentials
+            </h4>
+            
+            <div class="mb-3 pb-3 border-bottom">
+              <span class="text-uppercase text-muted small fw-bold">Primary Specialty</span>
+              <p class="fw-bold text-dark mb-0">Reproductive &amp; Metabolic Endocrinology</p>
+            </div>
+
+            <div class="mb-3 pb-3 border-bottom">
+              <span class="text-uppercase text-muted small fw-bold">Education &amp; Training</span>
+              <ul class="list-unstyled mb-0 small text-muted mt-1">
+                <li class="mb-1"><strong>MD / PhD:</strong> Stanford University School of Medicine</li>
+                <li class="mb-1"><strong>Residency:</strong> Brigham &amp; Women's Hospital (Harvard)</li>
+                <li><strong>Fellowship:</strong> Mayo Clinic Endocrine Division</li>
+              </ul>
+            </div>
+
+            <div class="mb-3 pb-3 border-bottom">
+              <span class="text-uppercase text-muted small fw-bold">Board Certifications</span>
+              <ul class="list-unstyled mb-0 small text-muted mt-1">
+                <li class="mb-1"><i class="bi bi-check-circle text-primary me-1"></i> American Board of Internal Medicine: Endocrinology, Diabetes &amp; Metabolism</li>
+                <li><i class="bi bi-check-circle text-primary me-1"></i> Diplomate, American Board of Obesity Medicine (ABOM)</li>
+              </ul>
+            </div>
+
+            <div class="mb-3 pb-3 border-bottom">
+              <span class="text-uppercase text-muted small fw-bold">Professional Fellowships</span>
+              <p class="small text-muted mb-0">Fellow of American College of Endocrinology (FACE), Member of AE-PCOS Society, Endocrine Society.</p>
+            </div>
+
+            <div>
+              <span class="text-uppercase text-muted small fw-bold">Languages Spoken</span>
+              <p class="small text-dark fw-semibold mb-0">English (Fluent), Russian (Native), Spanish (Clinical)</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 3: Areas of Clinical Specialization & PCOS Protocols -->
+  <section class="section-padding bg-alt border-top border-bottom">
+    <div class="container">
+      <div class="text-center mb-5">
+        <span class="badge-subtle"><i class="bi bi-stars"></i> Clinical Focus</span>
+        <h2 class="section-title">Specialized Clinical Programs</h2>
+        <p class="section-subtitle">
+          Targeted evidence-based care tailored for women navigating complex hormone, insulin, and metabolic dysfunctions.
+        </p>
+      </div>
+
+      <div class="row g-4">
+        <!-- Area 1 -->
+        <div class="col-md-6 col-lg-4">
+          <div class="service-card h-100 p-4">
+            <div class="service-icon mb-3">
+              <i class="bi bi-gender-female text-primary fs-3"></i>
+            </div>
+            <h5 class="fw-bold mb-2">Rotterdam PCOS Management</h5>
+            <p class="text-muted small mb-3">
+              Precision sub-typing (Insulin-Resistant, Post-Pill, Inflammatory, Adrenal PCOS). Targeted therapies for hirsutism, cystic acne, anovulation, and cycle irregularities.
+            </p>
+            <ul class="list-unstyled small text-muted mb-0">
+              <li><i class="bi bi-check-circle-fill text-primary me-2"></i> Targeted inositol ratios &amp; Metformin</li>
+              <li><i class="bi bi-check-circle-fill text-primary me-2"></i> Anti-androgenic clinical therapies</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Area 2 -->
+        <div class="col-md-6 col-lg-4">
+          <div class="service-card h-100 p-4">
+            <div class="service-icon mb-3">
+              <i class="bi bi-activity text-primary fs-3"></i>
+            </div>
+            <h5 class="fw-bold mb-2">Insulin Resistance Reversal</h5>
+            <p class="text-muted small mb-3">
+              Early hyperinsulinemia detection before elevated fasting glucose appears. Real-time CGM sensor mapping, Kraft insulin curves, and metabolic restoration protocols.
+            </p>
+            <ul class="list-unstyled small text-muted mb-0">
+              <li><i class="bi bi-check-circle-fill text-primary me-2"></i> Continuous glucose telemetry</li>
+              <li><i class="bi bi-check-circle-fill text-primary me-2"></i> Pre-diabetes remission pathways</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Area 3 -->
+        <div class="col-md-6 col-lg-4">
+          <div class="service-card h-100 p-4">
+            <div class="service-icon mb-3">
+              <i class="bi bi-heart-pulse-fill text-primary fs-3"></i>
+            </div>
+            <h5 class="fw-bold mb-2">Medical Weight Management</h5>
+            <p class="text-muted small mb-3">
+              Comprehensive metabolic evaluation with dual GLP-1 and GIP receptor agonist therapy (Semaglutide, Tirzepatide) combined with muscle preservation strategies.
+            </p>
+            <ul class="list-unstyled small text-muted mb-0">
+              <li><i class="bi bi-check-circle-fill text-primary me-2"></i> Metabolic baseline &amp; DEXA scanning</li>
+              <li><i class="bi bi-check-circle-fill text-primary me-2"></i> Long-term taper &amp; maintenance</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Area 4 -->
+        <div class="col-md-6 col-lg-4">
+          <div class="service-card h-100 p-4">
+            <div class="service-icon mb-3">
+              <i class="bi bi-egg text-primary fs-3"></i>
+            </div>
+            <h5 class="fw-bold mb-2">Hormonal Fertility &amp; Preconception</h5>
+            <p class="text-muted small mb-3">
+              Optimizing ovulatory function, luteal phase progesterone balance, and endometrial receptivity for natural conception or assisted reproductive technology (ART/IVF).
+            </p>
+            <ul class="list-unstyled small text-muted mb-0">
+              <li><i class="bi bi-check-circle-fill text-primary me-2"></i> Follicular phase tracking</li>
+              <li><i class="bi bi-check-circle-fill text-primary me-2"></i> Gestational diabetes risk reduction</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Area 5 -->
+        <div class="col-md-6 col-lg-4">
+          <div class="service-card h-100 p-4">
+            <div class="service-icon mb-3">
+              <i class="bi bi-shield-shaded text-primary fs-3"></i>
+            </div>
+            <h5 class="fw-bold mb-2">Metabolic Liver &amp; MASLD Care</h5>
+            <p class="text-muted small mb-3">
+              Reversing hepatic steatosis (metabolic dysfunction-associated steatotic liver disease) through hepatic insulin sensitization, FIB-4 biomarker scoring, and nutrition.
+            </p>
+            <ul class="list-unstyled small text-muted mb-0">
+              <li><i class="bi bi-check-circle-fill text-primary me-2"></i> Hepatic ultrasound surveillance</li>
+              <li><i class="bi bi-check-circle-fill text-primary me-2"></i> Cardiometabolic risk mitigation</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Area 6 -->
+        <div class="col-md-6 col-lg-4">
+          <div class="service-card h-100 p-4">
+            <div class="service-icon mb-3">
+              <i class="bi bi-brightness-high text-primary fs-3"></i>
+            </div>
+            <h5 class="fw-bold mb-2">Perimenopausal Metabolic Care</h5>
+            <p class="text-muted small mb-3">
+              Navigating estrogen-progesterone decline, visceral adiposity redistribution, thyroid-adrenal interplay, and evidence-based bioidentical hormone therapy (BHRT).
+            </p>
+            <ul class="list-unstyled small text-muted mb-0">
+              <li><i class="bi bi-check-circle-fill text-primary me-2"></i> Transdermal bioidentical hormones</li>
+              <li><i class="bi bi-check-circle-fill text-primary me-2"></i> Bone density &amp; cardio protection</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 4: Clinical Milestones & Patient Outcomes -->
+  <section class="section-padding bg-surface">
+    <div class="container">
+      <div class="row g-5 align-items-center">
+        <div class="col-lg-6">
+          <span class="badge-subtle"><i class="bi bi-graph-up-arrow"></i> Evidence-Based Results</span>
+          <h2 class="section-title">Measurable Clinical Milestones in Dr. Rostova's Patient Cohort</h2>
+          <p class="text-muted mb-4">
+            Over the past 5 years at EndoCare Clinic, Dr. Rostova’s structured 12-month PCOS &amp; Metabolic Care Pathway has consistently documented verifiable clinical outcomes validated by clinical laboratory telemetry:
+          </p>
+
+          <div class="d-flex flex-column gap-3 mb-4">
+            <!-- Metric 1 -->
+            <div class="p-3 bg-alt rounded-3 border">
+              <div class="d-flex justify-content-between align-items-center mb-1">
+                <span class="fw-bold">Restoration of Regular Ovulatory Cycles</span>
+                <span class="fw-extrabold text-primary">94%</span>
+              </div>
+              <div class="progress" style="height: 8px;">
+                <div class="progress-bar bg-primary" role="progressbar" style="width: 94%;" aria-valuenow="94" aria-valuemin="0" aria-valuemax="100"></div>
+              </div>
+              <small class="text-muted mt-1 d-block">Achieved within 6 months of combined lifestyle + metabolic intervention.</small>
+            </div>
+
+            <!-- Metric 2 -->
+            <div class="p-3 bg-alt rounded-3 border">
+              <div class="d-flex justify-content-between align-items-center mb-1">
+                <span class="fw-bold">Average Fasting Insulin Reduction</span>
+                <span class="fw-extrabold text-success">-58%</span>
+              </div>
+              <div class="progress" style="height: 8px;">
+                <div class="progress-bar bg-success" role="progressbar" style="width: 58%;" aria-valuenow="58" aria-valuemin="0" aria-valuemax="100"></div>
+              </div>
+              <small class="text-muted mt-1 d-block">Marked improvement in HOMA-IR insulin sensitivity scores.</small>
+            </div>
+
+            <!-- Metric 3 -->
+            <div class="p-3 bg-alt rounded-3 border">
+              <div class="d-flex justify-content-between align-items-center mb-1">
+                <span class="fw-bold">Average HbA1c Reduction (Pre-diabetes / T2D)</span>
+                <span class="fw-extrabold text-info">-2.4%</span>
+              </div>
+              <div class="progress" style="height: 8px;">
+                <div class="progress-bar bg-info" role="progressbar" style="width: 78%;" aria-valuenow="78" aria-valuemin="0" aria-valuemax="100"></div>
+              </div>
+              <small class="text-muted mt-1 d-block">Without recurrent hypoglycemia using modern sensor-paired therapies.</small>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-6">
+          <div class="card border-0 bg-primary text-white rounded-4 p-4 p-md-5 shadow-lg position-relative overflow-hidden">
+            <div class="position-relative z-1">
+              <span class="badge bg-white text-primary fw-bold px-3 py-2 rounded-pill mb-3">
+                <i class="bi bi-quote"></i> Doctor's Perspective
+              </span>
+              <h3 class="display-6 fw-bold mb-3">"PCOS is not your fault, and you are not broken."</h3>
+              <p class="lead opacity-90 mb-4 fs-6">
+                "Far too many women are told that weight gain and missed cycles are personal failings, or given birth control pills without an explanation of insulin signaling. When we repair cellular sensitivity to insulin and restore healthy androgen clearance, the body responds with incredible resilience."
+              </p>
+              <div class="d-flex align-items-center gap-3 pt-3 border-top border-white border-opacity-25">
+                <img src="assets/images/dr-elena-rostova.jpg" alt="Dr. Elena Rostova" class="rounded-circle border border-2 border-white" style="width: 60px; height: 60px; object-fit: cover;">
+                <div>
+                  <h6 class="fw-bold mb-0 text-white">Dr. Elena Rostova, MD, PhD</h6>
+                  <small class="text-white opacity-75">Fellow, American College of Endocrinology</small>
+                </div>
+              </div>
+            </div>
+            <!-- Decorative circle -->
+            <div class="position-absolute end-0 bottom-0 translate-middle-x rounded-circle bg-white opacity-10" style="width: 300px; height: 300px;"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 5: Weekly Schedule & Direct Appointment Booking -->
+  <section class="section-padding bg-alt border-top border-bottom" id="bookingSection">
+    <div class="container">
+      <div class="row g-5">
+        <!-- Schedule Table -->
+        <div class="col-lg-5">
+          <span class="badge-subtle"><i class="bi bi-clock"></i> Clinical Hours</span>
+          <h2 class="section-title">Consulting Schedule</h2>
+          <p class="text-muted mb-4">
+            Dr. Rostova holds in-clinic evaluations three days a week and dedicated telehealth appointments for interstate patients.
+          </p>
+
+          <div class="card border-0 bg-surface shadow-sm rounded-4 overflow-hidden mb-4">
+            <div class="table-responsive">
+              <table class="table table-hover align-middle mb-0">
+                <thead class="table-light">
+                  <tr>
+                    <th class="ps-4">Day</th>
+                    <th>Hours</th>
+                    <th class="pe-4">Visit Type</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="ps-4 fw-bold">Monday</td>
+                    <td>8:00 AM - 4:30 PM</td>
+                    <td class="pe-4"><span class="badge bg-success-subtle text-success">In-Clinic (Suite 402)</span></td>
+                  </tr>
+                  <tr>
+                    <td class="ps-4 fw-bold">Tuesday</td>
+                    <td>8:00 AM - 4:30 PM</td>
+                    <td class="pe-4"><span class="badge bg-success-subtle text-success">In-Clinic (Suite 402)</span></td>
+                  </tr>
+                  <tr>
+                    <td class="ps-4 fw-bold">Wednesday</td>
+                    <td>9:00 AM - 3:00 PM</td>
+                    <td class="pe-4"><span class="badge bg-info-subtle text-info">Telehealth Virtual</span></td>
+                  </tr>
+                  <tr>
+                    <td class="ps-4 fw-bold">Thursday</td>
+                    <td>8:00 AM - 5:00 PM</td>
+                    <td class="pe-4"><span class="badge bg-success-subtle text-success">In-Clinic (Suite 402)</span></td>
+                  </tr>
+                  <tr>
+                    <td class="ps-4 fw-bold">Friday</td>
+                    <td>8:30 AM - 1:00 PM</td>
+                    <td class="pe-4"><span class="badge bg-warning-subtle text-warning">Procedures &amp; Research</span></td>
+                  </tr>
+                  <tr>
+                    <td class="ps-4 fw-bold text-muted">Saturday - Sun</td>
+                    <td colspan="2" class="pe-4 text-muted">Closed (Urgent on-call coverage)</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <div class="p-3 bg-surface rounded-3 border">
+            <div class="d-flex align-items-center gap-3">
+              <i class="bi bi-telephone-inbound text-primary fs-3"></i>
+              <div>
+                <h6 class="fw-bold mb-0">Need Rapid Intake Coordination?</h6>
+                <small class="text-muted">Speak directly with Dr. Rostova's patient coordinator at <strong>(800) 555-ENDO ext. 402</strong>.</small>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Dedicated Interactive Booking Form -->
+        <div class="col-lg-7">
+          <div class="card border-0 bg-surface shadow-sm rounded-4 p-4 p-md-5">
+            <div class="d-flex align-items-center gap-2 mb-2">
+              <span class="badge bg-primary text-white px-3 py-1 rounded-pill">Priority Booking</span>
+              <span class="text-muted small">Instant confirmation</span>
+            </div>
+            <h3 class="fw-bold mb-2">Request an Appointment with Dr. Elena Rostova</h3>
+            <p class="text-muted small mb-4">Please submit your details below. Our clinical intake team will verify insurance and confirm your appointment slot within 2 hours.</p>
+
+            <form onsubmit="event.preventDefault(); window.showToast('Appointment Requested', 'Your consultation with Dr. Elena Rostova has been booked! Check your email for confirmation.', 'success'); this.reset();">
+              <div class="row g-3">
+                <div class="col-md-6">
+                  <label class="form-label small fw-semibold">Patient Full Name <span class="text-danger">*</span></label>
+                  <input type="text" class="form-control" placeholder="e.g. Sarah Mitchell" required>
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label small fw-semibold">Email Address <span class="text-danger">*</span></label>
+                  <input type="email" class="form-control" placeholder="s.mitchell@example.com" required>
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label small fw-semibold">Phone Number <span class="text-danger">*</span></label>
+                  <input type="tel" class="form-control" placeholder="(555) 000-0000" required>
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label small fw-semibold">Primary Consultation Reason <span class="text-danger">*</span></label>
+                  <select class="form-select" required>
+                    <option value="" selected disabled>Select Clinical Focus</option>
+                    <option value="pcos" selected>PCOS Comprehensive Initial Evaluation</option>
+                    <option value="insulin">Insulin Resistance &amp; Pre-diabetes Reversal</option>
+                    <option value="weight">Medical Weight Management (GLP-1 Consultation)</option>
+                    <option value="fertility">Endocrine Fertility &amp; Ovulation Induction</option>
+                    <option value="telehealth">Interstate Telehealth Second Opinion</option>
+                  </select>
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label small fw-semibold">Preferred Appointment Date <span class="text-danger">*</span></label>
+                  <input type="date" class="form-control" required>
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label small fw-semibold">Preferred Time Window</label>
+                  <select class="form-select">
+                    <option value="morning">Morning (8:30 AM - 11:30 AM)</option>
+                    <option value="afternoon" selected>Afternoon (1:00 PM - 4:00 PM)</option>
+                  </select>
+                </div>
+                <div class="col-12">
+                  <label class="form-label small fw-semibold">Clinical Notes / Previous Lab Work</label>
+                  <textarea class="form-control" rows="3" placeholder="Briefly summarize your diagnosis history, prior medications (e.g. Metformin, Spironolactone), or primary symptoms..."></textarea>
+                </div>
+                <div class="col-12">
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="insuranceConsent" checked required>
+                    <label class="form-check-label small text-muted" for="insuranceConsent">
+                      I agree to the clinic’s privacy policy and consent to appointment text reminders.
+                    </label>
+                  </div>
+                </div>
+                <div class="col-12 mt-3">
+                  <button type="submit" class="btn btn-primary-custom w-100 py-3 fw-bold">
+                    <i class="bi bi-calendar2-check me-2"></i> Confirm My Appointment Request
+                  </button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 6: Verified Patient Testimonials -->
+  <section class="section-padding bg-surface">
+    <div class="container">
+      <div class="text-center mb-5">
+        <span class="badge-subtle"><i class="bi bi-chat-heart"></i> Patient Experiences</span>
+        <h2 class="section-title">What Patients Say About Dr. Elena Rostova</h2>
+        <p class="section-subtitle">Real experiences from patients treated at our Metabolic &amp; PCOS Center.</p>
+      </div>
+
+      <div class="row g-4">
+        <!-- Testimonial 1 -->
+        <div class="col-md-4">
+          <div class="card h-100 border p-4 rounded-4 shadow-sm bg-alt">
+            <div class="d-flex text-warning mb-3">
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+            </div>
+            <p class="text-muted small mb-4 flex-grow-1">
+              "For 7 years doctors told me to 'just lose weight' and prescribed birth control pills that made me sick. Dr. Elena listened for 45 minutes, did comprehensive insulin and cortisol panels, and identified severe postprandial hyperinsulinemia. Within 5 months on her protocol, my natural cycle returned and I'm down 28 lbs!"
+            </p>
+            <div class="d-flex align-items-center gap-3 pt-3 border-top">
+              <div class="rounded-circle bg-primary text-white fw-bold d-flex align-items-center justify-content-center" style="width: 44px; height: 44px;">
+                KL
+              </div>
+              <div>
+                <h6 class="fw-bold mb-0">Katherine L.</h6>
+                <small class="text-muted"><i class="bi bi-patch-check-fill text-primary"></i> Verified PCOS Patient</small>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Testimonial 2 -->
+        <div class="col-md-4">
+          <div class="card h-100 border p-4 rounded-4 shadow-sm bg-alt">
+            <div class="d-flex text-warning mb-3">
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+            </div>
+            <p class="text-muted small mb-4 flex-grow-1">
+              "Her scientific precision is unmatched. Dr. Rostova explained the exact mechanism behind my insulin resistance and guided me through continuous glucose monitoring. She treated me like an intelligent partner in my health. My HbA1c dropped from 6.3% to 5.4% without feeling deprived."
+            </p>
+            <div class="d-flex align-items-center gap-3 pt-3 border-top">
+              <div class="rounded-circle bg-success text-white fw-bold d-flex align-items-center justify-content-center" style="width: 44px; height: 44px;">
+                MS
+              </div>
+              <div>
+                <h6 class="fw-bold mb-0">Maria Santos</h6>
+                <small class="text-muted"><i class="bi bi-patch-check-fill text-primary"></i> Metabolic Patient</small>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Testimonial 3 -->
+        <div class="col-md-4">
+          <div class="card h-100 border p-4 rounded-4 shadow-sm bg-alt">
+            <div class="d-flex text-warning mb-3">
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+            </div>
+            <p class="text-muted small mb-4 flex-grow-1">
+              "We struggled with anovulatory infertility for 3 years. Reproductive endocrinologists wanted to jump straight to aggressive IVF, but Dr. Rostova wanted to fix my underlying metabolic environment first. Three months after balancing my insulin and androgen ratios, I conceived naturally. We now have a healthy baby girl!"
+            </p>
+            <div class="d-flex align-items-center gap-3 pt-3 border-top">
+              <div class="rounded-circle bg-info text-white fw-bold d-flex align-items-center justify-content-center" style="width: 44px; height: 44px;">
+                AR
+              </div>
+              <div>
+                <h6 class="fw-bold mb-0">Alicia &amp; Ryan T.</h6>
+                <small class="text-muted"><i class="bi bi-patch-check-fill text-primary"></i> Fertility &amp; PCOS Patient</small>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 7: Doctor Frequently Asked Questions -->
+  <section class="section-padding bg-alt border-top">
+    <div class="container">
+      <div class="text-center mb-5">
+        <span class="badge-subtle"><i class="bi bi-question-circle"></i> FAQ</span>
+        <h2 class="section-title">Common Questions About Consultations with Dr. Rostova</h2>
+        <p class="section-subtitle">What to know before your initial metabolic &amp; PCOS appointment.</p>
+      </div>
+
+      <div class="row justify-content-center">
+        <div class="col-lg-8">
+          <div class="accordion" id="doctorFaqAccordion">
+            <!-- FAQ 1 -->
+            <div class="accordion-item border rounded-3 mb-3 overflow-hidden">
+              <h2 class="accordion-header">
+                <button class="accordion-button fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#faqOne">
+                  <span class="faq-question">What tests should I bring or complete before my first visit?</span>
+                </button>
+              </h2>
+              <div id="faqOne" class="accordion-collapse collapse show" data-bs-parent="#doctorFaqAccordion">
+                <div class="accordion-body text-muted small">
+                  If you have had blood work or pelvic ultrasounds in the last 12 months (such as fasting glucose, lipid panels, thyroid panels, testosterone, DHEA-S, or FSH/LH), please upload them to your Patient Portal beforehand. Dr. Rostova also routinely orders a comprehensive Endocrine Biomarker Panel during your first intake.
+                </div>
+              </div>
+            </div>
+
+            <!-- FAQ 2 -->
+            <div class="accordion-item border rounded-3 mb-3 overflow-hidden">
+              <h2 class="accordion-header">
+                <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#faqTwo">
+                  <span class="faq-question">Does Dr. Rostova only treat PCOS with birth control?</span>
+                </button>
+              </h2>
+              <div id="faqTwo" class="accordion-collapse collapse" data-bs-parent="#doctorFaqAccordion">
+                <div class="accordion-body text-muted small">
+                  No. While oral contraceptives can be a tool for endometrial protection in select circumstances, Dr. Rostova focuses primarily on root-cause endocrine restoration. This includes insulin sensitizers (Metformin, inositol blends), lifestyle therapeutics, bioidentical progesterone support, and androgen blockers to restore natural ovulatory cycles.
+                </div>
+              </div>
+            </div>
+
+            <!-- FAQ 3 -->
+            <div class="accordion-item border rounded-3 mb-3 overflow-hidden">
+              <h2 class="accordion-header">
+                <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#faqThree">
+                  <span class="faq-question">Can I schedule a telehealth consultation if I live out of state?</span>
+                </button>
+              </h2>
+              <div id="faqThree" class="accordion-collapse collapse" data-bs-parent="#doctorFaqAccordion">
+                <div class="accordion-body text-muted small">
+                  Yes! Dr. Elena Rostova is actively licensed in over 18 states and conducts Wednesday telehealth visits through our HIPAA-compliant portal. Local laboratory orders (e.g. LabCorp / Quest Diagnostics) can be requisitioned to your neighborhood center.
+                </div>
+              </div>
+            </div>
+
+            <!-- FAQ 4 -->
+            <div class="accordion-item border rounded-3 mb-3 overflow-hidden">
+              <h2 class="accordion-header">
+                <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#faqFour">
+                  <span class="faq-question">Does Dr. Rostova prescribe GLP-1 medications (like Semaglutide or Tirzepatide)?</span>
+                </button>
+              </h2>
+              <div id="faqFour" class="accordion-collapse collapse" data-bs-parent="#doctorFaqAccordion">
+                <div class="accordion-body text-muted small">
+                  Yes, when clinically appropriate and indicated for obesity, insulin resistance, or metabolic syndrome. Dr. Rostova pairs GLP-1/GIP therapies with DXA body composition monitoring and dedicated nutritional counseling to preserve lean muscle mass and prevent metabolic rebound.
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="text-center mt-4">
+            <p class="text-muted small mb-2">Have additional clinical questions?</p>
+            <a href="contact.html" class="btn btn-sm btn-outline-custom">Contact Our Endocrinology Team</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Comprehensive Footer -->
+  <footer class="footer-custom">
+    <div class="container">
+      <div class="row g-4">
+        <!-- Col 1: Brand -->
+        <div class="col-lg-4">
+          <a class="navbar-brand text-white mb-3 d-inline-flex" href="index.html">
+            <span class="brand-icon"><i class="bi bi-activity"></i></span>
+            <span>Endo<span class="brand-text-accent">Care</span></span>
+          </a>
+          <p class="text-muted mb-4 pe-lg-4">
+            EndoCare is a dedicated Center of Excellence in Endocrinology and Diabetes Care. We integrate clinical diagnostic acumen with digital health technologies to provide life-transforming metabolic solutions.
+          </p>
+          <div class="d-flex gap-2">
+            <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer" class="btn-control-icon text-muted" title="Facebook" aria-label="Visit EndoCare on Facebook"><i class="bi bi-facebook"></i></a>
+            <a href="https://twitter.com/" target="_blank" rel="noopener noreferrer" class="btn-control-icon text-muted" title="Twitter/X" aria-label="Visit EndoCare on Twitter"><i class="bi bi-twitter-x"></i></a>
+            <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer" class="btn-control-icon text-muted" title="LinkedIn" aria-label="Visit EndoCare on LinkedIn"><i class="bi bi-linkedin"></i></a>
+            <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" class="btn-control-icon text-muted" title="Instagram" aria-label="Visit EndoCare on Instagram"><i class="bi bi-instagram"></i></a>
+          </div>
+        </div>
+
+        <!-- Col 2: Quick Links -->
+        <div class="col-6 col-md-3 col-lg-2">
+          <h5>Quick Links</h5>
+          <ul class="footer-links">
+            <li><a href="index.html"><i class="bi bi-chevron-right small"></i> Home 1</a></li>
+            <li><a href="home-2.html"><i class="bi bi-chevron-right small"></i> Home 2</a></li>
+            <li><a href="about.html"><i class="bi bi-chevron-right small"></i> About Us</a></li>
+            <li><a href="services.html"><i class="bi bi-chevron-right small"></i> Services</a></li>
+            <li><a href="doctors.html"><i class="bi bi-chevron-right small"></i> Doctors</a></li>
+            <li><a href="pricing.html"><i class="bi bi-chevron-right small"></i> Pricing</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3: Services -->
+        <div class="col-6 col-md-3 col-lg-3 footer-clinical-col ps-lg-4 ps-xl-5">
+          <h5>Clinical Programs</h5>
+          <ul class="footer-links">
+            <li><a href="doctor-details.html"><i class="bi bi-chevron-right small"></i> PCOS &amp; Metabolic Care</a></li>
+            <li><a href="service-details.html?service=diabetes"><i class="bi bi-chevron-right small"></i> Diabetes Management</a></li>
+            <li><a href="service-details.html?service=thyroid"><i class="bi bi-chevron-right small"></i> Thyroid Disorders</a></li>
+            <li><a href="service-details.html?service=hormone"><i class="bi bi-chevron-right small"></i> Hormone Balancing</a></li>
+            <li><a href="service-details.html?service=metabolic"><i class="bi bi-chevron-right small"></i> Metabolic Health</a></li>
+            <li><a href="service-details.html?service=osteoporosis"><i class="bi bi-chevron-right small"></i> Osteoporosis Care</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 4: Contact & Emergency -->
+        <div class="col-lg-3">
+          <h5>Clinic Contact</h5>
+          <ul class="footer-links text-muted">
+            <li class="d-flex align-items-start gap-2 mb-2">
+              <i class="bi bi-geo-alt-fill text-primary mt-1"></i>
+              <span>742 Evergreen Medical Blvd, Suite 400, Metro Health City</span>
+            </li>
+            <li class="d-flex align-items-center gap-2 mb-2">
+              <i class="bi bi-telephone-fill text-primary"></i>
+              <span>+1 (800) 555-ENDO (3636)</span>
+            </li>
+            <li class="d-flex align-items-center gap-2 mb-2">
+              <i class="bi bi-envelope-fill text-primary"></i>
+              <span>appointments@endocareclinic.demo</span>
+            </li>
+            <li class="d-flex align-items-center gap-2">
+              <i class="bi bi-clock-fill text-primary"></i>
+              <span>Mon - Fri: 8:00 AM - 6:00 PM</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Footer Bottom -->
+      <div class="footer-bottom d-flex flex-wrap justify-content-between align-items-center gap-3">
+        <p class="mb-0 text-muted">&copy; 2026 EndoCare Clinic. All rights reserved. Designed for professional healthcare practices.</p>
+        <div class="d-flex gap-3 text-muted">
+          <a href="privacy-policy.html" class="text-muted">Privacy Policy</a>
+          <a href="terms-of-care.html" class="text-muted">Terms of Care</a>
+          <a href="dashboard-admin.html" class="text-muted">Admin Portal</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Appointment Modal -->
+  <div class="modal fade" id="appointmentModal" tabindex="-1" aria-labelledby="appointmentModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title fw-bold" id="appointmentModalLabel">Book Consultation - Dr. Elena Rostova</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form onsubmit="event.preventDefault(); window.showToast('Appointment Booked', 'Thank you! Your consultation request with Dr. Elena Rostova has been received.', 'success'); bootstrap.Modal.getInstance(document.getElementById('appointmentModal')).hide(); this.reset();">
+            <div class="mb-3">
+              <label class="form-label small fw-semibold">Attending Physician</label>
+              <input type="text" class="form-control" value="Dr. Elena Rostova, MD (Metabolic &amp; PCOS Specialist)" readonly>
+            </div>
+            <div class="mb-3">
+              <label class="form-label small fw-semibold">Patient Full Name</label>
+              <input type="text" class="form-control" placeholder="Enter your full name" required>
+            </div>
+            <div class="row g-2 mb-3">
+              <div class="col">
+                <label class="form-label small fw-semibold">Email</label>
+                <input type="email" class="form-control" placeholder="name@example.com" required>
+              </div>
+              <div class="col">
+                <label class="form-label small fw-semibold">Phone</label>
+                <input type="tel" class="form-control" placeholder="(555) 000-0000" required>
+              </div>
+            </div>
+            <div class="mb-3">
+              <label class="form-label small fw-semibold">Consultation Reason</label>
+              <select class="form-select" required>
+                <option value="pcos" selected>PCOS &amp; Hormonal Evaluation</option>
+                <option value="insulin">Insulin Resistance Reversal</option>
+                <option value="weight">Medical Weight Management</option>
+                <option value="telehealth">Telehealth Video Consultation</option>
+              </select>
+            </div>
+            <div class="row g-2 mb-3">
+              <div class="col">
+                <label class="form-label small fw-semibold">Preferred Date</label>
+                <input type="date" class="form-control" required>
+              </div>
+              <div class="col">
+                <label class="form-label small fw-semibold">Preferred Time</label>
+                <select class="form-select">
+                  <option>09:00 AM</option>
+                  <option>11:00 AM</option>
+                  <option selected>02:00 PM</option>
+                  <option>04:00 PM</option>
+                </select>
+              </div>
+            </div>
+            <button type="submit" class="btn btn-primary-custom w-100 py-2">Confirm Appointment</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notification Container -->
+  <div class="toast-container position-fixed bottom-0 end-0 p-3" style="z-index: 1090;">
+    <div id="liveToast" class="toast align-items-center text-bg-primary border-0" role="alert" aria-live="assertive" aria-atomic="true">
+      <div class="d-flex">
+        <div class="toast-body" id="toastMessage">
+          <!-- Injected via main.js -->
+        </div>
+        <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap 5.3.3 JS Bundle -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Custom JS -->
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

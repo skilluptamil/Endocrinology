@@ -1,0 +1,397 @@
+/* ===================================================================
+   EndoCare - RTL (Right-to-Left) Stylesheet
+   Applied when html[dir="rtl"] is active
+   =================================================================== */
+
+html[dir="rtl"] {
+  direction: rtl;
+  text-align: right;
+}
+
+html[dir="rtl"] .dropdown-menu {
+  text-align: right;
+}
+
+html[dir="rtl"] .navbar-brand {
+  margin-left: 1rem;
+  margin-right: 0;
+}
+
+html[dir="rtl"] .me-auto {
+  margin-left: auto !important;
+  margin-right: 0 !important;
+}
+
+html[dir="rtl"] .ms-auto {
+  margin-right: auto !important;
+  margin-left: 0 !important;
+}
+
+html[dir="rtl"] .text-end {
+  text-align: left !important;
+}
+
+html[dir="rtl"] .text-start {
+  text-align: right !important;
+}
+
+html[dir="rtl"] .doctor-badge {
+  left: auto;
+  right: 14px;
+}
+
+html[dir="rtl"] .blog-category-badge {
+  left: auto;
+  right: 15px;
+}
+
+html[dir="rtl"] .floating-stat-1 {
+  left: auto;
+  right: 20px;
+}
+
+html[dir="rtl"] .floating-stat-2 {
+  right: auto;
+  left: 20px;
+}
+
+html[dir="rtl"] .footer-links a:hover {
+  transform: translateX(-4px);
+}
+
+html[dir="rtl"] .dashboard-sidebar {
+  border-right: none !important;
+  border-left: 1px solid var(--border-color) !important;
+}
+
+html[dir="rtl"] .toast-container-custom {
+  right: auto;
+  left: 25px;
+}
+
+html[dir="rtl"] .form-check {
+  padding-left: 0;
+  padding-right: 1.5em;
+}
+
+html[dir="rtl"] .form-check-input {
+  float: right;
+  margin-right: -1.5em;
+  margin-left: 0;
+}
+
+/* ===================================================================
+   RTL Input Group Alignment & Border Radius
+   =================================================================== */
+html[dir="rtl"] .input-group > :not(:first-child):not(.dropdown-menu):not(.valid-tooltip):not(.valid-feedback):not(.invalid-tooltip):not(.invalid-feedback) {
+  margin-right: -1.5px !important;
+  margin-left: 0 !important;
+  border-top-right-radius: 0 !important;
+  border-bottom-right-radius: 0 !important;
+}
+
+html[dir="rtl"] .input-group > :not(:last-child):not(.dropdown-toggle):not(.dropdown-menu):not(.form-floating) {
+  border-top-left-radius: 0 !important;
+  border-bottom-left-radius: 0 !important;
+}
+
+html[dir="rtl"] .input-group > :first-child:not(.dropdown-menu) {
+  border-top-right-radius: var(--radius-md) !important;
+  border-bottom-right-radius: var(--radius-md) !important;
+  border-top-left-radius: 0 !important;
+  border-bottom-left-radius: 0 !important;
+}
+
+html[dir="rtl"] .input-group > :last-child:not(.dropdown-menu) {
+  border-top-left-radius: var(--radius-md) !important;
+  border-bottom-left-radius: var(--radius-md) !important;
+  border-top-right-radius: 0 !important;
+  border-bottom-right-radius: 0 !important;
+}
+
+html[dir="rtl"] .input-group > :only-child {
+  border-radius: var(--radius-md) !important;
+}
+
+/* RTL Form Controls & Alignment */
+html[dir="rtl"] .form-control,
+html[dir="rtl"] .form-select {
+  text-align: right;
+  direction: rtl;
+}
+
+html[dir="rtl"] input[type="password"] {
+  text-align: right;
+  direction: rtl;
+}
+
+html[dir="rtl"] input[type="tel"] {
+  direction: ltr !important;
+  text-align: right !important;
+  unicode-bidi: isolate !important;
+}
+
+/* Bidirectional text neutrality fix for English strings in RTL */
+html[dir="rtl"] p,
+html[dir="rtl"] h1,
+html[dir="rtl"] h2,
+html[dir="rtl"] h3,
+html[dir="rtl"] h4,
+html[dir="rtl"] h5,
+html[dir="rtl"] h6,
+html[dir="rtl"] .form-label,
+html[dir="rtl"] .form-check-label,
+html[dir="rtl"] .badge-subtle,
+html[dir="rtl"] small,
+html[dir="rtl"] a {
+  unicode-bidi: plaintext;
+}
+
+/* Margin utilities in RTL */
+html[dir="rtl"] .me-1 { margin-left: 0.25rem !important; margin-right: 0 !important; }
+html[dir="rtl"] .me-2 { margin-left: 0.5rem !important; margin-right: 0 !important; }
+html[dir="rtl"] .me-3 { margin-left: 1rem !important; margin-right: 0 !important; }
+html[dir="rtl"] .ms-1 { margin-right: 0.25rem !important; margin-left: 0 !important; }
+html[dir="rtl"] .ms-2 { margin-right: 0.5rem !important; margin-left: 0 !important; }
+html[dir="rtl"] .ms-3 { margin-right: 1rem !important; margin-left: 0 !important; }
+
+/* Arrow & Icon mirroring in RTL */
+html[dir="rtl"] .bi-arrow-right {
+  transform: scaleX(-1);
+  display: inline-block;
+}
+html[dir="rtl"] .bi-arrow-left {
+  transform: scaleX(-1);
+  display: inline-block;
+}
+html[dir="rtl"] .bi-chevron-right {
+  transform: scaleX(-1);
+  display: inline-block;
+}
+html[dir="rtl"] .bi-chevron-left {
+  transform: scaleX(-1);
+  display: inline-block;
+}
+
+/* ===================================================================
+   RTL Accordion & FAQ Alignment
+   =================================================================== */
+html[dir="rtl"] .accordion-button,
+[dir="rtl"] .accordion-button {
+  text-align: right !important;
+  direction: rtl !important;
+  unicode-bidi: plaintext !important;
+}
+
+html[dir="rtl"] .accordion-button .faq-question,
+[dir="rtl"] .accordion-button .faq-question {
+  text-align: right !important;
+  direction: rtl !important;
+  unicode-bidi: plaintext !important;
+}
+
+html[dir="rtl"] .accordion-button::after,
+[dir="rtl"] .accordion-button::after {
+  margin-left: 0 !important;
+  margin-right: auto !important;
+  transform-origin: center center !important;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+html[dir="rtl"] .accordion-button:not(.collapsed)::after,
+[dir="rtl"] .accordion-button:not(.collapsed)::after {
+  transform: rotate(180deg) !important;
+}
+
+html[dir="rtl"] .accordion-button.collapsed::after,
+[dir="rtl"] .accordion-button.collapsed::after {
+  transform: rotate(0deg) !important;
+}
+
+html[dir="rtl"] .accordion-body,
+[dir="rtl"] .accordion-body {
+  text-align: right !important;
+  direction: rtl !important;
+}
+
+/* ===================================================================
+   RTL Hero Section Gradient Reversal
+   =================================================================== */
+html[dir="rtl"] .hero-section::before,
+[dir="rtl"] .hero-section::before {
+  background: linear-gradient(
+    270deg,
+    rgba(255, 255, 255, 0.95) 0%,
+    rgba(240, 249, 255, 0.90) 42%,
+    rgba(255, 255, 255, 0.55) 75%,
+    rgba(255, 255, 255, 0.35) 100%
+  ) !important;
+}
+
+html[dir="rtl"][data-bs-theme="dark"] .hero-section::before,
+[dir="rtl"][data-bs-theme="dark"] .hero-section::before {
+  background: linear-gradient(
+    270deg,
+    rgba(11, 19, 43, 0.96) 0%,
+    rgba(15, 23, 42, 0.92) 42%,
+    rgba(15, 23, 42, 0.65) 75%,
+    rgba(15, 23, 42, 0.40) 100%
+  ) !important;
+}
+
+/* ===================================================================
+   RTL Dashboard & Portal Comprehensive Overhaul
+   =================================================================== */
+
+html[dir="rtl"] .dashboard-wrapper {
+  direction: rtl;
+  text-align: right;
+}
+
+html[dir="rtl"] .dashboard-sidebar {
+  border-right: none !important;
+  border-left: 1px solid var(--border-color) !important;
+  text-align: right;
+}
+
+html[dir="rtl"] .dashboard-sidebar-header {
+  text-align: right;
+}
+
+html[dir="rtl"] .dashboard-sidebar-body {
+  text-align: right;
+}
+
+html[dir="rtl"] .sidebar-nav-label {
+  text-align: right !important;
+}
+
+html[dir="rtl"] .sidebar-nav-link {
+  text-align: right !important;
+  justify-content: flex-start;
+}
+
+html[dir="rtl"] .sidebar-nav-link i {
+  margin-left: 4px;
+  margin-right: 0;
+}
+
+html[dir="rtl"] .portal-switch-card {
+  text-align: right !important;
+}
+
+html[dir="rtl"] .portal-switch-card .bi-arrow-right {
+  transform: scaleX(-1);
+  display: inline-block;
+}
+
+html[dir="rtl"] .dashboard-topbar {
+  direction: rtl;
+  text-align: right;
+}
+
+html[dir="rtl"] .dashboard-content {
+  direction: rtl;
+  text-align: right;
+}
+
+html[dir="rtl"] .dashboard-banner {
+  text-align: right;
+}
+
+html[dir="rtl"] .dashboard-banner-content {
+  text-align: right;
+}
+
+html[dir="rtl"] .stat-widget {
+  text-align: right;
+}
+
+html[dir="rtl"] .stat-widget-info {
+  text-align: right !important;
+}
+
+html[dir="rtl"] .stat-widget-label {
+  text-align: right;
+}
+
+html[dir="rtl"] .stat-widget-value {
+  text-align: right;
+}
+
+html[dir="rtl"] .stat-widget-sub {
+  text-align: right;
+  justify-content: flex-start;
+}
+
+html[dir="rtl"] .chart-card-header {
+  text-align: right !important;
+}
+
+/* Maintain LTR coordinates for Canvas / Chart.js */
+html[dir="rtl"] canvas {
+  direction: ltr !important;
+}
+
+/* Modals in RTL */
+html[dir="rtl"] .modal-header {
+  direction: rtl;
+  text-align: right;
+}
+
+html[dir="rtl"] .modal-header .btn-close {
+  margin: -0.5rem auto -0.5rem -0.5rem !important;
+}
+
+html[dir="rtl"] .modal-body {
+  direction: rtl;
+  text-align: right;
+}
+
+html[dir="rtl"] .modal-footer {
+  direction: rtl;
+  justify-content: flex-start !important;
+}
+
+/* Tables in RTL */
+html[dir="rtl"] .custom-table th,
+html[dir="rtl"] .custom-table td,
+html[dir="rtl"] .table th,
+html[dir="rtl"] .table td {
+  text-align: right !important;
+}
+
+html[dir="rtl"] .custom-table th:last-child,
+html[dir="rtl"] .custom-table td:last-child,
+html[dir="rtl"] .table th:last-child,
+html[dir="rtl"] .table td:last-child {
+  text-align: left !important;
+}
+
+/* Form switch and check controls */
+html[dir="rtl"] .form-switch {
+  padding-left: 0 !important;
+  padding-right: 2.75em !important;
+}
+
+html[dir="rtl"] .form-switch .form-check-input {
+  float: right !important;
+  margin-right: -2.75em !important;
+  margin-left: 0 !important;
+}
+
+/* Mobile Sidebar Drawer in RTL */
+@media (max-width: 991.98px) {
+  html[dir="rtl"] .dashboard-sidebar {
+    left: auto !important;
+    right: -285px !important;
+  }
+  
+  html[dir="rtl"] .dashboard-sidebar.show {
+    right: 0 !important;
+    left: auto !important;
+  }
+}
+
+
+

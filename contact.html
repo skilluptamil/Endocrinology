@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us – EndoCare Endocrinology & Diabetes Clinic</title>
+  <meta name="description" content="Get in touch with EndoCare Clinic. Clinic hours, location map, phone, email, contact enquiry form, and appointment scheduling.">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🩺</text></svg>">
+  
+  <!-- Bootstrap 5.3 CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <!-- Core Design System -->
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/rtl.css">
+</head>
+<body>
+
+  <!-- Main Navigation Bar -->
+
+  <!-- Main Navigation Bar -->
+  <nav class="navbar navbar-expand-xl navbar-custom">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">
+        <span class="brand-icon"><i class="bi bi-activity"></i></span>
+        <span>Endo<span class="brand-text-accent">Care</span></span>
+      </a>
+
+      <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMain" aria-controls="navbarMain" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarMain">
+        <ul class="navbar-nav mx-auto mb-2 mb-xl-0 align-items-xl-center">
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="homeDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Home
+            </a>
+            <ul class="dropdown-menu border-0 shadow" aria-labelledby="homeDropdown">
+              <li><a class="dropdown-item" href="index.html"><i class="bi bi-hospital me-2 text-primary"></i>Home 1 – General Clinic</a></li>
+              <li><a class="dropdown-item" href="home-2.html"><i class="bi bi-droplet-half me-2 text-info"></i>Home 2 – Diabetes Care</a></li>
+            </ul>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="about.html">About Us</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="services.html">Services</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="pricing.html">Pricing</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="blog.html">Blog</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="contact.html">Contact</a>
+          </li>
+        </ul>
+
+        <!-- Action Buttons (Dashboard, RTL, Dark/Light, Login, Sign Up) -->
+        <div class="d-flex align-items-center flex-wrap flex-xl-nowrap nav-actions-wrap gap-2 mt-3 mt-xl-0">
+          <!-- Dashboard Dropdown (User Dashboard & Customer Dashboard) -->
+          <div class="dropdown">
+            <button class="btn-nav-dashboard dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" title="Access Portals">
+              <i class="bi bi-speedometer2"></i>
+              <span>Dashboard</span>
+            </button>
+            <ul class="dropdown-menu dropdown-menu-end shadow-lg border rounded-3 p-2 mt-2" style="min-width: 250px; z-index: 1060;">
+              <li>
+                <span class="dropdown-header text-uppercase fw-bold text-muted" style="font-size: 0.68rem; letter-spacing: 0.5px;">Select Portal</span>
+              </li>
+              <li>
+                <a class="dropdown-item rounded-2 py-2 d-flex align-items-center gap-2" href="dashboard-user.html">
+                  <div class="stat-icon bg-info-subtle text-info flex-shrink-0" style="width: 32px; height: 32px; border-radius: 8px; font-size: 0.95rem; display: flex; align-items: center; justify-content: center;">
+                    <i class="bi bi-person-circle"></i>
+                  </div>
+                  <div>
+                    <span class="d-block fw-bold small text-heading">User Dashboard</span>
+                    <small class="text-muted" style="font-size: 0.725rem;">Account, Profile &amp; Settings</small>
+                  </div>
+                </a>
+              </li>
+              <li><hr class="dropdown-divider my-1"></li>
+              <li>
+                <a class="dropdown-item rounded-2 py-2 d-flex align-items-center gap-2" href="dashboard-customer.html">
+                  <div class="stat-icon bg-primary-subtle text-primary flex-shrink-0" style="width: 32px; height: 32px; border-radius: 8px; font-size: 0.95rem; display: flex; align-items: center; justify-content: center;">
+                    <i class="bi bi-clipboard2-pulse"></i>
+                  </div>
+                  <div>
+                    <span class="d-block fw-bold small text-heading">Customer Dashboard</span>
+                    <small class="text-muted" style="font-size: 0.725rem;">Patient Portal, CGM &amp; Meds</small>
+                  </div>
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          <button type="button" class="btn-control-icon rtl-toggle-btn" title="Toggle RTL / LTR Direction" aria-label="Toggle text direction">
+            <span class="rtl-text fw-bold small">RTL</span>
+          </button>
+
+          <button type="button" class="btn-control-icon theme-toggle-btn" title="Toggle Light / Dark Mode" aria-label="Toggle color theme">
+            <i class="bi bi-moon-stars-fill"></i>
+          </button>
+
+          <a href="login.html" class="btn-login">Login</a>
+          <a href="register.html" class="btn-signup">Sign Up</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- SECTION 1: Page Hero & Quick Contact Badges -->
+  <section class="page-header-hero hero-contact border-bottom">
+    <div class="container py-5 position-relative">
+      <div class="text-center mb-5">
+        <nav aria-label="breadcrumb" class="d-inline-block mb-3">
+          <ol class="breadcrumb justify-content-center mb-0 px-3 py-1 rounded-pill hero-breadcrumb-pill">
+            <li class="breadcrumb-item"><a href="index.html"><i class="bi bi-house me-1"></i>Home</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Contact Us</li>
+          </ol>
+        </nav>
+        <h1 class="display-4 fw-extrabold mb-3 page-hero-title">Get in Touch with Our Clinical Team</h1>
+        <p class="lead page-hero-subtitle mx-auto mb-0" style="max-width: 780px;">
+          Have questions regarding care plans, doctor appointments, or insurance verification? Our patient coordinators are here to assist you.
+        </p>
+      </div>
+
+      <!-- Quick Contact Cards -->
+      <div class="row g-4 text-start align-items-stretch">
+        <div class="col-md-6 col-lg-3 d-flex">
+          <div class="card-custom w-100 p-4 d-flex flex-column">
+            <div class="card-icon-box mb-3 flex-shrink-0">
+              <i class="bi bi-telephone"></i>
+            </div>
+            <h6 class="fw-bold mb-1">Direct Phone Line</h6>
+            <p class="text-muted small mb-2 flex-grow-1">Dedicated clinic phone support</p>
+            <a href="tel:+18005553636" class="fw-bold text-heading small text-decoration-none hover-primary mt-auto">+1 (800) 555-ENDO</a>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-3 d-flex">
+          <div class="card-custom w-100 p-4 d-flex flex-column">
+            <div class="card-icon-box mb-3 flex-shrink-0" style="background-color: var(--secondary-light); color: var(--secondary-color);">
+              <i class="bi bi-envelope"></i>
+            </div>
+            <h6 class="fw-bold mb-1">Email Enquiries</h6>
+            <p class="text-muted small mb-2 flex-grow-1">24-hour response time</p>
+            <a href="mailto:contact@endocare.demo" class="fw-bold text-heading small text-decoration-none hover-primary mt-auto">contact@endocare.demo</a>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-3 d-flex">
+          <div class="card-custom w-100 p-4 d-flex flex-column">
+            <div class="card-icon-box mb-3 flex-shrink-0" style="background-color: #fef3c7; color: #d97706;">
+              <i class="bi bi-geo-alt"></i>
+            </div>
+            <h6 class="fw-bold mb-1">Main Facility</h6>
+            <p class="text-muted small mb-2 flex-grow-1">742 Evergreen Medical Blvd</p>
+            <span class="fw-bold text-heading small mt-auto">Suite 400, Health City</span>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-3 d-flex">
+          <div class="card-custom w-100 p-4 d-flex flex-column">
+            <div class="card-icon-box mb-3 flex-shrink-0" style="background-color: #ede9fe; color: #7c3aed;">
+              <i class="bi bi-clock"></i>
+            </div>
+            <h6 class="fw-bold mb-1">Clinic Hours</h6>
+            <p class="text-muted small mb-2 flex-grow-1">Monday through Friday</p>
+            <span class="fw-bold text-heading small mt-auto">8:00 AM &ndash; 6:00 PM EST</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 2 & 3: Interactive Contact Form & Location Map -->
+  <section class="section-padding bg-surface">
+    <div class="container">
+      <div class="row g-5">
+        
+        <!-- SECTION 2: Interactive Contact Form -->
+        <div class="col-lg-7">
+          <div class="p-4 p-lg-5 rounded-4 bg-surface border shadow-sm">
+            <span class="badge-subtle mb-2">
+              <i class="bi bi-send"></i> Send a Message
+            </span>
+            <h2 class="h3 fw-bold mb-2">Send an Enquiry to Our Clinic</h2>
+            <p class="text-muted small mb-4">
+              Please complete the form below. For urgent clinical concerns, please call our direct hotline.
+            </p>
+
+            <form id="contactEnquiryForm" onsubmit="event.preventDefault(); window.showToast('Message Received', 'Thank you! Your enquiry has been routed to our clinic coordinator (Demo).', 'success'); this.reset();">
+              <div class="row g-3">
+                <div class="col-md-6">
+                  <label class="form-label small fw-semibold">Full Name *</label>
+                  <input type="text" class="form-control" placeholder="e.g. Eleanor Vance" required>
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label small fw-semibold">Email Address *</label>
+                  <input type="email" class="form-control" placeholder="eleanor@example.com" required>
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label small fw-semibold">Phone Number *</label>
+                  <input type="tel" class="form-control" placeholder="+1 (555) 019-2834" required>
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label small fw-semibold">Topic / Condition</label>
+                  <select class="form-select" required>
+                    <option value="" selected disabled>Select inquiry reason...</option>
+                    <option value="diabetes">Diabetes & CGM Sensor Evaluation</option>
+                    <option value="thyroid">Thyroid Nodules / Ultrasound</option>
+                    <option value="metabolic">Metabolic Weight Loss (GLP-1)</option>
+                    <option value="pcos">PCOS & Hormones</option>
+                    <option value="billing">Insurance & Care Plan Billing</option>
+                  </select>
+                </div>
+                <div class="col-12">
+                  <label class="form-label small fw-semibold">Preferred Doctor (Optional)</label>
+                  <select class="form-select">
+                    <option value="">No preference / First available specialist</option>
+                    <option value="jenkins">Dr. Sarah Jenkins (Lead Diabetologist)</option>
+                    <option value="vance">Dr. Marcus Vance (Thyroid Clinic)</option>
+                    <option value="rostova">Dr. Elena Rostova (Metabolic & PCOS)</option>
+                    <option value="chen">Dr. David Chen (Diabetes Tech)</option>
+                  </select>
+                </div>
+                <div class="col-12">
+                  <label class="form-label small fw-semibold">Your Message or Clinical Query *</label>
+                  <textarea class="form-control" rows="4" placeholder="Describe your inquiry, existing diagnosis, or preferred appointment days..." required></textarea>
+                </div>
+                <div class="col-12">
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="consentCheck" required>
+                    <label class="form-check-label small text-muted" for="consentCheck">
+                      I agree that clinic representatives may contact me via phone or secure email regarding my enquiry.
+                    </label>
+                  </div>
+                </div>
+                <div class="col-12 mt-4">
+                  <button type="submit" class="btn btn-primary-custom px-5">
+                    Submit Enquiry <i class="bi bi-send ms-1"></i>
+                  </button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+
+        <!-- SECTION 3: Clinic Location & Interactive Map Frame -->
+        <div class="col-lg-5">
+          <div class="d-flex flex-column gap-4 h-100">
+            <!-- Map Card -->
+            <div class="card-custom p-0 overflow-hidden flex-grow-1 shadow-sm">
+              <div class="p-3 bg-surface border-bottom d-flex justify-content-between align-items-center">
+                <div>
+                  <h6 class="fw-bold mb-0"><i class="bi bi-geo-alt-fill text-danger me-1"></i> Clinic Pinpoint Location</h6>
+                  <small class="text-muted">742 Evergreen Medical Blvd, Metro Health City</small>
+                </div>
+                <span class="badge bg-success-subtle text-success">Valet Parking Available</span>
+              </div>
+              
+              <!-- Clean styled map interactive placeholder container -->
+              <div class="position-relative bg-alt" style="height: 340px; display: flex; align-items: center; justify-content: center; background: url('https://images.unsplash.com/photo-1526778548025-fa2f459cd5c1?auto=format&fit=crop&w=800&q=80') center/cover;">
+                <div class="p-4 bg-surface rounded-4 shadow-lg border text-center" style="max-width: 300px; backdrop-filter: blur(10px);">
+                  <div class="brand-icon mx-auto mb-2" style="width: 44px; height: 44px;">
+                    <i class="bi bi-hospital"></i>
+                  </div>
+                  <h6 class="fw-bold mb-1">EndoCare Main Medical Plaza</h6>
+                  <p class="text-muted small mb-3">Level 4, Medical Pavilion East</p>
+                  <a href="https://maps.google.com" target="_blank" rel="noopener" class="btn btn-sm btn-primary-custom py-1 px-3">
+                    Open in Google Maps <i class="bi bi-box-arrow-up-right small ms-1"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Transit & Parking Card -->
+            <div class="card-custom p-4 shadow-sm">
+              <h6 class="fw-bold mb-2"><i class="bi bi-car-front text-primary me-2"></i> Parking & Transit Information</h6>
+              <ul class="text-muted small ps-3 mb-0">
+                <li class="mb-1"><strong>Complimentary Parking:</strong> Dedicated patient parking in Structure B with ticket validation at clinic reception.</li>
+                <li class="mb-1"><strong>Subway / Metro:</strong> Medical Center Metro Station is located directly adjacent (Exit 2).</li>
+                <li><strong>Wheelchair Access:</strong> Complete step-free access, wide elevators, and accessible restrooms.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 4: Opening Hours & Lab Blood Draw Schedule -->
+  <section class="section-padding bg-alt">
+    <div class="container">
+      <div class="section-header text-center">
+        <span class="badge-subtle">
+          <i class="bi bi-calendar3-range"></i> Service Schedule
+        </span>
+        <h2 class="section-title">Clinic & Laboratory Operating Hours</h2>
+        <p class="section-subtitle">
+          Fasting blood draws for glycemic and hormone panels begin at 7:30 AM every weekday.
+        </p>
+      </div>
+
+      <div class="row g-4 justify-content-center">
+        <div class="col-md-6 col-lg-5">
+          <div class="card-custom p-4 shadow-sm h-100">
+            <h5 class="fw-bold mb-3"><i class="bi bi-hospital text-primary me-2"></i> Physician Consultations</h5>
+            <ul class="list-unstyled d-flex flex-column gap-2 mb-0">
+              <li class="d-flex justify-content-between py-2 border-bottom">
+                <span class="text-muted">Monday &ndash; Thursday</span>
+                <span class="fw-bold text-main">8:00 AM &ndash; 6:00 PM</span>
+              </li>
+              <li class="d-flex justify-content-between py-2 border-bottom">
+                <span class="text-muted">Friday</span>
+                <span class="fw-bold text-main">8:00 AM &ndash; 4:30 PM</span>
+              </li>
+              <li class="d-flex justify-content-between py-2 border-bottom">
+                <span class="text-muted">Saturday</span>
+                <span class="fw-bold text-primary">9:00 AM &ndash; 1:00 PM (By Appt)</span>
+              </li>
+              <li class="d-flex justify-content-between py-2">
+                <span class="text-muted">Sunday</span>
+                <span class="text-danger fw-semibold">Closed (On-Call Nurse Line)</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-5">
+          <div class="card-custom p-4 shadow-sm h-100">
+            <h5 class="fw-bold mb-3"><i class="bi bi-droplet-half text-teal me-2" style="color: var(--secondary-color);"></i> On-Site CLIA Laboratory Draws</h5>
+            <ul class="list-unstyled d-flex flex-column gap-2 mb-0">
+              <li class="d-flex justify-content-between py-2 border-bottom">
+                <span class="text-muted">Fasting Blood Draws (Mon-Fri)</span>
+                <span class="fw-bold text-main">7:30 AM &ndash; 11:30 AM</span>
+              </li>
+              <li class="d-flex justify-content-between py-2 border-bottom">
+                <span class="text-muted">Non-Fasting Tests (Mon-Fri)</span>
+                <span class="fw-bold text-main">11:30 AM &ndash; 4:00 PM</span>
+              </li>
+              <li class="d-flex justify-content-between py-2 border-bottom">
+                <span class="text-muted">Saturday Lab Draws</span>
+                <span class="fw-bold text-primary">8:30 AM &ndash; 11:00 AM</span>
+              </li>
+              <li class="d-flex justify-content-between py-2">
+                <span class="text-muted">Ultrasound Biopsies</span>
+                <span class="fw-semibold text-main">Tues &amp; Thurs (By Booking)</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 5: Emergency Instructions & Severe Hypoglycemia Protocol -->
+  <section class="section-padding bg-surface">
+    <div class="container">
+      <div class="p-4 p-lg-5 rounded-4 border border-warning bg-warning-subtle shadow-sm">
+        <div class="row align-items-center g-4">
+          <div class="col-lg-8">
+            <div class="d-flex gap-3 align-items-start">
+              <i class="bi bi-exclamation-triangle-fill text-warning fs-1 flex-shrink-0"></i>
+              <div>
+                <h4 class="fw-bold text-dark mb-2">Severe Endocrine Emergency Protocols</h4>
+                <p class="text-dark-emphasis mb-2 small">
+                  EndoCare Clinic is an outpatient subspecialty center. If you are experiencing symptoms of acute Diabetic Ketoacidosis (DKA), severe hypoglycemic unresponsiveness (&lt; 54 mg/dL not responding to fast-acting glucose or glucagon), thyroid storm, or acute chest pain, please call <strong>911</strong> or proceed immediately to the nearest hospital emergency room.
+                </p>
+                <small class="text-dark-emphasis">For non-life-threatening after-hours dosage queries, active patients may call our 24/7 on-call triage answering service at <strong>+1 (800) 555-ENDO</strong>.</small>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 text-lg-end">
+            <a href="tel:911" class="btn btn-danger fw-bold px-4 py-3 rounded-pill shadow-sm">
+              <i class="bi bi-telephone-fill me-2"></i> Emergency: Call 911
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 6: Referring Physicians & Records Transfer Information -->
+  <section class="section-padding bg-alt">
+    <div class="container">
+      <div class="section-header text-center">
+        <span class="badge-subtle">
+          <i class="bi bi-arrow-left-right"></i> Medical Referral
+        </span>
+        <h2 class="section-title">Physician Referrals & Medical Records</h2>
+        <p class="section-subtitle">
+          We collaborate closely with primary care providers, cardiologists, and oncologists.
+        </p>
+      </div>
+
+      <div class="row g-4">
+        <div class="col-md-4">
+          <div class="card-custom text-center">
+            <i class="bi bi-printer text-primary fs-2 mb-2"></i>
+            <h5 class="fw-bold mb-2">Secure Referral Fax</h5>
+            <p class="text-muted small mb-0">Fax patient charts, lab records, and ultrasound images to <strong>+1 (800) 555-3637</strong> for rapid triage.</p>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="card-custom text-center">
+            <i class="bi bi-shield-lock text-teal fs-2 mb-2" style="color: var(--secondary-color);"></i>
+            <h5 class="fw-bold mb-2">Electronic Records (EMR)</h5>
+            <p class="text-muted small mb-0">Direct interoperability via Epic Care Everywhere and common medical exchange standards.</p>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="card-custom text-center">
+            <i class="bi bi-file-earmark-check text-warning fs-2 mb-2"></i>
+            <h5 class="fw-bold mb-2">Consultation Notes</h5>
+            <p class="text-muted small mb-0">Comprehensive clinical consult notes are routed back to the referring physician within 48 hours.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 7: Booking CTA & Comprehensive Footer -->
+  <section class="section-padding bg-surface border-top">
+    <div class="container">
+      <div class="cta-banner">
+        <div class="row align-items-center g-4">
+          <div class="col-lg-8">
+            <h2 class="display-6 fw-bold mb-3">Ready to Book Your Specialist Visit?</h2>
+            <p class="lead mb-0 text-white-50">
+              Skip phone wait times and request your appointment directly through our online intake modal.
+            </p>
+          </div>
+          <div class="col-lg-4 text-lg-end">
+            <button class="btn btn-light text-primary fw-bold px-4 py-3 rounded-pill shadow-lg" data-bs-toggle="modal" data-bs-target="#appointmentModal">
+              <i class="bi bi-calendar-check me-2"></i> Book Appointment Now
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer-custom">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-lg-4">
+          <a class="navbar-brand text-white mb-3 d-inline-flex" href="index.html">
+            <span class="brand-icon"><i class="bi bi-activity"></i></span>
+            <span>Endo<span class="brand-text-accent">Care</span></span>
+          </a>
+          <p class="text-muted mb-4 pe-lg-4">
+            EndoCare is a dedicated Center of Excellence in Endocrinology and Diabetes Care. We integrate clinical diagnostic acumen with digital health technologies to provide life-transforming metabolic solutions.
+          </p>
+          <div class="d-flex gap-2">
+            <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer" class="btn-control-icon text-muted" title="Facebook" aria-label="Visit EndoCare on Facebook"><i class="bi bi-facebook"></i></a>
+            <a href="https://twitter.com/" target="_blank" rel="noopener noreferrer" class="btn-control-icon text-muted" title="Twitter/X" aria-label="Visit EndoCare on Twitter"><i class="bi bi-twitter-x"></i></a>
+            <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer" class="btn-control-icon text-muted" title="LinkedIn" aria-label="Visit EndoCare on LinkedIn"><i class="bi bi-linkedin"></i></a>
+            <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" class="btn-control-icon text-muted" title="Instagram" aria-label="Visit EndoCare on Instagram"><i class="bi bi-instagram"></i></a>
+          </div>
+        </div>
+
+        <div class="col-6 col-md-3 col-lg-2">
+          <h5>Quick Links</h5>
+          <ul class="footer-links">
+            <li><a href="index.html"><i class="bi bi-chevron-right small"></i> Home 1</a></li>
+            <li><a href="home-2.html"><i class="bi bi-chevron-right small"></i> Home 2</a></li>
+            <li><a href="about.html"><i class="bi bi-chevron-right small"></i> About Us</a></li>
+            <li><a href="services.html"><i class="bi bi-chevron-right small"></i> Services</a></li>
+            <li><a href="doctors.html"><i class="bi bi-chevron-right small"></i> Doctors</a></li>
+            <li><a href="pricing.html"><i class="bi bi-chevron-right small"></i> Pricing</a></li>
+          </ul>
+        </div>
+
+        <div class="col-6 col-md-3 col-lg-3 footer-clinical-col ps-lg-4 ps-xl-5">
+          <h5>Clinical Programs</h5>
+          <ul class="footer-links">
+            <li><a href="service-details.html?service=diabetes"><i class="bi bi-chevron-right small"></i> Diabetes Management</a></li>
+            <li><a href="service-details.html?service=thyroid"><i class="bi bi-chevron-right small"></i> Thyroid Disorders</a></li>
+            <li><a href="service-details.html?service=hormone"><i class="bi bi-chevron-right small"></i> Hormone Balancing</a></li>
+            <li><a href="service-details.html?service=metabolic"><i class="bi bi-chevron-right small"></i> Metabolic Health</a></li>
+            <li><a href="service-details.html?service=pcos"><i class="bi bi-chevron-right small"></i> PCOS & Endocrine</a></li>
+            <li><a href="service-details.html?service=osteoporosis"><i class="bi bi-chevron-right small"></i> Osteoporosis Care</a></li>
+          </ul>
+        </div>
+
+        <div class="col-lg-3">
+          <h5>Clinic Contact</h5>
+          <ul class="footer-links text-muted">
+            <li class="d-flex align-items-start gap-2 mb-2">
+              <i class="bi bi-geo-alt-fill text-primary mt-1"></i>
+              <span>742 Evergreen Medical Blvd, Suite 400, Metro Health City</span>
+            </li>
+            <li class="d-flex align-items-center gap-2 mb-2">
+              <i class="bi bi-telephone-fill text-primary"></i>
+              <span>+1 (800) 555-ENDO (3636)</span>
+            </li>
+            <li class="d-flex align-items-center gap-2 mb-2">
+              <i class="bi bi-envelope-fill text-primary"></i>
+              <span>appointments@endocareclinic.demo</span>
+            </li>
+            <li class="d-flex align-items-center gap-2">
+              <i class="bi bi-clock-fill text-primary"></i>
+              <span>Mon - Fri: 8:00 AM - 6:00 PM</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom d-flex flex-wrap justify-content-between align-items-center gap-3">
+        <p class="mb-0 text-muted">&copy; 2026 EndoCare Clinic. All rights reserved. Designed for professional healthcare practices.</p>
+        <div class="d-flex gap-3 text-muted">
+          <a href="privacy-policy.html" class="text-muted">Privacy Policy</a>
+          <a href="terms-of-care.html" class="text-muted">Terms of Care</a>
+          <a href="dashboard-admin.html" class="text-muted">Admin Portal</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Appointment Modal -->
+  <div class="modal fade" id="appointmentModal" tabindex="-1" aria-labelledby="appointmentModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title fw-bold" id="appointmentModalLabel">
+            <i class="bi bi-calendar2-check text-primary me-2"></i> Book Specialist Consultation
+          </h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <form class="appointment-booking-form">
+          <div class="modal-body p-4">
+            <div class="row g-3">
+              <div class="col-md-6">
+                <label class="form-label fw-semibold">Full Name</label>
+                <input type="text" class="form-control" placeholder="e.g. Eleanor Vance" required>
+              </div>
+              <div class="col-md-6">
+                <label class="form-label fw-semibold">Email Address</label>
+                <input type="email" class="form-control" placeholder="eleanor@example.com" required>
+              </div>
+              <div class="col-md-6">
+                <label class="form-label fw-semibold">Phone Number</label>
+                <input type="tel" class="form-control" placeholder="+1 (555) 019-2834" required>
+              </div>
+              <div class="col-md-6">
+                <label class="form-label fw-semibold">Select Specialist</label>
+                <select class="form-select" name="doctor" required>
+                  <option value="" selected disabled>Choose doctor...</option>
+                  <option value="jenkins">Dr. Sarah Jenkins (Chief Endocrinologist)</option>
+                  <option value="vance">Dr. Marcus Vance (Thyroid & Nodules)</option>
+                  <option value="rostova">Dr. Elena Rostova (Metabolic & PCOS)</option>
+                  <option value="chen">Dr. David Chen (Diabetes Tech & CGM)</option>
+                </select>
+              </div>
+              <div class="col-md-6">
+                <label class="form-label fw-semibold">Preferred Date</label>
+                <input type="date" class="form-control" name="date" required>
+              </div>
+              <div class="col-md-6">
+                <label class="form-label fw-semibold">Preferred Time Slot</label>
+                <select class="form-select" required>
+                  <option value="morning">Morning (9:00 AM - 12:00 PM)</option>
+                  <option value="afternoon">Afternoon (1:00 PM - 4:00 PM)</option>
+                  <option value="evening">Evening (4:00 PM - 6:30 PM)</option>
+                </select>
+              </div>
+              <div class="col-12">
+                <label class="form-label fw-semibold">Clinical Reason / Symptoms</label>
+                <textarea class="form-control" rows="3" placeholder="Briefly describe your symptoms or visit reason..."></textarea>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary rounded-pill px-4" data-bs-dismiss="modal">Cancel</button>
+            <button type="submit" class="btn btn-primary-custom">Confirm Appointment Request</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

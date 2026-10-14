@@ -1,0 +1,437 @@
+/**
+ * EndoCare - User Dashboard Interactive Logic
+ * Features:
+ * 1. Profile information editing & local persistence
+ * 2. Weekly steps & activity Chart.js integration
+ * 3. Interactive hydration (water intake) tracker
+ * 4. Account security settings (Password, 2FA, session revocation, eye toggle)
+ * 5. Notification center & activity logging
+ * 6. Bookmarked health articles management
+ * 7. Mobile sidebar drawer with backdrop
+ * 8. Sidebar smooth scrollspy navigation
+ */
+
+document.addEventListener('DOMContentLoaded', () => {
+  initUserProfileForm();
+  initActivityChart();
+  initWaterTracker();
+  initSecuritySettings();
+  initNotificationCenter();
+  initBookmarks();
+  initUserMobileSidebar();
+  initSidebarScrollspy();
+  initEditProfileTopbarAction();
+});
+
+// 1. User Profile Editing & Persistence
+function initUserProfileForm() {
+  const profileForm = document.getElementById('userProfileForm');
+  if (!profileForm) return;
+
+  // Load saved profile if available
+  const savedProfile = localStorage.getItem('endocare_user_profile');
+  if (savedProfile) {
+    try {
+      const data = JSON.parse(savedProfile);
+      if (data.firstName) document.getElementById('profFirstName').value = data.firstName;
+      if (data.lastName) document.getElementById('profLastName').value = data.lastName;
+      if (data.email) document.getElementById('profEmail').value = data.email;
+      if (data.phone) document.getElementById('profPhone').value = data.phone;
+      if (data.dob) document.getElementById('profDob').value = data.dob;
+      if (data.gender) document.getElementById('profGender').value = data.gender;
+      if (data.address) document.getElementById('profAddress').value = data.address;
+      if (data.city) document.getElementById('profCity').value = data.city;
+      if (data.language) document.getElementById('profLanguage').value = data.language;
+      if (data.timezone) document.getElementById('profTimezone').value = data.timezone;
+      if (data.emergencyName) document.getElementById('profEmergencyName').value = data.emergencyName;
+      if (data.emergencyPhone) document.getElementById('profEmergencyPhone').value = data.emergencyPhone;
+
+      // Update UI displays
+      updateUserHeaderDisplays(data.firstName, data.lastName);
+    } catch (e) {
+      console.error('Error loading saved profile', e);
+    }
+  }
+
+  profileForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+
+    const firstName = document.getElementById('profFirstName').value.trim();
+    const lastName = document.getElementById('profLastName').value.trim();
+    const email = document.getElementById('profEmail').value.trim();
+    const phone = document.getElementById('profPhone').value.trim();
+    const dob = document.getElementById('profDob').value;
+    const gender = document.getElementById('profGender').value;
+    const address = document.getElementById('profAddress').value.trim();
+    const city = document.getElementById('profCity').value.trim();
+    const language = document.getElementById('profLanguage').value;
+    const timezone = document.getElementById('profTimezone').value;
+    const emergencyName = document.getElementById('profEmergencyName').value.trim();
+    const emergencyPhone = document.getElementById('profEmergencyPhone').value.trim();
+
+    const profileData = {
+      firstName, lastName, email, phone, dob, gender,
+      address, city, language, timezone, emergencyName, emergencyPhone
+    };
+
+    localStorage.setItem('endocare_user_profile', JSON.stringify(profileData));
+    updateUserHeaderDisplays(firstName, lastName);
+
+    if (window.showToast) {
+      window.showToast('Profile Updated', 'Your personal details and contact settings have been saved successfully.', 'success');
+    }
+  });
+}
+
+function updateUserHeaderDisplays(first, last) {
+  if (!first) return;
+  const fullName = `${first} ${last || ''}`.trim();
+  const nameDisplay = document.getElementById('userDisplayName');
+  const topbarName = document.getElementById('topbarUserName');
+  if (nameDisplay) nameDisplay.textContent = fullName;
+  if (topbarName) topbarName.textContent = `Welcome back, ${fullName}`;
+}
+
+// Topbar "Edit Profile" button action
+function initEditProfileTopbarAction() {
+  const editBtn = document.getElementById('topbarEditProfileBtn');
+  if (!editBtn) return;
+
+  editBtn.addEventListener('click', (e) => {
+    e.preventDefault();
+    const section = document.getElementById('personalDetailsSection');
+    if (section) {
+      section.scrollIntoView({ behavior: 'smooth' });
+      section.classList.add('highlight-pulse');
+      setTimeout(() => section.classList.remove('highlight-pulse'), 2500);
+    }
+    const input = document.getElementById('profFirstName');
+    if (input) {
+      setTimeout(() => input.focus(), 350);
+    }
+    if (window.showToast) {
+      window.showToast('Profile Editor', 'Personal profile form is focused and ready for editing.', 'info');
+    }
+  });
+}
+
+// 2. Weekly Activity Chart
+function initActivityChart() {
+  const ctx = document.getElementById('userActivityChart');
+  if (!ctx) return;
+
+  new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+      datasets: [
+        {
+          label: 'Daily Steps',
+          data: [7800, 9200, 8420, 10400, 8900, 11200, 6900],
+          backgroundColor: function(context) {
+            const val = context.raw;
+            return val >= 10000 ? '#10b981' : '#0284c7';
+          },
+          borderRadius: 8,
+          borderSkipped: false
+        }
+      ]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      plugins: {
+        legend: { display: false },
+        tooltip: {
+          callbacks: {
+            label: function(context) {
+              const val = context.raw;
+              const status = val >= 10000 ? 'Goal Achieved!' : `${10000 - val} steps to goal`;
+              return `${val.toLocaleString()} steps (${status})`;
+            }
+          }
+        }
+      },
+      scales: {
+        y: {
+          beginAtZero: true,
+          max: 12500,
+          grid: { color: 'rgba(148, 163, 184, 0.15)' },
+          title: { display: true, text: 'Steps' }
+        },
+        x: {
+          grid: { display: false }
+        }
+      }
+    }
+  });
+}
+
+// 3. Hydration (Water) Tracker
+function initWaterTracker() {
+  const glasses = document.querySelectorAll('.water-glass-btn');
+  const countDisplay = document.getElementById('waterCurrentMl');
+  const percentDisplay = document.getElementById('waterPercentText');
+  const progressBar = document.getElementById('waterProgressBar');
+
+  if (!glasses.length) return;
+
+  glasses.forEach((glass, index) => {
+    glass.addEventListener('click', () => {
+      const isFilled = glass.classList.contains('filled');
+      
+      glasses.forEach((g, i) => {
+        if (isFilled && i >= index) {
+          g.classList.remove('filled');
+        } else if (!isFilled && i <= index) {
+          g.classList.add('filled');
+        }
+      });
+
+      const filledCount = document.querySelectorAll('.water-glass-btn.filled').length;
+      const totalMl = filledCount * 250;
+      const percent = Math.min(Math.round((totalMl / 3000) * 100), 100);
+
+      if (countDisplay) countDisplay.textContent = `${totalMl.toLocaleString()} mL`;
+      if (percentDisplay) percentDisplay.textContent = `${percent}% of 3,000 mL goal`;
+      if (progressBar) progressBar.style.width = `${percent}%`;
+
+      if (window.showToast) {
+        window.showToast('Hydration Logged', `Logged ${totalMl} mL of daily water intake (${percent}% of goal).`, 'info');
+      }
+    });
+  });
+}
+
+// 4. Account Security & Password
+function initSecuritySettings() {
+  const pwdForm = document.getElementById('changePasswordForm');
+  if (pwdForm) {
+    pwdForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const current = document.getElementById('currPassword').value;
+      const newPwd = document.getElementById('newPassword').value;
+      const confirmPwd = document.getElementById('confirmPassword').value;
+
+      if (!current || !newPwd || !confirmPwd) {
+        if (window.showToast) window.showToast('Missing Fields', 'Please complete all password fields.', 'warning');
+        return;
+      }
+
+      if (newPwd !== confirmPwd) {
+        if (window.showToast) window.showToast('Mismatch', 'New passwords do not match.', 'danger');
+        return;
+      }
+
+      if (newPwd.length < 8) {
+        if (window.showToast) window.showToast('Weak Password', 'New password must be at least 8 characters long.', 'warning');
+        return;
+      }
+
+      pwdForm.reset();
+      if (window.showToast) {
+        window.showToast('Security Alert', 'Your account password has been updated securely.', 'success');
+      }
+    });
+  }
+
+  // Password Visibility Toggle Buttons
+  const toggleBtns = document.querySelectorAll('.password-toggle-btn');
+  toggleBtns.forEach(btn => {
+    btn.addEventListener('click', function() {
+      const targetId = this.getAttribute('data-target');
+      const input = document.getElementById(targetId);
+      const icon = this.querySelector('i');
+      if (input && icon) {
+        if (input.type === 'password') {
+          input.type = 'text';
+          icon.className = 'bi bi-eye-slash';
+        } else {
+          input.type = 'password';
+          icon.className = 'bi bi-eye';
+        }
+      }
+    });
+  });
+
+  // 2FA Switch
+  const twoFactorSwitch = document.getElementById('twoFactorSwitch');
+  if (twoFactorSwitch) {
+    twoFactorSwitch.addEventListener('change', function() {
+      if (this.checked) {
+        if (window.showToast) {
+          window.showToast('2FA Enabled', 'Two-Factor Authentication is now active. You will receive an SMS code on unrecognized sign-ins.', 'success');
+        }
+      } else {
+        if (window.showToast) {
+          window.showToast('2FA Disabled', 'Two-Factor Authentication has been disabled for this account.', 'warning');
+        }
+      }
+    });
+  }
+
+  // Revoke Session Buttons
+  const revokeBtns = document.querySelectorAll('.action-revoke-session');
+  revokeBtns.forEach(btn => {
+    btn.addEventListener('click', function() {
+      const row = this.closest('tr');
+      if (row) {
+        row.remove();
+        if (window.showToast) {
+          window.showToast('Session Revoked', 'The device session has been terminated successfully.', 'info');
+        }
+      }
+    });
+  });
+}
+
+// 5. Notification Center
+function initNotificationCenter() {
+  const markReadBtn = document.getElementById('markAllReadBtn');
+  const badge = document.getElementById('unreadNotifyBadge');
+  const items = document.querySelectorAll('.notify-item');
+
+  if (markReadBtn) {
+    markReadBtn.addEventListener('click', () => {
+      items.forEach(item => {
+        item.classList.remove('unread');
+        const unreadDot = item.querySelector('.unread-dot');
+        if (unreadDot) unreadDot.remove();
+      });
+      if (badge) badge.textContent = '0 Unread';
+      if (window.showToast) {
+        window.showToast('Notifications Cleared', 'All notifications marked as read.', 'info');
+      }
+    });
+  }
+
+  // Dismiss individual notifications
+  const dismissBtns = document.querySelectorAll('.action-dismiss-notify');
+  dismissBtns.forEach(btn => {
+    btn.addEventListener('click', function() {
+      const item = this.closest('.notify-item');
+      if (item) {
+        item.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
+        item.style.opacity = '0';
+        item.style.transform = 'translateX(20px)';
+        setTimeout(() => item.remove(), 300);
+      }
+    });
+  });
+}
+
+// 6. Bookmarked Articles
+function initBookmarks() {
+  const removeBtns = document.querySelectorAll('.action-remove-bookmark');
+  removeBtns.forEach(btn => {
+    btn.addEventListener('click', function() {
+      const card = this.closest('.bookmark-card-col');
+      if (card) {
+        card.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
+        card.style.opacity = '0';
+        card.style.transform = 'scale(0.95)';
+        setTimeout(() => card.remove(), 300);
+        if (window.showToast) {
+          window.showToast('Bookmark Removed', 'Article removed from your saved reading list.', 'info');
+        }
+      }
+    });
+  });
+}
+
+// 7. Mobile Sidebar Drawer with Backdrop
+function initUserMobileSidebar() {
+  const sidebar = document.getElementById('userDashboardSidebar');
+  const toggleBtn = document.getElementById('userSidebarToggleBtn');
+  const closeBtn = document.getElementById('userSidebarCloseBtn');
+  const backdrop = document.getElementById('dashboardBackdrop');
+
+  function openSidebar() {
+    if (sidebar) sidebar.classList.add('show');
+    if (backdrop) backdrop.classList.add('show');
+    document.body.style.overflow = window.innerWidth < 992 ? 'hidden' : '';
+  }
+
+  function closeSidebar() {
+    if (sidebar) sidebar.classList.remove('show');
+    if (backdrop) backdrop.classList.remove('show');
+    document.body.style.overflow = '';
+  }
+
+  if (toggleBtn) {
+    toggleBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      if (sidebar && sidebar.classList.contains('show')) {
+        closeSidebar();
+      } else {
+        openSidebar();
+      }
+    });
+  }
+
+  if (closeBtn) closeBtn.addEventListener('click', closeSidebar);
+  if (backdrop) backdrop.addEventListener('click', closeSidebar);
+
+  // Close when clicking nav links on mobile
+  const navLinks = sidebar ? sidebar.querySelectorAll('.sidebar-nav-link') : [];
+  navLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      if (window.innerWidth < 992) {
+        closeSidebar();
+      }
+    });
+  });
+
+  window.addEventListener('resize', () => {
+    if (window.innerWidth >= 992) {
+      closeSidebar();
+    }
+  });
+}
+
+// 8. Sidebar Scrollspy & Smooth Navigation
+function initSidebarScrollspy() {
+  const navLinks = document.querySelectorAll('.sidebar-nav-link[href^="#"]');
+  if (!navLinks.length) return;
+
+  navLinks.forEach(link => {
+    link.addEventListener('click', function(e) {
+      const targetId = this.getAttribute('href');
+      if (!targetId || targetId === '#') return;
+      const targetEl = document.querySelector(targetId);
+      if (targetEl) {
+        e.preventDefault();
+        navLinks.forEach(l => l.classList.remove('active'));
+        this.classList.add('active');
+        targetEl.scrollIntoView({ behavior: 'smooth' });
+      }
+    });
+  });
+
+  const sections = Array.from(navLinks).map(link => {
+    const id = link.getAttribute('href');
+    return id && id !== '#' ? document.querySelector(id) : null;
+  }).filter(Boolean);
+
+  if ('IntersectionObserver' in window && sections.length) {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const id = `#${entry.target.id}`;
+          navLinks.forEach(link => {
+            if (link.getAttribute('href') === id) {
+              link.classList.add('active');
+            } else {
+              link.classList.remove('active');
+            }
+          });
+        }
+      });
+    }, {
+      rootMargin: '-20% 0px -65% 0px',
+      threshold: 0
+    });
+
+    sections.forEach(sec => observer.observe(sec));
+  }
+}

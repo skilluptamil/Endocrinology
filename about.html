@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us – EndoCare Endocrinology & Diabetes Care Clinic</title>
+  <meta name="description" content="Discover our clinic history, mission, leadership medical team, and patient-centered philosophy in advancing endocrinology and diabetes care.">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🩺</text></svg>">
+  
+  <!-- Bootstrap 5.3 CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <!-- Core Design System -->
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/rtl.css">
+</head>
+<body>
+
+  <!-- Main Navigation Bar -->
+
+  <!-- Main Navigation Bar -->
+  <nav class="navbar navbar-expand-xl navbar-custom">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">
+        <span class="brand-icon"><i class="bi bi-activity"></i></span>
+        <span>Endo<span class="brand-text-accent">Care</span></span>
+      </a>
+
+      <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMain" aria-controls="navbarMain" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarMain">
+        <ul class="navbar-nav mx-auto mb-2 mb-xl-0 align-items-xl-center">
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="homeDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Home
+            </a>
+            <ul class="dropdown-menu border-0 shadow" aria-labelledby="homeDropdown">
+              <li><a class="dropdown-item" href="index.html"><i class="bi bi-hospital me-2 text-primary"></i>Home 1 – General Clinic</a></li>
+              <li><a class="dropdown-item" href="home-2.html"><i class="bi bi-droplet-half me-2 text-info"></i>Home 2 – Diabetes Care</a></li>
+            </ul>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link active" href="about.html">About Us</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="services.html">Services</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="pricing.html">Pricing</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="blog.html">Blog</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="contact.html">Contact</a>
+          </li>
+        </ul>
+
+        <!-- Action Buttons (Dashboard, RTL, Dark/Light, Login, Sign Up) -->
+        <div class="d-flex align-items-center flex-wrap flex-xl-nowrap nav-actions-wrap gap-2 mt-3 mt-xl-0">
+          <!-- Dashboard Dropdown (User Dashboard & Customer Dashboard) -->
+          <div class="dropdown">
+            <button class="btn-nav-dashboard dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" title="Access Portals">
+              <i class="bi bi-speedometer2"></i>
+              <span>Dashboard</span>
+            </button>
+            <ul class="dropdown-menu dropdown-menu-end shadow-lg border rounded-3 p-2 mt-2" style="min-width: 250px; z-index: 1060;">
+              <li>
+                <span class="dropdown-header text-uppercase fw-bold text-muted" style="font-size: 0.68rem; letter-spacing: 0.5px;">Select Portal</span>
+              </li>
+              <li>
+                <a class="dropdown-item rounded-2 py-2 d-flex align-items-center gap-2" href="dashboard-user.html">
+                  <div class="stat-icon bg-info-subtle text-info flex-shrink-0" style="width: 32px; height: 32px; border-radius: 8px; font-size: 0.95rem; display: flex; align-items: center; justify-content: center;">
+                    <i class="bi bi-person-circle"></i>
+                  </div>
+                  <div>
+                    <span class="d-block fw-bold small text-heading">User Dashboard</span>
+                    <small class="text-muted" style="font-size: 0.725rem;">Account, Profile &amp; Settings</small>
+                  </div>
+                </a>
+              </li>
+              <li><hr class="dropdown-divider my-1"></li>
+              <li>
+                <a class="dropdown-item rounded-2 py-2 d-flex align-items-center gap-2" href="dashboard-customer.html">
+                  <div class="stat-icon bg-primary-subtle text-primary flex-shrink-0" style="width: 32px; height: 32px; border-radius: 8px; font-size: 0.95rem; display: flex; align-items: center; justify-content: center;">
+                    <i class="bi bi-clipboard2-pulse"></i>
+                  </div>
+                  <div>
+                    <span class="d-block fw-bold small text-heading">Customer Dashboard</span>
+                    <small class="text-muted" style="font-size: 0.725rem;">Patient Portal, CGM &amp; Meds</small>
+                  </div>
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          <button type="button" class="btn-control-icon rtl-toggle-btn" title="Toggle RTL / LTR Direction" aria-label="Toggle text direction">
+            <span class="rtl-text fw-bold small">RTL</span>
+          </button>
+
+          <button type="button" class="btn-control-icon theme-toggle-btn" title="Toggle Light / Dark Mode" aria-label="Toggle color theme">
+            <i class="bi bi-moon-stars-fill"></i>
+          </button>
+
+          <a href="login.html" class="btn-login">Login</a>
+          <a href="register.html" class="btn-signup">Sign Up</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- SECTION 1: Page Header / Hero with Breadcrumbs -->
+  <section class="page-header-hero hero-about border-bottom">
+    <div class="container text-center py-5 position-relative">
+      <nav aria-label="breadcrumb" class="d-inline-block mb-3">
+        <ol class="breadcrumb justify-content-center mb-0 px-3 py-1 rounded-pill hero-breadcrumb-pill">
+          <li class="breadcrumb-item"><a href="index.html"><i class="bi bi-house me-1"></i>Home</a></li>
+          <li class="breadcrumb-item active" aria-current="page">About Us</li>
+        </ol>
+      </nav>
+      <h1 class="display-4 fw-extrabold mb-3 page-hero-title">Redefining Endocrine &amp; Metabolic Medicine</h1>
+      <p class="lead page-hero-subtitle mx-auto mb-0" style="max-width: 780px;">
+        Founded in 2011, EndoCare brings together world-class clinical endocrinologists, certified diabetes educators, and cutting-edge biomarker analytics under one integrated roof.
+      </p>
+    </div>
+  </section>
+
+  <!-- SECTION 2: Mission & Vision -->
+  <section class="section-padding bg-surface">
+    <div class="container">
+      <div class="row align-items-center g-5">
+        <div class="col-lg-6">
+          <span class="badge-subtle">
+            <i class="bi bi-compass"></i> Guiding Principles
+          </span>
+          <h2 class="section-title">Our Mission, Vision, and Healthcare Philosophy</h2>
+          <p class="text-muted mb-4">
+            We believe that endocrine conditions cannot be treated with cookie-cutter protocols. Because hormones act as chemical messengers that orchestrate total systemic vitality, true wellness demands individualized precision.
+          </p>
+
+          <div class="card mb-3 border-0 bg-alt p-4 rounded-4">
+            <div class="d-flex gap-3 align-items-start">
+              <div class="stat-icon bg-primary text-white flex-shrink-0">
+                <i class="bi bi-bullseye"></i>
+              </div>
+              <div>
+                <h5 class="fw-bold mb-1">Our Mission</h5>
+                <p class="text-muted mb-0 small">To empower every patient experiencing diabetes or hormone dysregulation with advanced diagnostic clarity, actionable digital monitoring, and compassionate clinical guidance to achieve lasting vitality.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="card border-0 bg-alt p-4 rounded-4">
+            <div class="d-flex gap-3 align-items-start">
+              <div class="stat-icon bg-teal text-white flex-shrink-0" style="background-color: var(--secondary-color);">
+                <i class="bi bi-eye"></i>
+              </div>
+              <div>
+                <h5 class="fw-bold mb-1">Our Vision</h5>
+                <p class="text-muted mb-0 small">To lead globally as an accredited Center of Excellence in preventive metabolic science, eliminating preventable diabetes complications through continuous biomarker analytics and remote physician oversight.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-6">
+          <div class="position-relative">
+            <img src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&w=800&q=80" alt="EndoCare Modern Clinic Lobby and Medical Facility" class="rounded-4 shadow-lg w-100" style="height: 440px; object-fit: cover;">
+            <div class="position-absolute bottom-0 end-0 m-4 p-3 bg-surface rounded-4 shadow-lg border" style="max-width: 250px;">
+              <h4 class="fw-bold text-primary mb-0">15+ Years</h4>
+              <p class="text-muted small mb-0">Of clinical excellence in hormonal health</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 3: Medical Expertise & Milestones History -->
+  <section class="section-padding bg-alt">
+    <div class="container">
+      <div class="section-header text-center">
+        <span class="badge-subtle">
+          <i class="bi bi-hourglass-split"></i> Our Evolution
+        </span>
+        <h2 class="section-title">Milestones in Metabolic Innovation</h2>
+        <p class="section-subtitle">
+          Over a decade of clinical achievements, research publications, and technological integration.
+        </p>
+      </div>
+
+      <div class="row g-4 align-items-stretch">
+        <!-- Milestone 1 -->
+        <div class="col-md-6 col-lg-3 d-flex">
+          <div class="card-custom w-100 text-center d-flex flex-column">
+            <div class="stat-icon bg-primary-subtle text-primary mx-auto mb-3 flex-shrink-0">
+              <span class="fw-bold">2011</span>
+            </div>
+            <h5 class="milestone-title">Clinic Foundation</h5>
+            <p class="milestone-desc text-muted small mb-0 flex-grow-1">Established as a specialized private practice focusing on complex brittle diabetes and thyroid ultrasound diagnostics.</p>
+          </div>
+        </div>
+
+        <!-- Milestone 2 -->
+        <div class="col-md-6 col-lg-3 d-flex">
+          <div class="card-custom w-100 text-center d-flex flex-column">
+            <div class="stat-icon bg-teal-subtle text-teal mx-auto mb-3 flex-shrink-0" style="background-color: var(--secondary-light); color: var(--secondary-color);">
+              <span class="fw-bold">2016</span>
+            </div>
+            <h5 class="milestone-title">CLIA Accredited Lab</h5>
+            <p class="milestone-desc text-muted small mb-0 flex-grow-1">Opened our high-complexity in-house endocrine lab with same-day hormone assays, ultrasensitive TSH, and C-peptide testing.</p>
+          </div>
+        </div>
+
+        <!-- Milestone 3 -->
+        <div class="col-md-6 col-lg-3 d-flex">
+          <div class="card-custom w-100 text-center d-flex flex-column">
+            <div class="stat-icon bg-warning-subtle text-warning mx-auto mb-3 flex-shrink-0">
+              <span class="fw-bold">2020</span>
+            </div>
+            <h5 class="milestone-title">Remote CGM Platform</h5>
+            <p class="milestone-desc text-muted small mb-0 flex-grow-1">Integrated wireless continuous sensor telemetry into our patient portal, enabling proactive out-of-clinic glycemic adjustments.</p>
+          </div>
+        </div>
+
+        <!-- Milestone 4 -->
+        <div class="col-md-6 col-lg-3 d-flex">
+          <div class="card-custom w-100 text-center d-flex flex-column">
+            <div class="stat-icon bg-info-subtle text-info mx-auto mb-3 flex-shrink-0">
+              <span class="fw-bold">2026</span>
+            </div>
+            <h5 class="milestone-title">Precision Medicine Center</h5>
+            <p class="milestone-desc text-muted small mb-0 flex-grow-1">Recognized as a regional tertiary referral clinic for endocrine oncology, radiofrequency ablation, and metabolic reversal.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 4: Healthcare Leadership Team -->
+  <section class="section-padding bg-surface">
+    <div class="container">
+      <div class="section-header text-center">
+        <span class="badge-subtle">
+          <i class="bi bi-people-fill"></i> Clinic Leadership
+        </span>
+        <h2 class="section-title">The Clinical Leadership Team</h2>
+        <p class="section-subtitle">
+          Guided by recognized academic endocrinologists and respected healthcare administrators.
+        </p>
+      </div>
+
+      <div class="row g-4">
+        <!-- Leader 1 -->
+        <div class="col-md-6 col-lg-4 d-flex">
+          <div class="doctor-card w-100">
+            <div class="doctor-img-wrap">
+              <a href="doctor-details.html" aria-label="View Dr. Sarah Jenkins Profile">
+                <img src="assets/images/dr-sarah-jenkins.jpg" alt="Dr. Sarah Jenkins">
+              </a>
+              <span class="doctor-badge">Medical Director</span>
+            </div>
+            <div class="doctor-body">
+              <h4 class="doctor-name">
+                <a href="doctor-details.html" class="text-reset text-decoration-none hover-primary">Dr. Sarah Jenkins, MD, FACE</a>
+              </h4>
+              <p class="doctor-specialty">Founder &amp; Chief Medical Officer</p>
+              <p class="doctor-bio">Fellow of the American Association of Clinical Endocrinology (FACE). Authored over 25 peer-reviewed publications on beta-cell preservation.</p>
+              <div class="doctor-footer">
+                <div class="d-flex gap-2">
+                  <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer" class="btn-control-icon btn-sm" title="LinkedIn" aria-label="Dr. Sarah Jenkins LinkedIn"><i class="bi bi-linkedin"></i></a>
+                  <a href="mailto:contact@endocareclinic.demo" class="btn-control-icon btn-sm" title="Email" aria-label="Email Dr. Sarah Jenkins"><i class="bi bi-envelope"></i></a>
+                </div>
+                <a href="doctor-details.html" class="btn btn-sm btn-outline-custom">View Bio</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Leader 2 -->
+        <div class="col-md-6 col-lg-4 d-flex">
+          <div class="doctor-card w-100">
+            <div class="doctor-img-wrap">
+              <a href="doctor-details.html" aria-label="View Dr. Marcus Vance Profile">
+                <img src="assets/images/dr-marcus-vance.jpg" alt="Dr. Marcus Vance">
+              </a>
+              <span class="doctor-badge">Chief of Endocrine Diagnostics</span>
+            </div>
+            <div class="doctor-body">
+              <h4 class="doctor-name">
+                <a href="doctor-details.html" class="text-reset text-decoration-none hover-primary">Dr. Marcus Vance, MD, ECNU</a>
+              </h4>
+              <p class="doctor-specialty">Director of Thyroid &amp; Diagnostic Center</p>
+              <p class="doctor-bio">Certified in Endocrine Neck Ultrasound (ECNU). Expert in minimally invasive thyroid nodule ablation and advanced parathyroid imaging.</p>
+              <div class="doctor-footer">
+                <div class="d-flex gap-2">
+                  <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer" class="btn-control-icon btn-sm" title="LinkedIn" aria-label="Dr. Marcus Vance LinkedIn"><i class="bi bi-linkedin"></i></a>
+                  <a href="mailto:contact@endocareclinic.demo" class="btn-control-icon btn-sm" title="Email" aria-label="Email Dr. Marcus Vance"><i class="bi bi-envelope"></i></a>
+                </div>
+                <a href="doctor-details.html" class="btn btn-sm btn-outline-custom">View Bio</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Leader 3 -->
+        <div class="col-md-6 col-lg-4 d-flex">
+          <div class="doctor-card w-100">
+            <div class="doctor-img-wrap">
+              <a href="doctor-details.html" aria-label="View Dr. Elena Rostova Profile">
+                <img src="assets/images/dr-elena-rostova.jpg" alt="Dr. Elena Rostova - Metabolic & PCOS Specialist">
+              </a>
+              <span class="doctor-badge">Head of Research</span>
+            </div>
+            <div class="doctor-body">
+              <h4 class="doctor-name">
+                <a href="doctor-details.html" class="text-reset text-decoration-none hover-primary">Dr. Elena Rostova, MD, PhD</a>
+              </h4>
+              <p class="doctor-specialty">Head of Metabolic Research &amp; PCOS</p>
+              <p class="doctor-bio">Dual MD/PhD in Molecular Endocrinology. Leads our clinical research trials investigating GLP-1 analogues and insulin receptor sensitivity.</p>
+              <div class="doctor-footer">
+                <div class="d-flex gap-2">
+                  <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer" class="btn-control-icon btn-sm" title="LinkedIn" aria-label="Dr. Elena Rostova LinkedIn"><i class="bi bi-linkedin"></i></a>
+                  <a href="mailto:contact@endocareclinic.demo" class="btn-control-icon btn-sm" title="Email" aria-label="Email Dr. Elena Rostova"><i class="bi bi-envelope"></i></a>
+                </div>
+                <a href="doctor-details.html" class="btn btn-sm btn-outline-custom">View Bio</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 5: Clinic Core Values & Accreditations -->
+  <section class="section-padding bg-alt">
+    <div class="container">
+      <div class="section-header text-center">
+        <span class="badge-subtle">
+          <i class="bi bi-heart-pulse"></i> Our Core Values
+        </span>
+        <h2 class="section-title">Rooted in Ethics, Driven by Precision</h2>
+        <p class="section-subtitle">
+          The four foundational pillars that define every patient interaction, lab assay, and therapeutic plan at EndoCare.
+        </p>
+      </div>
+
+      <div class="row g-4 align-items-stretch">
+        <div class="col-md-6 col-lg-3 d-flex">
+          <div class="card-custom w-100 text-center d-flex flex-column">
+            <div class="card-icon-box mx-auto mb-3 flex-shrink-0">
+              <i class="bi bi-heart"></i>
+            </div>
+            <h5 class="value-title">Compassionate Care</h5>
+            <p class="value-desc text-muted small mb-0 flex-grow-1">We listen without judgment, recognizing that hormone dysregulation deeply impacts mood, energy, sleep, and emotional health.</p>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-3 d-flex">
+          <div class="card-custom w-100 text-center d-flex flex-column">
+            <div class="card-icon-box mx-auto mb-3 flex-shrink-0" style="background-color: var(--secondary-light); color: var(--secondary-color);">
+              <i class="bi bi-rulers"></i>
+            </div>
+            <h5 class="value-title">Diagnostic Precision</h5>
+            <p class="value-desc text-muted small mb-0 flex-grow-1">We never guess. Every therapeutic adjustment is corroborated by rigorous biomarker testing and continuous data tracking.</p>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-3 d-flex">
+          <div class="card-custom w-100 text-center d-flex flex-column">
+            <div class="card-icon-box mx-auto mb-3 flex-shrink-0" style="background-color: #fef3c7; color: #d97706;">
+              <i class="bi bi-lightbulb"></i>
+            </div>
+            <h5 class="value-title">Continuous Innovation</h5>
+            <p class="value-desc text-muted small mb-0 flex-grow-1">We adopt the newest evidence-based pharmaceutical breakthroughs and digital healthcare telemetry before they become mainstream.</p>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-3 d-flex">
+          <div class="card-custom w-100 text-center d-flex flex-column">
+            <div class="card-icon-box mx-auto mb-3 flex-shrink-0" style="background-color: #ede9fe; color: #7c3aed;">
+              <i class="bi bi-shield-lock"></i>
+            </div>
+            <h5 class="value-title">Patient Autonomy</h5>
+            <p class="value-desc text-muted small mb-0 flex-grow-1">We partner with you as an active decision maker in your treatment, providing clear education so you understand every step.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Accreditations Row -->
+      <div class="mt-5 p-4 rounded-4 bg-surface border text-center">
+        <h6 class="text-muted text-uppercase fw-bold small mb-3">Accreditations & Professional Affiliations</h6>
+        <div class="d-flex flex-wrap justify-content-center align-items-center gap-4 text-muted fw-semibold">
+          <span><i class="bi bi-patch-check-fill text-primary me-2"></i>American Diabetes Association (ADA)</span>
+          <span><i class="bi bi-patch-check-fill text-primary me-2"></i>Endocrine Society (ES)</span>
+          <span><i class="bi bi-patch-check-fill text-primary me-2"></i>American Thyroid Association (ATA)</span>
+          <span><i class="bi bi-patch-check-fill text-primary me-2"></i>College of American Pathologists (CAP)</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 6: Patient Testimonials -->
+  <section class="section-padding bg-surface">
+    <div class="container">
+      <div class="section-header text-center">
+        <span class="badge-subtle">
+          <i class="bi bi-chat-quote"></i> Patient Trust
+        </span>
+        <h2 class="section-title">Real Patient Transformations</h2>
+        <p class="section-subtitle">
+          Hear how our patient-first approach makes a lasting difference across diverse endocrine conditions.
+        </p>
+      </div>
+
+      <div class="row g-4">
+        <div class="col-md-6 col-lg-4">
+          <div class="testimonial-card">
+            <div>
+              <i class="bi bi-quote quote-icon"></i>
+              <div class="testimonial-rating">
+                <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+              </div>
+              <p class="text-muted mb-0">
+                "Other doctors told me my blood tests were 'normal' despite severe fatigue and hair thinning. Dr. Vance looked deeper into thyroid autoantibodies and reversed my symptoms completely. I am forever grateful."
+              </p>
+            </div>
+            <div class="testimonial-author">
+              <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=150&q=80" alt="Clara Higgins" class="author-avatar">
+              <div>
+                <h6 class="fw-bold mb-0">Clara Higgins</h6>
+                <small class="text-muted">Hypothyroidism Patient</small>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4">
+          <div class="testimonial-card">
+            <div>
+              <i class="bi bi-quote quote-icon"></i>
+              <div class="testimonial-rating">
+                <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+              </div>
+              <p class="text-muted mb-0">
+                "The metabolic team helped me address PCOS from the root cause of insulin resistance. With tailored nutritional coaching and GLP-1 support, I have regular cycles for the first time in ten years."
+              </p>
+            </div>
+            <div class="testimonial-author">
+              <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=150&q=80" alt="Jessica Romero" class="author-avatar">
+              <div>
+                <h6 class="fw-bold mb-0">Jessica Romero</h6>
+                <small class="text-muted">PCOS Management</small>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4">
+          <div class="testimonial-card">
+            <div>
+              <i class="bi bi-quote quote-icon"></i>
+              <div class="testimonial-rating">
+                <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+              </div>
+              <p class="text-muted mb-0">
+                "The clinic ambiance is soothing, unhurried, and genuinely empathetic. You never feel like just another appointment slot. The staff takes the time to answer every detailed question."
+              </p>
+            </div>
+            <div class="testimonial-author">
+              <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=150&q=80" alt="Brian Kowalski" class="author-avatar">
+              <div>
+                <h6 class="fw-bold mb-0">Brian Kowalski</h6>
+                <small class="text-muted">Osteoporosis Care</small>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 7: Contact / Appointment CTA & Comprehensive Footer -->
+  <section class="section-padding bg-alt">
+    <div class="container">
+      <div class="cta-banner">
+        <div class="row align-items-center g-4">
+          <div class="col-lg-8">
+            <h2 class="display-6 fw-bold mb-3">Partner with Compassionate Endocrine Specialists</h2>
+            <p class="lead mb-0 text-white-50">
+              Discover why over 15,000 patients trust EndoCare for comprehensive metabolic and hormonal healthcare.
+            </p>
+          </div>
+          <div class="col-lg-4 text-lg-end">
+            <button class="btn btn-light text-primary fw-bold px-4 py-3 rounded-pill shadow-lg" data-bs-toggle="modal" data-bs-target="#appointmentModal">
+              <i class="bi bi-calendar-check me-2"></i> Schedule Consultation
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer-custom">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-lg-4">
+          <a class="navbar-brand text-white mb-3 d-inline-flex" href="index.html">
+            <span class="brand-icon"><i class="bi bi-activity"></i></span>
+            <span>Endo<span class="brand-text-accent">Care</span></span>
+          </a>
+          <p class="text-muted mb-4 pe-lg-4">
+            EndoCare is a dedicated Center of Excellence in Endocrinology and Diabetes Care. We integrate clinical diagnostic acumen with digital health technologies to provide life-transforming metabolic solutions.
+          </p>
+          <div class="d-flex gap-2">
+            <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer" class="btn-control-icon text-muted" title="Facebook" aria-label="Visit EndoCare on Facebook"><i class="bi bi-facebook"></i></a>
+            <a href="https://twitter.com/" target="_blank" rel="noopener noreferrer" class="btn-control-icon text-muted" title="Twitter/X" aria-label="Visit EndoCare on Twitter"><i class="bi bi-twitter-x"></i></a>
+            <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer" class="btn-control-icon text-muted" title="LinkedIn" aria-label="Visit EndoCare on LinkedIn"><i class="bi bi-linkedin"></i></a>
+            <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" class="btn-control-icon text-muted" title="Instagram" aria-label="Visit EndoCare on Instagram"><i class="bi bi-instagram"></i></a>
+          </div>
+        </div>
+
+        <div class="col-6 col-md-3 col-lg-2">
+          <h5>Quick Links</h5>
+          <ul class="footer-links">
+            <li><a href="index.html"><i class="bi bi-chevron-right small"></i> Home 1</a></li>
+            <li><a href="home-2.html"><i class="bi bi-chevron-right small"></i> Home 2</a></li>
+            <li><a href="about.html"><i class="bi bi-chevron-right small"></i> About Us</a></li>
+            <li><a href="services.html"><i class="bi bi-chevron-right small"></i> Services</a></li>
+            <li><a href="doctors.html"><i class="bi bi-chevron-right small"></i> Doctors</a></li>
+            <li><a href="pricing.html"><i class="bi bi-chevron-right small"></i> Pricing</a></li>
+          </ul>
+        </div>
+
+        <div class="col-6 col-md-3 col-lg-3 footer-clinical-col ps-lg-4 ps-xl-5">
+          <h5>Clinical Programs</h5>
+          <ul class="footer-links">
+            <li><a href="service-details.html?service=diabetes"><i class="bi bi-chevron-right small"></i> Diabetes Management</a></li>
+            <li><a href="service-details.html?service=thyroid"><i class="bi bi-chevron-right small"></i> Thyroid Disorders</a></li>
+            <li><a href="service-details.html?service=hormone"><i class="bi bi-chevron-right small"></i> Hormone Balancing</a></li>
+            <li><a href="service-details.html?service=metabolic"><i class="bi bi-chevron-right small"></i> Metabolic Health</a></li>
+            <li><a href="service-details.html?service=pcos"><i class="bi bi-chevron-right small"></i> PCOS & Endocrine</a></li>
+            <li><a href="service-details.html?service=osteoporosis"><i class="bi bi-chevron-right small"></i> Osteoporosis Care</a></li>
+          </ul>
+        </div>
+
+        <div class="col-lg-3">
+          <h5>Clinic Contact</h5>
+          <ul class="footer-links text-muted">
+            <li class="d-flex align-items-start gap-2 mb-2">
+              <i class="bi bi-geo-alt-fill text-primary mt-1"></i>
+              <span>742 Evergreen Medical Blvd, Suite 400, Metro Health City</span>
+            </li>
+            <li class="d-flex align-items-center gap-2 mb-2">
+              <i class="bi bi-telephone-fill text-primary"></i>
+              <span>+1 (800) 555-ENDO (3636)</span>
+            </li>
+            <li class="d-flex align-items-center gap-2 mb-2">
+              <i class="bi bi-envelope-fill text-primary"></i>
+              <span>appointments@endocareclinic.demo</span>
+            </li>
+            <li class="d-flex align-items-center gap-2">
+              <i class="bi bi-clock-fill text-primary"></i>
+              <span>Mon - Fri: 8:00 AM - 6:00 PM</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom d-flex flex-wrap justify-content-between align-items-center gap-3">
+        <p class="mb-0 text-muted">&copy; 2026 EndoCare Clinic. All rights reserved. Designed for professional healthcare practices.</p>
+        <div class="d-flex gap-3 text-muted">
+          <a href="privacy-policy.html" class="text-muted">Privacy Policy</a>
+          <a href="terms-of-care.html" class="text-muted">Terms of Care</a>
+          <a href="dashboard-admin.html" class="text-muted">Admin Portal</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Appointment Modal -->
+  <div class="modal fade" id="appointmentModal" tabindex="-1" aria-labelledby="appointmentModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title fw-bold" id="appointmentModalLabel">
+            <i class="bi bi-calendar2-check text-primary me-2"></i> Book Specialist Consultation
+          </h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <form class="appointment-booking-form">
+          <div class="modal-body p-4">
+            <div class="row g-3">
+              <div class="col-md-6">
+                <label class="form-label fw-semibold">Full Name</label>
+                <input type="text" class="form-control" placeholder="e.g. Eleanor Vance" required>
+              </div>
+              <div class="col-md-6">
+                <label class="form-label fw-semibold">Email Address</label>
+                <input type="email" class="form-control" placeholder="eleanor@example.com" required>
+              </div>
+              <div class="col-md-6">
+                <label class="form-label fw-semibold">Phone Number</label>
+                <input type="tel" class="form-control" placeholder="+1 (555) 019-2834" required>
+              </div>
+              <div class="col-md-6">
+                <label class="form-label fw-semibold">Select Specialist</label>
+                <select class="form-select" name="doctor" required>
+                  <option value="" selected disabled>Choose doctor...</option>
+                  <option value="jenkins">Dr. Sarah Jenkins (Chief Endocrinologist)</option>
+                  <option value="vance">Dr. Marcus Vance (Thyroid & Nodules)</option>
+                  <option value="rostova">Dr. Elena Rostova (Metabolic & PCOS)</option>
+                  <option value="chen">Dr. David Chen (Diabetes Tech & CGM)</option>
+                </select>
+              </div>
+              <div class="col-md-6">
+                <label class="form-label fw-semibold">Preferred Date</label>
+                <input type="date" class="form-control" name="date" required>
+              </div>
+              <div class="col-md-6">
+                <label class="form-label fw-semibold">Preferred Time Slot</label>
+                <select class="form-select" required>
+                  <option value="morning">Morning (9:00 AM - 12:00 PM)</option>
+                  <option value="afternoon">Afternoon (1:00 PM - 4:00 PM)</option>
+                  <option value="evening">Evening (4:00 PM - 6:30 PM)</option>
+                </select>
+              </div>
+              <div class="col-12">
+                <label class="form-label fw-semibold">Clinical Reason / Symptoms</label>
+                <textarea class="form-control" rows="3" placeholder="Briefly describe your symptoms or visit reason..."></textarea>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary rounded-pill px-4" data-bs-dismiss="modal">Cancel</button>
+            <button type="submit" class="btn btn-primary-custom">Confirm Appointment Request</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>User Account &amp; Profile Dashboard – EndoCare Clinic</title>
+  <meta name="description" content="EndoCare user account dashboard: manage your profile information, personal settings, account security, notifications, and general health lifestyle habits.">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>👤</text></svg>">
+  
+  <!-- Bootstrap 5.3 CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <!-- Core Design System & Dashboard CSS -->
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/dashboard.css">
+  <link rel="stylesheet" href="assets/css/rtl.css">
+</head>
+<body>
+
+  <div class="dashboard-wrapper">
+    <!-- Mobile Sidebar Backdrop Overlay -->
+    <div class="dashboard-backdrop" id="dashboardBackdrop"></div>
+    
+    <!-- Sidebar Navigation -->
+    <aside class="dashboard-sidebar" id="userDashboardSidebar">
+      <div class="dashboard-sidebar-header">
+        <a class="navbar-brand m-0" href="index.html">
+          <span class="brand-icon"><i class="bi bi-activity"></i></span>
+          <span>Endo<span class="brand-text-accent">Care</span></span>
+        </a>
+        <button class="btn btn-sm d-lg-none border-0 text-muted" type="button" id="userSidebarCloseBtn">
+          <i class="bi bi-x-lg fs-5"></i>
+        </button>
+      </div>
+
+      <div class="dashboard-sidebar-body">
+        <!-- User Profile Snippet in Sidebar -->
+        <div class="p-3 mb-3 rounded-4 bg-alt border d-flex align-items-center gap-3">
+          <img src="assets/images/user-johnathan.jpg" alt="Johnathan Miller" class="rounded-circle" style="width: 48px; height: 48px; object-fit: cover;">
+          <div class="overflow-hidden">
+            <h6 class="fw-bold mb-0 text-truncate" id="userDisplayName">Johnathan Miller</h6>
+            <small class="text-muted d-block">ID: #U-24810</small>
+            <span class="badge bg-primary-subtle text-primary mt-1" style="font-size: 0.7rem;">Verified Member</span>
+          </div>
+        </div>
+
+        <div class="sidebar-nav-label">Account Navigation</div>
+        <a href="#overviewSection" class="sidebar-nav-link active">
+          <i class="bi bi-person-circle"></i> Profile &amp; Overview
+        </a>
+        <a href="#personalDetailsSection" class="sidebar-nav-link">
+          <i class="bi bi-person-lines-fill"></i> Personal Details
+        </a>
+        <a href="#wellnessSection" class="sidebar-nav-link">
+          <i class="bi bi-heart-pulse"></i> General Health Tracker
+        </a>
+        <a href="#securitySection" class="sidebar-nav-link">
+          <i class="bi bi-shield-check"></i> Account &amp; Security
+        </a>
+        <a href="#notificationsSection" class="sidebar-nav-link">
+          <i class="bi bi-bell"></i> Notifications &amp; Alerts
+        </a>
+        <a href="#bookmarksSection" class="sidebar-nav-link">
+          <i class="bi bi-bookmark-heart"></i> Saved Health Articles
+        </a>
+
+        <!-- Portal Switcher to Customer Dashboard -->
+        <div class="sidebar-nav-label">Switch Portal</div>
+        <a href="dashboard-customer.html" class="portal-switch-card">
+          <div class="d-flex align-items-center gap-2">
+            <div class="stat-icon bg-primary text-white flex-shrink-0" style="width: 36px; height: 36px; border-radius: 8px; font-size: 1rem;">
+              <i class="bi bi-clipboard2-pulse"></i>
+            </div>
+            <div class="overflow-hidden">
+              <span class="d-block fw-bold small text-heading">Customer Dashboard</span>
+              <small class="text-primary d-block" style="font-size: 0.725rem;">Patient Portal &amp; CGM &rarr;</small>
+            </div>
+          </div>
+        </a>
+
+        <div class="sidebar-nav-label">Quick Links</div>
+        <a href="services.html" class="sidebar-nav-link">
+          <i class="bi bi-card-checklist"></i> Clinical Services
+        </a>
+        <a href="pricing.html" class="sidebar-nav-link">
+          <i class="bi bi-tags"></i> Care Plans &amp; Pricing
+        </a>
+        <a href="index.html" class="sidebar-nav-link">
+          <i class="bi bi-box-arrow-left"></i> Return to Website
+        </a>
+      </div>
+
+      <div class="dashboard-sidebar-footer">
+        <a href="logout.html" class="btn btn-outline-danger w-100 d-flex align-items-center justify-content-center gap-2">
+          <i class="bi bi-box-arrow-right"></i> Log Out
+        </a>
+      </div>
+    </aside>
+
+    <!-- Main Content Area -->
+    <main class="dashboard-main">
+      
+      <!-- Topbar Header -->
+      <header class="dashboard-topbar">
+        <div class="d-flex align-items-center gap-3">
+          <button class="btn btn-outline-secondary d-lg-none" type="button" id="userSidebarToggleBtn">
+            <i class="bi bi-list fs-5"></i>
+          </button>
+          <div>
+            <div class="d-flex align-items-center gap-2">
+              <h5 class="fw-bold mb-0">User Account Dashboard</h5>
+              <span class="badge bg-info-subtle text-info d-none d-md-inline-block">General Account</span>
+            </div>
+            <small class="text-muted" id="topbarUserName">Welcome back, Johnathan Miller</small>
+          </div>
+        </div>
+
+        <!-- Topbar Controls (Switch Portal, RTL, Dark/Light, Edit Profile, Home) -->
+        <div class="d-flex align-items-center gap-2">
+          <!-- Quick Switcher to Customer Dashboard -->
+          <a href="dashboard-customer.html" class="btn btn-sm btn-outline-primary d-none d-sm-inline-flex align-items-center gap-1">
+            <i class="bi bi-arrow-left-right"></i> <span>Customer Dashboard</span>
+          </a>
+
+          <!-- RTL Toggle -->
+          <button type="button" class="btn-control-icon rtl-toggle-btn" title="Toggle RTL" aria-label="Toggle text direction">
+            <span class="rtl-text fw-bold small">RTL</span>
+          </button>
+
+          <!-- Theme Toggle -->
+          <button type="button" class="btn-control-icon theme-toggle-btn" title="Toggle Theme" aria-label="Toggle dark mode">
+            <i class="bi bi-moon-stars-fill"></i>
+          </button>
+
+          <!-- Quick Edit Action -->
+          <button type="button" class="btn btn-primary-custom" id="topbarEditProfileBtn" title="Edit Profile Details">
+            <i class="bi bi-pencil-square"></i> <span class="d-none d-md-inline">Edit Profile</span>
+          </button>
+
+          <!-- Return Home -->
+          <a href="index.html" class="btn btn-sm btn-outline-custom d-none d-lg-inline-flex">
+            <i class="bi bi-house"></i> Home
+          </a>
+        </div>
+      </header>
+
+      <!-- Dashboard Content View -->
+      <div class="dashboard-content">
+
+        <!-- Banner Alert: Differentiating Dashboards -->
+        <div class="dashboard-banner p-3 mb-4 rounded-4 bg-primary-subtle border border-primary-subtle d-flex flex-column flex-md-row align-items-start align-items-md-center justify-content-between gap-3">
+          <div class="d-flex align-items-center gap-3 dashboard-banner-content">
+            <i class="bi bi-person-badge-fill text-primary fs-3 flex-shrink-0"></i>
+            <div style="min-width: 0;">
+              <h6 class="fw-bold mb-1 text-primary">You are viewing your General User Account Dashboard</h6>
+              <p class="text-muted small mb-0">Manage your personal profile, account security, notification alerts, and general lifestyle habits here. If you need clinical blood sugar and CGM telemetry, access the Customer Dashboard.</p>
+            </div>
+          </div>
+          <a href="dashboard-customer.html" class="btn btn-sm btn-primary-custom dashboard-banner-btn flex-shrink-0 text-nowrap align-self-start align-self-md-center">
+            Open Customer Dashboard <i class="bi bi-arrow-right ms-1"></i>
+          </a>
+        </div>
+        
+        <!-- 1. General User Stat Widgets (Profile, Steps, Hydration, Sleep) -->
+        <div class="row g-4 mb-4" id="overviewSection">
+          <!-- Widget 1: Profile Completion -->
+          <div class="col-sm-6 col-xl-3">
+            <div class="stat-widget">
+              <div class="stat-widget-info">
+                <span class="stat-widget-label">Profile Status</span>
+                <h3 class="stat-widget-value">85%</h3>
+                <p class="stat-widget-sub text-success fw-semibold"><i class="bi bi-check2-all"></i> Verified Member</p>
+              </div>
+              <div class="stat-widget-icon blue">
+                <i class="bi bi-person-check-fill"></i>
+              </div>
+            </div>
+          </div>
+
+          <!-- Widget 2: Daily Steps -->
+          <div class="col-sm-6 col-xl-3">
+            <div class="stat-widget">
+              <div class="stat-widget-info">
+                <span class="stat-widget-label">Daily Steps</span>
+                <h3 class="stat-widget-value">8,420</h3>
+                <p class="stat-widget-sub text-primary fw-semibold"><i class="bi bi-graph-up-arrow"></i> 84% of 10k Goal</p>
+              </div>
+              <div class="stat-widget-icon teal">
+                <i class="bi bi-activity"></i>
+              </div>
+            </div>
+          </div>
+
+          <!-- Widget 3: Daily Hydration -->
+          <div class="col-sm-6 col-xl-3">
+            <div class="stat-widget">
+              <div class="stat-widget-info">
+                <span class="stat-widget-label">Daily Water</span>
+                <h3 class="stat-widget-value" id="waterCurrentMl">2,250 mL</h3>
+                <p class="stat-widget-sub text-info fw-semibold" id="waterPercentText">75% of 3,000 mL goal</p>
+              </div>
+              <div class="stat-widget-icon amber">
+                <i class="bi bi-droplet-fill"></i>
+              </div>
+            </div>
+          </div>
+
+          <!-- Widget 4: Sleep & Rest -->
+          <div class="col-sm-6 col-xl-3">
+            <div class="stat-widget">
+              <div class="stat-widget-info">
+                <span class="stat-widget-label">Sleep Rest</span>
+                <h3 class="stat-widget-value">7h 45m</h3>
+                <p class="stat-widget-sub text-success fw-semibold"><i class="bi bi-moon-stars"></i> 88% Sleep Efficiency</p>
+              </div>
+              <div class="stat-widget-icon rose">
+                <i class="bi bi-moon-stars-fill"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2. Personal Profile Information & Health Lifestyle Tracker -->
+        <div class="row g-4 mb-4">
+          
+          <!-- Column 1: Personal Profile Edit Form -->
+          <div class="col-lg-7" id="personalDetailsSection">
+            <div class="chart-card mb-0 h-100">
+              <div class="chart-card-header">
+                <div>
+                  <h5 class="fw-bold mb-0">Personal Profile &amp; Contact Details</h5>
+                  <small class="text-muted">Update your basic identity, address, and emergency contact details</small>
+                </div>
+                <span class="badge bg-primary-subtle text-primary">Member #U-24810</span>
+              </div>
+
+              <!-- Profile Form -->
+              <form id="userProfileForm">
+                <div class="row g-3">
+                  <div class="col-md-6">
+                    <label class="form-label small fw-semibold">First Name</label>
+                    <input type="text" id="profFirstName" class="form-control" value="Johnathan" required>
+                  </div>
+                  <div class="col-md-6">
+                    <label class="form-label small fw-semibold">Last Name</label>
+                    <input type="text" id="profLastName" class="form-control" value="Miller" required>
+                  </div>
+                  <div class="col-md-6">
+                    <label class="form-label small fw-semibold">Email Address</label>
+                    <input type="email" id="profEmail" class="form-control" value="johnathan.miller@example.com" required>
+                  </div>
+                  <div class="col-md-6">
+                    <label class="form-label small fw-semibold">Phone Number</label>
+                    <input type="tel" id="profPhone" class="form-control" value="+1 (555) 782-9912" required>
+                  </div>
+                  <div class="col-md-6">
+                    <label class="form-label small fw-semibold">Date of Birth</label>
+                    <input type="date" id="profDob" class="form-control" value="1992-06-18">
+                  </div>
+                  <div class="col-md-6">
+                    <label class="form-label small fw-semibold">Gender</label>
+                    <select id="profGender" class="form-select">
+                      <option value="Male" selected>Male</option>
+                      <option value="Female">Female</option>
+                      <option value="Non-Binary">Non-Binary</option>
+                      <option value="Prefer Not to Say">Prefer Not to Say</option>
+                    </select>
+                  </div>
+                  <div class="col-md-8">
+                    <label class="form-label small fw-semibold">Residential Address</label>
+                    <input type="text" id="profAddress" class="form-control" value="482 Maplewood Terrace, Apt 3B">
+                  </div>
+                  <div class="col-md-4">
+                    <label class="form-label small fw-semibold">City &amp; State</label>
+                    <input type="text" id="profCity" class="form-control" value="Boston, MA">
+                  </div>
+
+                  <!-- Preferences & Emergency Contact Divider -->
+                  <div class="col-12 mt-4 pt-3 border-top">
+                    <h6 class="fw-bold mb-3"><i class="bi bi-shield-exclamation text-danger me-1"></i> Emergency Contact &amp; Region</h6>
+                  </div>
+                  <div class="col-md-6">
+                    <label class="form-label small fw-semibold">Emergency Contact Name</label>
+                    <input type="text" id="profEmergencyName" class="form-control" value="Rebecca Miller (Spouse)">
+                  </div>
+                  <div class="col-md-6">
+                    <label class="form-label small fw-semibold">Emergency Contact Phone</label>
+                    <input type="tel" id="profEmergencyPhone" class="form-control" value="+1 (555) 349-1102">
+                  </div>
+                  <div class="col-md-6">
+                    <label class="form-label small fw-semibold">Preferred Language</label>
+                    <select id="profLanguage" class="form-select">
+                      <option value="en" selected>English (US)</option>
+                      <option value="es">Español (Spanish)</option>
+                      <option value="fr">Français (French)</option>
+                      <option value="ar">العربية (Arabic)</option>
+                    </select>
+                  </div>
+                  <div class="col-md-6">
+                    <label class="form-label small fw-semibold">Preferred Timezone</label>
+                    <select id="profTimezone" class="form-select">
+                      <option value="EST" selected>Eastern Time (US &amp; Canada) - UTC-5</option>
+                      <option value="CST">Central Time (US &amp; Canada) - UTC-6</option>
+                      <option value="MST">Mountain Time (US &amp; Canada) - UTC-7</option>
+                      <option value="PST">Pacific Time (US &amp; Canada) - UTC-8</option>
+                    </select>
+                  </div>
+
+                  <div class="col-12 mt-4 d-flex justify-content-end gap-2">
+                    <button type="reset" class="btn btn-outline-secondary px-4">Reset</button>
+                    <button type="submit" class="btn btn-primary-custom px-4">
+                      <i class="bi bi-check2"></i> Save Profile Details
+                    </button>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+
+          <!-- Column 2: General Health & Lifestyle Tracker -->
+          <div class="col-lg-5" id="wellnessSection">
+            <div class="chart-card mb-0 h-100 d-flex flex-column justify-content-between">
+              <div>
+                <div class="chart-card-header mb-3">
+                  <div>
+                    <h5 class="fw-bold mb-0">Lifestyle &amp; Activity Tracker</h5>
+                    <small class="text-muted">General daily habits &amp; weekly movement</small>
+                  </div>
+                  <span class="badge bg-success-subtle text-success">Healthy Trend</span>
+                </div>
+
+                <!-- Daily Steps Chart -->
+                <div class="mb-4">
+                  <div class="d-flex justify-content-between align-items-center mb-2">
+                    <span class="small fw-bold">Weekly Walking &amp; Steps (Goal: 10,000/day)</span>
+                    <small class="text-muted">Mon - Sun</small>
+                  </div>
+                  <div style="height: 180px; position: relative;">
+                    <canvas id="userActivityChart"></canvas>
+                  </div>
+                </div>
+
+                <!-- Interactive Water Intake -->
+                <div class="p-3 bg-alt rounded-4 border mb-4">
+                  <div class="d-flex justify-content-between align-items-center mb-2">
+                    <div>
+                      <h6 class="fw-bold mb-0"><i class="bi bi-cup-straw text-primary me-1"></i> Daily Hydration Tracker</h6>
+                      <small class="text-muted">Click glasses to log 250 mL each</small>
+                    </div>
+                    <span class="badge bg-primary text-white">3,000 mL Goal</span>
+                  </div>
+
+                  <!-- Progress Bar -->
+                  <div class="progress mb-3" style="height: 8px;">
+                    <div class="progress-bar bg-info" id="waterProgressBar" style="width: 75%"></div>
+                  </div>
+
+                  <!-- 12 Clickable Glasses -->
+                  <div class="d-flex flex-wrap gap-2 justify-content-between">
+                    <button type="button" class="water-glass-btn filled" title="Glass 1 (250 mL)"><i class="bi bi-water"></i></button>
+                    <button type="button" class="water-glass-btn filled" title="Glass 2 (500 mL)"><i class="bi bi-water"></i></button>
+                    <button type="button" class="water-glass-btn filled" title="Glass 3 (750 mL)"><i class="bi bi-water"></i></button>
+                    <button type="button" class="water-glass-btn filled" title="Glass 4 (1,000 mL)"><i class="bi bi-water"></i></button>
+                    <button type="button" class="water-glass-btn filled" title="Glass 5 (1,250 mL)"><i class="bi bi-water"></i></button>
+                    <button type="button" class="water-glass-btn filled" title="Glass 6 (1,500 mL)"><i class="bi bi-water"></i></button>
+                    <button type="button" class="water-glass-btn filled" title="Glass 7 (1,750 mL)"><i class="bi bi-water"></i></button>
+                    <button type="button" class="water-glass-btn filled" title="Glass 8 (2,000 mL)"><i class="bi bi-water"></i></button>
+                    <button type="button" class="water-glass-btn filled" title="Glass 9 (2,250 mL)"><i class="bi bi-water"></i></button>
+                    <button type="button" class="water-glass-btn" title="Glass 10 (2,500 mL)"><i class="bi bi-water"></i></button>
+                    <button type="button" class="water-glass-btn" title="Glass 11 (2,750 mL)"><i class="bi bi-water"></i></button>
+                    <button type="button" class="water-glass-btn" title="Glass 12 (3,000 mL)"><i class="bi bi-water"></i></button>
+                  </div>
+                </div>
+
+                <!-- Health Interests Tags -->
+                <div>
+                  <label class="form-label small fw-bold text-muted text-uppercase mb-2">My Health Interests</label>
+                  <div class="d-flex flex-wrap gap-2">
+                    <span class="badge bg-primary-subtle text-primary p-2"><i class="bi bi-check-circle me-1"></i> Diabetes Prevention</span>
+                    <span class="badge bg-success-subtle text-success p-2"><i class="bi bi-check-circle me-1"></i> Clean Nutrition &amp; Fiber</span>
+                    <span class="badge bg-warning-subtle text-warning p-2"><i class="bi bi-check-circle me-1"></i> Sleep Hygiene</span>
+                    <span class="badge bg-info-subtle text-info p-2"><i class="bi bi-check-circle me-1"></i> Cardiovascular Fitness</span>
+                    <span class="badge bg-secondary-subtle text-secondary p-2"><i class="bi bi-check-circle me-1"></i> Thyroid Awareness</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Need Clinical Care? CTA -->
+              <div class="mt-4 p-3 rounded-4 bg-surface border text-center">
+                <small class="text-muted d-block mb-2">Looking for medical prescription management or CGM glucose tracking?</small>
+                <a href="dashboard-customer.html" class="btn btn-sm btn-outline-primary w-100">
+                  <i class="bi bi-heart-pulse"></i> Open Patient / Customer Dashboard
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3. Account Settings, Security & Notifications -->
+        <div class="row g-4 mb-4">
+          
+          <!-- Column 1: Account Security & Settings -->
+          <div class="col-lg-6" id="securitySection">
+            <div class="chart-card mb-0 h-100">
+              <div class="chart-card-header">
+                <div>
+                  <h5 class="fw-bold mb-0">Account Security &amp; Credentials</h5>
+                  <small class="text-muted">Password management and two-factor authentication</small>
+                </div>
+                <i class="bi bi-shield-lock-fill text-primary fs-4"></i>
+              </div>
+
+              <!-- Change Password Form -->
+              <form id="changePasswordForm" class="mb-4">
+                <div class="mb-3">
+                  <label class="form-label small fw-semibold">Current Password</label>
+                  <div class="input-group">
+                    <input type="password" id="currPassword" class="form-control" value="oldpassword123" required>
+                    <button type="button" class="btn btn-outline-secondary password-toggle-btn" data-target="currPassword">
+                      <i class="bi bi-eye"></i>
+                    </button>
+                  </div>
+                </div>
+                <div class="row g-2 mb-3">
+                  <div class="col-md-6">
+                    <label class="form-label small fw-semibold">New Password</label>
+                    <div class="input-group">
+                      <input type="password" id="newPassword" class="form-control" placeholder="Min. 8 characters" required>
+                      <button type="button" class="btn btn-outline-secondary password-toggle-btn" data-target="newPassword" title="Show/Hide Password">
+                        <i class="bi bi-eye"></i>
+                      </button>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <label class="form-label small fw-semibold">Confirm Password</label>
+                    <div class="input-group">
+                      <input type="password" id="confirmPassword" class="form-control" placeholder="Re-enter password" required>
+                      <button type="button" class="btn btn-outline-secondary password-toggle-btn" data-target="confirmPassword" title="Show/Hide Password">
+                        <i class="bi bi-eye"></i>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+                <button type="submit" class="btn btn-sm btn-outline-primary">
+                  <i class="bi bi-key"></i> Update Password
+                </button>
+              </form>
+
+              <!-- Two-Factor Authentication -->
+              <div class="setting-item-row">
+                <div>
+                  <h6 class="fw-bold mb-1">Two-Factor Authentication (2FA)</h6>
+                  <p class="text-muted small mb-0">Require an SMS or authenticator code on unrecognized sign-ins.</p>
+                </div>
+                <div class="form-check form-switch fs-5">
+                  <input class="form-check-input" type="checkbox" id="twoFactorSwitch" checked>
+                </div>
+              </div>
+
+              <!-- Connected Accounts -->
+              <div class="setting-item-row">
+                <div>
+                  <h6 class="fw-bold mb-1">Google Single Sign-On</h6>
+                  <p class="text-muted small mb-0">Connected as johnathan.miller@gmail.com</p>
+                </div>
+                <span class="badge bg-success-subtle text-success">Linked</span>
+              </div>
+
+              <!-- Active Device Sessions Table -->
+              <div class="mt-4 pt-3 border-top">
+                <h6 class="fw-bold mb-2">Active Sign-In Sessions</h6>
+                <div class="table-responsive">
+                  <table class="table table-sm text-start mb-0 align-middle">
+                    <thead class="table-light small">
+                      <tr>
+                        <th>Device / Browser</th>
+                        <th>Location</th>
+                        <th>Status</th>
+                        <th>Action</th>
+                      </tr>
+                    </thead>
+                    <tbody class="small">
+                      <tr>
+                        <td><i class="bi bi-laptop me-1 text-primary"></i> Chrome &bull; Windows 11</td>
+                        <td>Boston, US</td>
+                        <td><span class="badge bg-success text-white">Current</span></td>
+                        <td><span class="text-muted">&mdash;</span></td>
+                      </tr>
+                      <tr>
+                        <td><i class="bi bi-phone me-1 text-muted"></i> Safari &bull; iPhone 15</td>
+                        <td>Boston, US</td>
+                        <td><span class="text-muted">Yesterday</span></td>
+                        <td><button type="button" class="btn btn-sm btn-link text-danger p-0 action-revoke-session">Revoke</button></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- Column 2: Notifications & Communication Center -->
+          <div class="col-lg-6" id="notificationsSection">
+            <div class="chart-card mb-0 h-100 d-flex flex-column justify-content-between">
+              <div>
+                <div class="chart-card-header mb-3">
+                  <div>
+                    <h5 class="fw-bold mb-0">Notifications &amp; Activity Log</h5>
+                    <small class="text-muted">System alerts, updates, and communication logs</small>
+                  </div>
+                  <div class="d-flex align-items-center gap-2">
+                    <span class="badge bg-danger rounded-pill" id="unreadNotifyBadge">2 Unread</span>
+                    <button type="button" class="btn btn-sm btn-outline-secondary" id="markAllReadBtn">Mark All Read</button>
+                  </div>
+                </div>
+
+                <!-- Notifications List -->
+                <div class="d-flex flex-column gap-3 mb-4">
+                  <!-- Notification 1 -->
+                  <div class="notify-item unread p-3 bg-alt rounded-3 border d-flex justify-content-between align-items-start gap-2">
+                    <div class="d-flex gap-3">
+                      <div class="stat-icon bg-primary-subtle text-primary flex-shrink-0" style="width: 36px; height: 36px; border-radius: 8px;">
+                        <i class="bi bi-bell-fill"></i>
+                      </div>
+                      <div>
+                        <div class="d-flex align-items-center gap-2">
+                          <h6 class="fw-bold mb-0 small">Annual Metabolic Screening Available</h6>
+                          <span class="unread-dot bg-primary rounded-circle" style="width: 8px; height: 8px; display: inline-block;"></span>
+                        </div>
+                        <p class="text-muted small mb-0 mt-1">You are eligible for our complimentary annual lipid and glucose risk survey.</p>
+                        <small class="text-muted" style="font-size: 0.725rem;">Today at 10:15 AM</small>
+                      </div>
+                    </div>
+                    <button type="button" class="btn btn-sm text-muted action-dismiss-notify p-0" title="Dismiss">&times;</button>
+                  </div>
+
+                  <!-- Notification 2 -->
+                  <div class="notify-item unread p-3 bg-alt rounded-3 border d-flex justify-content-between align-items-start gap-2">
+                    <div class="d-flex gap-3">
+                      <div class="stat-icon bg-warning-subtle text-warning flex-shrink-0" style="width: 36px; height: 36px; border-radius: 8px;">
+                        <i class="bi bi-shield-exclamation"></i>
+                      </div>
+                      <div>
+                        <div class="d-flex align-items-center gap-2">
+                          <h6 class="fw-bold mb-0 small">Security Login From New Device</h6>
+                          <span class="unread-dot bg-warning rounded-circle" style="width: 8px; height: 8px; display: inline-block;"></span>
+                        </div>
+                        <p class="text-muted small mb-0 mt-1">Signed in from Safari on iPhone 15 in Boston, MA. If this wasn't you, revoke session immediately.</p>
+                        <small class="text-muted" style="font-size: 0.725rem;">Yesterday at 06:40 PM</small>
+                      </div>
+                    </div>
+                    <button type="button" class="btn btn-sm text-muted action-dismiss-notify p-0" title="Dismiss">&times;</button>
+                  </div>
+
+                  <!-- Notification 3 -->
+                  <div class="notify-item p-3 bg-alt rounded-3 border d-flex justify-content-between align-items-start gap-2">
+                    <div class="d-flex gap-3">
+                      <div class="stat-icon bg-success-subtle text-success flex-shrink-0" style="width: 36px; height: 36px; border-radius: 8px;">
+                        <i class="bi bi-journal-medical"></i>
+                      </div>
+                      <div>
+                        <h6 class="fw-bold mb-0 small">New Article Published: Food Sequencing</h6>
+                        <p class="text-muted small mb-0 mt-1">Dr. David Chen published new research on fiber, protein, and glucose spike interception.</p>
+                        <small class="text-muted" style="font-size: 0.725rem;">3 days ago</small>
+                      </div>
+                    </div>
+                    <button type="button" class="btn btn-sm text-muted action-dismiss-notify p-0" title="Dismiss">&times;</button>
+                  </div>
+                </div>
+
+                <!-- Notification Preferences Toggles -->
+                <div class="pt-3 border-top">
+                  <h6 class="fw-bold mb-2">Communication Preferences</h6>
+                  <div class="d-flex flex-wrap gap-4 text-muted small">
+                    <div class="form-check form-switch">
+                      <input class="form-check-input" type="checkbox" id="emailDigestSwitch" checked>
+                      <label class="form-check-label" for="emailDigestSwitch">Weekly Health Digest</label>
+                    </div>
+                    <div class="form-check form-switch">
+                      <input class="form-check-input" type="checkbox" id="smsAlertSwitch" checked>
+                      <label class="form-check-label" for="smsAlertSwitch">Security SMS Alerts</label>
+                    </div>
+                    <div class="form-check form-switch">
+                      <input class="form-check-input" type="checkbox" id="newsSwitch">
+                      <label class="form-check-label" for="newsSwitch">Clinical Newsletters</label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="mt-3 text-end">
+                <small class="text-muted">Account ID: #U-24810 &bull; Encrypted TLS 1.3</small>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 4. Bookmarked Health Articles from the Scientific Library -->
+        <div class="chart-card mb-4" id="bookmarksSection">
+          <div class="chart-card-header">
+            <div>
+              <h5 class="fw-bold mb-0"><i class="bi bi-bookmark-star-fill text-warning me-2"></i> Saved Medical Articles</h5>
+              <small class="text-muted">Articles you bookmarked from the EndoCare Scientific Library</small>
+            </div>
+            <a href="blog.html" class="btn btn-sm btn-outline-custom">
+              Browse More Articles <i class="bi bi-arrow-right"></i>
+            </a>
+          </div>
+
+          <div class="row g-3">
+            <!-- Saved Article 1 -->
+            <div class="col-md-6 col-lg-4 bookmark-card-col">
+              <div class="p-3 bg-surface-elevated rounded-4 border h-100 d-flex flex-column justify-content-between">
+                <div>
+                  <div class="d-flex justify-content-between align-items-center mb-2">
+                    <span class="badge bg-warning-subtle text-warning">Medical Nutrition</span>
+                    <button type="button" class="btn btn-sm text-danger p-0 action-remove-bookmark" title="Remove bookmark">
+                      <i class="bi bi-trash"></i>
+                    </button>
+                  </div>
+                  <h6 class="fw-bold mb-2">
+                    <a href="blog-details.html?article=food-sequencing" class="text-heading text-decoration-none">
+                      Food Sequencing: The Science of Eating Fiber and Protein Before Carbohydrates
+                    </a>
+                  </h6>
+                  <p class="text-muted small mb-3">Clinical insights on how eating vegetables and protein first blunts postprandial glucose curves.</p>
+                </div>
+                <div class="d-flex justify-content-between align-items-center pt-2 border-top">
+                  <small class="text-muted">5 Min Read</small>
+                  <a href="blog-details.html?article=food-sequencing" class="fw-bold text-primary small text-decoration-none">
+                    Read Article &rarr;
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Saved Article 2 -->
+            <div class="col-md-6 col-lg-4 bookmark-card-col">
+              <div class="p-3 bg-surface-elevated rounded-4 border h-100 d-flex flex-column justify-content-between">
+                <div>
+                  <div class="d-flex justify-content-between align-items-center mb-2">
+                    <span class="badge bg-secondary-subtle text-secondary">Thyroid Health</span>
+                    <button type="button" class="btn btn-sm text-danger p-0 action-remove-bookmark" title="Remove bookmark">
+                      <i class="bi bi-trash"></i>
+                    </button>
+                  </div>
+                  <h6 class="fw-bold mb-2">
+                    <a href="blog-details.html?article=hashimotos" class="text-heading text-decoration-none">
+                      Beyond TSH: Why Evaluating Free T3 and TPO Antibodies Matters in Hashimoto's
+                    </a>
+                  </h6>
+                  <p class="text-muted small mb-3">Understanding the difference between standard thyroid-stimulating hormone and full free T3/T4 conversion.</p>
+                </div>
+                <div class="d-flex justify-content-between align-items-center pt-2 border-top">
+                  <small class="text-muted">6 Min Read</small>
+                  <a href="blog-details.html?article=hashimotos" class="fw-bold text-primary small text-decoration-none">
+                    Read Article &rarr;
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Saved Article 3 -->
+            <div class="col-md-6 col-lg-4 bookmark-card-col">
+              <div class="p-3 bg-surface-elevated rounded-4 border h-100 d-flex flex-column justify-content-between">
+                <div>
+                  <div class="d-flex justify-content-between align-items-center mb-2">
+                    <span class="badge bg-primary-subtle text-primary">Circadian Health</span>
+                    <button type="button" class="btn btn-sm text-danger p-0 action-remove-bookmark" title="Remove bookmark">
+                      <i class="bi bi-trash"></i>
+                    </button>
+                  </div>
+                  <h6 class="fw-bold mb-2">
+                    <a href="blog-details.html?article=cortisol-curve" class="text-heading text-decoration-none">
+                      Restoring Your Cortisol Awakening Response: Circadian Endocrine Rhythms
+                    </a>
+                  </h6>
+                  <p class="text-muted small mb-3">How morning natural light exposure recalibrates diurnal adrenocortical rhythms and restores daytime energy.</p>
+                </div>
+                <div class="d-flex justify-content-between align-items-center pt-2 border-top">
+                  <small class="text-muted">6 Min Read</small>
+                  <a href="blog-details.html?article=cortisol-curve" class="fw-bold text-primary small text-decoration-none">
+                    Read Article &rarr;
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </main>
+  </div>
+
+  <!-- Chart.js & Bootstrap JS Bundle -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/dashboard-user.js"></script>
+</body>
+</html>

@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Customer Health Dashboard – EndoCare Clinic</title>
+  <meta name="description" content="Personalized patient health portal: blood sugar tracking, continuous sensor metrics, medication schedule, lab reports, and medical history.">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🩺</text></svg>">
+  
+  <!-- Bootstrap 5.3 CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <!-- Core Design System & Dashboard CSS -->
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/dashboard.css">
+  <link rel="stylesheet" href="assets/css/rtl.css">
+</head>
+<body>
+
+  <div class="dashboard-wrapper">
+    <!-- Mobile Sidebar Backdrop Overlay -->
+    <div class="dashboard-backdrop" id="dashboardBackdrop"></div>
+    
+    <!-- Sidebar Navigation -->
+    <aside class="dashboard-sidebar" id="dashboardSidebar">
+      <div class="dashboard-sidebar-header">
+        <a class="navbar-brand m-0" href="index.html">
+          <span class="brand-icon"><i class="bi bi-activity"></i></span>
+          <span>Endo<span class="brand-text-accent">Care</span></span>
+        </a>
+        <button class="btn btn-sm d-lg-none border-0 text-muted" type="button" id="sidebarCloseBtn">
+          <i class="bi bi-x-lg fs-5"></i>
+        </button>
+      </div>
+
+      <div class="dashboard-sidebar-body">
+        <!-- Patient Profile Snippet in Sidebar -->
+        <div class="p-3 mb-3 rounded-4 bg-alt border d-flex align-items-center gap-3">
+          <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=150&q=80" alt="Eleanor Vance" class="rounded-circle" style="width: 48px; height: 48px; object-fit: cover;">
+          <div class="overflow-hidden">
+            <h6 class="fw-bold mb-0 text-truncate">Eleanor Vance</h6>
+            <small class="text-muted d-block">ID: #P-84920</small>
+            <span class="badge bg-success-subtle text-success mt-1" style="font-size: 0.7rem;">Active Patient</span>
+          </div>
+        </div>
+
+        <div class="sidebar-nav-label">Health Navigation</div>
+        <a href="#overviewSection" class="sidebar-nav-link active">
+          <i class="bi bi-speedometer2"></i> Health Overview
+        </a>
+        <a href="#glucoseSection" class="sidebar-nav-link">
+          <i class="bi bi-droplet-half"></i> Blood Sugar Tracker
+        </a>
+        <a href="#medicationsSection" class="sidebar-nav-link">
+          <i class="bi bi-capsule"></i> Daily Medications
+        </a>
+        <a href="#appointmentsSection" class="sidebar-nav-link">
+          <i class="bi bi-calendar2-heart"></i> Appointments
+        </a>
+        <a href="#reportsSection" class="sidebar-nav-link">
+          <i class="bi bi-file-earmark-medical"></i> Lab Reports
+        </a>
+        <a href="#medicalHistorySection" class="sidebar-nav-link">
+          <i class="bi bi-journal-medical"></i> Medical History
+        </a>
+
+        <!-- Portal Switcher to User Dashboard -->
+        <div class="sidebar-nav-label">Switch Portal</div>
+        <a href="dashboard-user.html" class="portal-switch-card">
+          <div class="d-flex align-items-center gap-2">
+            <div class="stat-icon bg-info text-white flex-shrink-0" style="width: 36px; height: 36px; border-radius: 8px; font-size: 1rem;">
+              <i class="bi bi-person-circle"></i>
+            </div>
+            <div class="overflow-hidden">
+              <span class="d-block fw-bold small text-heading">User Dashboard</span>
+              <small class="text-info d-block" style="font-size: 0.725rem;">Account, Profile &amp; Settings &rarr;</small>
+            </div>
+          </div>
+        </a>
+
+        <div class="sidebar-nav-label">Quick Links</div>
+        <a href="doctors.html" class="sidebar-nav-link">
+          <i class="bi bi-person-badge"></i> Doctors Roster
+        </a>
+        <a href="services.html" class="sidebar-nav-link">
+          <i class="bi bi-card-checklist"></i> Clinical Services
+        </a>
+        <a href="index.html" class="sidebar-nav-link">
+          <i class="bi bi-box-arrow-left"></i> Return to Website
+        </a>
+      </div>
+
+      <div class="dashboard-sidebar-footer">
+        <a href="logout.html" class="btn btn-outline-danger w-100 d-flex align-items-center justify-content-center gap-2">
+          <i class="bi bi-box-arrow-right"></i> Log Out
+        </a>
+      </div>
+    </aside>
+
+    <!-- Main Content Area -->
+    <main class="dashboard-main">
+      
+      <!-- Topbar Header -->
+      <header class="dashboard-topbar">
+        <div class="d-flex align-items-center gap-3">
+          <button class="btn btn-outline-secondary d-lg-none" type="button" id="sidebarToggleBtn">
+            <i class="bi bi-list fs-5"></i>
+          </button>
+          <div>
+            <div class="d-flex align-items-center gap-2">
+              <h5 class="fw-bold mb-0">Patient Health Portal</h5>
+              <span class="badge bg-success-subtle text-success d-none d-md-inline-block">Customer Dashboard</span>
+            </div>
+            <small class="text-muted">Welcome back, Eleanor Vance</small>
+          </div>
+        </div>
+
+        <!-- Topbar Controls (Switch to User Dashboard, RTL, Dark/Light, New Reading, Back Home) -->
+        <div class="d-flex align-items-center gap-2">
+          <!-- Switcher to User Dashboard -->
+          <a href="dashboard-user.html" class="btn btn-sm btn-outline-info d-none d-sm-inline-flex align-items-center gap-1">
+            <i class="bi bi-arrow-left-right"></i> <span>User Dashboard</span>
+          </a>
+
+          <!-- RTL Toggle -->
+          <button type="button" class="btn-control-icon rtl-toggle-btn" title="Toggle RTL" aria-label="Toggle text direction">
+            <span class="rtl-text fw-bold small">RTL</span>
+          </button>
+
+          <!-- Theme Toggle -->
+          <button type="button" class="btn-control-icon theme-toggle-btn" title="Toggle Theme" aria-label="Toggle dark mode">
+            <i class="bi bi-moon-stars-fill"></i>
+          </button>
+
+          <!-- Log Blood Sugar Quick Action -->
+          <button type="button" class="btn btn-primary-custom" data-bs-toggle="modal" data-bs-target="#logReadingModal">
+            <i class="bi bi-plus-circle"></i> <span class="d-none d-sm-inline">Log Blood Sugar</span>
+          </button>
+
+          <!-- Return Home -->
+          <a href="index.html" class="btn btn-sm btn-outline-custom d-none d-lg-inline-flex">
+            <i class="bi bi-house"></i> Home
+          </a>
+        </div>
+      </header>
+
+      <!-- Dashboard Content View -->
+      <div class="dashboard-content" id="overviewSection">
+        
+        <!-- 1. Patient Profile Summary Widgets (HbA1c, Fasting, BP, Weight) Matching Reference Image -->
+        <div class="row g-4 mb-4">
+          <div class="col-sm-6 col-xl-3">
+            <div class="stat-widget">
+              <div class="stat-widget-info">
+                <span class="stat-widget-label">Latest HbA1c</span>
+                <h3 class="stat-widget-value">6.8%</h3>
+                <p class="stat-widget-sub text-success fw-semibold"><i class="bi bi-check-circle-fill"></i> Target &lt; 7.0% Met</p>
+              </div>
+              <div class="stat-widget-icon blue">
+                <i class="bi bi-pie-chart-fill"></i>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-sm-6 col-xl-3">
+            <div class="stat-widget">
+              <div class="stat-widget-info">
+                <span class="stat-widget-label">Fasting Glucose</span>
+                <h3 class="stat-widget-value">108 <small class="fs-6 text-muted">mg/dL</small></h3>
+                <p class="stat-widget-sub text-success fw-semibold"><i class="bi bi-arrow-down-short"></i> -6 mg/dL vs 7-day avg</p>
+              </div>
+              <div class="stat-widget-icon teal">
+                <i class="bi bi-droplet-half"></i>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-sm-6 col-xl-3">
+            <div class="stat-widget">
+              <div class="stat-widget-info">
+                <span class="stat-widget-label">Blood Pressure</span>
+                <h3 class="stat-widget-value">122/78</h3>
+                <p class="stat-widget-sub text-muted fw-semibold">Normal Cardiorenal Zone</p>
+              </div>
+              <div class="stat-widget-icon amber">
+                <i class="bi bi-heart-pulse-fill"></i>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-sm-6 col-xl-3">
+            <div class="stat-widget">
+              <div class="stat-widget-info">
+                <span class="stat-widget-label">Weight &amp; BMI</span>
+                <h3 class="stat-widget-value">68.4 <small class="fs-6 text-muted">kg</small></h3>
+                <p class="stat-widget-sub text-success fw-semibold">BMI: 23.8 (Healthy Range)</p>
+              </div>
+              <div class="stat-widget-icon rose">
+                <i class="bi bi-speedometer"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2. Blood Sugar History Chart & CGM Summary -->
+        <div class="row g-4 mb-4" id="glucoseSection">
+          <div class="col-lg-8">
+            <div class="chart-card h-100 mb-0">
+              <div class="chart-card-header">
+                <div>
+                  <h5 class="fw-bold mb-1">Blood Sugar History &amp; CGM Trends</h5>
+                  <small class="text-muted">7-Day Fasting vs 2-Hr Post-Meal Glucose Variations</small>
+                </div>
+                <div class="d-flex gap-2">
+                  <button type="button" class="btn btn-sm btn-primary-custom" data-bs-toggle="modal" data-bs-target="#logReadingModal">
+                    <i class="bi bi-plus-lg"></i> Log New
+                  </button>
+                </div>
+              </div>
+              <div style="height: 320px; position: relative;">
+                <canvas id="glucoseChart"></canvas>
+              </div>
+            </div>
+          </div>
+
+          <!-- Time-in-Range Sensor Widget -->
+          <div class="col-lg-4">
+            <div class="chart-card h-100 mb-0 d-flex flex-column justify-content-between">
+              <div>
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                  <h6 class="fw-bold mb-0">CGM Time-in-Range (TIR)</h6>
+                  <span class="badge bg-success-subtle text-success">Sensor Active</span>
+                </div>
+                <p class="text-muted small mb-3">Continuous sensor data from Dexcom G7 synchronized 12 mins ago.</p>
+
+                <!-- TIR Breakdown -->
+                <div class="mb-3">
+                  <div class="d-flex justify-content-between small fw-bold mb-1">
+                    <span class="text-success">In Range (70-140 mg/dL)</span>
+                    <span>82%</span>
+                  </div>
+                  <div class="progress" style="height: 10px;">
+                    <div class="progress-bar bg-success" style="width: 82%"></div>
+                  </div>
+                </div>
+
+                <div class="mb-3">
+                  <div class="d-flex justify-content-between small fw-bold mb-1">
+                    <span class="text-warning">High (141-180 mg/dL)</span>
+                    <span>14%</span>
+                  </div>
+                  <div class="progress" style="height: 10px;">
+                    <div class="progress-bar bg-warning" style="width: 14%"></div>
+                  </div>
+                </div>
+
+                <div class="mb-4">
+                  <div class="d-flex justify-content-between small fw-bold mb-1">
+                    <span class="text-danger">Low (&lt; 70 mg/dL)</span>
+                    <span>4%</span>
+                  </div>
+                  <div class="progress" style="height: 10px;">
+                    <div class="progress-bar bg-danger" style="width: 4%"></div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="p-3 bg-alt rounded-3 border">
+                <div class="d-flex align-items-center gap-2">
+                  <i class="bi bi-shield-check text-primary fs-4"></i>
+                  <small class="text-muted">Target ADA Goal: &gt; 70% Time-in-Range. You are performing exceptionally well!</small>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3. Recent Blood Sugar Table & Daily Medication Schedule -->
+        <div class="row g-4 mb-4">
+          
+          <!-- Recent Glucose Logs Table -->
+          <div class="col-lg-7">
+            <div class="custom-table-card mb-0 h-100">
+              <div class="p-3 bg-surface border-bottom d-flex justify-content-between align-items-center">
+                <h5 class="fw-bold mb-0">Recent Glucose Readings</h5>
+                <small class="text-muted">Interactive live data</small>
+              </div>
+              <div class="table-responsive">
+                <table class="custom-table">
+                  <thead>
+                    <tr>
+                      <th>Date &amp; Time</th>
+                      <th>Type</th>
+                      <th>Reading</th>
+                      <th>Status</th>
+                      <th>Notes</th>
+                      <th>Action</th>
+                    </tr>
+                  </thead>
+                  <tbody id="glucoseLogTableBody">
+                    <tr>
+                      <td class="fw-semibold">Today <small class="text-muted d-block">07:45 AM</small></td>
+                      <td><span class="badge bg-primary-subtle text-primary">Fasting</span></td>
+                      <td class="fw-bold">104 <small class="text-muted">mg/dL</small></td>
+                      <td><span class="badge bg-success-subtle text-success border border-success">Normal</span></td>
+                      <td class="text-muted small">Pre-breakfast test</td>
+                      <td><button class="btn btn-sm btn-outline-danger py-0 px-2 delete-reading-btn"><i class="bi bi-trash"></i></button></td>
+                    </tr>
+                    <tr>
+                      <td class="fw-semibold">Yesterday <small class="text-muted d-block">08:30 PM</small></td>
+                      <td><span class="badge bg-teal-subtle text-teal" style="background-color: var(--secondary-light); color: var(--secondary-color);">Post-Dinner</span></td>
+                      <td class="fw-bold">139 <small class="text-muted">mg/dL</small></td>
+                      <td><span class="badge bg-success-subtle text-success border border-success">Normal</span></td>
+                      <td class="text-muted small">Salmon &amp; quinoa salad</td>
+                      <td><button class="btn btn-sm btn-outline-danger py-0 px-2 delete-reading-btn"><i class="bi bi-trash"></i></button></td>
+                    </tr>
+                    <tr>
+                      <td class="fw-semibold">Yesterday <small class="text-muted d-block">07:50 AM</small></td>
+                      <td><span class="badge bg-primary-subtle text-primary">Fasting</span></td>
+                      <td class="fw-bold">107 <small class="text-muted">mg/dL</small></td>
+                      <td><span class="badge bg-success-subtle text-success border border-success">Normal</span></td>
+                      <td class="text-muted small">Woke up feeling energetic</td>
+                      <td><button class="btn btn-sm btn-outline-danger py-0 px-2 delete-reading-btn"><i class="bi bi-trash"></i></button></td>
+                    </tr>
+                    <tr>
+                      <td class="fw-semibold">Oct 12 <small class="text-muted d-block">01:30 PM</small></td>
+                      <td><span class="badge bg-teal-subtle text-teal" style="background-color: var(--secondary-light); color: var(--secondary-color);">2-Hr Post-Lunch</span></td>
+                      <td class="fw-bold">148 <small class="text-muted">mg/dL</small></td>
+                      <td><span class="badge bg-warning-subtle text-warning border border-warning">Elevated</span></td>
+                      <td class="text-muted small">Mild spike after sandwich</td>
+                      <td><button class="btn btn-sm btn-outline-danger py-0 px-2 delete-reading-btn"><i class="bi bi-trash"></i></button></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          <!-- Medication Schedule & Reminders (Interactive Check-Off) -->
+          <div class="col-lg-5" id="medicationsSection">
+            <div class="chart-card mb-0 h-100">
+              <div class="chart-card-header mb-2">
+                <div>
+                  <h5 class="fw-bold mb-0">Daily Medication Regimen</h5>
+                  <small class="text-muted" id="medProgressText">2 of 3 doses taken (66%)</small>
+                </div>
+                <span class="badge bg-primary-subtle text-primary">Dr. Jenkins Regimen</span>
+              </div>
+
+              <!-- Dose Progress Bar -->
+              <div class="progress mb-4" style="height: 8px;">
+                <div class="progress-bar bg-primary" id="medProgressBar" style="width: 66%" role="progressbar"></div>
+              </div>
+
+              <!-- Med Item 1 -->
+              <div class="med-item taken">
+                <div>
+                  <h6 class="fw-bold mb-1">Metformin Extended Release (XR)</h6>
+                  <small class="text-muted d-block">500 mg &bull; Morning dose with meal</small>
+                  <span class="badge bg-success-subtle text-success med-status-badge">Taken at 08:00 AM</span>
+                </div>
+                <button type="button" class="btn btn-sm btn-outline-secondary toggle-med-btn">
+                  <i class="bi bi-arrow-counterclockwise me-1"></i> Undo
+                </button>
+              </div>
+
+              <!-- Med Item 2 -->
+              <div class="med-item taken">
+                <div>
+                  <h6 class="fw-bold mb-1">Levothyroxine (Synthroid)</h6>
+                  <small class="text-muted d-block">50 mcg &bull; Take on empty stomach with water</small>
+                  <span class="badge bg-success-subtle text-success med-status-badge">Taken at 07:00 AM</span>
+                </div>
+                <button type="button" class="btn btn-sm btn-outline-secondary toggle-med-btn">
+                  <i class="bi bi-arrow-counterclockwise me-1"></i> Undo
+                </button>
+              </div>
+
+              <!-- Med Item 3 -->
+              <div class="med-item">
+                <div>
+                  <h6 class="fw-bold mb-1">Empagliflozin (Jardiance)</h6>
+                  <small class="text-muted d-block">10 mg &bull; Evening dose for cardiorenal protection</small>
+                  <span class="badge bg-warning-subtle text-warning med-status-badge">Pending (Evening)</span>
+                </div>
+                <button type="button" class="btn btn-sm btn-outline-primary toggle-med-btn">
+                  <i class="bi bi-check2-circle me-1"></i> Mark Taken
+                </button>
+              </div>
+
+              <div class="mt-3 text-center">
+                <a href="contact.html" class="small text-muted text-decoration-none">
+                  <i class="bi bi-question-circle me-1"></i> Need a prescription refill? Contact clinic pharmacy.
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 4. Upcoming Specialist Appointments & Diagnostic Lab Reports -->
+        <div class="row g-4 mb-4" id="appointmentsSection">
+          <div class="col-lg-7">
+            <div class="chart-card mb-0">
+              <div class="chart-card-header">
+                <div>
+                  <h5 class="fw-bold mb-0">Upcoming Specialist Appointments</h5>
+                  <small class="text-muted">In-clinic consultations and diagnostic laboratory visits</small>
+                </div>
+                <button class="btn btn-sm btn-primary-custom" data-bs-toggle="modal" data-bs-target="#appointmentModal">
+                  <i class="bi bi-calendar-plus"></i> Book Appointment
+                </button>
+              </div>
+
+              <div class="d-flex flex-column gap-3">
+                <!-- Appointment Card 1 -->
+                <div class="p-3 bg-surface-elevated rounded-3 border d-flex flex-column flex-md-row justify-content-between align-items-md-center gap-3">
+                  <div class="d-flex align-items-center gap-3">
+                    <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=150&q=80" alt="Dr. Sarah Jenkins" class="rounded-circle" style="width: 52px; height: 52px; object-fit: cover;">
+                    <div>
+                      <h6 class="fw-bold mb-1">Dr. Sarah Jenkins, MD</h6>
+                      <small class="text-primary fw-semibold d-block">Quarterly Glycemic &amp; CGM Sensor Review</small>
+                      <small class="text-muted"><i class="bi bi-calendar3 me-1"></i> Thursday, Oct 24, 2026 at 10:30 AM EST</small>
+                    </div>
+                  </div>
+                  <div class="d-flex gap-2">
+                    <button class="btn btn-sm btn-outline-custom action-reschedule">Reschedule</button>
+                    <button class="btn btn-sm btn-outline-custom" onclick="window.showToast('Calendar Link', 'Event exported to iCal / Google Calendar (Demo)', 'info');">
+                      <i class="bi bi-calendar-event"></i>
+                    </button>
+                  </div>
+                </div>
+
+                <!-- Appointment Card 2 -->
+                <div class="p-3 bg-surface-elevated rounded-3 border d-flex flex-column flex-md-row justify-content-between align-items-md-center gap-3">
+                  <div class="d-flex align-items-center gap-3">
+                    <div class="stat-icon bg-teal-subtle text-teal" style="background-color: var(--secondary-light); color: var(--secondary-color);">
+                      <i class="bi bi-droplet"></i>
+                    </div>
+                    <div>
+                      <h6 class="fw-bold mb-1">On-Site Fasting Laboratory Blood Draw</h6>
+                      <small class="text-teal fw-semibold d-block" style="color: var(--secondary-color);">Lipid Fractions, Fasting Insulin &amp; Microalbumin</small>
+                      <small class="text-muted"><i class="bi bi-calendar3 me-1"></i> Friday, Nov 15, 2026 at 08:00 AM EST</small>
+                    </div>
+                  </div>
+                  <div class="d-flex gap-2">
+                    <button class="btn btn-sm btn-outline-custom action-reschedule">Reschedule</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Lab Reports & Diagnostic Panels -->
+          <div class="col-lg-5" id="reportsSection">
+            <div class="chart-card mb-0 h-100">
+              <div class="chart-card-header mb-3">
+                <h5 class="fw-bold mb-0">Diagnostic Lab Reports</h5>
+                <span class="badge bg-teal-subtle text-teal" style="background-color: var(--secondary-light); color: var(--secondary-color);">Verified Results</span>
+              </div>
+              <div class="d-flex flex-column gap-3">
+                <div class="p-3 bg-alt rounded-3 border">
+                  <div class="d-flex justify-content-between align-items-start mb-1">
+                    <span class="badge bg-primary-subtle text-primary">Comprehensive Panel</span>
+                    <small class="text-muted">Oct 02, 2026</small>
+                  </div>
+                  <h6 class="fw-bold mb-1">HbA1c &amp; Comprehensive Metabolic Panel (CMP)</h6>
+                  <p class="text-muted small mb-2">Verified by Dr. Sarah Jenkins. eGFR > 90, eAG 149 mg/dL.</p>
+                  <button class="btn btn-sm btn-outline-primary py-1 px-3 action-download-report">
+                    <i class="bi bi-download me-1"></i> Download PDF
+                  </button>
+                </div>
+
+                <div class="p-3 bg-alt rounded-3 border">
+                  <div class="d-flex justify-content-between align-items-start mb-1">
+                    <span class="badge bg-teal-subtle text-teal" style="background-color: var(--secondary-light); color: var(--secondary-color);">Sensor Telemetry</span>
+                    <small class="text-muted">Sep 28, 2026</small>
+                  </div>
+                  <h6 class="fw-bold mb-1">14-Day Ambulatory Glucose Profile (AGP)</h6>
+                  <p class="text-muted small mb-2">Time-in-Range 82%, Glucose Management Indicator (GMI) 6.7%.</p>
+                  <button class="btn btn-sm btn-outline-primary py-1 px-3 action-download-report">
+                    <i class="bi bi-download me-1"></i> Download AGP
+                  </button>
+                </div>
+
+                <div class="p-3 bg-alt rounded-3 border">
+                  <div class="d-flex justify-content-between align-items-start mb-1">
+                    <span class="badge bg-info-subtle text-info">Endocrine Assay</span>
+                    <small class="text-muted">Aug 14, 2026</small>
+                  </div>
+                  <h6 class="fw-bold mb-1">Thyroid Profile (TSH, Free T3, Free T4)</h6>
+                  <p class="text-muted small mb-2">TSH: 2.1 mIU/L (Euthyroid target achieved on Synthroid 50mcg).</p>
+                  <button class="btn btn-sm btn-outline-primary py-1 px-3 action-download-report">
+                    <i class="bi bi-download me-1"></i> Download PDF
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 5. Dedicated Medical History & Clinical Diagnoses Section -->
+        <div class="row g-4 mb-4" id="medicalHistorySection">
+          <div class="col-12">
+            <div class="chart-card mb-0">
+              <div class="chart-card-header mb-4">
+                <div>
+                  <h5 class="fw-bold mb-1"><i class="bi bi-journal-medical text-primary me-2"></i> Patient Medical History &amp; Clinical Records</h5>
+                  <small class="text-muted">Comprehensive medical record, clinical diagnoses, allergies, and preventive care history</small>
+                </div>
+                <div class="d-flex gap-2 align-items-center">
+                  <span class="badge bg-light text-dark border"><i class="bi bi-lock-fill text-muted me-1"></i> HIPAA Encrypted</span>
+                  <button class="btn btn-sm btn-outline-custom" onclick="window.print()">
+                    <i class="bi bi-printer me-1"></i> Print Summary
+                  </button>
+                </div>
+              </div>
+
+              <!-- Medical Profile Grid -->
+              <div class="row g-4">
+                
+                <!-- Patient Demographics & Care Team -->
+                <div class="col-lg-4">
+                  <div class="p-3 bg-alt rounded-3 border h-100">
+                    <h6 class="fw-bold text-heading mb-3 d-flex align-items-center gap-2">
+                      <i class="bi bi-person-vcard text-primary"></i> Clinical Demographics
+                    </h6>
+                    <ul class="list-unstyled small mb-0 d-flex flex-column gap-2">
+                      <li class="d-flex justify-content-between pb-2 border-bottom">
+                        <span class="text-muted">Full Legal Name:</span>
+                        <span class="fw-semibold">Eleanor Vance</span>
+                      </li>
+                      <li class="d-flex justify-content-between pb-2 border-bottom">
+                        <span class="text-muted">Date of Birth:</span>
+                        <span class="fw-semibold">May 14, 1988 (Age 38)</span>
+                      </li>
+                      <li class="d-flex justify-content-between pb-2 border-bottom">
+                        <span class="text-muted">Blood Group &amp; Rh:</span>
+                        <span class="fw-semibold text-danger">O+ Rh Positive</span>
+                      </li>
+                      <li class="d-flex justify-content-between pb-2 border-bottom">
+                        <span class="text-muted">Attending Physician:</span>
+                        <span class="fw-semibold text-primary">Dr. Sarah Jenkins, MD</span>
+                      </li>
+                      <li class="d-flex justify-content-between pb-2 border-bottom">
+                        <span class="text-muted">Care Coordinator:</span>
+                        <span class="fw-semibold">Patricia Moore, RN (CDCES)</span>
+                      </li>
+                      <li class="d-flex justify-content-between">
+                        <span class="text-muted">Emergency Contact:</span>
+                        <span class="fw-semibold">Robert Vance (+1 555-0192)</span>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+
+                <!-- Active Diagnoses & Allergies -->
+                <div class="col-lg-4">
+                  <div class="p-3 bg-alt rounded-3 border h-100">
+                    <h6 class="fw-bold text-heading mb-3 d-flex align-items-center gap-2">
+                      <i class="bi bi-clipboard2-pulse text-primary"></i> Active Diagnoses &amp; Allergies
+                    </h6>
+                    
+                    <div class="mb-3">
+                      <small class="text-muted text-uppercase fw-bold d-block mb-1" style="font-size: 0.7rem;">Primary Clinical Diagnoses</small>
+                      <div class="d-flex flex-column gap-1">
+                        <div class="d-flex align-items-center justify-content-between p-2 bg-surface rounded-2 border">
+                          <span class="small fw-semibold">Type 2 Diabetes Mellitus (E11.9)</span>
+                          <span class="badge bg-success-subtle text-success">Controlled</span>
+                        </div>
+                        <div class="d-flex align-items-center justify-content-between p-2 bg-surface rounded-2 border">
+                          <span class="small fw-semibold">Primary Hypothyroidism (E06.3)</span>
+                          <span class="badge bg-info-subtle text-info">Euthyroid</span>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div>
+                      <small class="text-muted text-uppercase fw-bold d-block mb-1" style="font-size: 0.7rem;">Documented Allergies</small>
+                      <div class="d-flex flex-column gap-1">
+                        <div class="d-flex align-items-center justify-content-between p-2 bg-surface rounded-2 border">
+                          <span class="small fw-semibold text-danger"><i class="bi bi-exclamation-triangle-fill me-1"></i> Penicillin</span>
+                          <span class="badge bg-danger-subtle text-danger">Severe (Urticaria)</span>
+                        </div>
+                        <div class="d-flex align-items-center justify-content-between p-2 bg-surface rounded-2 border">
+                          <span class="small fw-semibold text-warning"><i class="bi bi-exclamation-circle-fill me-1"></i> Shellfish</span>
+                          <span class="badge bg-warning-subtle text-warning">Mild Pruritus</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Surgical History & Immunizations -->
+                <div class="col-lg-4">
+                  <div class="p-3 bg-alt rounded-3 border h-100">
+                    <h6 class="fw-bold text-heading mb-3 d-flex align-items-center gap-2">
+                      <i class="bi bi-shield-plus text-primary"></i> Procedures &amp; Vaccines
+                    </h6>
+
+                    <div class="mb-3">
+                      <small class="text-muted text-uppercase fw-bold d-block mb-1" style="font-size: 0.7rem;">Surgical &amp; Interventional History</small>
+                      <div class="d-flex flex-column gap-1">
+                        <div class="p-2 bg-surface rounded-2 border">
+                          <div class="d-flex justify-content-between align-items-center">
+                            <span class="small fw-semibold">Thyroid FNA Biopsy</span>
+                            <small class="text-muted">2024</small>
+                          </div>
+                          <small class="text-muted d-block" style="font-size: 0.725rem;">Right lobe benign colloid nodule</small>
+                        </div>
+                        <div class="p-2 bg-surface rounded-2 border">
+                          <div class="d-flex justify-content-between align-items-center">
+                            <span class="small fw-semibold">Laparoscopic Appendectomy</span>
+                            <small class="text-muted">2018</small>
+                          </div>
+                          <small class="text-muted d-block" style="font-size: 0.725rem;">Uncomplicated post-op recovery</small>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div>
+                      <small class="text-muted text-uppercase fw-bold d-block mb-1" style="font-size: 0.7rem;">Immunization Status</small>
+                      <div class="d-flex flex-wrap gap-1">
+                        <span class="badge bg-success-subtle text-success border border-success p-2 small"><i class="bi bi-check2"></i> Flu (Oct 2026)</span>
+                        <span class="badge bg-success-subtle text-success border border-success p-2 small"><i class="bi bi-check2"></i> PCV20 (2025)</span>
+                        <span class="badge bg-success-subtle text-success border border-success p-2 small"><i class="bi bi-check2"></i> Tdap Booster</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </main>
+  </div>
+
+  <!-- Interactive Blood Sugar Logger Modal -->
+  <div class="modal fade" id="logReadingModal" tabindex="-1" aria-labelledby="logReadingModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title fw-bold" id="logReadingModalLabel">
+            <i class="bi bi-droplet-half text-primary me-2"></i> Log Blood Sugar Reading
+          </h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <form id="glucoseLogForm">
+          <div class="modal-body p-4">
+            <div class="row g-3">
+              <div class="col-6">
+                <label class="form-label small fw-semibold">Date</label>
+                <input type="text" id="glucoseDate" class="form-control" value="Today">
+              </div>
+              <div class="col-6">
+                <label class="form-label small fw-semibold">Time</label>
+                <input type="text" id="glucoseTime" class="form-control" value="12:30 PM">
+              </div>
+              <div class="col-12">
+                <label class="form-label small fw-semibold">Reading Context / Type</label>
+                <select id="glucoseType" class="form-select">
+                  <option value="Fasting">Fasting (Morning upon waking)</option>
+                  <option value="Pre-Meal">Pre-Meal</option>
+                  <option value="2-Hr Post-Meal" selected>2-Hr Post-Meal</option>
+                  <option value="Bedtime">Bedtime</option>
+                  <option value="Random">Random / Symptomatic</option>
+                </select>
+              </div>
+              <div class="col-12">
+                <label class="form-label small fw-semibold">Glucose Value (mg/dL)</label>
+                <div class="input-group">
+                  <input type="number" id="glucoseValue" class="form-control form-control-lg fw-bold" placeholder="115" min="40" max="500" required>
+                  <span class="input-group-text">mg/dL</span>
+                </div>
+                <small class="text-muted">Normal fasting target: 70 - 130 mg/dL</small>
+              </div>
+              <div class="col-12">
+                <label class="form-label small fw-semibold">Clinical Notes / Food Eaten</label>
+                <input type="text" id="glucoseNotes" class="form-control" placeholder="e.g. 2 hrs post chicken salad lunch">
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary rounded-pill px-4" data-bs-dismiss="modal">Cancel</button>
+            <button type="submit" class="btn btn-primary-custom">Save &amp; Update Graph</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Specialist Appointment Booking Modal -->
+  <div class="modal fade" id="appointmentModal" tabindex="-1" aria-labelledby="appointmentModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title fw-bold" id="appointmentModalLabel">
+            <i class="bi bi-calendar2-check text-primary me-2"></i> Book Specialist Consultation
+          </h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <form class="appointment-booking-form">
+          <div class="modal-body p-4">
+            <div class="row g-3">
+              <div class="col-md-6">
+                <label class="form-label fw-semibold">Patient Name</label>
+                <input type="text" class="form-control" value="Eleanor Vance" required>
+              </div>
+              <div class="col-md-6">
+                <label class="form-label fw-semibold">Email Address</label>
+                <input type="email" class="form-control" value="eleanor.vance@example.com" required>
+              </div>
+              <div class="col-md-6">
+                <label class="form-label fw-semibold">Select Specialist</label>
+                <select class="form-select" name="doctor" required>
+                  <option value="jenkins" selected>Dr. Sarah Jenkins (Chief Endocrinologist)</option>
+                  <option value="vance">Dr. Marcus Vance (Thyroid &amp; Nodules)</option>
+                  <option value="rostova">Dr. Elena Rostova (Metabolic &amp; PCOS)</option>
+                  <option value="chen">Dr. David Chen (Diabetes Tech &amp; CGM)</option>
+                </select>
+              </div>
+              <div class="col-md-6">
+                <label class="form-label fw-semibold">Preferred Date</label>
+                <input type="date" class="form-control" name="date" required>
+              </div>
+              <div class="col-12">
+                <label class="form-label fw-semibold">Visit Purpose</label>
+                <textarea class="form-control" rows="2" placeholder="Describe symptoms or routine review..."></textarea>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary rounded-pill px-4" data-bs-dismiss="modal">Cancel</button>
+            <button type="submit" class="btn btn-primary-custom">Confirm Appointment Request</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Chart.js & Bootstrap JS Bundle -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/dashboard-patient.js"></script>
+</body>
+</html>
