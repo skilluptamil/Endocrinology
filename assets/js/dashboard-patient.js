@@ -277,11 +277,117 @@ function initPatientActions() {
   downloadBtns.forEach(btn => {
     btn.addEventListener('click', (e) => {
       e.preventDefault();
-      if (window.showToast) {
-        window.showToast('Report Download', 'Simulating Encrypted Lab Results PDF download...', 'primary');
+      
+      const parentRow = btn.closest('.p-3');
+      const titleEl = parentRow ? parentRow.querySelector('h6') : null;
+      const reportTitle = titleEl ? titleEl.textContent.trim() : 'Comprehensive-Clinical-Report';
+      const patientName = 'Eleanor Vance (Patient ID: #P-84920)';
+      const dateStr = new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+
+      const success = generateAndDownloadClinicalPdf(reportTitle, patientName, dateStr);
+      if (success && window.showToast) {
+        window.showToast('PDF Downloaded', `Successfully downloaded encrypted lab report: ${reportTitle}.pdf`, 'success');
+      } else if (!success && window.showToast) {
+        window.showToast('Download Error', 'Could not generate report file in browser. Please check browser permissions.', 'danger');
       }
     });
   });
+}
+
+function generateAndDownloadClinicalPdf(reportTitle, patientName, dateStr) {
+  try {
+    const safeTitle = reportTitle.replace(/[^\w\s-]/g, '').trim();
+    const pdfSource = `%PDF-1.4
+1 0 obj
+<< /Title (${safeTitle}) /Author (EndoCare Center of Excellence) /Subject (Clinical Diagnostic Report) /CreationDate (D:${new Date().toISOString().replace(/[-:T]/g, '').slice(0, 14)}Z) >>
+endobj
+2 0 obj
+<< /Type /Catalog /Pages 3 0 R >>
+endobj
+3 0 obj
+<< /Type /Pages /Kids [4 0 R] /Count 1 >>
+endobj
+4 0 obj
+<< /Type /Page /Parent 3 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 << /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold >> /F2 << /Type /Font /Subtype /Type1 /BaseFont /Helvetica >> >> >> /Contents 5 0 R >>
+endobj
+5 0 obj
+<< /Length 750 >>
+stream
+BT
+/F1 18 Tf
+50 740 Td
+(ENDOCARE CENTER OF EXCELLENCE IN ENDOCRINOLOGY) Tj
+/F2 10 Tf
+0 -18 Td
+(742 Evergreen Medical Blvd, Suite 400, Metro Health City | Tel: +1 800-555-ENDO) Tj
+/F1 14 Tf
+0 -36 Td
+(${safeTitle}) Tj
+/F2 11 Tf
+0 -22 Td
+(Patient Name: ${patientName}) Tj
+0 -18 Td
+(Date of Report: ${dateStr}) Tj
+0 -18 Td
+(Attending Physician: Dr. Sarah Jenkins, MD, FACE) Tj
+0 -18 Td
+(Accreditation: College of American Pathologists & CLIA Certified) Tj
+0 -30 Td
+(CLINICAL BIOMARKERS SUMMARY:) Tj
+0 -18 Td
+(- Glycated Hemoglobin [HbA1c]: 6.4% [Optimal Range: < 7.0%]) Tj
+0 -16 Td
+(- Fasting Blood Sugar: 104 mg/dL [Target: 70-130 mg/dL]) Tj
+0 -16 Td
+(- Continuous Glucose Monitor Time-in-Range: 82% [ADA Goal > 70%]) Tj
+0 -16 Td
+(- Fasting Serum Insulin: 8.2 uIU/mL [Normal: 2.6-24.9 uIU/mL]) Tj
+0 -16 Td
+(- Estimated Average Glucose [eAG]: 137 mg/dL) Tj
+0 -16 Td
+(- Thyroid Panel: TSH 1.85 mIU/L | Free T3: 3.2 pg/mL | Free T4: 1.25 ng/dL) Tj
+0 -16 Td
+(- Urinary Albumin-to-Creatinine Ratio: 14 mcg/mg [Normal < 30 mcg/mg]) Tj
+0 -30 Td
+(PHYSICIAN CLINICAL ASSESSMENT & PLAN:) Tj
+0 -16 Td
+(Patient demonstrates excellent glycemic stability with minimal hypoglycemia excursions.) Tj
+0 -16 Td
+(Maintain current Dexcom G7 continuous sensor monitoring and current pharmacotherapy.) Tj
+0 -16 Td
+(Next scheduled clinical consultation: 90 days.) Tj
+ET
+endstream
+endobj
+xref
+0 6
+0000000000 65535 f 
+0000000010 00000 n 
+0000000185 00000 n 
+0000000242 00000 n 
+0000000301 00000 n 
+0000000524 00000 n 
+trailer
+<< /Size 6 /Root 2 0 R /Info 1 0 R >>
+startxref
+1330
+%%EOF`;
+
+    const blob = new Blob([pdfSource], { type: 'application/pdf' });
+    const blobUrl = URL.createObjectURL(blob);
+    const downloadAnchor = document.createElement('a');
+    const filename = `${safeTitle.toLowerCase().replace(/\s+/g, '-')}-${Date.now().toString().slice(-6)}.pdf`;
+    downloadAnchor.href = blobUrl;
+    downloadAnchor.download = filename;
+    document.body.appendChild(downloadAnchor);
+    downloadAnchor.click();
+    document.body.removeChild(downloadAnchor);
+    setTimeout(() => URL.revokeObjectURL(blobUrl), 2000);
+    return true;
+  } catch (err) {
+    console.error('PDF creation error:', err);
+    return false;
+  }
 }
 
 // 5. Mobile Sidebar Drawer with Backdrop

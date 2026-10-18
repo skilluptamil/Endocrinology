@@ -105,9 +105,49 @@ function initLoginForm() {
   });
 }
 
+function validateStrongPassword(pass) {
+  const issues = [];
+  if (!pass || pass.length < 8) {
+    issues.push('At least 8 characters');
+  }
+  if (!/[A-Z]/.test(pass)) {
+    issues.push('At least 1 uppercase letter (A-Z)');
+  }
+  if (!/[a-z]/.test(pass)) {
+    issues.push('At least 1 lowercase letter (a-z)');
+  }
+  if (!/\d/.test(pass)) {
+    issues.push('At least 1 number (0-9)');
+  }
+  if (!/[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?`~]/.test(pass)) {
+    issues.push('At least 1 special character (!@#$%^&*...)');
+  }
+  return {
+    isValid: issues.length === 0,
+    issues: issues
+  };
+}
+
 function initRegisterForm() {
   const regForm = document.getElementById('registerForm');
   if (!regForm) return;
+
+  const passInput = document.getElementById('regPassword');
+  const passHint = document.getElementById('passwordCriteriaHint');
+
+  if (passInput && passHint) {
+    passInput.addEventListener('input', () => {
+      const val = passInput.value;
+      const res = validateStrongPassword(val);
+      if (res.isValid) {
+        passHint.className = 'small text-success mt-1 d-block';
+        passHint.innerHTML = '<i class="bi bi-shield-check"></i> Strong password created!';
+      } else {
+        passHint.className = 'small text-muted mt-1 d-block';
+        passHint.innerHTML = '<i class="bi bi-info-circle me-1"></i> Requires: ' + res.issues.join(', ');
+      }
+    });
+  }
 
   regForm.addEventListener('submit', (e) => {
     e.preventDefault();
@@ -128,8 +168,12 @@ function initRegisterForm() {
       return;
     }
 
-    if (pass.length < 6) {
-      if (window.showToast) window.showToast('Weak Password', 'Password should have at least 6 characters.', 'warning');
+    const validation = validateStrongPassword(pass);
+    if (!validation.isValid) {
+      if (window.showToast) {
+        window.showToast('Weak Password Rejected', 'Password must satisfy: ' + validation.issues.join(', '), 'danger');
+      }
+      if (passInput) passInput.focus();
       return;
     }
 
@@ -168,6 +212,23 @@ function initResetForm() {
   const resetForm = document.getElementById('resetForm');
   if (!resetForm) return;
 
+  const newPassInput = document.getElementById('newPassword');
+  const newPassHint = document.getElementById('resetPasswordHint');
+
+  if (newPassInput && newPassHint) {
+    newPassInput.addEventListener('input', () => {
+      const val = newPassInput.value;
+      const res = validateStrongPassword(val);
+      if (res.isValid) {
+        newPassHint.className = 'small text-success mt-1 d-block';
+        newPassHint.innerHTML = '<i class="bi bi-shield-check"></i> Strong password entered';
+      } else {
+        newPassHint.className = 'small text-muted mt-1 d-block';
+        newPassHint.innerHTML = '<i class="bi bi-info-circle me-1"></i> Requires: ' + res.issues.join(', ');
+      }
+    });
+  }
+
   resetForm.addEventListener('submit', (e) => {
     e.preventDefault();
     const newPass = document.getElementById('newPassword').value;
@@ -178,8 +239,12 @@ function initResetForm() {
       return;
     }
 
-    if (newPass.length < 6) {
-      if (window.showToast) window.showToast('Security Alert', 'Password must be at least 6 characters.', 'warning');
+    const validation = validateStrongPassword(newPass);
+    if (!validation.isValid) {
+      if (window.showToast) {
+        window.showToast('Weak Password Rejected', 'Password must satisfy: ' + validation.issues.join(', '), 'danger');
+      }
+      if (newPassInput) newPassInput.focus();
       return;
     }
 

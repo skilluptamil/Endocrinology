@@ -21,6 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initUserMobileSidebar();
   initSidebarScrollspy();
   initEditProfileTopbarAction();
+  initUserProfilePdfDownload();
 });
 
 // 1. User Profile Editing & Persistence
@@ -223,14 +224,22 @@ function initSecuritySettings() {
         return;
       }
 
-      if (newPwd.length < 8) {
-        if (window.showToast) window.showToast('Weak Password', 'New password must be at least 8 characters long.', 'warning');
+      // Strong password validation
+      const issues = [];
+      if (newPwd.length < 8) issues.push('At least 8 characters');
+      if (!/[A-Z]/.test(newPwd)) issues.push('At least 1 uppercase letter');
+      if (!/[a-z]/.test(newPwd)) issues.push('At least 1 lowercase letter');
+      if (!/\d/.test(newPwd)) issues.push('At least 1 number');
+      if (!/[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?`~]/.test(newPwd)) issues.push('At least 1 special character');
+
+      if (issues.length > 0) {
+        if (window.showToast) window.showToast('Weak Password Rejected', 'Password must satisfy: ' + issues.join(', '), 'warning');
         return;
       }
 
       pwdForm.reset();
       if (window.showToast) {
-        window.showToast('Security Alert', 'Your account password has been updated securely.', 'success');
+        window.showToast('Password Updated', 'Your account credentials have been updated securely.', 'success');
       }
     });
   }
@@ -435,3 +444,116 @@ function initSidebarScrollspy() {
     sections.forEach(sec => observer.observe(sec));
   }
 }
+
+// 9. User Profile & Health Summary Real PDF Download
+function initUserProfilePdfDownload() {
+  const downloadBtn = document.getElementById('btnDownloadProfilePdf');
+  if (!downloadBtn) return;
+
+  downloadBtn.addEventListener('click', (e) => {
+    e.preventDefault();
+
+    const firstName = document.getElementById('profFirstName') ? document.getElementById('profFirstName').value : 'Johnathan';
+    const lastName = document.getElementById('profLastName') ? document.getElementById('profLastName').value : 'Miller';
+    const fullName = `${firstName} ${lastName}`.trim();
+    const email = document.getElementById('profEmail') ? document.getElementById('profEmail').value : 'johnathan.miller@example.com';
+    const phone = document.getElementById('profPhone') ? document.getElementById('profPhone').value : '+1 (555) 782-9912';
+    const dateStr = new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+
+    try {
+      const pdfContent = `%PDF-1.4
+1 0 obj
+<< /Title (User Profile & Wellness Summary) /Author (EndoCare Clinic) /CreationDate (D:${new Date().toISOString().replace(/[-:T]/g, '').slice(0, 14)}Z) >>
+endobj
+2 0 obj
+<< /Type /Catalog /Pages 3 0 R >>
+endobj
+3 0 obj
+<< /Type /Pages /Kids [4 0 R] /Count 1 >>
+endobj
+4 0 obj
+<< /Type /Page /Parent 3 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 << /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold >> /F2 << /Type /Font /Subtype /Type1 /BaseFont /Helvetica >> >> >> /Contents 5 0 R >>
+endobj
+5 0 obj
+<< /Length 720 >>
+stream
+BT
+/F1 18 Tf
+50 740 Td
+(ENDOCARE HEALTH CLINIC - USER PROFILE SUMMARY) Tj
+/F2 10 Tf
+0 -18 Td
+(Account ID: #U-24810 | Verified Member | TLS 1.3 Certified) Tj
+/F1 13 Tf
+0 -36 Td
+(ACCOUNT & PROFILE INFORMATION) Tj
+/F2 11 Tf
+0 -22 Td
+(Full Legal Name: ${fullName}) Tj
+0 -18 Td
+(Primary Email: ${email}) Tj
+0 -18 Td
+(Primary Phone: ${phone}) Tj
+0 -18 Td
+(Date of Generation: ${dateStr}) Tj
+0 -30 Td
+(LIFESTYLE & GENERAL WELLNESS METRICS:) Tj
+0 -18 Td
+(- Daily Steps Target: 10,000 | Current Average: 8,420 steps) Tj
+0 -16 Td
+(- Daily Hydration: 2,250 mL logged of 3,000 mL goal [75%]) Tj
+0 -16 Td
+(- Sleep Quality: 7h 45m average [88% Sleep Efficiency rating]) Tj
+0 -16 Td
+(- Lifestyle Category: Low-to-Moderate Cardiovascular Strain) Tj
+0 -30 Td
+(SAVED CLINICAL LIBRARY ARTICLES:) Tj
+0 -18 Td
+(- Food Sequencing: Attenuating Postprandial Glucose Spikes) Tj
+0 -16 Td
+(- Beyond TSH: Full Free T3 and TPO Antibody Testing) Tj
+0 -16 Td
+(- Restoring Cortisol Awakening Rhythms Through Light Exposure) Tj
+0 -30 Td
+(NOTE: For official physician lab tests and continuous CGM data,) Tj
+0 -16 Td
+(please log in to the Customer Patient Portal.) Tj
+ET
+endstream
+endobj
+xref
+0 6
+0000000000 65535 f 
+0000000010 00000 n 
+0000000160 00000 n 
+0000000217 00000 n 
+0000000276 00000 n 
+0000000499 00000 n 
+trailer
+<< /Size 6 /Root 2 0 R /Info 1 0 R >>
+startxref
+1290
+%%EOF`;
+
+      const blob = new Blob([pdfContent], { type: 'application/pdf' });
+      const blobUrl = URL.createObjectURL(blob);
+      const anchor = document.createElement('a');
+      anchor.href = blobUrl;
+      anchor.download = `endocare-profile-${fullName.toLowerCase().replace(/\s+/g, '-')}.pdf`;
+      document.body.appendChild(anchor);
+      anchor.click();
+      document.body.removeChild(anchor);
+      setTimeout(() => URL.revokeObjectURL(blobUrl), 2000);
+
+      if (window.showToast) {
+        window.showToast('PDF Downloaded', `Successfully downloaded official profile summary for ${fullName}.`, 'success');
+      }
+    } catch (err) {
+      console.error('PDF error:', err);
+      if (window.showToast) {
+        window.showToast('Download Error', 'Could not generate profile summary PDF.', 'danger');
+      }
+    }
+  });
+}
+

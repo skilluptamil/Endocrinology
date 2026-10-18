@@ -94,10 +94,10 @@
           </button>
 
           <!-- Login Button -->
-          <a href="login.html" class="btn-login">Login</a>
+          <a href="login.html" class="btn-login"><i class="bi bi-box-arrow-in-right"></i> <span>Login</span></a>
 
           <!-- Sign Up Button -->
-          <a href="register.html" class="btn-signup">Sign Up</a>
+          <a href="register.html" class="btn-signup"><i class="bi bi-person-plus"></i> <span>Sign Up</span></a>
         </div>
       </div>
     </div>
@@ -107,42 +107,42 @@
   <section class="py-5 bg-alt border-bottom" id="doctorHero">
     <div class="container py-3">
       <!-- Breadcrumb -->
-      <nav aria-label="breadcrumb">
-        <ol class="breadcrumb mb-4">
-          <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-          <li class="breadcrumb-item"><a href="doctors.html">Physicians</a></li>
-          <li class="breadcrumb-item active" aria-current="page">Dr. Elena Rostova, MD, PhD</li>
+      <nav aria-label="breadcrumb" class="breadcrumb-nav-wrapper">
+        <ol class="breadcrumb hero-breadcrumb-pill">
+          <li class="breadcrumb-item"><a href="index.html"><i class="bi bi-house"></i><span>Home</span></a></li>
+          <li class="breadcrumb-item"><a href="doctors.html"><span>Physicians</span></a></li>
+          <li class="breadcrumb-item active" id="doctorBreadcrumb" aria-current="page">Dr. Elena Rostova, MD, PhD</li>
         </ol>
       </nav>
 
       <!-- Profile Header Card -->
       <div class="card border-0 shadow-sm rounded-4 overflow-hidden bg-surface p-4 p-lg-5">
         <div class="row g-4 align-items-center">
-          <!-- Doctor Portrait Image -->
-          <div class="col-lg-4 col-md-5 text-center">
-            <div class="position-relative d-inline-block w-100" style="max-width: 340px;">
-              <img src="assets/images/dr-elena-rostova.jpg" alt="Dr. Elena Rostova, MD - Metabolic & PCOS Specialist" class="rounded-4 shadow-sm w-100" style="height: 420px; object-fit: cover; object-position: top center;">
+          <!-- Doctor Portrait Image (Centered and balanced without awkward blank space) -->
+          <div class="col-lg-4 col-md-5 d-flex justify-content-center justify-content-md-start">
+            <div class="doctor-profile-img-wrap position-relative w-100" style="max-width: 360px;">
+              <img id="doctorHeroImg" src="assets/images/dr-elena-rostova.jpg" alt="Dr. Elena Rostova, MD - Metabolic & PCOS Specialist" class="rounded-4 shadow-sm w-100" style="height: 420px; object-fit: cover; object-position: top center;">
               <span class="position-absolute top-0 end-0 m-3 badge bg-success px-3 py-2 rounded-pill shadow-sm">
                 <i class="bi bi-check-circle-fill me-1"></i> Accepting New Patients
               </span>
               <div class="position-absolute bottom-0 start-0 m-3 px-3 py-2 bg-dark bg-opacity-75 text-white rounded-3 small backdrop-blur">
-                <i class="bi bi-geo-alt-fill text-warning me-1"></i> Clinic Suite 402
+                <i class="bi bi-geo-alt-fill text-warning me-1"></i> <span id="doctorSuiteBadge">Clinic Suite 402</span>
               </div>
             </div>
           </div>
 
           <!-- Doctor Key Information -->
           <div class="col-lg-8 col-md-7">
-            <div class="d-flex flex-wrap align-items-center gap-2 mb-2">
+            <div class="d-flex flex-wrap align-items-center gap-2 mb-2" id="doctorBadges">
               <span class="badge-subtle mb-0"><i class="bi bi-shield-check"></i> Board Certified Endocrinologist</span>
               <span class="badge bg-primary-subtle text-primary fw-semibold px-3 py-1 rounded-pill">Metabolic Lead</span>
               <span class="badge bg-secondary-subtle text-secondary fw-semibold px-3 py-1 rounded-pill">Director of PCOS Center</span>
             </div>
 
-            <h1 class="display-6 fw-extrabold mb-1">Dr. Elena Rostova, MD, PhD</h1>
-            <p class="text-primary fw-bold fs-5 mb-3">Lead Metabolic &amp; PCOS Specialist | Reproductive Endocrinologist</p>
+            <h1 class="display-6 fw-extrabold mb-1" id="doctorName">Dr. Elena Rostova, MD, PhD</h1>
+            <p class="text-primary fw-bold fs-5 mb-3" id="doctorSpecialty">Lead Metabolic &amp; PCOS Specialist | Reproductive Endocrinologist</p>
             
-            <p class="text-muted mb-4 lead fs-6">
+            <p class="text-muted mb-4 lead fs-6" id="doctorSummaryLead">
               Dr. Elena Rostova is an internationally recognized physician-scientist pioneering root-cause endocrine medicine. She specializes in the comprehensive management of Polycystic Ovary Syndrome (PCOS), insulin resistance reversal, obesity medicine, and hormonal fertility optimization.
             </p>
 
@@ -156,8 +156,8 @@
                 <i class="bi bi-star-fill"></i>
               </div>
               <div>
-                <span class="fw-bold fs-6">4.9 / 5.0</span>
-                <span class="text-muted small ms-1">(310 Verified Patient Ratings)</span>
+                <span class="fw-bold fs-6" id="doctorRatingVal">4.9 / 5.0</span>
+                <span class="text-muted small ms-1" id="doctorReviewCount">(310 Verified Patient Ratings)</span>
               </div>
               <div class="ms-auto d-none d-sm-block">
                 <span class="badge bg-info-subtle text-info px-2 py-1"><i class="bi bi-patch-check-fill text-info me-1"></i> 100% Patient Recommended</span>
@@ -167,41 +167,42 @@
             <!-- Key Metric Counters -->
             <div class="row g-3 text-center mb-4">
               <div class="col-6 col-sm-3">
-                <div class="p-3 bg-alt rounded-3 border">
-                  <h4 class="fw-extrabold text-primary mb-0">14+</h4>
-                  <small class="text-muted">Years Practice</small>
+                <div class="p-3 bg-alt rounded-3 border h-100">
+                  <h4 class="fw-extrabold text-primary mb-0" id="docStat1Val">14+</h4>
+                  <small class="text-muted" id="docStat1Label">Years Practice</small>
                 </div>
               </div>
               <div class="col-6 col-sm-3">
-                <div class="p-3 bg-alt rounded-3 border">
-                  <h4 class="fw-extrabold text-primary mb-0">4,200+</h4>
-                  <small class="text-muted">Patients Treated</small>
+                <div class="p-3 bg-alt rounded-3 border h-100">
+                  <h4 class="fw-extrabold text-primary mb-0" id="docStat2Val">4,200+</h4>
+                  <small class="text-muted" id="docStat2Label">Patients Treated</small>
                 </div>
               </div>
               <div class="col-6 col-sm-3">
-                <div class="p-3 bg-alt rounded-3 border">
-                  <h4 class="fw-extrabold text-primary mb-0">94%</h4>
-                  <small class="text-muted">Ovulation Restored</small>
+                <div class="p-3 bg-alt rounded-3 border h-100">
+                  <h4 class="fw-extrabold text-primary mb-0" id="docStat3Val">94%</h4>
+                  <small class="text-muted" id="docStat3Label">Ovulation Restored</small>
                 </div>
               </div>
               <div class="col-6 col-sm-3">
-                <div class="p-3 bg-alt rounded-3 border">
-                  <h4 class="fw-extrabold text-primary mb-0">18</h4>
-                  <small class="text-muted">Published Studies</small>
+                <div class="p-3 bg-alt rounded-3 border h-100">
+                  <h4 class="fw-extrabold text-primary mb-0" id="docStat4Val">18</h4>
+                  <small class="text-muted" id="docStat4Label">Published Studies</small>
                 </div>
               </div>
             </div>
 
-            <!-- Action CTAs -->
+            <!-- Action CTAs with phone number clearly visible alongside icon -->
             <div class="d-flex flex-wrap align-items-center gap-3">
-              <button class="btn btn-primary-custom px-4 py-2" data-bs-toggle="modal" data-bs-target="#appointmentModal">
+              <button class="btn btn-primary-custom px-4 py-2" id="doctorBookCtaBtn" data-bs-toggle="modal" data-bs-target="#appointmentModal">
                 <i class="bi bi-calendar-check me-2"></i> Book Consultation with Dr. Rostova
               </button>
               <a href="#bookingSection" class="btn btn-outline-custom px-4 py-2">
                 <i class="bi bi-clock-history me-1"></i> View Clinical Schedule
               </a>
-              <a href="tel:18005553636" class="btn btn-sm btn-icon" title="Call Clinic Office">
-                <i class="bi bi-telephone"></i>
+              <a href="tel:18005553636" id="doctorPhoneLink" class="btn btn-outline-custom px-3 py-2 d-inline-flex align-items-center gap-2" title="Call Clinic Office">
+                <i class="bi bi-telephone-fill text-primary"></i>
+                <span id="doctorPhoneText" class="fw-semibold">(800) 555-ENDO ext. 402</span>
               </a>
             </div>
           </div>
@@ -216,16 +217,18 @@
       <div class="row g-5 align-items-center">
         <div class="col-lg-7">
           <span class="badge-subtle"><i class="bi bi-file-earmark-person"></i> Physician Biography</span>
-          <h2 class="section-title">Root-Cause Endocrinology Dedicated to Hormonal Restoration</h2>
-          <p class="text-muted lead fs-6">
+          <h2 class="section-title" id="doctorBioHeading">Root-Cause Endocrinology Dedicated to Hormonal Restoration</h2>
+          <p class="text-muted lead fs-6" id="doctorBioQuote">
             "Rather than merely managing symptoms with oral contraceptives or isolated prescriptions, our mission is to understand the intricate neuro-endocrine and metabolic pathways that govern your hormones."
           </p>
-          <p class="text-muted">
-            Dr. Elena Rostova completed her dual MD and PhD in Molecular Endocrinology at Stanford University School of Medicine, followed by internal medicine residency at Brigham & Women’s Hospital / Harvard Medical School. She then completed specialized endocrine fellowship training at the Mayo Clinic, zeroing in on ovarian steroidogenesis, hyperinsulinemia, and metabolic dysfunction.
-          </p>
-          <p class="text-muted">
-            Throughout her 14 years in academic and clinical practice, Dr. Rostova has built one of the nation's most respected outpatient programs for Polycystic Ovary Syndrome (PCOS). Her clinical protocol unites continuous glucose sensor telemetry (CGM), personalized micro-nutrient and inositol balance, insulin-sensitizing pharmacotherapies (including GLP-1/GIP agonists when clinically indicated), and targeted hormonal therapies.
-          </p>
+          <div id="doctorBioFullText">
+            <p class="text-muted" id="doctorBioText1">
+              Dr. Elena Rostova completed her dual MD and PhD in Molecular Endocrinology at Stanford University School of Medicine, followed by internal medicine residency at Brigham & Women’s Hospital / Harvard Medical School. She then completed specialized endocrine fellowship training at the Mayo Clinic, zeroing in on ovarian steroidogenesis, hyperinsulinemia, and metabolic dysfunction.
+            </p>
+            <p class="text-muted" id="doctorBioText2">
+              Throughout her 14 years in academic and clinical practice, Dr. Rostova has built one of the nation's most respected outpatient programs for Polycystic Ovary Syndrome (PCOS). Her clinical protocol unites continuous glucose sensor telemetry (CGM), personalized micro-nutrient and inositol balance, insulin-sensitizing pharmacotherapies (including GLP-1/GIP agonists when clinically indicated), and targeted hormonal therapies.
+            </p>
+          </div>
 
           <div class="row g-3 mt-2">
             <div class="col-md-6">
@@ -236,7 +239,7 @@
                   </div>
                   <h6 class="fw-bold mb-0">Integrative Diagnostics</h6>
                 </div>
-                <small class="text-muted">Comprehensive 4-point insulin curves, advanced lipid subfraction testing, and 24-hr bioavailable androgens.</small>
+                <small class="text-muted" id="doctorPillar1">Comprehensive 4-point insulin curves, advanced lipid subfraction testing, and 24-hr bioavailable androgens.</small>
               </div>
             </div>
             <div class="col-md-6">
@@ -247,7 +250,7 @@
                   </div>
                   <h6 class="fw-bold mb-0">Compassionate Advocacy</h6>
                 </div>
-                <small class="text-muted">Unrushed 45-minute clinical visits where every patient’s lived experience and biomarker profile are deeply heard.</small>
+                <small class="text-muted" id="doctorPillar2">Unrushed 45-minute clinical visits where every patient’s lived experience and biomarker profile are deeply heard.</small>
               </div>
             </div>
           </div>
@@ -261,12 +264,12 @@
             
             <div class="mb-3 pb-3 border-bottom">
               <span class="text-uppercase text-muted small fw-bold">Primary Specialty</span>
-              <p class="fw-bold text-dark mb-0">Reproductive &amp; Metabolic Endocrinology</p>
+              <p class="fw-bold text-dark mb-0" id="doctorPrimarySpecialty">Reproductive &amp; Metabolic Endocrinology</p>
             </div>
 
             <div class="mb-3 pb-3 border-bottom">
               <span class="text-uppercase text-muted small fw-bold">Education &amp; Training</span>
-              <ul class="list-unstyled mb-0 small text-muted mt-1">
+              <ul class="list-unstyled mb-0 small text-muted mt-1" id="doctorEducationList">
                 <li class="mb-1"><strong>MD / PhD:</strong> Stanford University School of Medicine</li>
                 <li class="mb-1"><strong>Residency:</strong> Brigham &amp; Women's Hospital (Harvard)</li>
                 <li><strong>Fellowship:</strong> Mayo Clinic Endocrine Division</li>
@@ -275,7 +278,7 @@
 
             <div class="mb-3 pb-3 border-bottom">
               <span class="text-uppercase text-muted small fw-bold">Board Certifications</span>
-              <ul class="list-unstyled mb-0 small text-muted mt-1">
+              <ul class="list-unstyled mb-0 small text-muted mt-1" id="doctorBoardCerts">
                 <li class="mb-1"><i class="bi bi-check-circle text-primary me-1"></i> American Board of Internal Medicine: Endocrinology, Diabetes &amp; Metabolism</li>
                 <li><i class="bi bi-check-circle text-primary me-1"></i> Diplomate, American Board of Obesity Medicine (ABOM)</li>
               </ul>
@@ -283,12 +286,12 @@
 
             <div class="mb-3 pb-3 border-bottom">
               <span class="text-uppercase text-muted small fw-bold">Professional Fellowships</span>
-              <p class="small text-muted mb-0">Fellow of American College of Endocrinology (FACE), Member of AE-PCOS Society, Endocrine Society.</p>
+              <p class="small text-muted mb-0" id="doctorFellowships">Fellow of American College of Endocrinology (FACE), Member of AE-PCOS Society, Endocrine Society.</p>
             </div>
 
             <div>
               <span class="text-uppercase text-muted small fw-bold">Languages Spoken</span>
-              <p class="small text-dark fw-semibold mb-0">English (Fluent), Russian (Native), Spanish (Clinical)</p>
+              <p class="small text-dark fw-semibold mb-0" id="doctorLanguages">English (Fluent), Russian (Native), Spanish (Clinical)</p>
             </div>
           </div>
         </div>
@@ -469,15 +472,15 @@
               <span class="badge bg-white text-primary fw-bold px-3 py-2 rounded-pill mb-3">
                 <i class="bi bi-quote"></i> Doctor's Perspective
               </span>
-              <h3 class="display-6 fw-bold mb-3">"PCOS is not your fault, and you are not broken."</h3>
-              <p class="lead opacity-90 mb-4 fs-6">
+              <h3 class="display-6 fw-bold mb-3" id="doctorPerspectiveQuote">"PCOS is not your fault, and you are not broken."</h3>
+              <p class="lead opacity-90 mb-4 fs-6" id="doctorPerspectiveText">
                 "Far too many women are told that weight gain and missed cycles are personal failings, or given birth control pills without an explanation of insulin signaling. When we repair cellular sensitivity to insulin and restore healthy androgen clearance, the body responds with incredible resilience."
               </p>
               <div class="d-flex align-items-center gap-3 pt-3 border-top border-white border-opacity-25">
-                <img src="assets/images/dr-elena-rostova.jpg" alt="Dr. Elena Rostova" class="rounded-circle border border-2 border-white" style="width: 60px; height: 60px; object-fit: cover;">
+                <img id="doctorPerspectiveImg" src="assets/images/dr-elena-rostova.jpg" alt="Dr. Elena Rostova" class="rounded-circle border border-2 border-white" style="width: 60px; height: 60px; object-fit: cover;">
                 <div>
-                  <h6 class="fw-bold mb-0 text-white">Dr. Elena Rostova, MD, PhD</h6>
-                  <small class="text-white opacity-75">Fellow, American College of Endocrinology</small>
+                  <h6 class="fw-bold mb-0 text-white" id="doctorPerspectiveName">Dr. Elena Rostova, MD, PhD</h6>
+                  <small class="text-white opacity-75" id="doctorPerspectiveRole">Fellow, American College of Endocrinology</small>
                 </div>
               </div>
             </div>
@@ -497,7 +500,7 @@
         <div class="col-lg-5">
           <span class="badge-subtle"><i class="bi bi-clock"></i> Clinical Hours</span>
           <h2 class="section-title">Consulting Schedule</h2>
-          <p class="text-muted mb-4">
+          <p class="text-muted mb-4" id="doctorScheduleSub">
             Dr. Rostova holds in-clinic evaluations three days a week and dedicated telehealth appointments for interstate patients.
           </p>
 
@@ -511,16 +514,16 @@
                     <th class="pe-4">Visit Type</th>
                   </tr>
                 </thead>
-                <tbody>
+                <tbody id="doctorScheduleTableBody">
                   <tr>
                     <td class="ps-4 fw-bold">Monday</td>
                     <td>8:00 AM - 4:30 PM</td>
-                    <td class="pe-4"><span class="badge bg-success-subtle text-success">In-Clinic (Suite 402)</span></td>
+                    <td class="pe-4"><span class="badge bg-success-subtle text-success">In-Clinic</span></td>
                   </tr>
                   <tr>
                     <td class="ps-4 fw-bold">Tuesday</td>
                     <td>8:00 AM - 4:30 PM</td>
-                    <td class="pe-4"><span class="badge bg-success-subtle text-success">In-Clinic (Suite 402)</span></td>
+                    <td class="pe-4"><span class="badge bg-success-subtle text-success">In-Clinic</span></td>
                   </tr>
                   <tr>
                     <td class="ps-4 fw-bold">Wednesday</td>
@@ -530,7 +533,7 @@
                   <tr>
                     <td class="ps-4 fw-bold">Thursday</td>
                     <td>8:00 AM - 5:00 PM</td>
-                    <td class="pe-4"><span class="badge bg-success-subtle text-success">In-Clinic (Suite 402)</span></td>
+                    <td class="pe-4"><span class="badge bg-success-subtle text-success">In-Clinic</span></td>
                   </tr>
                   <tr>
                     <td class="ps-4 fw-bold">Friday</td>
@@ -551,7 +554,7 @@
               <i class="bi bi-telephone-inbound text-primary fs-3"></i>
               <div>
                 <h6 class="fw-bold mb-0">Need Rapid Intake Coordination?</h6>
-                <small class="text-muted">Speak directly with Dr. Rostova's patient coordinator at <strong>(800) 555-ENDO ext. 402</strong>.</small>
+                <small class="text-muted" id="doctorScheduleDirectCoord">Speak directly with the patient coordinator at <strong>(800) 555-ENDO ext. 402</strong>.</small>
               </div>
             </div>
           </div>
@@ -564,10 +567,10 @@
               <span class="badge bg-primary text-white px-3 py-1 rounded-pill">Priority Booking</span>
               <span class="text-muted small">Instant confirmation</span>
             </div>
-            <h3 class="fw-bold mb-2">Request an Appointment with Dr. Elena Rostova</h3>
+            <h3 class="fw-bold mb-2" id="doctorBookingTitle">Request an Appointment with Dr. Elena Rostova</h3>
             <p class="text-muted small mb-4">Please submit your details below. Our clinical intake team will verify insurance and confirm your appointment slot within 2 hours.</p>
 
-            <form onsubmit="event.preventDefault(); window.showToast('Appointment Requested', 'Your consultation with Dr. Elena Rostova has been booked! Check your email for confirmation.', 'success'); this.reset();">
+            <form class="appointment-booking-form" onsubmit="event.preventDefault(); window.showToast('Appointment Requested', 'Your consultation request has been booked! Check your email for confirmation.', 'success'); this.reset();">
               <div class="row g-3">
                 <div class="col-md-6">
                   <label class="form-label small fw-semibold">Patient Full Name <span class="text-danger">*</span></label>
@@ -794,6 +797,56 @@
     </div>
   </section>
 
+  <!-- SECTION 8: Verified Clinic Location & Practice Map -->
+  <section class="section-padding bg-surface border-top" id="clinicLocationMapSection">
+    <div class="container">
+      <div class="row g-4 align-items-center">
+        <div class="col-lg-5">
+          <span class="badge-subtle"><i class="bi bi-geo-alt"></i> Clinic Location</span>
+          <h3 class="fw-bold mb-3" id="mapSectionTitle">Visit Our Clinical Practice in Metro Health City</h3>
+          <p class="text-muted mb-4">
+            Consultations take place at our accredited outpatient medical pavilion equipped with continuous glucose telemetry facilities, high-resolution ultrasound suites, and certified diagnostic laboratories.
+          </p>
+          <div class="card border-0 bg-alt p-3 rounded-3 mb-3">
+            <div class="d-flex align-items-start gap-3">
+              <i class="bi bi-geo-alt-fill text-primary fs-4 mt-1"></i>
+              <div>
+                <h6 class="fw-bold mb-1">EndoCare Main Clinic &amp; Diagnostic Pavilion</h6>
+                <p class="text-muted small mb-0">742 Evergreen Medical Blvd, Suite 400<br>Metro Health City</p>
+              </div>
+            </div>
+          </div>
+          <div class="card border-0 bg-alt p-3 rounded-3 mb-4">
+            <div class="d-flex align-items-start gap-3">
+              <i class="bi bi-clock-fill text-primary fs-5 mt-1"></i>
+              <div>
+                <h6 class="fw-bold mb-1">Office Hours</h6>
+                <p class="text-muted small mb-0">Mon &ndash; Thu: 8:00 AM &ndash; 5:00 PM<br>Fri: 8:30 AM &ndash; 1:00 PM (Telehealth available nationwide)</p>
+              </div>
+            </div>
+          </div>
+          <a href="https://maps.google.com/?q=742+Evergreen+Medical+Blvd+Suite+400" target="_blank" rel="noopener noreferrer" class="btn btn-outline-custom">
+            <i class="bi bi-box-arrow-up-right me-2"></i> Open Location in Google Maps
+          </a>
+        </div>
+        <div class="col-lg-7">
+          <div class="card border-0 shadow-sm rounded-4 overflow-hidden" style="min-height: 360px;">
+            <iframe 
+              title="EndoCare Clinic Location Map"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d100939.98555098464!2d-122.5076401799796!3d37.757814996609724!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80859a6d00690021%3A0x4a501367f076adff!2sSan%20Francisco%2C%20CA!5e0!3m2!1sen!2sus!4v1710000000000!5m2!1sen!2sus"
+              width="100%" 
+              height="380" 
+              style="border:0;" 
+              allowfullscreen="" 
+              loading="lazy" 
+              referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- Comprehensive Footer -->
   <footer class="footer-custom">
     <div class="container">
@@ -832,7 +885,7 @@
         <div class="col-6 col-md-3 col-lg-3 footer-clinical-col ps-lg-4 ps-xl-5">
           <h5>Clinical Programs</h5>
           <ul class="footer-links">
-            <li><a href="doctor-details.html"><i class="bi bi-chevron-right small"></i> PCOS &amp; Metabolic Care</a></li>
+            <li><a href="doctor-details.html?id=elena-rostova"><i class="bi bi-chevron-right small"></i> PCOS &amp; Metabolic Care</a></li>
             <li><a href="service-details.html?service=diabetes"><i class="bi bi-chevron-right small"></i> Diabetes Management</a></li>
             <li><a href="service-details.html?service=thyroid"><i class="bi bi-chevron-right small"></i> Thyroid Disorders</a></li>
             <li><a href="service-details.html?service=hormone"><i class="bi bi-chevron-right small"></i> Hormone Balancing</a></li>
@@ -882,14 +935,14 @@
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title fw-bold" id="appointmentModalLabel">Book Consultation - Dr. Elena Rostova</h5>
+          <h5 class="modal-title fw-bold" id="appointmentModalLabel">Book Consultation</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-          <form onsubmit="event.preventDefault(); window.showToast('Appointment Booked', 'Thank you! Your consultation request with Dr. Elena Rostova has been received.', 'success'); bootstrap.Modal.getInstance(document.getElementById('appointmentModal')).hide(); this.reset();">
+          <form class="appointment-booking-form" onsubmit="event.preventDefault(); window.showToast('Appointment Booked', 'Thank you! Your consultation request has been confirmed.', 'success'); bootstrap.Modal.getInstance(document.getElementById('appointmentModal')).hide(); this.reset();">
             <div class="mb-3">
               <label class="form-label small fw-semibold">Attending Physician</label>
-              <input type="text" class="form-control" value="Dr. Elena Rostova, MD (Metabolic &amp; PCOS Specialist)" readonly>
+              <input type="text" id="modalDoctorAttending" class="form-control" value="Dr. Elena Rostova, MD (Metabolic &amp; PCOS Specialist)" readonly>
             </div>
             <div class="mb-3">
               <label class="form-label small fw-semibold">Patient Full Name</label>
@@ -907,11 +960,11 @@
             </div>
             <div class="mb-3">
               <label class="form-label small fw-semibold">Consultation Reason</label>
-              <select class="form-select" required>
-                <option value="pcos" selected>PCOS &amp; Hormonal Evaluation</option>
-                <option value="insulin">Insulin Resistance Reversal</option>
-                <option value="weight">Medical Weight Management</option>
+              <select class="form-select" id="modalDoctorReasonSelect" required>
+                <option value="evaluation" selected>Comprehensive Specialist Evaluation</option>
+                <option value="followup">Follow-up Biomarker Review</option>
                 <option value="telehealth">Telehealth Video Consultation</option>
+                <option value="secondopinion">Specialty Second Opinion</option>
               </select>
             </div>
             <div class="row g-2 mb-3">
@@ -952,5 +1005,325 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <!-- Custom JS -->
   <script src="assets/js/main.js"></script>
+
+  <!-- Parameterized Physician Details Router -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const urlParams = new URLSearchParams(window.location.search);
+      const doctorId = (urlParams.get('id') || 'elena-rostova').toLowerCase().trim();
+
+      const doctorsDataset = {
+        'elena-rostova': {
+          name: 'Dr. Elena Rostova, MD, PhD',
+          specialty: 'Lead Metabolic & PCOS Specialist | Reproductive Endocrinologist',
+          image: 'assets/images/dr-elena-rostova.jpg',
+          suite: 'Clinic Suite 402',
+          phone: '(800) 555-ENDO ext. 402',
+          phoneTel: 'tel:18005553636',
+          rating: '4.9 / 5.0',
+          reviews: '(310 Verified Patient Ratings)',
+          stat1Val: '14+', stat1Label: 'Years Practice',
+          stat2Val: '4,200+', stat2Label: 'Patients Treated',
+          stat3Val: '94%', stat3Label: 'Ovulation Restored',
+          stat4Val: '18', stat4Label: 'Published Studies',
+          badges: [
+            '<span class="badge-subtle mb-0"><i class="bi bi-shield-check"></i> Board Certified Endocrinologist</span>',
+            '<span class="badge bg-primary-subtle text-primary fw-semibold px-3 py-1 rounded-pill">Metabolic Lead</span>',
+            '<span class="badge bg-secondary-subtle text-secondary fw-semibold px-3 py-1 rounded-pill">Director of PCOS Center</span>'
+          ],
+          leadBio: 'Dr. Elena Rostova is an internationally recognized physician-scientist pioneering root-cause endocrine medicine. She specializes in the comprehensive management of Polycystic Ovary Syndrome (PCOS), insulin resistance reversal, obesity medicine, and hormonal fertility optimization.',
+          bioHeading: 'Root-Cause Endocrinology Dedicated to Hormonal Restoration',
+          bioQuote: '"Rather than merely managing symptoms with oral contraceptives or isolated prescriptions, our mission is to understand the intricate neuro-endocrine and metabolic pathways that govern your hormones."',
+          bio1: 'Dr. Elena Rostova completed her dual MD and PhD in Molecular Endocrinology at Stanford University School of Medicine, followed by internal medicine residency at Brigham & Women’s Hospital / Harvard Medical School. She then completed specialized endocrine fellowship training at the Mayo Clinic, zeroing in on ovarian steroidogenesis, hyperinsulinemia, and metabolic dysfunction.',
+          bio2: 'Throughout her 14 years in academic and clinical practice, Dr. Rostova has built one of the nation\'s most respected outpatient programs for Polycystic Ovary Syndrome (PCOS). Her clinical protocol unites continuous glucose sensor telemetry (CGM), personalized micro-nutrient and inositol balance, insulin-sensitizing pharmacotherapies, and targeted hormonal therapies.',
+          pillar1: 'Comprehensive 4-point insulin curves, advanced lipid subfraction testing, and 24-hr bioavailable androgens.',
+          pillar2: 'Unrushed 45-minute clinical visits where every patient’s lived experience and biomarker profile are deeply heard.',
+          primarySpecialty: 'Reproductive & Metabolic Endocrinology',
+          education: [
+            '<li class="mb-1"><strong>MD / PhD:</strong> Stanford University School of Medicine</li>',
+            '<li class="mb-1"><strong>Residency:</strong> Brigham & Women\'s Hospital (Harvard)</li>',
+            '<li><strong>Fellowship:</strong> Mayo Clinic Endocrine Division</li>'
+          ],
+          certs: [
+            '<li class="mb-1"><i class="bi bi-check-circle text-primary me-1"></i> American Board of Internal Medicine: Endocrinology, Diabetes & Metabolism</li>',
+            '<li><i class="bi bi-check-circle text-primary me-1"></i> Diplomate, American Board of Obesity Medicine (ABOM)</li>'
+          ],
+          fellowships: 'Fellow of American College of Endocrinology (FACE), Member of AE-PCOS Society, Endocrine Society.',
+          languages: 'English (Fluent), Russian (Native), Spanish (Clinical)',
+          perspQuote: '"PCOS is not your fault, and you are not broken."',
+          perspText: '"Far too many women are told that weight gain and missed cycles are personal failings, or given birth control pills without an explanation of insulin signaling. When we repair cellular sensitivity to insulin and restore healthy androgen clearance, the body responds with incredible resilience."',
+          perspRole: 'Fellow, American College of Endocrinology',
+          scheduleSub: 'Dr. Rostova holds in-clinic evaluations three days a week and dedicated telehealth appointments for interstate patients.',
+          scheduleDays: [
+            { day: 'Monday', hours: '8:00 AM - 4:30 PM', type: 'In-Clinic (Suite 402)', badge: 'bg-success-subtle text-success' },
+            { day: 'Tuesday', hours: '8:00 AM - 4:30 PM', type: 'In-Clinic (Suite 402)', badge: 'bg-success-subtle text-success' },
+            { day: 'Wednesday', hours: '9:00 AM - 3:00 PM', type: 'Telehealth Virtual', badge: 'bg-info-subtle text-info' },
+            { day: 'Thursday', hours: '8:00 AM - 5:00 PM', type: 'In-Clinic (Suite 402)', badge: 'bg-success-subtle text-success' },
+            { day: 'Friday', hours: '8:30 AM - 1:00 PM', type: 'Procedures & Research', badge: 'bg-warning-subtle text-warning' }
+          ]
+        },
+        'sarah-jenkins': {
+          name: 'Dr. Sarah Jenkins, MD, FACE',
+          specialty: 'Founder & Chief Medical Officer | Diabetes & Glycemic Medicine',
+          image: 'assets/images/dr-sarah-jenkins.jpg',
+          suite: 'Executive Suite 401',
+          phone: '(800) 555-ENDO ext. 101',
+          phoneTel: 'tel:18005553636',
+          rating: '4.9 / 5.0',
+          reviews: '(340 Verified Patient Ratings)',
+          stat1Val: '16+', stat1Label: 'Years Practice',
+          stat2Val: '5,600+', stat2Label: 'Patients Treated',
+          stat3Val: '-2.8%', stat3Label: 'Mean A1c Reduction',
+          stat4Val: '25+', stat4Label: 'Published Papers',
+          badges: [
+            '<span class="badge-subtle mb-0"><i class="bi bi-shield-check"></i> Board Certified Endocrinologist</span>',
+            '<span class="badge bg-primary-subtle text-primary fw-semibold px-3 py-1 rounded-pill">Chief Medical Officer</span>',
+            '<span class="badge bg-success-subtle text-success fw-semibold px-3 py-1 rounded-pill">Fellow of ACE (FACE)</span>'
+          ],
+          leadBio: 'Dr. Sarah Jenkins founded EndoCare Clinic to transform diabetes care through continuous glucose sensor telemetry, automated insulin delivery protocols, and compassionate root-cause intervention.',
+          bioHeading: 'Transforming Glycemic Health Through Telemetry & Empathy',
+          bioQuote: '"Diabetes management is not about punitive dietary deprivation; it is about equipping patients with continuous physiological biofeedback and personalized insulin tuning."',
+          bio1: 'Dr. Sarah Jenkins completed her medical degree at Columbia University College of Physicians and Surgeons, followed by internal medicine residency at Columbia-Presbyterian Hospital. She completed advanced endocrinology fellowship training at Johns Hopkins University School of Medicine.',
+          bio2: 'Dr. Jenkins has led pivotal multicenter clinical trials evaluating the impact of continuous glucose monitors (Dexcom G7, FreeStyle Libre 3) in reducing severe nocturnal hypoglycemia and halting microvascular damage in brittle Type 1 and Type 2 diabetes.',
+          pillar1: '24/7 continuous sensor cloud synchronization with predictive trend excursion alerts.',
+          pillar2: 'Individualized carbohydrate sensitivity profiling and cardioprotective medication titration.',
+          primarySpecialty: 'Type 1 & Type 2 Diabetes, Closed-Loop AID Systems, Cardiovascular Prevention',
+          education: [
+            '<li class="mb-1"><strong>MD:</strong> Columbia University College of Physicians and Surgeons</li>',
+            '<li class="mb-1"><strong>Residency:</strong> Columbia-Presbyterian Medical Center</li>',
+            '<li><strong>Fellowship:</strong> Johns Hopkins Hospital Endocrine Division</li>'
+          ],
+          certs: [
+            '<li class="mb-1"><i class="bi bi-check-circle text-primary me-1"></i> American Board of Internal Medicine: Endocrinology, Diabetes & Metabolism</li>',
+            '<li><i class="bi bi-check-circle text-primary me-1"></i> Certified Diabetes Care & Education Specialist (CDCES)</li>'
+          ],
+          fellowships: 'Fellow of the American Association of Clinical Endocrinology (FACE), American Diabetes Association (ADA).',
+          languages: 'English (Fluent), French (Conversational)',
+          perspQuote: '"Empowered patients achieve predictable glycemic stability."',
+          perspText: '"When a patient can look at their smartphone and see exactly how a 20-minute post-meal walk blunts their glycemic curve, they are no longer fearful of their numbers. They are in command of their biology."',
+          perspRole: 'Founder & Chief Medical Officer, EndoCare',
+          scheduleSub: 'Dr. Jenkins conducts outpatient clinics Tuesdays, Wednesdays, and Thursdays, with dedicated research consultations on Mondays.',
+          scheduleDays: [
+            { day: 'Monday', hours: '9:00 AM - 2:00 PM', type: 'Clinical Research & Intake', badge: 'bg-warning-subtle text-warning' },
+            { day: 'Tuesday', hours: '8:00 AM - 5:00 PM', type: 'In-Clinic (Suite 401)', badge: 'bg-success-subtle text-success' },
+            { day: 'Wednesday', hours: '8:00 AM - 5:00 PM', type: 'In-Clinic (Suite 401)', badge: 'bg-success-subtle text-success' },
+            { day: 'Thursday', hours: '8:00 AM - 4:30 PM', type: 'In-Clinic (Suite 401)', badge: 'bg-success-subtle text-success' },
+            { day: 'Friday', hours: '9:00 AM - 1:00 PM', type: 'Telehealth Consults', badge: 'bg-info-subtle text-info' }
+          ]
+        },
+        'marcus-vance': {
+          name: 'Dr. Marcus Vance, MD, ECNU',
+          specialty: 'Director of Thyroid & Diagnostic Center | Parathyroid Specialist',
+          image: 'assets/images/dr-marcus-vance.jpg',
+          suite: 'Ultrasound Suite 405',
+          phone: '(800) 555-ENDO ext. 203',
+          phoneTel: 'tel:18005553636',
+          rating: '4.9 / 5.0',
+          reviews: '(280 Verified Patient Ratings)',
+          stat1Val: '12+', stat1Label: 'Years Practice',
+          stat2Val: '3,800+', stat2Label: 'Patients Treated',
+          stat3Val: '99.2%', stat3Label: 'Biopsy Diagnostic Accuracy',
+          stat4Val: '1,200+', stat4Label: 'Nodule Procedures',
+          badges: [
+            '<span class="badge-subtle mb-0"><i class="bi bi-shield-check"></i> Board Certified Endocrinologist</span>',
+            '<span class="badge bg-warning-subtle text-warning fw-semibold px-3 py-1 rounded-pill">Thyroid Lead</span>',
+            '<span class="badge bg-primary-subtle text-primary fw-semibold px-3 py-1 rounded-pill">ECNU Certified</span>'
+          ],
+          leadBio: 'Dr. Marcus Vance is an internationally certified neck sonologist specializing in Hashimoto\'s thyroiditis, nodule ultrasound elastography, gentle fine-needle aspiration biopsies, and thyroid radiofrequency ablation.',
+          bioHeading: 'Precision Thyroid Medicine Sparing Healthy Tissue',
+          bioQuote: '"Too many patients have portions of their thyroid surgically resected when advanced ultrasound elastography and genetic profiling could safely confirm benign pathology."',
+          bio1: 'Dr. Marcus Vance earned his MD from Yale School of Medicine followed by internal medicine residency and endocrine fellowship at the Mayo Clinic Rochester, where he conducted landmark research on acoustic radiation force impulse (ARFI) elastography for thyroid malignancy.',
+          bio2: 'As Director of the EndoCare Thyroid Diagnostic Center, Dr. Vance provides single-visit comprehensive neck evaluations—including high-resolution Doppler scanning, biomarker assays (Free T3, Free T4, TPO), and gentle ultrasound-guided biopsy.',
+          pillar1: 'In-office high-frequency Doppler ultrasound and ACR TI-RADS risk categorization.',
+          pillar2: 'Full hormone cascade assays distinguishing tissue-level resistance from central hypothyroidism.',
+          primarySpecialty: 'Thyroid Nodules, Hashimoto’s Thyroiditis, Endocrine Neck Sonology, Parathyroid Disorders',
+          education: [
+            '<li class="mb-1"><strong>MD:</strong> Yale School of Medicine</li>',
+            '<li class="mb-1"><strong>Residency:</strong> Mayo Clinic College of Medicine</li>',
+            '<li><strong>Fellowship:</strong> Mayo Clinic Endocrine Division</li>'
+          ],
+          certs: [
+            '<li class="mb-1"><i class="bi bi-check-circle text-primary me-1"></i> American Board of Internal Medicine: Endocrinology & Metabolism</li>',
+            '<li><i class="bi bi-check-circle text-primary me-1"></i> Endocrine Certification in Neck Ultrasound (ECNU)</li>'
+          ],
+          fellowships: 'American Thyroid Association (ATA), Endocrine Society, American Association of Endocrine Surgeons.',
+          languages: 'English (Fluent), German (Conversational)',
+          perspQuote: '"Listen to the patient, then corroborate with ultrasound precision."',
+          perspText: '"When a patient presents with debilitating brain fog and cold intolerance despite a basic normal TSH, we look deeper into Free T3 conversion and autoantibodies. The body always gives us the clinical clues."',
+          perspRole: 'Director of Thyroid Diagnostics, EndoCare',
+          scheduleSub: 'Dr. Vance performs specialized ultrasound evaluations and in-office biopsies Mondays, Wednesdays, and Fridays.',
+          scheduleDays: [
+            { day: 'Monday', hours: '8:30 AM - 4:30 PM', type: 'Ultrasound Clinic (Suite 405)', badge: 'bg-success-subtle text-success' },
+            { day: 'Tuesday', hours: '9:00 AM - 3:00 PM', type: 'Consultations & Follow-ups', badge: 'bg-primary-subtle text-primary' },
+            { day: 'Wednesday', hours: '8:00 AM - 5:00 PM', type: 'Biopsy & Procedures', badge: 'bg-danger-subtle text-danger' },
+            { day: 'Thursday', hours: '8:30 AM - 4:00 PM', type: 'Telehealth Lab Reviews', badge: 'bg-info-subtle text-info' },
+            { day: 'Friday', hours: '8:00 AM - 1:00 PM', type: 'Diagnostic Ultrasound', badge: 'bg-success-subtle text-success' }
+          ]
+        },
+        'david-chen': {
+          name: 'Dr. David Chen, PharmD, CDCES',
+          specialty: 'Diabetes Technology Lead | Clinical Pharmacology & Sensor Telemetry',
+          image: 'assets/images/dr-david-chen.jpg',
+          suite: 'Digital Health Suite 408',
+          phone: '(800) 555-ENDO ext. 308',
+          phoneTel: 'tel:18005553636',
+          rating: '5.0 / 5.0',
+          reviews: '(195 Verified Patient Ratings)',
+          stat1Val: '10+', stat1Label: 'Years Practice',
+          stat2Val: '2,900+', stat2Label: 'Patients Treated',
+          stat3Val: '+32%', stat3Label: 'Mean Time-in-Range Gain',
+          stat4Val: '15', stat4Label: 'AID Sensor Protocols',
+          badges: [
+            '<span class="badge-subtle mb-0"><i class="bi bi-shield-check"></i> Clinical Pharmacologist</span>',
+            '<span class="badge bg-primary-subtle text-primary fw-semibold px-3 py-1 rounded-pill">Diabetes Tech Lead</span>',
+            '<span class="badge bg-info-subtle text-info fw-semibold px-3 py-1 rounded-pill">CDCES Certified</span>'
+          ],
+          leadBio: 'Dr. David Chen is a clinical pharmacotherapy specialist and certified diabetes technology educator dedicated to closed-loop artificial pancreas systems, CGM telemetry, and carbohydrate sequencing.',
+          bioHeading: 'Bridging Cutting-Edge Wearable Tech and Daily Metabolic Balance',
+          bioQuote: '"By pairing automated insulin delivery pumps with smart digital sensor telemetry, we take the mental cognitive burden out of daily diabetes self-management."',
+          bio1: 'Dr. David Chen earned his Doctor of Pharmacy at the University of California, San Francisco (UCSF) followed by a specialized clinical residency in endocrine pharmacotherapy. He has trained thousands of patients on sensor synchronization and basal-bolus pump tuning.',
+          bio2: 'Dr. Chen directs EndoCare’s Remote Patient Monitoring telemetry center, actively auditing ambulatory glucose profiles (AGP) and optimizing Time-in-Range to eliminate nocturnal hypoglycemia.',
+          pillar1: 'Automated insulin delivery (AID) closed-loop calibrations for Omnipod, Tandem, and Medtronic.',
+          pillar2: 'Carbohydrate counting mastery, glycemic load indexation, and food sequencing education.',
+          primarySpecialty: 'Continuous Glucose Sensors (CGM), Automated Insulin Delivery (AID), Advanced Endocrine Pharmacotherapy',
+          education: [
+            '<li class="mb-1"><strong>PharmD:</strong> University of California San Francisco (UCSF)</li>',
+            '<li class="mb-1"><strong>Residency:</strong> UCSF Medical Center Endocrine Pharmacotherapy</li>',
+            '<li><strong>Certification:</strong> CDCES Board Certified</li>'
+          ],
+          certs: [
+            '<li class="mb-1"><i class="bi bi-check-circle text-primary me-1"></i> Board Certified Pharmacotherapy Specialist (BCPS)</li>',
+            '<li><i class="bi bi-check-circle text-primary me-1"></i> Certified Diabetes Care & Education Specialist (CDCES)</li>'
+          ],
+          fellowships: 'Association of Diabetes Care & Education Specialists (ADCES), American Diabetes Association (ADA).',
+          languages: 'English (Fluent), Mandarin Chinese (Fluent)',
+          perspQuote: '"Technology is only as powerful as the human support behind it."',
+          perspText: '"When a patient receives their first CGM sensor, our job is to ensure every setting, alert threshold, and ratio gives them confidence rather than alarm fatigue. We guide them step-by-step."',
+          perspRole: 'Director of Diabetes Technology, EndoCare',
+          scheduleSub: 'Dr. Chen conducts wearable device onboarding clinics and remote sensor telemetry audits Monday through Friday.',
+          scheduleDays: [
+            { day: 'Monday', hours: '9:00 AM - 5:00 PM', type: 'CGM Telemetry Review', badge: 'bg-info-subtle text-info' },
+            { day: 'Tuesday', hours: '8:30 AM - 4:30 PM', type: 'Pump Onboarding (Suite 408)', badge: 'bg-success-subtle text-success' },
+            { day: 'Wednesday', hours: '8:30 AM - 4:30 PM', type: 'AID Closed-Loop Tuning', badge: 'bg-success-subtle text-success' },
+            { day: 'Thursday', hours: '9:00 AM - 5:00 PM', type: 'Telehealth Consults', badge: 'bg-info-subtle text-info' },
+            { day: 'Friday', hours: '8:30 AM - 2:00 PM', type: 'Nutrition & Carb Coaching', badge: 'bg-primary-subtle text-primary' }
+          ]
+        }
+      };
+
+      const doc = doctorsDataset[doctorId] || doctorsDataset['elena-rostova'];
+
+      // Update Page Meta & Breadcrumbs
+      document.title = `${doc.name} - ${doc.specialty} | EndoCare Clinic`;
+      const breadcrumb = document.getElementById('doctorBreadcrumb');
+      if (breadcrumb) breadcrumb.textContent = doc.name;
+
+      // Update Hero Elements
+      const heroImg = document.getElementById('doctorHeroImg');
+      if (heroImg) {
+        heroImg.src = doc.image;
+        heroImg.alt = `${doc.name} - ${doc.specialty}`;
+      }
+      const suiteBadge = document.getElementById('doctorSuiteBadge');
+      if (suiteBadge) suiteBadge.textContent = doc.suite;
+
+      const badgesContainer = document.getElementById('doctorBadges');
+      if (badgesContainer) badgesContainer.innerHTML = doc.badges.join('');
+
+      const nameEl = document.getElementById('doctorName');
+      if (nameEl) nameEl.textContent = doc.name;
+
+      const specialtyEl = document.getElementById('doctorSpecialty');
+      if (specialtyEl) specialtyEl.textContent = doc.specialty;
+
+      const leadEl = document.getElementById('doctorSummaryLead');
+      if (leadEl) leadEl.textContent = doc.leadBio;
+
+      const ratingVal = document.getElementById('doctorRatingVal');
+      if (ratingVal) ratingVal.textContent = doc.rating;
+
+      const reviewCount = document.getElementById('doctorReviewCount');
+      if (reviewCount) reviewCount.textContent = doc.reviews;
+
+      // Update Stats
+      if (document.getElementById('docStat1Val')) document.getElementById('docStat1Val').textContent = doc.stat1Val;
+      if (document.getElementById('docStat1Label')) document.getElementById('docStat1Label').textContent = doc.stat1Label;
+      if (document.getElementById('docStat2Val')) document.getElementById('docStat2Val').textContent = doc.stat2Val;
+      if (document.getElementById('docStat2Label')) document.getElementById('docStat2Label').textContent = doc.stat2Label;
+      if (document.getElementById('docStat3Val')) document.getElementById('docStat3Val').textContent = doc.stat3Val;
+      if (document.getElementById('docStat3Label')) document.getElementById('docStat3Label').textContent = doc.stat3Label;
+      if (document.getElementById('docStat4Val')) document.getElementById('docStat4Val').textContent = doc.stat4Val;
+      if (document.getElementById('docStat4Label')) document.getElementById('docStat4Label').textContent = doc.stat4Label;
+
+      // Update CTAs & Phone button with visible number
+      const bookBtn = document.getElementById('doctorBookCtaBtn');
+      if (bookBtn) bookBtn.innerHTML = `<i class="bi bi-calendar-check me-2"></i> Book Consultation with ${doc.name.split(',')[0]}`;
+
+      const phoneLink = document.getElementById('doctorPhoneLink');
+      if (phoneLink) phoneLink.href = doc.phoneTel;
+
+      const phoneText = document.getElementById('doctorPhoneText');
+      if (phoneText) phoneText.textContent = doc.phone;
+
+      // Update Biography Section
+      if (document.getElementById('doctorBioHeading')) document.getElementById('doctorBioHeading').textContent = doc.bioHeading;
+      if (document.getElementById('doctorBioQuote')) document.getElementById('doctorBioQuote').textContent = doc.bioQuote;
+      if (document.getElementById('doctorBioText1')) document.getElementById('doctorBioText1').textContent = doc.bio1;
+      if (document.getElementById('doctorBioText2')) document.getElementById('doctorBioText2').textContent = doc.bio2;
+      if (document.getElementById('doctorPillar1')) document.getElementById('doctorPillar1').textContent = doc.pillar1;
+      if (document.getElementById('doctorPillar2')) document.getElementById('doctorPillar2').textContent = doc.pillar2;
+
+      // Update Credentials
+      if (document.getElementById('doctorPrimarySpecialty')) document.getElementById('doctorPrimarySpecialty').textContent = doc.primarySpecialty;
+      if (document.getElementById('doctorEducationList')) document.getElementById('doctorEducationList').innerHTML = doc.education.join('');
+      if (document.getElementById('doctorBoardCerts')) document.getElementById('doctorBoardCerts').innerHTML = doc.certs.join('');
+      if (document.getElementById('doctorFellowships')) document.getElementById('doctorFellowships').textContent = doc.fellowships;
+      if (document.getElementById('doctorLanguages')) document.getElementById('doctorLanguages').textContent = doc.languages;
+
+      // Update Perspective Card
+      if (document.getElementById('doctorPerspectiveQuote')) document.getElementById('doctorPerspectiveQuote').textContent = doc.perspQuote;
+      if (document.getElementById('doctorPerspectiveText')) document.getElementById('doctorPerspectiveText').textContent = doc.perspText;
+      if (document.getElementById('doctorPerspectiveImg')) {
+        document.getElementById('doctorPerspectiveImg').src = doc.image;
+        document.getElementById('doctorPerspectiveImg').alt = doc.name;
+      }
+      if (document.getElementById('doctorPerspectiveName')) document.getElementById('doctorPerspectiveName').textContent = doc.name;
+      if (document.getElementById('doctorPerspectiveRole')) document.getElementById('doctorPerspectiveRole').textContent = doc.perspRole;
+
+      // Update Schedule & Direct Coordination
+      if (document.getElementById('doctorScheduleSub')) document.getElementById('doctorScheduleSub').textContent = doc.scheduleSub;
+      if (document.getElementById('doctorScheduleDirectCoord')) {
+        document.getElementById('doctorScheduleDirectCoord').innerHTML = `Speak directly with ${doc.name.split(',')[0]}'s coordinator at <strong>${doc.phone}</strong>.`;
+      }
+
+      const scheduleBody = document.getElementById('doctorScheduleTableBody');
+      if (scheduleBody && doc.scheduleDays) {
+        scheduleBody.innerHTML = doc.scheduleDays.map(item => `
+          <tr>
+            <td class="ps-4 fw-bold">${item.day}</td>
+            <td>${item.hours}</td>
+            <td class="pe-4"><span class="badge ${item.badge}">${item.type}</span></td>
+          </tr>
+        `).join('') + `
+          <tr>
+            <td class="ps-4 fw-bold text-muted">Saturday - Sun</td>
+            <td colspan="2" class="pe-4 text-muted">Closed (Urgent on-call coverage)</td>
+          </tr>
+        `;
+      }
+
+      // Update Booking Title
+      if (document.getElementById('doctorBookingTitle')) {
+        document.getElementById('doctorBookingTitle').textContent = `Request an Appointment with ${doc.name.split(',')[0]}`;
+      }
+
+      // Update Modal
+      const modalTitle = document.getElementById('appointmentModalLabel');
+      if (modalTitle) modalTitle.textContent = `Book Consultation - ${doc.name.split(',')[0]}`;
+
+      const modalAttending = document.getElementById('modalDoctorAttending');
+      if (modalAttending) modalAttending.value = `${doc.name} (${doc.primarySpecialty})`;
+    });
+  </script>
 </body>
 </html>

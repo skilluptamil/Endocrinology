@@ -12,6 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initScrollTop();
   initScrollReveal();
   initCounterAnimation();
+  initClinicalSlider();
 });
 
 /* -------------------------------------------------------------
@@ -171,31 +172,68 @@ window.showToast = showToast;
    Appointment Booking Modal Handler
    ------------------------------------------------------------- */
 function initAppointmentBookingModal() {
-  const bookingForms = document.querySelectorAll('.appointment-booking-form');
+  const todayStr = new Date().toISOString().split('T')[0];
 
-  bookingForms.forEach(form => {
+  // Restrict all appointment date fields from selecting past dates
+  document.querySelectorAll('input[type="date"]:not(#profDob)').forEach(input => {
+    input.setAttribute('min', todayStr);
+    input.addEventListener('change', function() {
+      if (this.value && this.value < todayStr) {
+        showToast('Invalid Date', 'Appointment date cannot be in the past. Please select today or a future date.', 'danger');
+        this.value = todayStr;
+        this.classList.add('is-invalid');
+      } else {
+        this.classList.remove('is-invalid');
+      }
+    });
+  });
+
+  const appointmentForms = document.querySelectorAll('.appointment-booking-form, #appointmentModal form, form.appointment-form');
+
+  appointmentForms.forEach(form => {
     form.addEventListener('submit', (e) => {
       e.preventDefault();
       
-      const doctorSelect = form.querySelector('[name="doctor"]');
-      const dateInput = form.querySelector('[name="date"]');
-      const doctorName = doctorSelect ? doctorSelect.options[doctorSelect.selectedIndex].text : 'Specialist';
-      const appointmentDate = dateInput ? dateInput.value : 'Selected Date';
+      const doctorSelect = form.querySelector('[name="doctor"]') || form.querySelector('select');
+      const dateInput = form.querySelector('[name="date"]') || form.querySelector('input[type="date"]');
+      const doctorName = doctorSelect && doctorSelect.selectedIndex >= 0 ? doctorSelect.options[doctorSelect.selectedIndex].text : 'Specialist';
+      const appointmentDate = dateInput ? dateInput.value : '';
+
+      if (!appointmentDate) {
+        showToast('Date Required', 'Please select a date for your consultation.', 'warning');
+        if (dateInput) {
+          dateInput.focus();
+          dateInput.classList.add('is-invalid');
+        }
+        return;
+      }
+
+      if (appointmentDate < todayStr) {
+        showToast('Invalid Date', 'Appointment date cannot be in the past. Please select today or a future date.', 'danger');
+        if (dateInput) {
+          dateInput.focus();
+          dateInput.classList.add('is-invalid');
+        }
+        return;
+      }
+
+      if (dateInput) dateInput.classList.remove('is-invalid');
 
       // Close modal if open
       const modalEl = form.closest('.modal');
       if (modalEl && window.bootstrap) {
-        const modalInstance = bootstrap.Modal.getInstance(modalEl);
+        const modalInstance = bootstrap.Modal.getInstance(modalEl) || new bootstrap.Modal(modalEl);
         if (modalInstance) modalInstance.hide();
       }
 
       showToast(
-        'Appointment Request Received', 
-        `Your consultation request with ${doctorName} on ${appointmentDate} has been scheduled (Demo). Our clinic coordinator will contact you shortly!`,
+        'Appointment Request Confirmed', 
+        `Your consultation request with ${doctorName} on ${appointmentDate} has been confirmed. Our clinic intake coordinator will contact you shortly!`,
         'success'
       );
 
       form.reset();
+      if (dateInput) dateInput.setAttribute('min', todayStr);
     });
   });
 }
@@ -337,3 +375,77 @@ function animateCounter(el) {
 
   requestAnimationFrame(update);
 }
+
+/* -------------------------------------------------------------
+   Interactive Clinical Glycemic Slider (A1c -> eAG Converter)
+   ------------------------------------------------------------- */
+function initClinicalSlider() {
+  const slider = document.getElementById('a1cRangeSlider');
+  if (!slider) return;
+
+  const a1cDisplay = document.getElementById('sliderA1cDisplay');
+  const eagDisplay = document.getElementById('sliderEagDisplay');
+  const tirDisplay = document.getElementById('sliderTirDisplay');
+  const riskBadge = document.getElementById('sliderRiskBadge');
+  const adviceTitle = document.getElementById('sliderAdviceTitle');
+  const adviceDesc = document.getElementById('sliderAdviceDesc');
+
+  function updateSlider() {
+    const val = parseFloat(slider.value);
+    if (isNaN(val)) return;
+
+    // Display formatted A1c
+    if (a1cDisplay) a1cDisplay.textContent = `${val.toFixed(1)}%`;
+
+    // ADA formula: eAG (mg/dL) = 28.7 * A1c - 46.7
+    const eag = Math.round(28.7 * val - 46.7);
+    if (eagDisplay) eagDisplay.textContent = eag;
+
+    // Estimated Time-in-Range (TIR)
+    const tir = Math.max(15, Math.min(96, Math.round(100 - (val - 5.0) * 10.2)));
+    if (tirDisplay) tirDisplay.textContent = `${tir}%`;
+
+    // Update classification, badges, and recommendations
+    if (val < 5.7) {
+      if (riskBadge) {
+        riskBadge.textContent = 'Normal Glycemia';
+        riskBadge.className = 'badge bg-success text-white';
+      }
+      if (adviceTitle) adviceTitle.innerHTML = '<i class="bi bi-check-circle-fill text-success"></i> Optimal Metabolic Health';
+      if (adviceDesc) adviceDesc.textContent = `At ${val.toFixed(1)}% HbA1c, your average daily glucose is approximately ${eag} mg/dL. Your metabolic biomarkers are within healthy non-diabetic ranges.`;
+    } else if (val < 6.5) {
+      if (riskBadge) {
+        riskBadge.textContent = 'Prediabetes Range';
+        riskBadge.className = 'badge bg-info text-white';
+      }
+      if (adviceTitle) adviceTitle.innerHTML = '<i class="bi bi-info-circle-fill text-info"></i> Prediabetes Warning Zone';
+      if (adviceDesc) adviceDesc.textContent = `At ${val.toFixed(1)}% HbA1c (eAG: ${eag} mg/dL), cellular insulin resistance is active. Nutrition coaching and lifestyle adjustments can halt progression to full diabetes.`;
+    } else if (val <= 7.0) {
+      if (riskBadge) {
+        riskBadge.textContent = 'ADA Target Goal Met';
+        riskBadge.className = 'badge bg-success text-white';
+      }
+      if (adviceTitle) adviceTitle.innerHTML = '<i class="bi bi-shield-check text-success"></i> Target Glycemic Control Achieved';
+      if (adviceDesc) adviceDesc.textContent = `At ${val.toFixed(1)}% HbA1c (eAG: ${eag} mg/dL), you are within the American Diabetes Association standard target to halt microvascular damage.`;
+    } else if (val <= 8.5) {
+      if (riskBadge) {
+        riskBadge.textContent = 'Suboptimal Control';
+        riskBadge.className = 'badge bg-warning text-dark';
+      }
+      if (adviceTitle) adviceTitle.innerHTML = '<i class="bi bi-exclamation-triangle-fill text-warning"></i> Elevated Glycemic Variability';
+      if (adviceDesc) adviceDesc.textContent = `At ${val.toFixed(1)}% HbA1c, your average daily glucose runs near ${eag} mg/dL. Sensor telemetry and therapy recalibration can safely guide you back to target.`;
+    } else {
+      if (riskBadge) {
+        riskBadge.textContent = 'High Microvascular Risk';
+        riskBadge.className = 'badge bg-danger text-white';
+      }
+      if (adviceTitle) adviceTitle.innerHTML = '<i class="bi bi-shield-exclamation text-danger"></i> Urgent Clinical Attention Advised';
+      if (adviceDesc) adviceDesc.textContent = `At ${val.toFixed(1)}% HbA1c (eAG: ${eag} mg/dL), arterial endothelium and renal podocytes face sustained oxidative stress. Prompt specialist care is essential.`;
+    }
+  }
+
+  slider.addEventListener('input', updateSlider);
+  slider.addEventListener('change', updateSlider);
+  updateSlider();
+}
+

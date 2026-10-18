@@ -75,21 +75,21 @@
             <i class="bi bi-moon-stars-fill"></i>
           </button>
 
-          <a href="login.html" class="btn-login">Login</a>
-          <a href="register.html" class="btn-signup">Sign Up</a>
+          <a href="login.html" class="btn-login"><i class="bi bi-box-arrow-in-right"></i> <span>Login</span></a>
+          <a href="register.html" class="btn-signup"><i class="bi bi-person-plus"></i> <span>Sign Up</span></a>
         </div>
       </div>
     </div>
   </nav>
 
   <!-- SECTION 1: Service-Specific Hero Section with Breadcrumbs -->
-  <section class="py-5 bg-alt border-bottom" id="serviceHero">
-    <div class="container text-center py-4">
-      <nav aria-label="breadcrumb">
-        <ol class="breadcrumb justify-content-center mb-2">
-          <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-          <li class="breadcrumb-item"><a href="services.html">Services</a></li>
-          <li class="breadcrumb-item active" id="serviceBreadcrumb">Comprehensive Care</li>
+  <section class="py-4 bg-alt border-bottom" id="serviceHero">
+    <div class="container text-center py-2">
+      <nav aria-label="breadcrumb" class="breadcrumb-nav-wrapper">
+        <ol class="breadcrumb hero-breadcrumb-pill">
+          <li class="breadcrumb-item"><a href="index.html"><i class="bi bi-house"></i><span>Home</span></a></li>
+          <li class="breadcrumb-item"><a href="services.html"><span>Services</span></a></li>
+          <li class="breadcrumb-item active" id="serviceBreadcrumb" aria-current="page">Comprehensive Care</li>
         </ol>
       </nav>
       <span class="badge-subtle mb-2" id="serviceCategoryBadge">
@@ -198,7 +198,7 @@
     <div class="container">
       <div class="row g-5 align-items-center">
         <div class="col-lg-6 order-2 order-lg-1">
-          <div class="row g-3">
+          <div class="row g-3" id="treatmentPillarsGrid">
             <div class="col-6">
               <div class="p-4 bg-alt rounded-4 border text-center h-100">
                 <i class="bi bi-cpu text-primary fs-1 mb-2"></i>
@@ -234,11 +234,11 @@
           <span class="badge-subtle">
             <i class="bi bi-gear-wide-connected"></i> Therapeutic Methodology
           </span>
-          <h2 class="section-title">Evidence-Based Treatment & Care Approach</h2>
-          <p class="text-muted mb-4">
+          <h2 class="section-title" id="treatmentApproachTitle">Evidence-Based Treatment & Care Approach</h2>
+          <p class="text-muted mb-4" id="treatmentApproachText">
             Rather than relying exclusively on escalated insulin dosages that can trigger weight gain and hypoglycemia, our physicians implement metabolic-sparing strategies.
           </p>
-          <ul class="list-unstyled d-flex flex-column gap-3 mb-4">
+          <ul class="list-unstyled d-flex flex-column gap-3 mb-4" id="treatmentApproachList">
             <li class="d-flex align-items-start gap-2">
               <i class="bi bi-check-circle-fill text-success mt-1"></i>
               <span><strong>Basal-Bolus & AID Tuning:</strong> Expert adjustment of automated insulin pumps and smart pen ratios.</span>
@@ -580,17 +580,74 @@
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       const urlParams = new URLSearchParams(window.location.search);
-      const serviceParam = urlParams.get('service');
+      const serviceParam = urlParams.get('service') || 'diabetes';
 
       const serviceData = {
+        diabetes: {
+          title: 'Advanced Diabetes & Glycemic Management',
+          subtitle: 'Evidence-based clinical care integrating continuous wearable sensors, cardiometabolic pharmacotherapies, and precision nutritional intervention.',
+          breadcrumb: 'Diabetes Management',
+          category: 'Diabetes Specialization',
+          overviewHeading: 'Personalized Glycemic Optimization',
+          image: 'assets/images/cgm-sensor.jpg',
+          overview: '<p class="text-muted">Diabetes is a systemic metabolic state rather than merely an elevation in blood glucose. Chronic glycemic swings accelerate microvascular and macrovascular complications, stressing renal filtration, retinal microvasculature, and cardiovascular tissues.</p><p class="text-muted">At EndoCare, our dedicated protocol moves beyond conventional episodic fingerprick testing. We combine continuous glucose telemetry with comprehensive metabolic biomarker profiling to identify the exact pathophysiological driver of your insulin resistance or beta-cell impairment.</p>',
+          symptoms: [
+            { icon: 'bi-exclamation-triangle', color: 'text-warning', title: 'Elevated HbA1c > 5.7%', desc: 'Persistent fasting glucose above 100 mg/dL or documented laboratory HbA1c indicating pre-diabetes or diabetes.' },
+            { icon: 'bi-speedometer2', color: 'text-danger', title: 'Post-Meal Spikes & Dips', desc: 'Rapid fluctuations causing severe energy crashes, brain fog, intense sugar cravings, or nocturnal sweating.' },
+            { icon: 'bi-moisture', color: 'text-primary', title: 'Polydipsia & Polyuria', desc: 'Excessive unquenchable thirst and frequent urination, particularly waking multiple times during the night.' },
+            { icon: 'bi-fingerprint', color: 'text-teal', title: 'Numbness or Tingling', desc: 'Early peripheral neuropathy sensations, burning in the feet, slow healing of minor cuts, or blurred vision.' }
+          ],
+          treatmentPillars: [
+            { icon: 'bi-cpu text-primary', title: 'Wearable Sensors', desc: 'Real-time continuous glucose data streaming directly to your phone and doctor.' },
+            { icon: 'bi-capsule text-teal', title: 'Cardiorenal Meds', desc: 'Modern GLP-1 and SGLT2 agents that protect the heart and kidneys while stabilizing sugar.' },
+            { icon: 'bi-egg-fried text-warning', title: 'Nutritional Blueprint', desc: 'Personalized carbohydrate limits and food sequencing strategies to prevent spikes.' },
+            { icon: 'bi-shield-heart text-danger', title: 'Organ Screening', desc: 'Microalbumin tests, retinal imaging, and vascular health checkups every 6 months.' }
+          ],
+          approachTitle: 'Evidence-Based Glycemic Stabilization',
+          approachText: 'Rather than relying exclusively on escalated insulin dosages that can trigger weight gain and hypoglycemia, our physicians implement metabolic-sparing strategies.',
+          approachList: [
+            { strong: 'Basal-Bolus & AID Tuning:', text: 'Expert adjustment of automated insulin pumps and smart pen ratios.' },
+            { strong: 'Metabolic Flexibility:', text: 'Restoring the body’s ability to switch seamlessly between burning glucose and fatty acids.' },
+            { strong: 'Continuous Telehealth Oversight:', text: 'Remote review of sensor trends between formal clinic appointments.' }
+          ],
+          faqs: [
+            { q: 'How often will I need to see the specialist for diabetes management?', a: 'Newly diagnosed patients or those undergoing medication adjustments typically visit every 6 to 12 weeks. Once glucose targets and HbA1c stabilize, visits occur every 3 to 6 months.' },
+            { q: 'Will my health insurance cover wearable continuous glucose sensors (CGM)?', a: 'Most insurance plans and Medicare cover continuous glucose monitors (Dexcom, FreeStyle Libre) for patients with diabetes requiring insulin or experiencing recurrent glycemic swings. Our intake team manages prior authorizations.' },
+            { q: 'Can Type 2 diabetes truly be reversed into clinical remission?', a: 'Yes! For many individuals, structured visceral fat reduction, dietary recalibration, and insulin sensitization restore normal beta-cell function, maintaining HbA1c below 6.5% without medications.' }
+          ]
+        },
         thyroid: {
           title: 'Thyroid Disorders & Ultrasound Clinic',
           subtitle: 'Expert management of Hypothyroidism, Hashimoto’s Thyroiditis, Graves’ disease, goiter, and ultrasound-guided nodule evaluation.',
           breadcrumb: 'Thyroid Clinic',
           category: 'Thyroid Specialization',
           overviewHeading: 'Comprehensive Thyroid Optimization',
-          image: 'https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&w=800&q=80',
-          overview: '<p class="text-muted">The thyroid gland produces essential hormones (T3 and T4) that govern bodily metabolism, body temperature, heart rate, and cognitive acuity. When disordered, patients frequently encounter debilitating fatigue, unexplained weight shifts, and emotional distress.</p><p class="text-muted">At EndoCare, we go beyond simple TSH screening. We evaluate Free T3, Free T4, Reverse T3, and thyroid peroxidase (TPO) antibodies, combined with high-resolution in-office neck ultrasound to evaluate nodular architecture.</p>'
+          image: 'assets/images/blog-hashimotos-thyroid.jpg',
+          overview: '<p class="text-muted">The thyroid gland produces essential hormones (T3 and T4) that govern bodily metabolism, body temperature, heart rate, and cognitive acuity. When disordered, patients frequently encounter debilitating fatigue, unexplained weight shifts, and emotional distress.</p><p class="text-muted">At EndoCare, we go beyond simple TSH screening. We evaluate Free T3, Free T4, Reverse T3, and thyroid peroxidase (TPO) antibodies, combined with high-resolution in-office neck ultrasound to evaluate nodular architecture.</p>',
+          symptoms: [
+            { icon: 'bi-battery', color: 'text-danger', title: 'Debilitating Fatigue', desc: 'Exhaustion that persists despite 8+ hours of sleep, morning sluggishness, and midday mental crashes.' },
+            { icon: 'bi-thermometer-snow', color: 'text-info', title: 'Cold Intolerance & Dry Skin', desc: 'Constant chills, cold hands and feet, brittle nails, and unexplainable diffuse hair shedding.' },
+            { icon: 'bi-activity', color: 'text-warning', title: 'Weight & Metabolic Shift', desc: 'Stubborn weight gain despite calorie restriction, or unexpected rapid weight loss with heart palpitations.' },
+            { icon: 'bi-person-badge', color: 'text-primary', title: 'Neck Fullness or Nodules', desc: 'Difficulty swallowing, throat tightness, hoarseness, or a palpable neck mass found during physical exams.' }
+          ],
+          treatmentPillars: [
+            { icon: 'bi-broadcast text-primary', title: 'Neck Ultrasound & TI-RADS', desc: 'In-office high-frequency Doppler ultrasound grading nodule morphology and vascularity.' },
+            { icon: 'bi-eyedropper text-teal', title: 'Full Hormone Cascade', desc: 'Free T3, Free T4, Reverse T3, TPO, and thyroglobulin antibody panels for root cause clarity.' },
+            { icon: 'bi-capsule-pill text-warning', title: 'Precision Hormone Titration', desc: 'Synthetic and bioidentical T4/T3 combination regimens customized to patient genetics.' },
+            { icon: 'bi-shield-check text-success', title: 'Autoimmune Modulation', desc: 'Nutritional protocols targeting intestinal permeability and circulating autoantibody reduction.' }
+          ],
+          approachTitle: 'Root-Cause Thyroid & Autoimmune Management',
+          approachText: 'We reject the one-size-fits-all approach to thyroid care. We target cellular conversion of T4 into biologically active T3, evaluating nutrient cofactors and immune triggers.',
+          approachList: [
+            { strong: 'High-Resolution Neck Ultrasound:', text: 'ACR TI-RADS nodule risk stratifications and elastography on-site.' },
+            { strong: 'Comprehensive Hormone Balancing:', text: 'Tailoring combination levothyroxine and liothyronine therapy when monotherapy fails.' },
+            { strong: 'Hashimoto\'s & Graves\' Remission Protocols:', text: 'Addressing gut-thyroid axis interactions, systemic inflammation, and micronutrient deficiencies.' }
+          ],
+          faqs: [
+            { q: 'Why do I still feel exhausted if my doctor said my TSH is "normal"?', a: 'Standard TSH tests only measure pituitary stimulation, not active tissue-level Free T3 or cellular hormone conversion. We evaluate complete Free T3, Free T4, and Reverse T3 to identify tissue resistance.' },
+            { q: 'How do you determine if a thyroid nodule requires fine-needle biopsy?', a: 'We utilize high-resolution ultrasound with American College of Radiology (ACR) TI-RADS scoring. Nodules exceeding specific size or suspicious microcalcification thresholds are evaluated using gentle on-site ultrasound-guided biopsy.' },
+            { q: 'Do you prescribe combination T3 (Cytomel) and T4 (Synthroid)?', a: 'Yes, when clinically indicated by impaired deiodinase conversion, elevated Reverse T3, or unresolved clinical symptoms on levothyroxine monotherapy.' }
+          ]
         },
         hormone: {
           title: 'Hormonal Imbalance & Pituitary Health',
@@ -598,8 +655,32 @@
           breadcrumb: 'Hormone Optimization',
           category: 'Endocrine Regulation',
           overviewHeading: 'Restoring Endocrine Symphony',
-          image: 'https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?auto=format&fit=crop&w=800&q=80',
-          overview: '<p class="text-muted">Hormones govern everything from stress tolerance and circadian sleep to blood pressure and cognitive endurance. Subtle imbalances in cortisol, aldosterone, or pituitary trophic hormones can trigger widespread systemic exhaustion.</p><p class="text-muted">We provide dynamic endocrine stimulation tests, salivary cortisol curve analysis, and collaborative management of pituitary adenomas with leading neuroendocrine surgical centers.</p>'
+          image: 'assets/images/blog-cortisol-rhythm.jpg',
+          overview: '<p class="text-muted">Hormones govern everything from stress tolerance and circadian sleep to blood pressure and cognitive endurance. Subtle imbalances in cortisol, aldosterone, or pituitary trophic hormones can trigger widespread systemic exhaustion.</p><p class="text-muted">We provide dynamic endocrine stimulation tests, salivary cortisol curve analysis, and collaborative management of pituitary adenomas with leading neuroendocrine surgical centers.</p>',
+          symptoms: [
+            { icon: 'bi-moon-stars', color: 'text-primary', title: 'Circadian Sleep Disruption', desc: 'Waking up unrefreshed, evening "second wind", and difficulty falling into restorative slow-wave sleep.' },
+            { icon: 'bi-exclamation-octagon', color: 'text-danger', title: 'Dizziness Upon Standing', desc: 'Postural hypotension and salt cravings stemming from subclinical adrenal aldosterone regulation shifts.' },
+            { icon: 'bi-lightning', color: 'text-warning', title: 'Severe Stress Intolerance', desc: 'Extreme sensitivity to minor stressors, anxiety episodes, and prolonged physical recovery times.' },
+            { icon: 'bi-compass', color: 'text-info', title: 'Refractory Blood Pressure', desc: 'Unexplained hypertension or wide blood pressure swings resistant to conventional antihypertensives.' }
+          ],
+          treatmentPillars: [
+            { icon: 'bi-clock-history text-primary', title: '4-Point Salivary Cortisol', desc: 'Mapping cortisol and DHEA production across waking, midday, dinner, and bedtime.' },
+            { icon: 'bi-hospital text-teal', title: 'Dynamic Challenge Tests', desc: 'Cosyntropin ACTH stimulation and dexamethasone suppression testing for adrenal diagnostics.' },
+            { icon: 'bi-hdd-network text-warning', title: 'Pituitary MRI Coordination', desc: 'Targeted imaging for prolactinomas, Cushing\'s disease, and growth hormone deficiencies.' },
+            { icon: 'bi-heart-pulse text-danger', title: 'Steroid Hormone Balancing', desc: 'Precision hydrocortisone, fludrocortisone, or androgen optimization protocols.' }
+          ],
+          approachTitle: 'Hypothalamic-Pituitary-Adrenal (HPA) Axis Restoration',
+          approachText: 'Adrenal and pituitary dysfunctions require meticulous biochemical investigation. We restore natural diurnal hormone rhythms using bioidentical replacement and adaptogenic support.',
+          approachList: [
+            { strong: 'Circadian Endocrine Mapping:', text: 'Assessing diurnal cortisol awakening response (CAR) and bedtime nadir.' },
+            { strong: 'Pituitary Microadenoma Oversight:', text: 'Non-surgical medical therapy for prolactinomas and growth hormone disorders.' },
+            { strong: 'Cardio-Adrenal Support:', text: 'Restoring electrolyte homeostasis, renin-aldosterone ratios, and vascular tone.' }
+          ],
+          faqs: [
+            { q: 'What is the difference between adrenal fatigue and adrenal insufficiency?', a: 'Adrenal insufficiency (Addison\'s disease or secondary pituitary failure) is a diagnosable medical condition of low cortisol production verified by ACTH stimulation tests. We provide rigorous clinical testing for both frank insufficiency and HPA axis circadian dysregulation.' },
+            { q: 'How do you diagnose and manage pituitary prolactinomas?', a: 'Prolactinomas are identified via fasting serum prolactin assays and 3T pituitary MRI. The vast majority respond exceptionally well to dopamine agonist medications (such as Cabergoline) without needing brain surgery.' },
+            { q: 'How is a salivary cortisol test conducted?', a: 'You collect four saliva samples throughout a typical day (waking, noon, evening, bedtime) in comfortable home conditions to measure natural circadian cortisol rhythm without the stress of clinic needle sticks.' }
+          ]
         },
         metabolic: {
           title: 'Obesity & Metabolic Health Program',
@@ -607,8 +688,32 @@
           breadcrumb: 'Metabolic Health',
           category: 'Metabolic Medicine',
           overviewHeading: 'Treating Obesity as a Biological Metabolic Disease',
-          image: 'https://images.unsplash.com/photo-1498837167922-ddd27525d352?auto=format&fit=crop&w=800&q=80',
-          overview: '<p class="text-muted">Excess adipose tissue acts as an active endocrine organ, secreting inflammatory cytokines and driving insulin resistance. EndoCare treats obesity as a complex, chronic neurohormonal condition rather than a failure of willpower.</p><p class="text-muted">Our medical protocols combine modern receptor agonists, resting metabolic rate calorimetry, and body composition analytics to protect lean muscle mass while eliminating visceral adiposity.</p>'
+          image: 'assets/images/blog-glp1-metabolic.jpg',
+          overview: '<p class="text-muted">Excess adipose tissue acts as an active endocrine organ, secreting inflammatory cytokines and driving insulin resistance. EndoCare treats obesity as a complex, chronic neurohormonal condition rather than a failure of willpower.</p><p class="text-muted">Our medical protocols combine modern receptor agonists, resting metabolic rate calorimetry, and body composition analytics to protect lean muscle mass while eliminating visceral adiposity.</p>',
+          symptoms: [
+            { icon: 'bi-graph-down-arrow', color: 'text-danger', title: 'Weight Loss Resistance', desc: 'Inability to lose weight despite diligent caloric restriction, exercise regimens, and fasting.' },
+            { icon: 'bi-egg-fried', color: 'text-warning', title: 'Severe Sugar & Carb Cravings', desc: 'Intense neurochemical cravings driven by elevated fasting insulin blocking fat oxidation.' },
+            { icon: 'bi-heartbreak', color: 'text-teal', title: 'Elevated Visceral Fat', desc: 'Central abdominal fat accumulation linked to elevated triglycerides and non-alcoholic fatty liver.' },
+            { icon: 'bi-cup-hot', color: 'text-primary', title: 'Post-Meal Slump', desc: 'Crashing energy and mental fog within 45 to 60 minutes after eating carbohydrate meals.' }
+          ],
+          treatmentPillars: [
+            { icon: 'bi-capsule text-primary', title: 'Next-Gen Incretin Agonists', desc: 'Physician-supervised GLP-1 and dual GLP-1/GIP receptor agonists (Semaglutide, Tirzepatide).' },
+            { icon: 'bi-fire text-warning', title: 'Metabolic Calorimetry', desc: 'Measurement of resting metabolic rate (RMR) to formulate accurate caloric intake thresholds.' },
+            { icon: 'bi-person-bounding-box text-teal', title: 'Muscle-Sparing DEXA', desc: 'Body composition tracking ensuring weight lost is purely visceral fat, not functional muscle.' },
+            { icon: 'bi-journal-check text-success', title: 'Long-Term Taper Plan', desc: 'Structured maintenance blueprints to prevent rebound weight regain after reaching goal.' }
+          ],
+          approachTitle: 'Biological Weight Regulation & Cardiometabolic Reversal',
+          approachText: 'We treat obesity by fixing the hypothalamic satiety signaling pathways and cellular insulin resistance that trap calories in adipose tissue.',
+          approachList: [
+            { strong: 'Incretin Hormone Therapy:', text: 'Safe, individualized dose titration of FDA-approved GLP-1 and GIP agonists.' },
+            { strong: 'Lean Muscle Preservation:', text: 'High-protein nutritional blueprints combined with resistance stimulus guidance.' },
+            { strong: 'Cardiometabolic Risk Reduction:', text: 'Normalizing hepatic transaminases, high-sensitivity CRP, and arterial inflammation.' }
+          ],
+          faqs: [
+            { q: 'How do GLP-1 medications help with metabolic weight management?', a: 'GLP-1/GIP receptor agonists mimic natural gut hormones that slow gastric emptying, regulate pancreatic insulin secretion, and stimulate hypothalamic satiety centers, eliminating constant obsessive food noise.' },
+            { q: 'Will I regain the weight if I eventually discontinue the medication?', a: 'Our physicians implement a structured taper protocol alongside permanent metabolic rate recalibration and behavioral strategies, minimizing rebound risk.' },
+            { q: 'Are body composition scans included during treatment?', a: 'Yes! We conduct regular body composition evaluations to ensure that 85%+ of all weight lost is adipose tissue rather than metabolically active lean skeletal muscle.' }
+          ]
         },
         pcos: {
           title: 'PCOS & Reproductive Endocrine Care',
@@ -616,8 +721,32 @@
           breadcrumb: 'PCOS Clinic',
           category: 'Reproductive Endocrinology',
           overviewHeading: 'Addressing PCOS from the Root Cause',
-          image: 'https://images.unsplash.com/photo-1505751172876-fa1923c5c528?auto=format&fit=crop&w=800&q=80',
-          overview: '<p class="text-muted">Polycystic Ovary Syndrome (PCOS) affects up to 10% of women and is fundamentally tied to ovarian-insulin receptor signaling. Addressing the condition requires more than oral contraceptives—it demands restorative metabolic care.</p><p class="text-muted">We combine anti-androgenic strategies with insulin sensitization, inositol therapies, and cycle tracking to restore physiological balance and fertility potential.</p>'
+          image: 'assets/images/dr-elena-rostova.jpg',
+          overview: '<p class="text-muted">Polycystic Ovary Syndrome (PCOS) affects up to 10% of women and is fundamentally tied to ovarian-insulin receptor signaling. Addressing the condition requires more than oral contraceptives—it demands restorative metabolic care.</p><p class="text-muted">We combine anti-androgenic strategies with insulin sensitization, inositol therapies, and cycle tracking to restore physiological balance and fertility potential.</p>',
+          symptoms: [
+            { icon: 'bi-calendar-x', color: 'text-danger', title: 'Irregular or Absent Cycles', desc: 'Oligomenorrhea or amenorrhea with cycles exceeding 35 days or skipping multiple months entirely.' },
+            { icon: 'bi-person-x', color: 'text-warning', title: 'Hyperandrogenism Symptoms', desc: 'Hirsutism on chin, chest, or abdomen, persistent hormonal cystic acne, and androgenic hair thinning.' },
+            { icon: 'bi-speedometer', color: 'text-teal', title: 'Severe Insulin Resistance', desc: 'Acanthosis nigricans (darkened neck skin), rapid weight gain around the waist, and carb cravings.' },
+            { icon: 'bi-egg', color: 'text-primary', title: 'Anovulatory Subfertility', desc: 'Difficulty conceiving naturally due to lack of mature egg release during menstrual cycles.' }
+          ],
+          treatmentPillars: [
+            { icon: 'bi-pie-chart text-primary', title: 'Rotterdam Sub-Typing', desc: 'Accurate differentiation between Insulin-Resistant, Inflammatory, and Adrenal PCOS variants.' },
+            { icon: 'bi-capsule-pill text-teal', title: 'Inositol & Sensitizers', desc: 'Clinical 40:1 Myo-to-D-Chiro inositol formulations and Metformin for receptor sensitivity.' },
+            { icon: 'bi-shield-shaded text-warning', title: 'Androgen Blockers', desc: 'Targeted clinical therapies (Spironolactone, saw palmetto) to halt hirsutism and acne.' },
+            { icon: 'bi-heart-pulse text-danger', title: 'Ovulation Tracking', desc: 'Basal temperature and serum progesterone monitoring to verify natural luteal restoration.' }
+          ],
+          approachTitle: 'Precision Reproductive & Metabolic PCOS Reversal',
+          approachText: 'Rather than masking ovarian distress with oral contraceptive pills, we heal ovarian-insulin receptor cross-talk and reduce luteinizing hormone hypersecretion.',
+          approachList: [
+            { strong: 'Phenotype-Specific Therapeutics:', text: 'Customizing interventions to your exact phenotypic subtype of PCOS.' },
+            { strong: 'Continuous Glucose Syncing:', text: 'Using wearable CGM sensors to detect postprandial hyperinsulinemia triggering excess ovarian androgens.' },
+            { strong: 'Fertility & Conception Readiness:', text: 'Natural cycle induction and ovulatory preparation for healthy pregnancy.' }
+          ],
+          faqs: [
+            { q: 'Can PCOS be managed without birth control pills?', a: 'Absolutely. While birth control manages endometrial thickness, it does not correct the underlying insulin resistance driving ovarian androgens. We focus on inositols, Metformin, and nutritional therapeutics.' },
+            { q: 'How does high insulin cause hirsutism and facial hair in PCOS?', a: 'Elevated fasting and postprandial insulin acts directly on ovarian theca cells to stimulate testosterone production while suppressing sex hormone-binding globulin (SHBG), multiplying free circulating androgens.' },
+            { q: 'What is the role of continuous glucose monitoring in PCOS?', a: 'CGM sensors reveal hidden insulin spikes that trigger androgen surges hours before glucose levels appear elevated on standard fasting lab work.' }
+          ]
         },
         osteoporosis: {
           title: 'Osteoporosis & Bone Metabolism',
@@ -625,8 +754,32 @@
           breadcrumb: 'Bone Health',
           category: 'Metabolic Bone Care',
           overviewHeading: 'Preserving Skeletal Longevity & Density',
-          image: 'https://images.unsplash.com/photo-1516549655169-df83a0774514?auto=format&fit=crop&w=800&q=80',
-          overview: '<p class="text-muted">Osteoporosis is a silent disorder of bone microarchitecture that dramatically escalates fracture risks. Parathyroid hormone (PTH), vitamin D metabolism, and estrogen withdrawal all profoundly influence bone turnover.</p><p class="text-muted">We utilize central DEXA scans with trabecular bone score (TBS) to formulate aggressive anabolic bone-building or antiresorptive therapeutic regimens.</p>'
+          image: 'assets/images/blog-dexa-bone.jpg',
+          overview: '<p class="text-muted">Osteoporosis is a silent disorder of bone microarchitecture that dramatically escalates fracture risks. Parathyroid hormone (PTH), vitamin D metabolism, and estrogen withdrawal all profoundly influence bone turnover.</p><p class="text-muted">We utilize central DEXA scans with trabecular bone score (TBS) to formulate aggressive anabolic bone-building or antiresorptive therapeutic regimens.</p>',
+          symptoms: [
+            { icon: 'bi-shield-slash', color: 'text-danger', title: 'Low-Impact Fragility Fractures', desc: 'Breaking a wrist, hip, or rib from a standing-height fall or minor bump.' },
+            { icon: 'bi-arrow-down-short', color: 'text-warning', title: 'Loss of Height (> 1.5 Inches)', desc: 'Gradual reduction in standing height caused by silent micro-compression fractures of vertebrae.' },
+            { icon: 'bi-person-dash', color: 'text-teal', title: 'Dorsal Kyphosis (Stooped Posture)', desc: 'Development of forward curvature of the thoracic spine accompanied by mid-back stiffness.' },
+            { icon: 'bi-exclamation-triangle', color: 'text-primary', title: 'Premature Bone Loss Risk', desc: 'Early surgical menopause, chronic steroid use, hyperparathyroidism, or malabsorption.' }
+          ],
+          treatmentPillars: [
+            { icon: 'bi-aspect-ratio text-primary', title: 'Central DEXA & TBS', desc: 'Dual-energy X-ray absorptiometry measuring lumbar spine and hip bone mineral density and bone quality.' },
+            { icon: 'bi-droplet text-teal', title: 'Bone Turnover Assays', desc: 'Serum CTX (collagen breakdown) and P1NP (bone formation) markers to monitor treatment speed.' },
+            { icon: 'bi-bricks text-warning', title: 'Anabolic Bone Builders', desc: 'Advanced bone-growing therapies (Teriparatide, Romosozumab) for severe fracture risks.' },
+            { icon: 'bi-sun text-success', title: 'Calcium-PTH Homeostasis', desc: 'Optimizing bioactive Vitamin D, K2, and ionized calcium without kidney stone risk.' }
+          ],
+          approachTitle: 'Skeletal Longevity & Microarchitectural Reconstruction',
+          approachText: 'We specialize in sequential bone therapeutics—combining bone-building anabolic drugs followed by antiresorptive agents to lock in bone strength.',
+          approachList: [
+            { strong: 'Bone Turnover Surveillance:', text: 'Measuring active resorption before and after starting bone-strengthening therapy.' },
+            { strong: 'Trabecular Microarchitecture Scoring:', text: 'Assessing structural bone quality beyond simple density numbers.' },
+            { strong: 'Fracture Prevention Program:', text: 'Targeted physical resistance guidance to stimulate bone osteoblast remodeling.' }
+          ],
+          faqs: [
+            { q: 'What is the difference between Osteopenia and Osteoporosis?', a: 'Osteopenia represents low bone mass (T-score between -1.0 and -2.5), whereas Osteoporosis (T-score -2.5 or lower) indicates significant bone microarchitectural thinning with elevated fracture danger.' },
+            { q: 'How frequently should I undergo a DEXA bone density scan?', a: 'Patients on active bone medications typically undergo repeat DEXA every 12 to 24 months. Biomarker bone turnover tests (CTX/P1NP) can verify medication efficacy in as little as 3 months.' },
+            { q: 'Are calcium supplements safe for cardiovascular health?', a: 'We emphasize dietary calcium intake paired with targeted Vitamin D3 and K2, preventing arterial calcium deposition while ensuring calcium reaches bone matrices.' }
+          ]
         },
         diagnostics: {
           title: 'Endocrine Diagnostic & Laboratory Evaluation',
@@ -634,21 +787,117 @@
           breadcrumb: 'Diagnostics',
           category: 'Laboratory Excellence',
           overviewHeading: 'High-Complexity On-Site Diagnostics',
-          image: 'https://images.unsplash.com/photo-1530497610245-94d3c16cda28?auto=format&fit=crop&w=800&q=80',
-          overview: '<p class="text-muted">Endocrine hormones degrade quickly if blood specimens are not properly handled. Our in-house laboratory ensures optimal pre-analytical stability, rapid turnaround, and direct interpretation by board-certified endocrinologists.</p><p class="text-muted">We provide same-day point-of-care HbA1c, ultrasensitive thyroid antibodies, adrenal stimulation testing, and ultrasound-guided FNA biopsies.</p>'
+          image: 'assets/images/diagnostic-lab.jpg',
+          overview: '<p class="text-muted">Endocrine hormones degrade quickly if blood specimens are not properly handled. Our in-house laboratory ensures optimal pre-analytical stability, rapid turnaround, and direct interpretation by board-certified endocrinologists.</p><p class="text-muted">We provide same-day point-of-care HbA1c, ultrasensitive thyroid antibodies, adrenal stimulation testing, and ultrasound-guided FNA biopsies.</p>',
+          symptoms: [
+            { icon: 'bi-question-diamond', color: 'text-warning', title: 'Ambiguous Hormone Panels', desc: 'Inconclusive or contradictory lab results from commercial reference laboratories needing re-evaluation.' },
+            { icon: 'bi-geo-alt', color: 'text-danger', title: 'Suspicious Neck or Adrenal Mass', desc: 'Incidental thyroid nodules or adrenal masses requiring morphological grading and cytological biopsy.' },
+            { icon: 'bi-arrow-repeat', color: 'text-primary', title: 'Severe Unexplained Sugar Swings', desc: 'Unexplained hypoglycemia episodes requiring 72-hour fast monitoring or dynamic stimulation.' },
+            { icon: 'bi-activity', color: 'text-teal', title: 'Secondary Hypertension Workup', desc: 'Severe blood pressure spikes requiring aldosterone-to-renin ratio and catecholamine fractions.' }
+          ],
+          treatmentPillars: [
+            { icon: 'bi-hourglass-split text-primary', title: 'Point-of-Care HbA1c', desc: 'Capillary blood micro-sampling delivering validated HbA1c results in just 10 minutes.' },
+            { icon: 'bi-camera text-teal', title: 'Ultrasound-Guided FNA', desc: 'Pain-free, sterile in-office fine needle aspiration biopsy of thyroid and parathyroid nodules.' },
+            { icon: 'bi-shield-check text-warning', title: 'CLIA-Certified Assays', desc: 'Ultrasensitive chemiluminescent assays for free T3, free T4, IGF-1, and steroid hormone profiles.' },
+            { icon: 'bi-file-earmark-medical text-danger', title: 'Immediate Interpretation', desc: 'Your endocrinologist reviews and explains your lab results in real time during your consultation.' }
+          ],
+          approachTitle: 'CLIA-Certified On-Site Diagnostic Precision',
+          approachText: 'Hormones require impeccable pre-analytical handling. Our accredited laboratory eliminates long turnaround times and specimen degradation.',
+          approachList: [
+            { strong: 'Rapid Clinical Decision-Making:', text: 'Zero waiting days for critical lab tests; adjust medications on the spot.' },
+            { strong: 'Ultrasound-Guided Interventions:', text: 'High-precision nodule elastography and immediate on-site specimen staining.' },
+            { strong: 'Dynamic Endocrine Stimulation:', text: 'Standardized endocrine challenge tests conducted under direct physician supervision.' }
+          ],
+          faqs: [
+            { q: 'Do I need to fast before my laboratory appointment?', a: 'Fasting (8-10 hours) is required for comprehensive lipid panels, fasting glucose, fasting insulin, and morning cortisol. Water is always encouraged to stay well hydrated.' },
+            { q: 'How long do on-site laboratory results take?', a: 'Point-of-care HbA1c and lipid profiles are ready in 10-15 minutes. Comprehensive hormone immunoassays are typically completed within 24 hours.' },
+            { q: 'Is ultrasound-guided thyroid biopsy painful?', a: 'We utilize fine needles with local anesthetic. Most patients report only mild pressure that lasts less than 2 minutes, and can immediately resume normal daily activities.' }
+          ]
         }
       };
 
-      if (serviceParam && serviceData[serviceParam]) {
-        const data = serviceData[serviceParam];
-        document.getElementById('serviceTitle').textContent = data.title;
-        document.getElementById('serviceSubtitle').textContent = data.subtitle;
-        document.getElementById('serviceBreadcrumb').textContent = data.breadcrumb;
-        document.getElementById('serviceCategoryBadge').innerHTML = `<i class="bi bi-shield-check"></i> ${data.category}`;
-        document.getElementById('overviewHeading').textContent = data.overviewHeading;
-        document.getElementById('serviceOverviewText').innerHTML = data.overview;
-        document.getElementById('serviceHeroImg').src = data.image;
-        document.title = `${data.title} – EndoCare Clinic`;
+      const key = (serviceParam && serviceData[serviceParam]) ? serviceParam : 'diabetes';
+      const data = serviceData[key];
+
+      // Update Header & Overview
+      const titleEl = document.getElementById('serviceTitle');
+      const subEl = document.getElementById('serviceSubtitle');
+      const breadEl = document.getElementById('serviceBreadcrumb');
+      const badgeEl = document.getElementById('serviceCategoryBadge');
+      const headEl = document.getElementById('overviewHeading');
+      const overEl = document.getElementById('serviceOverviewText');
+      const imgEl = document.getElementById('serviceHeroImg');
+
+      if (titleEl) titleEl.textContent = data.title;
+      if (subEl) subEl.textContent = data.subtitle;
+      if (breadEl) breadEl.textContent = data.breadcrumb;
+      if (badgeEl) badgeEl.innerHTML = `<i class="bi bi-shield-check"></i> ${data.category}`;
+      if (headEl) headEl.textContent = data.overviewHeading;
+      if (overEl) overEl.innerHTML = data.overview;
+      if (imgEl) imgEl.src = data.image;
+      document.title = `${data.title} – EndoCare Clinic`;
+
+      // Update Symptoms Grid
+      const symptomsGrid = document.getElementById('symptomsGrid');
+      if (symptomsGrid && data.symptoms) {
+        symptomsGrid.innerHTML = data.symptoms.map(s => `
+          <div class="col-md-6 col-lg-3">
+            <div class="card-custom h-100">
+              <i class="bi ${s.icon} ${s.color} fs-3 mb-2"></i>
+              <h5 class="fw-bold mb-2">${s.title}</h5>
+              <p class="text-muted small mb-0">${s.desc}</p>
+            </div>
+          </div>
+        `).join('');
+      }
+
+      // Update Treatment Pillars Grid
+      const pillarsGrid = document.getElementById('treatmentPillarsGrid');
+      if (pillarsGrid && data.treatmentPillars) {
+        pillarsGrid.innerHTML = data.treatmentPillars.map(p => `
+          <div class="col-6">
+            <div class="p-4 bg-alt rounded-4 border text-center h-100">
+              <i class="bi ${p.icon} fs-1 mb-2"></i>
+              <h6 class="fw-bold mb-1">${p.title}</h6>
+              <small class="text-muted">${p.desc}</small>
+            </div>
+          </div>
+        `).join('');
+      }
+
+      // Update Treatment Approach Text & List
+      const approachTitle = document.getElementById('treatmentApproachTitle');
+      const approachText = document.getElementById('treatmentApproachText');
+      const approachList = document.getElementById('treatmentApproachList');
+
+      if (approachTitle && data.approachTitle) approachTitle.textContent = data.approachTitle;
+      if (approachText && data.approachText) approachText.textContent = data.approachText;
+      if (approachList && data.approachList) {
+        approachList.innerHTML = data.approachList.map(item => `
+          <li class="d-flex align-items-start gap-2">
+            <i class="bi bi-check-circle-fill text-success mt-1"></i>
+            <span><strong>${item.strong}</strong> ${item.text}</span>
+          </li>
+        `).join('');
+      }
+
+      // Update FAQs
+      const faqAccordion = document.getElementById('serviceDetailsFaq');
+      if (faqAccordion && data.faqs) {
+        faqAccordion.innerHTML = data.faqs.map((f, i) => `
+          <div class="accordion-item border mb-3 rounded-3 overflow-hidden">
+            <h2 class="accordion-header">
+              <button class="accordion-button ${i === 0 ? '' : 'collapsed'} fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#dynFaq${i}">
+                <span class="faq-question">${f.q}</span>
+              </button>
+            </h2>
+            <div id="dynFaq${i}" class="accordion-collapse collapse ${i === 0 ? 'show' : ''}" data-bs-parent="#serviceDetailsFaq">
+              <div class="accordion-body text-muted">
+                ${f.a}
+              </div>
+            </div>
+          </div>
+        `).join('');
       }
     });
   </script>

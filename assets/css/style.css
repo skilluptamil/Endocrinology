@@ -232,6 +232,12 @@ img {
   color: #38bdf8 !important;
 }
 
+.navbar-custom .navbar-nav {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
 .nav-link {
   font-family: var(--font-family);
   font-weight: 600;
@@ -242,6 +248,12 @@ img {
   font-size: 0.95rem;
   letter-spacing: -0.01em;
   white-space: nowrap;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  height: 38px;
+  line-height: 1;
+  box-sizing: border-box;
 }
 
 .nav-link:hover, .nav-link.active {
@@ -376,6 +388,7 @@ img {
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  gap: 6px;
   white-space: nowrap;
   flex-shrink: 0;
   box-sizing: border-box;
@@ -403,6 +416,7 @@ img {
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  gap: 6px;
   white-space: nowrap;
   flex-shrink: 0;
   box-sizing: border-box;
@@ -665,8 +679,8 @@ img {
   background-size: cover;
   background-position: center 35%;
   background-repeat: no-repeat;
-  min-height: 400px;
-  padding: 5.5rem 0 4.5rem;
+  min-height: 220px;
+  padding: 2.75rem 0 2.25rem;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -728,39 +742,219 @@ img {
   width: 100%;
 }
 
-/* Breadcrumb Glass Pill directly on hero */
+/* ===================================================================
+   Global Breadcrumb System - Universal Straight-Line Alignment
+   =================================================================== */
+
+/* Container wrapper for centering and positioning */
+.breadcrumb-nav-wrapper {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  width: 100% !important;
+  margin-bottom: 0.95rem !important;
+  position: relative !important;
+  z-index: 5 !important;
+}
+
+/* Breadcrumb pill container */
+.breadcrumb.hero-breadcrumb-pill,
+.breadcrumb.breadcrumb-custom-pill,
 .hero-breadcrumb-pill {
-  background: rgba(255, 255, 255, 0.92);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border: 1px solid rgba(2, 132, 199, 0.25);
-  box-shadow: 0 4px 14px rgba(2, 132, 199, 0.08);
-  display: inline-flex;
-  transition: transform 0.3s ease;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  flex-direction: row !important;
+  flex-wrap: nowrap !important;
+  gap: 0 !important;
+  margin: 0 auto !important;
+  padding: 0.4rem 1.15rem !important;
+  background: rgba(255, 255, 255, 0.94) !important;
+  backdrop-filter: blur(12px) !important;
+  -webkit-backdrop-filter: blur(12px) !important;
+  border: 1px solid rgba(2, 132, 199, 0.22) !important;
+  border-radius: 9999px !important;
+  box-shadow: 0 4px 14px rgba(2, 132, 199, 0.08) !important;
+  list-style: none !important;
+  line-height: 1 !important;
+  vertical-align: middle !important;
+  transition: transform 0.2s ease, box-shadow 0.2s ease !important;
+  white-space: nowrap !important;
   animation: heroFadeUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
-.hero-breadcrumb-pill:hover {
-  transform: scale(1.02);
+.hero-breadcrumb-pill:hover,
+.breadcrumb-custom-pill:hover {
+  transform: translateY(-1px) !important;
+  box-shadow: 0 6px 18px rgba(2, 132, 199, 0.14) !important;
 }
 
-[data-bs-theme="dark"] .hero-breadcrumb-pill {
-  background: rgba(15, 23, 42, 0.88);
-  border-color: rgba(56, 189, 248, 0.35);
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.4);
+[data-bs-theme="dark"] .hero-breadcrumb-pill,
+[data-bs-theme="dark"] .breadcrumb-custom-pill {
+  background: rgba(15, 23, 42, 0.92) !important;
+  border-color: rgba(56, 189, 248, 0.32) !important;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.45) !important;
 }
 
-.hero-breadcrumb-pill .breadcrumb-item a {
-  color: var(--primary-color);
-  font-weight: 700;
-  font-size: 0.875rem;
-  text-decoration: none;
+/* Every breadcrumb item is a flex row aligned vertically center */
+.breadcrumb .breadcrumb-item,
+.hero-breadcrumb-pill .breadcrumb-item,
+.breadcrumb-custom-pill .breadcrumb-item,
+.breadcrumb-item + .breadcrumb-item {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  font-size: 0.85rem !important;
+  line-height: 1 !important;
+  vertical-align: middle !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  padding-left: 0 !important;
 }
 
-.hero-breadcrumb-pill .breadcrumb-item.active {
-  color: var(--text-muted);
-  font-weight: 600;
-  font-size: 0.875rem;
+/* Breadcrumb Links */
+.breadcrumb .breadcrumb-item a,
+.hero-breadcrumb-pill .breadcrumb-item a,
+.breadcrumb-custom-pill .breadcrumb-item a {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 0.35rem !important;
+  color: var(--primary-color) !important;
+  font-weight: 700 !important;
+  font-size: 0.85rem !important;
+  text-decoration: none !important;
+  line-height: 1 !important;
+  vertical-align: middle !important;
+  transition: color 0.15s ease !important;
+}
+
+.breadcrumb .breadcrumb-item a:hover,
+.hero-breadcrumb-pill .breadcrumb-item a:hover,
+.breadcrumb-custom-pill .breadcrumb-item a:hover {
+  color: var(--primary-hover) !important;
+  text-decoration: underline !important;
+}
+
+/* Home Icon & All Icons in breadcrumbs */
+.breadcrumb .breadcrumb-item a i,
+.breadcrumb .breadcrumb-item i,
+.hero-breadcrumb-pill .breadcrumb-item a i,
+.hero-breadcrumb-pill .breadcrumb-item i,
+.breadcrumb-custom-pill .breadcrumb-item a i,
+.breadcrumb-custom-pill .breadcrumb-item i {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  font-size: 0.95rem !important;
+  line-height: 1 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  vertical-align: middle !important;
+  transform: translateY(-0.5px) !important;
+}
+
+/* Slash Separator (/) */
+.breadcrumb-item + .breadcrumb-item::before,
+.hero-breadcrumb-pill .breadcrumb-item + .breadcrumb-item::before,
+.breadcrumb-custom-pill .breadcrumb-item + .breadcrumb-item::before {
+  float: none !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  content: "/" !important;
+  color: #94a3b8 !important;
+  font-weight: 500 !important;
+  font-size: 0.85rem !important;
+  line-height: 1 !important;
+  margin: 0 0.55rem !important;
+  padding: 0 !important;
+  vertical-align: middle !important;
+  transform: translateY(-0.5px) !important;
+}
+
+[data-bs-theme="dark"] .breadcrumb-item + .breadcrumb-item::before,
+[data-bs-theme="dark"] .hero-breadcrumb-pill .breadcrumb-item + .breadcrumb-item::before,
+[data-bs-theme="dark"] .breadcrumb-custom-pill .breadcrumb-item + .breadcrumb-item::before {
+  color: #64748b !important;
+}
+
+/* Active Breadcrumb Item (Current Page) */
+.breadcrumb .breadcrumb-item.active,
+.hero-breadcrumb-pill .breadcrumb-item.active,
+.breadcrumb-custom-pill .breadcrumb-item.active {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 0.35rem !important;
+  color: var(--text-heading) !important;
+  font-weight: 600 !important;
+  font-size: 0.85rem !important;
+  line-height: 1 !important;
+  vertical-align: middle !important;
+}
+
+.breadcrumb .breadcrumb-item.text-muted,
+.hero-breadcrumb-pill .breadcrumb-item.text-muted,
+.breadcrumb-custom-pill .breadcrumb-item.text-muted {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 0.35rem !important;
+  color: #64748b !important;
+  font-weight: 500 !important;
+  font-size: 0.85rem !important;
+  line-height: 1 !important;
+  vertical-align: middle !important;
+}
+
+[data-bs-theme="dark"] .breadcrumb .breadcrumb-item.text-muted,
+[data-bs-theme="dark"] .hero-breadcrumb-pill .breadcrumb-item.text-muted,
+[data-bs-theme="dark"] .breadcrumb-custom-pill .breadcrumb-item.text-muted {
+  color: #94a3b8 !important;
+}
+
+[data-bs-theme="dark"] .breadcrumb .breadcrumb-item.active,
+[data-bs-theme="dark"] .hero-breadcrumb-pill .breadcrumb-item.active,
+[data-bs-theme="dark"] .breadcrumb-custom-pill .breadcrumb-item.active {
+  color: #e2e8f0 !important;
+}
+
+/* Text spans within breadcrumbs */
+.breadcrumb-item span,
+.breadcrumb-item a span {
+  display: inline-block !important;
+  line-height: 1 !important;
+  vertical-align: middle !important;
+}
+
+/* Responsive Handling down to 320px */
+@media (max-width: 576px) {
+  .hero-breadcrumb-pill,
+  .breadcrumb.hero-breadcrumb-pill,
+  .breadcrumb-custom-pill {
+    padding: 0.3rem 0.85rem !important;
+    max-width: 95% !important;
+    overflow-x: auto !important;
+    scrollbar-width: none !important;
+  }
+  .hero-breadcrumb-pill::-webkit-scrollbar,
+  .breadcrumb-custom-pill::-webkit-scrollbar {
+    display: none !important;
+  }
+  .breadcrumb .breadcrumb-item,
+  .hero-breadcrumb-pill .breadcrumb-item,
+  .breadcrumb-custom-pill .breadcrumb-item {
+    font-size: 0.8rem !important;
+  }
+  .breadcrumb .breadcrumb-item a,
+  .hero-breadcrumb-pill .breadcrumb-item a,
+  .breadcrumb-custom-pill .breadcrumb-item a {
+    font-size: 0.8rem !important;
+  }
+  .breadcrumb-item + .breadcrumb-item::before,
+  .hero-breadcrumb-pill .breadcrumb-item + .breadcrumb-item::before,
+  .breadcrumb-custom-pill .breadcrumb-item + .breadcrumb-item::before {
+    margin: 0 0.35rem !important;
+    font-size: 0.8rem !important;
+  }
 }
 
 /* Page Hero Heading & Subtitle */
@@ -906,14 +1100,14 @@ img {
 
 @media (max-width: 768px) {
   .page-header-hero {
-    min-height: 320px;
-    padding: 3.5rem 0 3rem;
+    min-height: 180px;
+    padding: 2rem 0 1.75rem;
   }
   .page-hero-title {
-    font-size: 2rem !important;
+    font-size: 1.85rem !important;
   }
   .page-hero-subtitle {
-    font-size: 1rem !important;
+    font-size: 0.95rem !important;
   }
 }
 
@@ -2377,4 +2571,177 @@ html[dir="ltr"] .input-group > :only-child {
     padding: 1rem 1.15rem !important;
   }
 }
+
+/* ===================================================================
+   Clinical Tables System (.custom-table-card & .custom-table)
+   =================================================================== */
+.custom-table-card {
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  margin-bottom: 2rem;
+  transition: var(--transition-base);
+}
+
+.custom-table-card:hover {
+  box-shadow: var(--shadow-md);
+}
+
+.custom-table {
+  width: 100%;
+  margin-bottom: 0;
+  color: var(--text-main);
+  border-collapse: separate;
+  border-spacing: 0;
+}
+
+.custom-table th {
+  background-color: var(--bg-alt);
+  color: var(--text-muted);
+  font-weight: 700;
+  font-size: 0.825rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 1.1rem 1.25rem;
+  border-bottom: 1px solid var(--border-color);
+  white-space: nowrap;
+  vertical-align: middle;
+}
+
+.custom-table td {
+  padding: 1.1rem 1.25rem;
+  vertical-align: middle;
+  border-bottom: 1px solid var(--border-color);
+  font-size: 0.935rem;
+  color: var(--text-main);
+}
+
+.custom-table tr:last-child td {
+  border-bottom: none;
+}
+
+.custom-table tbody tr {
+  transition: background-color 0.2s ease;
+}
+
+.custom-table tbody tr:hover td {
+  background-color: var(--bg-alt);
+}
+
+[data-bs-theme="dark"] .custom-table th {
+  background-color: #1e293b;
+  color: #94a3b8;
+  border-bottom-color: #334155;
+}
+
+[data-bs-theme="dark"] .custom-table td {
+  border-bottom-color: #1e293b;
+  color: #e2e8f0;
+}
+
+[data-bs-theme="dark"] .custom-table tbody tr:hover td {
+  background-color: rgba(56, 189, 248, 0.06);
+}
+
+/* Testimonial & Review Headings */
+.testimonial-title,
+.review-heading {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text-heading);
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+  line-height: 1.35;
+}
+
+/* Services Filter Bar below Header */
+.services-filter-bar {
+  background-color: var(--bg-surface);
+  border-bottom: 1px solid var(--border-color);
+  position: relative;
+  z-index: 10;
+}
+
+.services-filter-bar .input-group-text {
+  background-color: var(--bg-alt);
+  border-color: var(--border-color);
+  color: var(--text-muted);
+}
+
+.services-filter-bar .form-control {
+  background-color: var(--bg-alt);
+  border-color: var(--border-color);
+  color: var(--text-main);
+}
+
+.services-filter-bar .form-control:focus {
+  background-color: var(--bg-surface);
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(2, 132, 199, 0.15);
+}
+
+/* Interactive Medical Slider (A1c / Glucose Calculator) */
+.clinical-slider-card {
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-xl);
+  padding: 2.25rem;
+  box-shadow: var(--shadow-md);
+  position: relative;
+  overflow: hidden;
+}
+
+.clinical-slider-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: var(--accent-gradient);
+}
+
+.range-slider-input {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 10px;
+  border-radius: var(--radius-full);
+  background: linear-gradient(to right, #10b981 0%, #06b6d4 30%, #f59e0b 60%, #ef4444 100%);
+  outline: none;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.range-slider-input::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: #ffffff;
+  border: 3px solid var(--primary-color);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.range-slider-input::-webkit-slider-thumb:hover {
+  transform: scale(1.15);
+  box-shadow: 0 4px 12px rgba(2, 132, 199, 0.4);
+}
+
+.range-slider-input::-moz-range-thumb {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: #ffffff;
+  border: 3px solid var(--primary-color);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
 

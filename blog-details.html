@@ -62,10 +62,41 @@
 
         <!-- Action Buttons (Dashboard, RTL, Dark/Light, Login, Sign Up) -->
         <div class="d-flex align-items-center flex-wrap flex-xl-nowrap nav-actions-wrap gap-2 mt-3 mt-xl-0">
-          <a href="dashboard-patient.html" class="btn-nav-dashboard" title="Patient Health Portal">
-            <i class="bi bi-speedometer2"></i>
-            <span>Dashboard</span>
-          </a>
+          <!-- Dashboard Dropdown (User Dashboard & Customer Dashboard) -->
+          <div class="dropdown">
+            <button class="btn-nav-dashboard dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" title="Access Portals">
+              <i class="bi bi-speedometer2"></i>
+              <span>Dashboard</span>
+            </button>
+            <ul class="dropdown-menu dropdown-menu-end shadow-lg border rounded-3 p-2 mt-2" style="min-width: 250px; z-index: 1060;">
+              <li>
+                <span class="dropdown-header text-uppercase fw-bold text-muted" style="font-size: 0.68rem; letter-spacing: 0.5px;">Select Portal</span>
+              </li>
+              <li>
+                <a class="dropdown-item rounded-2 py-2 d-flex align-items-center gap-2" href="dashboard-user.html">
+                  <div class="stat-icon bg-info-subtle text-info flex-shrink-0" style="width: 32px; height: 32px; border-radius: 8px; font-size: 0.95rem; display: flex; align-items: center; justify-content: center;">
+                    <i class="bi bi-person-circle"></i>
+                  </div>
+                  <div>
+                    <span class="d-block fw-bold small text-heading">User Dashboard</span>
+                    <small class="text-muted" style="font-size: 0.725rem;">Account, Profile &amp; Settings</small>
+                  </div>
+                </a>
+              </li>
+              <li><hr class="dropdown-divider my-1"></li>
+              <li>
+                <a class="dropdown-item rounded-2 py-2 d-flex align-items-center gap-2" href="dashboard-customer.html">
+                  <div class="stat-icon bg-primary-subtle text-primary flex-shrink-0" style="width: 32px; height: 32px; border-radius: 8px; font-size: 0.95rem; display: flex; align-items: center; justify-content: center;">
+                    <i class="bi bi-clipboard2-pulse"></i>
+                  </div>
+                  <div>
+                    <span class="d-block fw-bold small text-heading">Customer Dashboard</span>
+                    <small class="text-muted" style="font-size: 0.725rem;">Patient Portal, CGM &amp; Meds</small>
+                  </div>
+                </a>
+              </li>
+            </ul>
+          </div>
 
           <button type="button" class="btn-control-icon rtl-toggle-btn" title="Toggle RTL / LTR Direction" aria-label="Toggle text direction">
             <span class="rtl-text fw-bold small">RTL</span>
@@ -75,8 +106,8 @@
             <i class="bi bi-moon-stars-fill"></i>
           </button>
 
-          <a href="login.html" class="btn-login">Login</a>
-          <a href="register.html" class="btn-signup">Sign Up</a>
+          <a href="login.html" class="btn-login"><i class="bi bi-box-arrow-in-right"></i> Login</a>
+          <a href="register.html" class="btn-signup"><i class="bi bi-person-plus"></i> Sign Up</a>
         </div>
       </div>
     </div>
@@ -85,11 +116,11 @@
   <!-- SECTION 1: Article Header Hero & Meta -->
   <section class="py-5 bg-alt border-bottom">
     <div class="container py-3">
-      <nav aria-label="breadcrumb">
-        <ol class="breadcrumb mb-3">
-          <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-          <li class="breadcrumb-item"><a href="blog.html">Blog</a></li>
-          <li class="breadcrumb-item active" id="articleBreadcrumb">Clinical Article</li>
+      <nav aria-label="breadcrumb" class="breadcrumb-nav-wrapper">
+        <ol class="breadcrumb hero-breadcrumb-pill">
+          <li class="breadcrumb-item"><a href="index.html"><i class="bi bi-house"></i><span>Home</span></a></li>
+          <li class="breadcrumb-item"><a href="blog.html"><span>Blog</span></a></li>
+          <li class="breadcrumb-item active" id="articleBreadcrumb" aria-current="page">Clinical Article</li>
         </ol>
       </nav>
       <span class="badge bg-primary text-white mb-2" id="articleCategoryBadge">Diabetes Technology</span>
@@ -97,7 +128,7 @@
       
       <div class="d-flex flex-wrap align-items-center gap-4 text-muted small pt-2">
         <div class="d-flex align-items-center gap-2">
-          <img id="authorAvatar" src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=100&q=80" alt="Author" class="rounded-circle" style="width: 38px; height: 38px; object-fit: cover;">
+          <img id="authorAvatar" src="assets/images/dr-sarah-jenkins.jpg" alt="Dr. Sarah Jenkins, MD" class="rounded-circle" style="width: 38px; height: 38px; object-fit: cover;">
           <span class="fw-bold text-main" id="authorName">Dr. Sarah Jenkins, MD, FACE</span>
         </div>
         <div><i class="bi bi-calendar3 me-1"></i> <span id="articleDate">October 12, 2026</span></div>
@@ -204,18 +235,27 @@
             </div>
           </div>
 
-          <!-- SECTION 4: Author Medical Bio -->
-          <div class="p-4 rounded-4 bg-alt border d-flex flex-column flex-sm-row gap-4 align-items-center mb-5">
-            <img id="authorBioAvatar" src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=250&q=80" alt="Doctor Author Portrait" class="rounded-circle shadow-sm flex-shrink-0" style="width: 90px; height: 90px; object-fit: cover;">
-            <div>
-              <div class="d-flex align-items-center gap-2 mb-1">
-                <h5 class="fw-bold mb-0" id="authorBioName">Dr. Sarah Jenkins, MD, FACE</h5>
-                <span class="badge bg-primary-subtle text-primary">Chief Medical Officer</span>
+          <!-- SECTION 4: Author Medical Bio with Contact & Credentials -->
+          <div class="p-4 rounded-4 bg-alt border d-flex flex-column flex-md-row gap-4 align-items-center align-items-md-start mb-5">
+            <img id="authorBioAvatar" src="assets/images/dr-sarah-jenkins.jpg" alt="Dr. Sarah Jenkins, MD" class="rounded-circle shadow-sm flex-shrink-0" style="width: 96px; height: 96px; object-fit: cover;">
+            <div class="flex-grow-1">
+              <div class="d-flex flex-wrap align-items-center justify-content-between gap-2 mb-2">
+                <div>
+                  <h5 class="fw-bold mb-0 text-heading" id="authorBioName">Dr. Sarah Jenkins, MD, FACE</h5>
+                  <small class="text-primary fw-semibold" id="authorBioRole">Chief Medical Officer &bull; Diabetes &amp; Glycemic Medicine</small>
+                </div>
+                <a href="doctor-details.html?id=sarah-jenkins" id="authorProfileLink" class="btn btn-sm btn-outline-primary rounded-pill px-3">
+                  View Full Profile <i class="bi bi-arrow-right ms-1"></i>
+                </a>
               </div>
-              <p class="text-muted small mb-2">
-                Fellow of the American Association of Clinical Endocrinology (FACE). Specializes in complex brittle diabetes, glycemic variability, and cardiovascular disease prevention with over 16 years of academic and clinical practice.
+              <p class="text-muted small mb-3" id="authorBioText">
+                Fellow of the American Association of Clinical Endocrinology (FACE). Specializes in complex brittle diabetes, glycemic variability, continuous glucose algorithms, and cardiovascular disease prevention with over 16 years of academic and clinical practice.
               </p>
-              <a href="doctors.html" class="fw-bold text-primary small">View Physician Profile <i class="bi bi-arrow-right"></i></a>
+              <div class="d-flex flex-wrap gap-3 small text-muted pt-2 border-top" id="authorBioContact">
+                <span class="d-flex align-items-center gap-1"><i class="bi bi-envelope-fill text-primary"></i> <span id="authorBioEmail">s.jenkins@endocareclinic.demo</span></span>
+                <span class="d-flex align-items-center gap-1"><i class="bi bi-telephone-fill text-primary"></i> <span id="authorBioPhone">(800) 555-ENDO ext. 101</span></span>
+                <span class="d-flex align-items-center gap-1"><i class="bi bi-geo-alt-fill text-primary"></i> <span id="authorBioLocation">Suite 400, Diabetes Care Pavilion</span></span>
+              </div>
             </div>
           </div>
 
@@ -296,7 +336,7 @@
               <h5 class="fw-bold mb-3">Recent Publications</h5>
               <div class="d-flex flex-column gap-3">
                 <div class="d-flex gap-3 align-items-center">
-                  <img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&w=150&q=80" alt="Recent" class="rounded-3" style="width: 65px; height: 65px; object-fit: cover;">
+                  <img src="assets/images/blog-hashimotos-thyroid.jpg" alt="Hashimotos" class="rounded-3" style="width: 65px; height: 65px; object-fit: cover;">
                   <div>
                     <h6 class="fw-bold mb-1 small">
                       <a href="blog-details.html?article=hashimotos" class="text-heading text-decoration-none">Beyond TSH: Free T3 and TPO Antibodies</a>
@@ -306,7 +346,7 @@
                 </div>
 
                 <div class="d-flex gap-3 align-items-center">
-                  <img src="https://images.unsplash.com/photo-1498837167922-ddd27525d352?auto=format&fit=crop&w=150&q=80" alt="Recent" class="rounded-3" style="width: 65px; height: 65px; object-fit: cover;">
+                  <img src="assets/images/blog-food-sequencing.jpg" alt="Food Sequencing" class="rounded-3" style="width: 65px; height: 65px; object-fit: cover;">
                   <div>
                     <h6 class="fw-bold mb-1 small">
                       <a href="blog-details.html?article=food-sequencing" class="text-heading text-decoration-none">Food Sequencing & Glycemic Curves</a>
@@ -316,7 +356,7 @@
                 </div>
 
                 <div class="d-flex gap-3 align-items-center">
-                  <img src="https://images.unsplash.com/photo-1505751172876-fa1923c5c528?auto=format&fit=crop&w=150&q=80" alt="Recent" class="rounded-3" style="width: 65px; height: 65px; object-fit: cover;">
+                  <img src="assets/images/blog-glp1-metabolic.jpg" alt="GLP-1 Science" class="rounded-3" style="width: 65px; height: 65px; object-fit: cover;">
                   <div>
                     <h6 class="fw-bold mb-1 small">
                       <a href="blog-details.html?article=glp1-science" class="text-heading text-decoration-none">GLP-1 & Neurohormonal Appetite Axis</a>
@@ -354,7 +394,7 @@
         <div class="col-md-4">
           <div class="blog-card h-100">
             <div class="blog-img-wrap" style="height: 180px;">
-              <img src="https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?auto=format&fit=crop&w=600&q=80" alt="Automated Insulin">
+              <img src="assets/images/blog-insulin-delivery.jpg" alt="Automated Insulin Delivery">
               <span class="blog-category-badge">Diabetes Tech</span>
             </div>
             <div class="blog-body p-3">
@@ -369,7 +409,7 @@
         <div class="col-md-4">
           <div class="blog-card h-100">
             <div class="blog-img-wrap" style="height: 180px;">
-              <img src="https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?auto=format&fit=crop&w=600&q=80" alt="Cortisol Rhythms">
+              <img src="assets/images/blog-cortisol-rhythm.jpg" alt="Cortisol Rhythms">
               <span class="blog-category-badge" style="background-color: #7c3aed;">Hormones</span>
             </div>
             <div class="blog-body p-3">
@@ -384,7 +424,7 @@
         <div class="col-md-4">
           <div class="blog-card h-100">
             <div class="blog-img-wrap" style="height: 180px;">
-              <img src="https://images.unsplash.com/photo-1516549655169-df83a0774514?auto=format&fit=crop&w=600&q=80" alt="Bone Health">
+              <img src="assets/images/blog-dexa-bone.jpg" alt="Bone Health DEXA">
               <span class="blog-category-badge" style="background-color: var(--secondary-color);">Bone Health</span>
             </div>
             <div class="blog-body p-3">
@@ -555,7 +595,13 @@
           date: 'October 04, 2026',
           time: '6 Min Read',
           author: 'Dr. Marcus Vance, MD, ECNU',
+          authorRole: 'Thyroid & Parathyroid Specialist',
+          authorProfile: 'doctor-details.html?id=marcus-vance',
           authorImg: 'assets/images/dr-marcus-vance.jpg',
+          authorBio: 'Expert in neck ultrasound elastography, fine-needle biopsies, Hashimoto\'s disease, and thyroid nodule ablation.',
+          authorEmail: 'm.vance@endocareclinic.demo',
+          authorPhone: '(800) 555-ENDO ext. 204',
+          authorLoc: 'Suite 402, Thyroid Ultrasound Suite',
           image: 'assets/images/blog-hashimotos-thyroid.jpg'
         },
         'food-sequencing': {
@@ -564,7 +610,13 @@
           date: 'September 28, 2026',
           time: '5 Min Read',
           author: 'Dr. David Chen, PharmD, CDCES',
+          authorRole: 'Diabetes Tech & CGM Educator',
+          authorProfile: 'doctor-details.html?id=david-chen',
           authorImg: 'assets/images/dr-david-chen.jpg',
+          authorBio: 'Pioneer in artificial pancreas systems, smart insulin pens, closed-loop sensors, and glycemic variability reduction.',
+          authorEmail: 'd.chen@endocareclinic.demo',
+          authorPhone: '(800) 555-ENDO ext. 312',
+          authorLoc: 'Suite 404, Diabetes Technology Lab',
           image: 'assets/images/blog-food-sequencing.jpg'
         },
         'glp1-science': {
@@ -573,7 +625,13 @@
           date: 'September 19, 2026',
           time: '7 Min Read',
           author: 'Dr. Elena Rostova, MD, PhD',
+          authorRole: 'Metabolic & PCOS Specialist',
+          authorProfile: 'doctor-details.html?id=elena-rostova',
           authorImg: 'assets/images/dr-elena-rostova.jpg',
+          authorBio: 'Specializes in insulin resistance reversal, medical weight management with GLP-1 agonists, and PCOS fertility pathways.',
+          authorEmail: 'e.rostova@endocareclinic.demo',
+          authorPhone: '(800) 555-ENDO ext. 402',
+          authorLoc: 'Suite 401, Metabolic & Endocrine Suite',
           image: 'assets/images/blog-glp1-metabolic.jpg'
         },
         'cortisol-curve': {
@@ -582,7 +640,13 @@
           date: 'September 11, 2026',
           time: '6 Min Read',
           author: 'Dr. Jonathan Hayes, MD',
+          authorRole: 'Pituitary & Adrenal Specialist',
+          authorProfile: 'doctors.html',
           authorImg: 'assets/images/dr-marcus-vance.jpg',
+          authorBio: 'Specializing in adrenal axis balance, circadian endocrine rhythm restoration, and pituitary function.',
+          authorEmail: 'j.hayes@endocareclinic.demo',
+          authorPhone: '(800) 555-ENDO ext. 505',
+          authorLoc: 'Suite 403, Neuroendocrine Care',
           image: 'assets/images/blog-cortisol-rhythm.jpg'
         },
         'closed-loop': {
@@ -591,7 +655,13 @@
           date: 'August 29, 2026',
           time: '8 Min Read',
           author: 'Dr. David Chen, PharmD, CDCES',
+          authorRole: 'Diabetes Tech & CGM Educator',
+          authorProfile: 'doctor-details.html?id=david-chen',
           authorImg: 'assets/images/dr-david-chen.jpg',
+          authorBio: 'Pioneer in artificial pancreas systems, smart insulin pens, closed-loop sensors, and glycemic variability reduction.',
+          authorEmail: 'd.chen@endocareclinic.demo',
+          authorPhone: '(800) 555-ENDO ext. 312',
+          authorLoc: 'Suite 404, Diabetes Technology Lab',
           image: 'assets/images/blog-insulin-delivery.jpg'
         },
         'bone-health': {
@@ -600,7 +670,13 @@
           date: 'August 15, 2026',
           time: '5 Min Read',
           author: 'Dr. Anthony Ross, MD',
-          authorImg: 'assets/images/dr-marcus-vance.jpg',
+          authorRole: 'Osteoporosis & Bone Metabolism',
+          authorProfile: 'doctors.html',
+          authorImg: 'assets/images/dr-sarah-jenkins.jpg',
+          authorBio: 'Focuses on high fracture risk, DEXA densitometry interpretation, hyperparathyroidism, and osteopenia therapies.',
+          authorEmail: 'a.ross@endocareclinic.demo',
+          authorPhone: '(800) 555-ENDO ext. 601',
+          authorLoc: 'Suite 405, Bone Densitometry Suite',
           image: 'assets/images/blog-dexa-bone.jpg'
         }
       };
@@ -617,6 +693,12 @@
         document.getElementById('authorBioName').textContent = item.author;
         document.getElementById('authorBioAvatar').src = item.authorImg;
         document.getElementById('articleFeaturedImg').src = item.image;
+        if (item.authorRole && document.getElementById('authorBioRole')) document.getElementById('authorBioRole').textContent = item.authorRole;
+        if (item.authorProfile && document.getElementById('authorProfileLink')) document.getElementById('authorProfileLink').href = item.authorProfile;
+        if (item.authorBio && document.getElementById('authorBioText')) document.getElementById('authorBioText').textContent = item.authorBio;
+        if (item.authorEmail && document.getElementById('authorBioEmail')) document.getElementById('authorBioEmail').textContent = item.authorEmail;
+        if (item.authorPhone && document.getElementById('authorBioPhone')) document.getElementById('authorBioPhone').textContent = item.authorPhone;
+        if (item.authorLoc && document.getElementById('authorBioLocation')) document.getElementById('authorBioLocation').textContent = item.authorLoc;
         document.title = `${item.title} – EndoCare Clinic`;
       }
     });

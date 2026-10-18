@@ -106,8 +106,8 @@
             <i class="bi bi-moon-stars-fill"></i>
           </button>
 
-          <a href="login.html" class="btn-login">Login</a>
-          <a href="register.html" class="btn-signup">Sign Up</a>
+          <a href="login.html" class="btn-login"><i class="bi bi-box-arrow-in-right"></i> Login</a>
+          <a href="register.html" class="btn-signup"><i class="bi bi-person-plus"></i> Sign Up</a>
         </div>
       </div>
     </div>
@@ -116,10 +116,10 @@
   <!-- SECTION 1: Page Hero & Doctor Search/Filter -->
   <section class="py-5 bg-alt border-bottom">
     <div class="container text-center py-4">
-      <nav aria-label="breadcrumb">
-        <ol class="breadcrumb justify-content-center mb-2">
-          <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-          <li class="breadcrumb-item active" aria-current="page">Our Doctors</li>
+      <nav aria-label="breadcrumb" class="breadcrumb-nav-wrapper">
+        <ol class="breadcrumb hero-breadcrumb-pill">
+          <li class="breadcrumb-item"><a href="index.html"><i class="bi bi-house"></i><span>Home</span></a></li>
+          <li class="breadcrumb-item active" aria-current="page"><span>Our Doctors</span></li>
         </ol>
       </nav>
       <h1 class="display-5 fw-extrabold mb-3">Our Specialist Medical Faculty</h1>
@@ -156,14 +156,14 @@
         <div class="col-md-6 col-lg-3 doctor-item d-flex" data-category="diabetes" data-name="sarah jenkins">
           <div class="doctor-card w-100">
             <div class="doctor-img-wrap">
-              <a href="doctor-details.html" aria-label="View Dr. Sarah Jenkins Profile">
+              <a href="doctor-details.html?id=sarah-jenkins" aria-label="View Dr. Sarah Jenkins Profile">
                 <img src="assets/images/dr-sarah-jenkins.jpg" alt="Dr. Sarah Jenkins">
               </a>
               <span class="doctor-badge">Chief Endocrinologist</span>
             </div>
             <div class="doctor-body">
               <h4 class="doctor-name">
-                <a href="doctor-details.html" class="text-reset text-decoration-none hover-primary">Dr. Sarah Jenkins, MD</a>
+                <a href="doctor-details.html?id=sarah-jenkins" class="text-reset text-decoration-none hover-primary">Dr. Sarah Jenkins, MD</a>
               </h4>
               <p class="doctor-specialty">Diabetes &amp; Glycemic Medicine</p>
               <p class="text-muted small mb-2"><i class="bi bi-mortarboard me-1"></i> Johns Hopkins Fellowship</p>
@@ -180,14 +180,14 @@
         <div class="col-md-6 col-lg-3 doctor-item d-flex" data-category="thyroid" data-name="marcus vance">
           <div class="doctor-card w-100">
             <div class="doctor-img-wrap">
-              <a href="doctor-details.html" aria-label="View Dr. Marcus Vance Profile">
+              <a href="doctor-details.html?id=marcus-vance" aria-label="View Dr. Marcus Vance Profile">
                 <img src="assets/images/dr-marcus-vance.jpg" alt="Dr. Marcus Vance">
               </a>
               <span class="doctor-badge">Thyroid Lead</span>
             </div>
             <div class="doctor-body">
               <h4 class="doctor-name">
-                <a href="doctor-details.html" class="text-reset text-decoration-none hover-primary">Dr. Marcus Vance, MD</a>
+                <a href="doctor-details.html?id=marcus-vance" class="text-reset text-decoration-none hover-primary">Dr. Marcus Vance, MD</a>
               </h4>
               <p class="doctor-specialty">Thyroid &amp; Parathyroid Specialist</p>
               <p class="text-muted small mb-2"><i class="bi bi-mortarboard me-1"></i> Mayo Clinic Endocrine Fellow</p>
@@ -204,14 +204,14 @@
         <div class="col-md-6 col-lg-3 doctor-item d-flex" data-category="metabolic" data-name="elena rostova">
           <div class="doctor-card w-100">
             <div class="doctor-img-wrap">
-              <a href="doctor-details.html" aria-label="View Dr. Elena Rostova Profile">
+              <a href="doctor-details.html?id=elena-rostova" aria-label="View Dr. Elena Rostova Profile">
                 <img src="assets/images/dr-elena-rostova.jpg" alt="Dr. Elena Rostova - Metabolic & PCOS Specialist">
               </a>
               <span class="doctor-badge">Metabolic Lead</span>
             </div>
             <div class="doctor-body">
               <h4 class="doctor-name">
-                <a href="doctor-details.html" class="text-reset text-decoration-none hover-primary">Dr. Elena Rostova, MD, PhD</a>
+                <a href="doctor-details.html?id=elena-rostova" class="text-reset text-decoration-none hover-primary">Dr. Elena Rostova, MD, PhD</a>
               </h4>
               <p class="doctor-specialty">Metabolic &amp; PCOS Specialist</p>
               <p class="text-muted small mb-2"><i class="bi bi-mortarboard me-1"></i> Stanford University MD/PhD</p>
@@ -228,14 +228,14 @@
         <div class="col-md-6 col-lg-3 doctor-item d-flex" data-category="diabetes" data-name="david chen">
           <div class="doctor-card w-100">
             <div class="doctor-img-wrap">
-              <a href="doctor-details.html" aria-label="View Dr. David Chen Profile">
+              <a href="doctor-details.html?id=david-chen" aria-label="View Dr. David Chen Profile">
                 <img src="assets/images/dr-david-chen.jpg" alt="Dr. David Chen">
               </a>
               <span class="doctor-badge">CDCES Specialist</span>
             </div>
             <div class="doctor-body">
               <h4 class="doctor-name">
-                <a href="doctor-details.html" class="text-reset text-decoration-none hover-primary">Dr. David Chen, PharmD</a>
+                <a href="doctor-details.html?id=david-chen" class="text-reset text-decoration-none hover-primary">Dr. David Chen, PharmD</a>
               </h4>
               <p class="doctor-specialty">Diabetes Tech &amp; CGM Educator</p>
               <p class="text-muted small mb-2"><i class="bi bi-mortarboard me-1"></i> UCSF Clinical Pharmacy</p>
@@ -443,8 +443,9 @@
           <div class="testimonial-card">
             <div>
               <div class="text-warning small mb-2"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div>
+              <h5 class="review-heading">"Empowered My Diabetes Journey"</h5>
               <p class="text-muted mb-0">
-                "Dr. Jenkins spent 50 minutes with me during my first appointment. She reviewed every single spike on my CGM and explained why my afternoon highs were happening. She made me feel heard and empowered."
+                Dr. Jenkins spent 50 minutes with me during my first appointment. She reviewed every single spike on my CGM and explained why my afternoon highs were happening. She made me feel heard and empowered.
               </p>
             </div>
             <div class="testimonial-author">
@@ -461,8 +462,9 @@
           <div class="testimonial-card">
             <div>
               <div class="text-warning small mb-2"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div>
+              <h5 class="review-heading">"Painless Biopsy &amp; Lasting Peace of Mind"</h5>
               <p class="text-muted mb-0">
-                "Dr. Vance identified a suspicious nodule that two prior clinics missed. His gentle in-office fine needle biopsy was virtually painless and showed benign findings. The peace of mind he gave me is priceless."
+                Dr. Vance identified a suspicious nodule that two prior clinics missed. His gentle in-office fine needle biopsy was virtually painless and showed benign findings. The peace of mind he gave me is priceless.
               </p>
             </div>
             <div class="testimonial-author">
@@ -479,8 +481,9 @@
           <div class="testimonial-card">
             <div>
               <div class="text-warning small mb-2"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div>
+              <h5 class="review-heading">"Life-Changing Metabolic Care for PCOS"</h5>
               <p class="text-muted mb-0">
-                "Dr. Rostova has completely changed my life with PCOS. Her metabolic approach combining inositol and lifestyle modifications helped me lose 30 lbs and regain normal cycles without side effects."
+                Dr. Rostova has completely changed my life with PCOS. Her metabolic approach combining inositol and lifestyle modifications helped me lose 30 lbs and regain normal cycles without side effects.
               </p>
             </div>
             <div class="testimonial-author">
@@ -502,7 +505,7 @@
       <div class="p-5 rounded-4 bg-alt border">
         <div class="row align-items-center g-4">
           <div class="col-lg-3 text-center">
-            <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=400&q=80" alt="Dr. Sarah Jenkins" class="rounded-circle shadow-md mx-auto" style="width: 170px; height: 170px; object-fit: cover;">
+            <img src="assets/images/dr-sarah-jenkins.jpg" alt="Dr. Sarah Jenkins" class="rounded-circle shadow-md mx-auto" style="width: 170px; height: 170px; object-fit: cover;">
           </div>
           <div class="col-lg-9">
             <h4 class="fw-bold mb-2">A Message from Our Medical Director</h4>

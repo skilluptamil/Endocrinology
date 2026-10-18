@@ -106,8 +106,8 @@
             <i class="bi bi-moon-stars-fill"></i>
           </button>
 
-          <a href="login.html" class="btn-login">Login</a>
-          <a href="register.html" class="btn-signup">Sign Up</a>
+          <a href="login.html" class="btn-login"><i class="bi bi-box-arrow-in-right"></i> <span>Login</span></a>
+          <a href="register.html" class="btn-signup"><i class="bi bi-person-plus"></i> <span>Sign Up</span></a>
         </div>
       </div>
     </div>
@@ -115,11 +115,11 @@
 
   <!-- SECTION 1: Pricing Hero Section with Billing Toggle -->
   <section class="page-header-hero hero-pricing border-bottom">
-    <div class="container text-center py-5 position-relative">
-      <nav aria-label="breadcrumb" class="d-inline-block mb-3">
-        <ol class="breadcrumb justify-content-center mb-0 px-3 py-1 rounded-pill hero-breadcrumb-pill">
-          <li class="breadcrumb-item"><a href="index.html"><i class="bi bi-house me-1"></i>Home</a></li>
-          <li class="breadcrumb-item active" aria-current="page">Pricing</li>
+    <div class="container text-center position-relative">
+      <nav aria-label="breadcrumb" class="breadcrumb-nav-wrapper">
+        <ol class="breadcrumb hero-breadcrumb-pill">
+          <li class="breadcrumb-item"><a href="index.html"><i class="bi bi-house"></i><span>Home</span></a></li>
+          <li class="breadcrumb-item active" aria-current="page"><span>Pricing</span></li>
         </ol>
       </nav>
       <h1 class="display-4 fw-extrabold mb-3 page-hero-title">Transparent, Predictable Healthcare Pricing</h1>
@@ -129,11 +129,11 @@
 
       <!-- Toggle Switch for Demo Plans -->
       <div class="d-inline-flex align-items-center gap-3 p-2 rounded-pill border hero-pricing-toggle">
-        <span class="fw-semibold text-main small" id="monthlyLabel">Monthly Membership</span>
+        <span class="fw-semibold text-primary fw-bold small" id="monthlyLabel">Monthly Membership</span>
         <div class="form-check form-switch m-0">
           <input class="form-check-input" type="checkbox" id="pricingBillingToggle" style="width: 2.5em; height: 1.3em; cursor: pointer;">
         </div>
-        <span class="fw-semibold text-muted small" id="annualLabel">Pay-Per-Visit <span class="badge bg-success-subtle text-success">Flex</span></span>
+        <span class="fw-semibold text-muted small" id="annualLabel">Annual Membership <span class="badge bg-success-subtle text-success">Save 15%</span></span>
       </div>
     </div>
   </section>
@@ -633,14 +633,44 @@
     document.addEventListener('DOMContentLoaded', () => {
       const toggle = document.getElementById('pricingBillingToggle');
       const prices = document.querySelectorAll('.plan-price');
+      const periods = document.querySelectorAll('.plan-period');
+      const monthlyLabel = document.getElementById('monthlyLabel');
+      const annualLabel = document.getElementById('annualLabel');
+
+      function updatePricing() {
+        if (!toggle) return;
+        const isAnnual = toggle.checked;
+
+        prices.forEach(el => {
+          el.textContent = isAnnual ? el.getAttribute('data-annual') : el.getAttribute('data-monthly');
+        });
+
+        periods.forEach((el, index) => {
+          if (index === 0) {
+            el.textContent = isAnnual ? '/ single consult' : '/ single consult';
+          } else {
+            el.textContent = isAnnual ? '/ month (billed annually)' : '/ month';
+          }
+        });
+
+        if (monthlyLabel && annualLabel) {
+          if (isAnnual) {
+            monthlyLabel.classList.remove('text-primary', 'fw-bold');
+            monthlyLabel.classList.add('text-muted');
+            annualLabel.classList.remove('text-muted');
+            annualLabel.classList.add('text-primary', 'fw-bold');
+          } else {
+            annualLabel.classList.remove('text-primary', 'fw-bold');
+            annualLabel.classList.add('text-muted');
+            monthlyLabel.classList.remove('text-muted');
+            monthlyLabel.classList.add('text-primary', 'fw-bold');
+          }
+        }
+      }
 
       if (toggle) {
-        toggle.addEventListener('change', function() {
-          const isAnnual = this.checked;
-          prices.forEach(el => {
-            el.textContent = isAnnual ? el.getAttribute('data-annual') : el.getAttribute('data-monthly');
-          });
-        });
+        toggle.addEventListener('change', updatePricing);
+        updatePricing();
       }
     });
   </script>

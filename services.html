@@ -106,34 +106,52 @@
             <i class="bi bi-moon-stars-fill"></i>
           </button>
 
-          <a href="login.html" class="btn-login">Login</a>
-          <a href="register.html" class="btn-signup">Sign Up</a>
+          <a href="login.html" class="btn-login"><i class="bi bi-box-arrow-in-right"></i> <span>Login</span></a>
+          <a href="register.html" class="btn-signup"><i class="bi bi-person-plus"></i> <span>Sign Up</span></a>
         </div>
       </div>
     </div>
   </nav>
 
-  <!-- SECTION 1: Page Header & Filter -->
+  <!-- SECTION 1: Page Header -->
   <section class="page-header-hero hero-services border-bottom">
-    <div class="container text-center py-5 position-relative">
-      <nav aria-label="breadcrumb" class="d-inline-block mb-3">
-        <ol class="breadcrumb justify-content-center mb-0 px-3 py-1 rounded-pill hero-breadcrumb-pill">
-          <li class="breadcrumb-item"><a href="index.html"><i class="bi bi-house me-1"></i>Home</a></li>
-          <li class="breadcrumb-item active" aria-current="page">Services</li>
+    <div class="container text-center position-relative">
+      <nav aria-label="breadcrumb" class="breadcrumb-nav-wrapper">
+        <ol class="breadcrumb hero-breadcrumb-pill">
+          <li class="breadcrumb-item"><a href="index.html"><i class="bi bi-house"></i><span>Home</span></a></li>
+          <li class="breadcrumb-item active" aria-current="page"><span>Services</span></li>
         </ol>
       </nav>
       <h1 class="display-4 fw-extrabold mb-3 page-hero-title">Comprehensive Endocrine &amp; Diabetes Services</h1>
-      <p class="lead page-hero-subtitle mx-auto mb-4" style="max-width: 780px;">
+      <p class="lead page-hero-subtitle mx-auto mb-0" style="max-width: 780px;">
         State-of-the-art diagnostic evaluations and evidence-based therapeutic programs led by fellowship-trained medical subspecialists.
       </p>
+    </div>
+  </section>
 
-      <!-- Category Filter Pills -->
-      <div class="d-flex flex-wrap justify-content-center gap-2" id="serviceFilterContainer">
-        <button class="btn btn-sm btn-primary-custom filter-btn active" data-filter="all">All Specializations</button>
-        <button class="btn btn-sm btn-outline-custom filter-btn" data-filter="diabetes">Diabetes &amp; Glucose</button>
-        <button class="btn btn-sm btn-outline-custom filter-btn" data-filter="thyroid">Thyroid Clinic</button>
-        <button class="btn btn-sm btn-outline-custom filter-btn" data-filter="hormones">Hormones &amp; Adrenal</button>
-        <button class="btn btn-sm btn-outline-custom filter-btn" data-filter="metabolic">Metabolic &amp; Bone</button>
+  <!-- SECTION 1B: Specialization Filter & Live Search Bar (Positioned Below Header) -->
+  <section class="services-filter-bar py-3 border-bottom shadow-sm">
+    <div class="container">
+      <div class="row align-items-center justify-content-between g-3">
+        <!-- Live Search Bar -->
+        <div class="col-lg-5 col-md-6">
+          <div class="input-group">
+            <span class="input-group-text bg-alt border-end-0 text-muted"><i class="bi bi-search"></i></span>
+            <input type="text" id="serviceSearchInput" class="form-control bg-alt border-start-0" placeholder="Search services by keyword, treatment, or condition...">
+            <button class="btn btn-outline-secondary" type="button" id="serviceSearchClear" style="display: none;" title="Clear search"><i class="bi bi-x-lg"></i></button>
+          </div>
+        </div>
+
+        <!-- Specialization Filter Category Pills -->
+        <div class="col-lg-7 col-md-6">
+          <div class="d-flex flex-wrap justify-content-md-end justify-content-start gap-2" id="serviceFilterContainer">
+            <button class="btn btn-sm btn-primary-custom filter-btn active" data-filter="all">All Specializations</button>
+            <button class="btn btn-sm btn-outline-custom filter-btn" data-filter="diabetes">Diabetes &amp; Glucose</button>
+            <button class="btn btn-sm btn-outline-custom filter-btn" data-filter="thyroid">Thyroid Clinic</button>
+            <button class="btn btn-sm btn-outline-custom filter-btn" data-filter="hormones">Hormones &amp; Adrenal</button>
+            <button class="btn btn-sm btn-outline-custom filter-btn" data-filter="metabolic">Metabolic &amp; Bone</button>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -700,11 +718,75 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <script src="assets/js/main.js"></script>
 
-  <!-- Service Filter Script -->
+  <!-- Service Search & Filter Script -->
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       const filterBtns = document.querySelectorAll('#serviceFilterContainer .filter-btn');
       const serviceItems = document.querySelectorAll('.service-item');
+      const searchInput = document.getElementById('serviceSearchInput');
+      const clearBtn = document.getElementById('serviceSearchClear');
+      const grid = document.getElementById('serviceCardsGrid');
+
+      let currentCategory = 'all';
+      let currentQuery = '';
+
+      // Create fallback container if none exists
+      let noResultsMsg = document.getElementById('noServicesMsg');
+      if (!noResultsMsg && grid) {
+        noResultsMsg = document.createElement('div');
+        noResultsMsg.id = 'noServicesMsg';
+        noResultsMsg.className = 'col-12 text-center py-5';
+        noResultsMsg.style.display = 'none';
+        noResultsMsg.innerHTML = `
+          <div class="card-custom p-5 mx-auto" style="max-width: 500px;">
+            <i class="bi bi-search text-muted fs-1 mb-3 d-block"></i>
+            <h5 class="fw-bold mb-2">No Matching Services Found</h5>
+            <p class="text-muted small mb-4">We could not find any clinical service matching your criteria. Try searching with different terms or reset your filters.</p>
+            <button class="btn btn-outline-custom btn-sm" id="resetServicesBtn">Reset Search &amp; Filters</button>
+          </div>
+        `;
+        grid.appendChild(noResultsMsg);
+
+        document.getElementById('resetServicesBtn').addEventListener('click', () => {
+          if (searchInput) searchInput.value = '';
+          currentQuery = '';
+          currentCategory = 'all';
+          if (clearBtn) clearBtn.style.display = 'none';
+          filterBtns.forEach(b => {
+            b.classList.remove('btn-primary-custom', 'active');
+            b.classList.add('btn-outline-custom');
+            if (b.getAttribute('data-filter') === 'all') {
+              b.classList.remove('btn-outline-custom');
+              b.classList.add('btn-primary-custom', 'active');
+            }
+          });
+          filterServices();
+        });
+      }
+
+      function filterServices() {
+        let visibleCount = 0;
+        serviceItems.forEach(item => {
+          const cat = item.getAttribute('data-category') || '';
+          const title = item.querySelector('.service-title') ? item.querySelector('.service-title').textContent.toLowerCase() : '';
+          const desc = item.querySelector('.service-desc') ? item.querySelector('.service-desc').textContent.toLowerCase() : '';
+          const meta = item.querySelector('.service-meta') ? item.querySelector('.service-meta').textContent.toLowerCase() : '';
+          
+          const matchesCategory = (currentCategory === 'all' || cat === currentCategory);
+          const matchesQuery = (!currentQuery || title.includes(currentQuery) || desc.includes(currentQuery) || meta.includes(currentQuery));
+
+          if (matchesCategory && matchesQuery) {
+            item.style.display = '';
+            visibleCount++;
+          } else {
+            item.style.display = 'none';
+          }
+        });
+
+        if (noResultsMsg) {
+          noResultsMsg.style.display = visibleCount === 0 ? 'block' : 'none';
+        }
+      }
 
       filterBtns.forEach(btn => {
         btn.addEventListener('click', function() {
@@ -715,18 +797,32 @@
           this.classList.remove('btn-outline-custom');
           this.classList.add('btn-primary-custom', 'active');
 
-          const filterVal = this.getAttribute('data-filter');
-
-          serviceItems.forEach(item => {
-            const cat = item.getAttribute('data-category');
-            if (filterVal === 'all' || cat === filterVal) {
-              item.style.display = '';
-            } else {
-              item.style.display = 'none';
-            }
-          });
+          currentCategory = this.getAttribute('data-filter') || 'all';
+          filterServices();
         });
       });
+
+      if (searchInput) {
+        searchInput.addEventListener('input', function() {
+          currentQuery = this.value.trim().toLowerCase();
+          if (clearBtn) {
+            clearBtn.style.display = currentQuery.length > 0 ? 'block' : 'none';
+          }
+          filterServices();
+        });
+      }
+
+      if (clearBtn) {
+        clearBtn.addEventListener('click', () => {
+          if (searchInput) {
+            searchInput.value = '';
+            currentQuery = '';
+            clearBtn.style.display = 'none';
+            searchInput.focus();
+          }
+          filterServices();
+        });
+      }
     });
   </script>
 </body>

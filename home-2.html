@@ -85,10 +85,10 @@
           </button>
 
           <!-- Login Button -->
-          <a href="login.html" class="btn-login">Login</a>
+          <a href="login.html" class="btn-login"><i class="bi bi-box-arrow-in-right"></i> Login</a>
 
           <!-- Sign Up Button -->
-          <a href="register.html" class="btn-signup">Sign Up</a>
+          <a href="register.html" class="btn-signup"><i class="bi bi-person-plus"></i> Sign Up</a>
         </div>
       </div>
     </div>
@@ -334,6 +334,82 @@
           </a>
         </div>
       </div>
+
+      <!-- SECTION 3B: Interactive HbA1c to eAG & Glycemic Risk Calculator Slider -->
+      <div class="row justify-content-center mt-5">
+        <div class="col-lg-10">
+          <div class="clinical-slider-card">
+            <div class="row align-items-center g-4">
+              <div class="col-lg-7">
+                <div class="d-flex align-items-center gap-2 mb-2">
+                  <span class="badge bg-primary text-white"><i class="bi bi-calculator me-1"></i> Interactive ADA Tool</span>
+                  <span class="badge bg-teal text-white" id="sliderRiskBadge" style="background-color: var(--secondary-color);">Target Range</span>
+                </div>
+                <h4 class="fw-bold mb-2 text-heading">Glycemic Variability &amp; HbA1c Converter</h4>
+                <p class="text-muted small mb-4">
+                  Drag the slider to visualize how changes in your laboratory glycated hemoglobin (HbA1c) correspond to your 24-hour Estimated Average Glucose (eAG) and microvascular risk.
+                </p>
+
+                <!-- Range Slider Control -->
+                <div class="mb-3">
+                  <div class="d-flex justify-content-between align-items-center mb-2">
+                    <label for="a1cRangeSlider" class="form-label fw-bold mb-0">Select HbA1c Level:</label>
+                    <span class="fs-4 fw-extrabold text-primary" id="sliderA1cDisplay">7.2%</span>
+                  </div>
+                  <input type="range" class="range-slider-input" id="a1cRangeSlider" min="5.0" max="13.0" step="0.1" value="7.2" aria-label="HbA1c Percentage Slider">
+                  <div class="d-flex justify-content-between text-muted small mt-1" style="font-size: 0.75rem;">
+                    <span>5.0% (Optimal)</span>
+                    <span>7.0% (ADA Goal)</span>
+                    <span>9.0% (Elevated)</span>
+                    <span>13.0% (Critical)</span>
+                  </div>
+                </div>
+
+                <!-- Live Dynamic Recommendation -->
+                <div class="p-3 rounded-3 bg-alt border mt-3" id="sliderAdviceBox">
+                  <h6 class="fw-bold mb-1 text-primary d-flex align-items-center gap-2" id="sliderAdviceTitle">
+                    <i class="bi bi-info-circle-fill"></i> Suboptimal Glycemic Control
+                  </h6>
+                  <p class="text-muted small mb-0" id="sliderAdviceDesc">
+                    At 7.2% HbA1c, your average daily glucose runs near 160 mg/dL. Tailored CGM sensor titration and medication adjustments can safely bring you to the &lt; 7.0% goal.
+                  </p>
+                </div>
+              </div>
+
+              <!-- Computed Metric Readout Cards -->
+              <div class="col-lg-5">
+                <div class="d-flex flex-column gap-3 p-3 bg-alt rounded-4 border">
+                  <div class="d-flex align-items-center justify-content-between p-3 bg-surface rounded-3 border">
+                    <div>
+                      <small class="text-muted d-block fw-semibold">Estimated Avg Glucose (eAG)</small>
+                      <span class="fs-3 fw-extrabold text-heading" id="sliderEagDisplay">160</span>
+                      <small class="text-muted">mg/dL</small>
+                    </div>
+                    <div class="stat-icon bg-info-subtle text-info rounded-3 p-3 fs-3">
+                      <i class="bi bi-droplet-half"></i>
+                    </div>
+                  </div>
+
+                  <div class="d-flex align-items-center justify-content-between p-3 bg-surface rounded-3 border">
+                    <div>
+                      <small class="text-muted d-block fw-semibold">Target Time-in-Range</small>
+                      <span class="fs-3 fw-extrabold text-success" id="sliderTirDisplay">68%</span>
+                      <small class="text-muted">of 24 hours</small>
+                    </div>
+                    <div class="stat-icon bg-success-subtle text-success rounded-3 p-3 fs-3">
+                      <i class="bi bi-graph-up"></i>
+                    </div>
+                  </div>
+
+                  <button class="btn btn-primary-custom w-100 mt-1" data-bs-toggle="modal" data-bs-target="#appointmentModal">
+                    <i class="bi bi-calendar2-heart me-1"></i> Review with Diabetologist
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -493,8 +569,9 @@
                 <span class="badge bg-success-subtle text-success">HbA1c: 10.1% &rarr; 6.4%</span>
                 <div class="text-warning small"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div>
               </div>
+              <h5 class="review-heading">"No More 3 AM Lows &amp; Major A1c Drop"</h5>
               <p class="text-muted mb-0">
-                "The continuous sensor linked to my phone gave me immediate feedback on how different foods affected me. With Dr. Jenkins' guidance, I stopped experiencing dangerous 3 AM lows and lowered my A1c dramatically."
+                The continuous sensor linked to my phone gave me immediate feedback on how different foods affected me. With Dr. Jenkins' guidance, I stopped experiencing dangerous 3 AM lows and lowered my A1c dramatically.
               </p>
             </div>
             <div class="testimonial-author">
@@ -514,8 +591,9 @@
                 <span class="badge bg-success-subtle text-success">Off 2 Insulin Injections</span>
                 <div class="text-warning small"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div>
               </div>
+              <h5 class="review-heading">"Eliminated 2 Daily Injections &amp; Lost 24 lbs"</h5>
               <p class="text-muted mb-0">
-                "EndoCare's metabolic approach helped me eliminate two daily insulin injections through proper GLP-1 medication and nutritional guidance. I have lost 24 pounds and my morning fasting readings are reliably in the 90s."
+                EndoCare's metabolic approach helped me eliminate two daily insulin injections through proper GLP-1 medication and nutritional guidance. I have lost 24 pounds and my morning fasting readings are reliably in the 90s.
               </p>
             </div>
             <div class="testimonial-author">
@@ -535,8 +613,9 @@
                 <span class="badge bg-success-subtle text-success">Healthy Baby Delivery</span>
                 <div class="text-warning small"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div>
               </div>
+              <h5 class="review-heading">"Calm, Compassionate Gestational Diabetes Care"</h5>
               <p class="text-muted mb-0">
-                "When I was diagnosed with gestational diabetes at 26 weeks, I was terrified. The team at EndoCare provided calming reassurance and daily monitoring. I delivered a healthy 7 lb 4 oz baby boy without complications."
+                When I was diagnosed with gestational diabetes at 26 weeks, I was terrified. The team at EndoCare provided calming reassurance and daily monitoring. I delivered a healthy 7 lb 4 oz baby boy without complications.
               </p>
             </div>
             <div class="testimonial-author">
