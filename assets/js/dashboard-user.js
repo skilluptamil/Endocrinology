@@ -207,47 +207,279 @@ function initWaterTracker() {
 // 4. Account Security & Password
 function initSecuritySettings() {
   const pwdForm = document.getElementById('changePasswordForm');
+  const currInput = document.getElementById('currPassword');
+  const newInput = document.getElementById('newPassword');
+  const confirmInput = document.getElementById('confirmPassword');
+  const alertBox = document.getElementById('passwordAlert');
+  const strengthBar = document.getElementById('strengthBar');
+  const strengthLabel = document.getElementById('strengthLabel');
+  const confirmFeedback = document.getElementById('confirmFeedback');
+  const btnReset = document.getElementById('btnResetPasswordForm');
+
+  const critNumber = document.getElementById('critNumber');
+  const critSpecial = document.getElementById('critSpecial');
+  const critLength = document.getElementById('critLength');
+  const critCases = document.getElementById('critCases');
+
+  function evaluatePassword(pwd) {
+    const hasLength = pwd.length >= 8;
+    const hasNumber = /\d/.test(pwd);
+    const hasSpecial = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?`~]/.test(pwd);
+    const hasUpper = /[A-Z]/.test(pwd);
+    const hasLower = /[a-z]/.test(pwd);
+    const hasCases = hasUpper && hasLower;
+
+    return {
+      hasLength,
+      hasNumber,
+      hasSpecial,
+      hasCases,
+      isValid: hasLength && hasNumber && hasSpecial && hasCases
+    };
+  }
+
+  function updateCriteriaUI(res, pwd) {
+    if (!critNumber || !critSpecial || !critLength || !critCases) return;
+
+    function setItemState(el, isPassed) {
+      const icon = el.querySelector('.criteria-icon');
+      if (isPassed) {
+        el.classList.add('valid');
+        el.classList.remove('invalid', 'text-muted');
+        if (icon) {
+          icon.className = 'bi bi-check-circle-fill criteria-icon text-success';
+        }
+      } else {
+        el.classList.remove('valid');
+        el.classList.add('text-muted');
+        if (icon) {
+          icon.className = 'bi bi-circle criteria-icon text-muted';
+        }
+      }
+    }
+
+    setItemState(critNumber, res.hasNumber);
+    setItemState(critSpecial, res.hasSpecial);
+    setItemState(critLength, res.hasLength);
+    setItemState(critCases, res.hasCases);
+
+    // Update Strength Meter
+    if (!strengthBar || !strengthLabel) return;
+
+    if (!pwd || pwd.length === 0) {
+      strengthBar.style.width = '0%';
+      strengthBar.className = 'progress-bar';
+      strengthLabel.textContent = 'Not Entered';
+      strengthLabel.className = 'badge bg-secondary-subtle text-secondary fw-semibold';
+      return;
+    }
+
+    let score = 0;
+    if (res.hasLength) score += 25;
+    if (res.hasNumber) score += 25;
+    if (res.hasSpecial) score += 25;
+    if (res.hasCases) score += 25;
+
+    strengthBar.className = 'progress-bar';
+    if (score <= 25) {
+      strengthBar.style.width = '25%';
+      strengthBar.classList.add('str-weak');
+      strengthLabel.textContent = 'Weak';
+      strengthLabel.className = 'badge bg-danger-subtle text-danger fw-semibold';
+    } else if (score === 50) {
+      strengthBar.style.width = '50%';
+      strengthBar.classList.add('str-fair');
+      strengthLabel.textContent = 'Fair';
+      strengthLabel.className = 'badge bg-warning-subtle text-warning-emphasis fw-semibold';
+    } else if (score === 75) {
+      strengthBar.style.width = '75%';
+      strengthBar.classList.add('str-good');
+      strengthLabel.textContent = 'Good';
+      strengthLabel.className = 'badge bg-info-subtle text-info fw-semibold';
+    } else {
+      strengthBar.style.width = '100%';
+      strengthBar.classList.add('str-strong');
+      strengthLabel.textContent = 'Strong & Secure';
+      strengthLabel.className = 'badge bg-success-subtle text-success fw-semibold';
+    }
+  }
+
+  function updateConfirmFeedback() {
+    if (!confirmInput || !confirmFeedback) return;
+    const newPwd = newInput ? newInput.value : '';
+    const confirmPwd = confirmInput.value;
+
+    if (!confirmPwd) {
+      confirmFeedback.innerHTML = '<span class="text-muted"><i class="bi bi-info-circle me-1"></i>Re-type your new password to verify.</span>';
+      confirmInput.classList.remove('is-valid', 'is-invalid');
+      return;
+    }
+
+    if (confirmPwd === newPwd && newPwd.length > 0) {
+      confirmFeedback.innerHTML = '<span class="text-success fw-semibold"><i class="bi bi-check-circle-fill me-1"></i> Passwords match perfectly.</span>';
+      confirmInput.classList.add('is-valid');
+      confirmInput.classList.remove('is-invalid');
+    } else {
+      confirmFeedback.innerHTML = '<span class="text-danger fw-semibold"><i class="bi bi-x-circle-fill me-1"></i> Passwords do not match.</span>';
+      confirmInput.classList.add('is-invalid');
+      confirmInput.classList.remove('is-valid');
+    }
+  }
+
+  function showAlert(msg, type = 'danger') {
+    if (!alertBox) return;
+    alertBox.className = `alert alert-${type} py-2 px-3 mb-3 small d-block`;
+    alertBox.innerHTML = `<i class="bi bi-${type === 'success' ? 'check-circle-fill' : 'exclamation-triangle-fill'} me-2"></i>${msg}`;
+  }
+
+  function hideAlert() {
+    if (!alertBox) return;
+    alertBox.className = 'alert d-none py-2 px-3 mb-3 small';
+    alertBox.innerHTML = '';
+  }
+
+  if (newInput) {
+    newInput.addEventListener('input', () => {
+      const pwd = newInput.value;
+      const res = evaluatePassword(pwd);
+      updateCriteriaUI(res, pwd);
+      if (newInput.classList.contains('is-invalid') && res.isValid) {
+        newInput.classList.remove('is-invalid');
+        newInput.classList.add('is-valid');
+      }
+      if (confirmInput && confirmInput.value.length > 0) {
+        updateConfirmFeedback();
+      }
+      hideAlert();
+    });
+  }
+
+  if (confirmInput) {
+    confirmInput.addEventListener('input', updateConfirmFeedback);
+  }
+
+  if (btnReset && pwdForm) {
+    btnReset.addEventListener('click', () => {
+      pwdForm.reset();
+      hideAlert();
+      if (newInput) newInput.classList.remove('is-valid', 'is-invalid');
+      if (confirmInput) confirmInput.classList.remove('is-valid', 'is-invalid');
+      if (currInput) currInput.classList.remove('is-valid', 'is-invalid');
+      if (confirmFeedback) confirmFeedback.innerHTML = '';
+      updateCriteriaUI(evaluatePassword(''), '');
+    });
+  }
+
   if (pwdForm) {
     pwdForm.addEventListener('submit', (e) => {
       e.preventDefault();
-      const current = document.getElementById('currPassword').value;
-      const newPwd = document.getElementById('newPassword').value;
-      const confirmPwd = document.getElementById('confirmPassword').value;
+      hideAlert();
 
-      if (!current || !newPwd || !confirmPwd) {
-        if (window.showToast) window.showToast('Missing Fields', 'Please complete all password fields.', 'warning');
+      const current = currInput ? currInput.value.trim() : '';
+      const newPwd = newInput ? newInput.value : '';
+      const confirmPwd = confirmInput ? confirmInput.value : '';
+
+      if (!current) {
+        if (currInput) {
+          currInput.classList.add('is-invalid');
+          currInput.focus();
+        }
+        showAlert('Please enter your current password.', 'warning');
+        if (window.showToast) window.showToast('Current Password Required', 'Please provide your current password to authorize changes.', 'warning');
+        return;
+      } else {
+        if (currInput) currInput.classList.remove('is-invalid');
+      }
+
+      if (!newPwd) {
+        if (newInput) {
+          newInput.classList.add('is-invalid');
+          newInput.focus();
+        }
+        showAlert('Please enter a new strong password.', 'warning');
+        if (window.showToast) window.showToast('New Password Required', 'Please enter a new password.', 'warning');
+        return;
+      }
+
+      const evalRes = evaluatePassword(newPwd);
+      const missing = [];
+      if (!evalRes.hasNumber) missing.push('at least 1 numerical digit (0-9)');
+      if (!evalRes.hasSpecial) missing.push('at least 1 special character (!@#$%^&*)');
+      if (!evalRes.hasLength) missing.push('minimum 8 characters');
+      if (!evalRes.hasCases) missing.push('uppercase (A-Z) and lowercase (a-z) letters');
+
+      if (missing.length > 0) {
+        if (newInput) {
+          newInput.classList.add('is-invalid');
+          newInput.focus();
+        }
+        const errorMsg = `Password must contain: ${missing.join(', ')}.`;
+        showAlert(errorMsg, 'danger');
+        if (window.showToast) {
+          window.showToast('Weak Password Rejected', `Password requirements not met: ${missing.join(', ')}.`, 'danger');
+        }
+        return;
+      }
+
+      if (newPwd === current) {
+        if (newInput) {
+          newInput.classList.add('is-invalid');
+          newInput.focus();
+        }
+        showAlert('New password cannot be the same as your current password. Please choose a new password.', 'warning');
+        if (window.showToast) {
+          window.showToast('Reused Password', 'New password must be different from previous password.', 'warning');
+        }
         return;
       }
 
       if (newPwd !== confirmPwd) {
-        if (window.showToast) window.showToast('Mismatch', 'New passwords do not match.', 'danger');
+        if (confirmInput) {
+          confirmInput.classList.add('is-invalid');
+          confirmInput.focus();
+        }
+        showAlert('New passwords do not match. Please verify and repeat accurately.', 'danger');
+        if (window.showToast) {
+          window.showToast('Password Mismatch', 'Confirm password does not match new password.', 'danger');
+        }
         return;
       }
 
-      // Strong password validation
-      const issues = [];
-      if (newPwd.length < 8) issues.push('At least 8 characters');
-      if (!/[A-Z]/.test(newPwd)) issues.push('At least 1 uppercase letter');
-      if (!/[a-z]/.test(newPwd)) issues.push('At least 1 lowercase letter');
-      if (!/\d/.test(newPwd)) issues.push('At least 1 number');
-      if (!/[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?`~]/.test(newPwd)) issues.push('At least 1 special character');
-
-      if (issues.length > 0) {
-        if (window.showToast) window.showToast('Weak Password Rejected', 'Password must satisfy: ' + issues.join(', '), 'warning');
-        return;
+      // Successful password change
+      if (newInput) {
+        newInput.classList.remove('is-invalid');
+        newInput.classList.add('is-valid');
+      }
+      if (confirmInput) {
+        confirmInput.classList.remove('is-invalid');
+        confirmInput.classList.add('is-valid');
       }
 
-      pwdForm.reset();
+      showAlert('Password updated successfully! Your account credentials have been updated securely.', 'success');
       if (window.showToast) {
-        window.showToast('Password Updated', 'Your account credentials have been updated securely.', 'success');
+        window.showToast('Password Updated', 'Your account credentials have been updated securely with a strong password.', 'success');
       }
+
+      // Persist demonstration change
+      localStorage.setItem('endocare_password_updated', new Date().toISOString());
+
+      setTimeout(() => {
+        pwdForm.reset();
+        if (newInput) newInput.classList.remove('is-valid', 'is-invalid');
+        if (confirmInput) confirmInput.classList.remove('is-valid', 'is-invalid');
+        if (currInput) currInput.classList.remove('is-valid', 'is-invalid');
+        if (confirmFeedback) confirmFeedback.innerHTML = '';
+        updateCriteriaUI(evaluatePassword(''), '');
+        hideAlert();
+      }, 2500);
     });
   }
 
   // Password Visibility Toggle Buttons
   const toggleBtns = document.querySelectorAll('.password-toggle-btn');
   toggleBtns.forEach(btn => {
-    btn.addEventListener('click', function() {
+    btn.addEventListener('click', function(e) {
+      e.preventDefault();
       const targetId = this.getAttribute('data-target');
       const input = document.getElementById(targetId);
       const icon = this.querySelector('i');
@@ -255,9 +487,11 @@ function initSecuritySettings() {
         if (input.type === 'password') {
           input.type = 'text';
           icon.className = 'bi bi-eye-slash';
+          this.setAttribute('title', 'Hide Password');
         } else {
           input.type = 'password';
           icon.className = 'bi bi-eye';
+          this.setAttribute('title', 'Show Password');
         }
       }
     });

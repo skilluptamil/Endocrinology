@@ -527,3 +527,68 @@ html {
     display: none;
   }
 }
+
+/* ===================================================================
+   Password Security & Strength Meter Component
+   =================================================================== */
+.password-criteria-box {
+  background-color: var(--bg-alt, rgba(0, 0, 0, 0.02));
+  border: 1px solid var(--border-color);
+  transition: all 0.2s ease;
+}
+
+.criteria-item {
+  transition: color 0.2s ease;
+  font-size: 0.82rem;
+  line-height: 1.4;
+}
+
+.criteria-item.valid {
+  color: #10b981 !important;
+  font-weight: 600;
+}
+
+.criteria-item.invalid {
+  color: #ef4444 !important;
+}
+
+.criteria-item .criteria-icon {
+  font-size: 0.95rem;
+  transition: transform 0.2s ease, color 0.2s ease;
+  flex-shrink: 0;
+}
+
+.criteria-item.valid .criteria-icon {
+  color: #10b981 !important;
+  transform: scale(1.15);
+}
+
+.criteria-item.invalid .criteria-icon {
+  color: #ef4444 !important;
+}
+
+.password-strength-container .progress {
+  overflow: hidden;
+  height: 6px;
+  background-color: var(--border-color, #e2e8f0);
+}
+
+.password-strength-container .progress-bar {
+  transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1), background-color 0.3s ease;
+}
+
+.password-strength-container .progress-bar.str-weak {
+  background-color: #ef4444 !important;
+}
+
+.password-strength-container .progress-bar.str-fair {
+  background-color: #f59e0b !important;
+}
+
+.password-strength-container .progress-bar.str-good {
+  background-color: #0284c7 !important;
+}
+
+.password-strength-container .progress-bar.str-strong {
+  background-color: #10b981 !important;
+}

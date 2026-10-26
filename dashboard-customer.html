@@ -36,13 +36,18 @@
 
       <div class="dashboard-sidebar-body">
         <!-- Patient Profile Snippet in Sidebar -->
-        <div class="p-3 mb-3 rounded-4 bg-alt border d-flex align-items-center gap-3">
-          <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=150&q=80" alt="Eleanor Vance" class="rounded-circle" style="width: 48px; height: 48px; object-fit: cover;">
-          <div class="overflow-hidden">
-            <h6 class="fw-bold mb-0 text-truncate">Eleanor Vance</h6>
-            <small class="text-muted d-block">ID: #P-84920</small>
-            <span class="badge bg-success-subtle text-success mt-1" style="font-size: 0.7rem;">Active Patient</span>
+        <div class="p-3 mb-3 rounded-4 bg-alt border">
+          <div class="d-flex align-items-center gap-3 mb-2">
+            <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=150&q=80" alt="Eleanor Vance" class="rounded-circle" style="width: 48px; height: 48px; object-fit: cover;">
+            <div class="overflow-hidden">
+              <h6 class="fw-bold mb-0 text-truncate">Eleanor Vance</h6>
+              <small class="text-muted d-block">ID: #P-84920</small>
+              <span class="badge bg-success-subtle text-success mt-1" style="font-size: 0.7rem;">Active Patient</span>
+            </div>
           </div>
+          <button type="button" class="btn btn-sm btn-outline-primary w-100 py-1 d-flex align-items-center justify-content-center gap-1" style="font-size: 0.75rem;" data-bs-toggle="modal" data-bs-target="#patientChangePasswordModal">
+            <i class="bi bi-shield-lock"></i> Change Password
+          </button>
         </div>
 
         <div class="sidebar-nav-label">Health Navigation</div>
@@ -735,6 +740,116 @@
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary rounded-pill px-4" data-bs-dismiss="modal">Cancel</button>
             <button type="submit" class="btn btn-primary-custom">Confirm Appointment Request</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal: Patient Change Password -->
+  <div class="modal fade" id="patientChangePasswordModal" tabindex="-1" aria-labelledby="patientChangePasswordModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content border-0 shadow-lg">
+        <div class="modal-header border-bottom">
+          <div class="d-flex align-items-center gap-2">
+            <div class="stat-icon bg-primary-subtle text-primary" style="width: 38px; height: 38px; border-radius: 10px; display: inline-flex; align-items: center; justify-content: center; font-size: 1.15rem;">
+              <i class="bi bi-shield-lock"></i>
+            </div>
+            <div>
+              <h5 class="modal-title fw-bold mb-0" id="patientChangePasswordModalLabel">Change Portal Password</h5>
+              <small class="text-muted" style="font-size: 0.75rem;">Account security &amp; strong credentials</small>
+            </div>
+          </div>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <form id="patientChangePasswordForm" novalidate>
+          <div class="modal-body p-4">
+            <!-- Alert Container -->
+            <div id="patientPasswordAlert" class="alert d-none py-2 px-3 mb-3 small" role="alert"></div>
+
+            <div class="mb-3">
+              <label for="patientCurrPassword" class="form-label small fw-semibold">Current Password <span class="text-danger">*</span></label>
+              <div class="input-group">
+                <span class="input-group-text bg-surface text-muted"><i class="bi bi-shield-lock"></i></span>
+                <input type="password" id="patientCurrPassword" class="form-control" placeholder="Enter current password" value="patientPass123!" required autocomplete="current-password">
+                <button type="button" class="btn btn-outline-secondary password-toggle-btn" data-target="patientCurrPassword" title="Show/Hide Password">
+                  <i class="bi bi-eye"></i>
+                </button>
+              </div>
+            </div>
+
+            <div class="mb-3">
+              <label for="patientNewPassword" class="form-label small fw-semibold">New Password <span class="text-danger">*</span></label>
+              <div class="input-group">
+                <span class="input-group-text bg-surface text-muted"><i class="bi bi-key"></i></span>
+                <input type="password" id="patientNewPassword" class="form-control" placeholder="Min. 8 chars with numbers &amp; special chars" required autocomplete="new-password">
+                <button type="button" class="btn btn-outline-secondary password-toggle-btn" data-target="patientNewPassword" title="Show/Hide Password">
+                  <i class="bi bi-eye"></i>
+                </button>
+              </div>
+
+              <!-- Live Strength Meter -->
+              <div class="password-strength-container mt-2">
+                <div class="d-flex justify-content-between align-items-center mb-1">
+                  <span class="small text-muted" style="font-size: 0.78rem;">Password Strength:</span>
+                  <span id="patientStrengthLabel" class="badge bg-secondary-subtle text-secondary fw-semibold" style="font-size: 0.75rem;">Not Entered</span>
+                </div>
+                <div class="progress" style="height: 6px; border-radius: 4px; background-color: var(--border-color, #e2e8f0);">
+                  <div id="patientStrengthBar" class="progress-bar" role="progressbar" style="width: 0%;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+              </div>
+
+              <!-- Interactive Requirements Checklist -->
+              <div class="password-criteria-box p-3 mt-3 rounded-3 bg-alt border">
+                <div class="fw-semibold small mb-2 d-flex align-items-center gap-1 text-heading">
+                  <i class="bi bi-shield-check text-primary"></i> Required Criteria for Strong Password:
+                </div>
+                <div class="row g-2 small">
+                  <div class="col-sm-6">
+                    <div id="patientCritNumber" class="criteria-item d-flex align-items-center gap-2 text-muted">
+                      <i class="bi bi-circle criteria-icon"></i>
+                      <span>Numerical digit <strong>(0-9)</strong></span>
+                    </div>
+                  </div>
+                  <div class="col-sm-6">
+                    <div id="patientCritSpecial" class="criteria-item d-flex align-items-center gap-2 text-muted">
+                      <i class="bi bi-circle criteria-icon"></i>
+                      <span>Special character <strong>(!@#$%^&amp;*)</strong></span>
+                    </div>
+                  </div>
+                  <div class="col-sm-6">
+                    <div id="patientCritLength" class="criteria-item d-flex align-items-center gap-2 text-muted">
+                      <i class="bi bi-circle criteria-icon"></i>
+                      <span>At least <strong>8 characters</strong></span>
+                    </div>
+                  </div>
+                  <div class="col-sm-6">
+                    <div id="patientCritCases" class="criteria-item d-flex align-items-center gap-2 text-muted">
+                      <i class="bi bi-circle criteria-icon"></i>
+                      <span>Uppercase &amp; lowercase letters</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="mb-3">
+              <label for="patientConfirmPassword" class="form-label small fw-semibold">Confirm New Password <span class="text-danger">*</span></label>
+              <div class="input-group">
+                <span class="input-group-text bg-surface text-muted"><i class="bi bi-check2-circle"></i></span>
+                <input type="password" id="patientConfirmPassword" class="form-control" placeholder="Re-enter new password" required autocomplete="new-password">
+                <button type="button" class="btn btn-outline-secondary password-toggle-btn" data-target="patientConfirmPassword" title="Show/Hide Password">
+                  <i class="bi bi-eye"></i>
+                </button>
+              </div>
+              <div id="patientConfirmFeedback" class="small mt-1 text-muted" style="min-height: 20px; font-size: 0.78rem;"></div>
+            </div>
+          </div>
+          <div class="modal-footer border-top">
+            <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Cancel</button>
+            <button type="submit" id="patientBtnUpdatePassword" class="btn btn-primary-custom d-inline-flex align-items-center gap-2">
+              <i class="bi bi-key-fill"></i> Save New Password
+            </button>
           </div>
         </form>
       </div>
